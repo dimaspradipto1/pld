@@ -17,6 +17,10 @@
   <meta name="description" content="@yield('meta_description', 'PT Berkarya Jasa Inspeksi (BJI) — perusahaan jasa keselamatan dan kesehatan kerja: Riksa Uji peralatan, kalibrasi, konsultasi, dan sertifikasi teknis sesuai standar K3 Kemnaker.')">
   <meta name="keywords" content="@yield('meta_keywords', 'riksa uji k3, kalibrasi, sertifikasi teknis, PJK3, ahli k3, riksa uji pesawat angkat angkut, bejana tekan, instalasi listrik, proteksi kebakaran')">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-touch-icon.png') }}">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1961,6 +1965,7 @@
           <li class="nav-item"><a href="{{ route('homepage.layanan') }}" class="nav-link nav-link-custom">Layanan</a></li>
           <li class="nav-item"><a href="{{ route('homepage.tentang') }}" class="nav-link nav-link-custom">Tentang</a></li>
           <li class="nav-item"><a href="{{ route('homepage.struktur-organisasi') }}" class="nav-link nav-link-custom">Struktur</a></li>
+          <li class="nav-item"><a href="{{ route('homepage.news') }}" class="nav-link nav-link-custom">Berita</a></li>
           <li class="nav-item"><a href="{{ route('homepage.testimoni') }}" class="nav-link nav-link-custom">Testimoni</a></li>
           <li class="nav-item"><a href="{{ route('homepage.faq') }}" class="nav-link nav-link-custom">FAQ</a></li>
           <li class="nav-item"><a href="{{ route('homepage.kontak') }}" class="nav-link nav-link-custom">Kontak</a></li>
@@ -2017,6 +2022,7 @@
           <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Layanan</a></li>
           <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
           <li><a href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-chevron-right"></i> Struktur Organisasi</a></li>
+          <li><a href="{{ route('homepage.news') }}"><i class="bi bi-chevron-right"></i> Berita & Artikel</a></li>
           <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Testimoni</a></li>
           <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> FAQ</a></li>
           <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Kontak</a></li>

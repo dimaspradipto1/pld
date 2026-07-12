@@ -87,4 +87,38 @@ class FrontendController extends Controller
     {
         return view('layouts.frontend.contact');
     }
+
+    public function news()
+    {
+        $featured  = \App\Models\News::where('status', 'published')
+                        ->where('is_featured', true)
+                        ->latest()
+                        ->first();
+
+        // Fallback: jika tidak ada yang di-featured, ambil artikel terbaru
+        if (!$featured) {
+            $featured = \App\Models\News::where('status', 'published')
+                            ->latest()
+                            ->first();
+        }
+
+        $newsList  = \App\Models\News::where('status', 'published')
+                        ->when($featured, fn($q) => $q->where('id', '!=', $featured->id))
+                        ->latest()
+                        ->paginate(9);
+
+        return view('layouts.frontend.news', compact('featured', 'newsList'));
+    }
+
+    public function newsDetail($id)
+    {
+        $news        = \App\Models\News::where('status', 'published')->findOrFail($id);
+        $relatedNews = \App\Models\News::where('status', 'published')
+                        ->where('id', '!=', $id)
+                        ->latest()
+                        ->take(4)
+                        ->get();
+
+        return view('layouts.frontend.news-detail', compact('news', 'relatedNews'));
+    }
 }

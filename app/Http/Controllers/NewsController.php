@@ -30,12 +30,14 @@ class NewsController extends Controller
         }
 
         News::create([
-            'user_id' => Auth::id(),
-            'thumbnail' => $thumbnailPath,
-            'title' => $request->title,
+            'user_id'     => Auth::id(),
+            'thumbnail'   => $thumbnailPath,
+            'title'       => $request->title,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status,
+            'content'     => $request->content,
+            'status'      => $request->status,
+            'category'    => $request->category,
+            'is_featured' => $request->boolean('is_featured'),
         ]);
 
         return redirect()
@@ -60,11 +62,13 @@ class NewsController extends Controller
         }
 
         $news->update([
-            'thumbnail' => $thumbnailPath,
-            'title' => $request->title,
+            'thumbnail'   => $thumbnailPath,
+            'title'       => $request->title,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status,
+            'content'     => $request->content,
+            'status'      => $request->status,
+            'category'    => $request->category,
+            'is_featured' => $request->boolean('is_featured'),
         ]);
 
         return redirect()

@@ -16,6 +16,12 @@ class News extends Model
         'description',
         'content',
         'status',
+        'category',
+        'is_featured',
+    ];
+
+    protected $casts = [
+        'is_featured' => 'boolean',
     ];
 
     public function user(): BelongsTo

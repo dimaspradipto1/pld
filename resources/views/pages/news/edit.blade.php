@@ -86,7 +86,8 @@
                         @enderror
                     </div>
 
-                    <div class="row mb-4">
+                    {{-- Baris: Status + Kategori + Unggulan --}}
+                    <div class="row mb-3">
                         {{-- Status --}}
                         <div class="col-md-4 mb-3 mb-md-0">
                             <label for="status" class="form-label fw-semibold">
@@ -96,7 +97,7 @@
                                     name="status"
                                     class="form-select @error('status') is-invalid @enderror"
                                     required>
-                                <option value="draft" {{ old('status', $news->status) == 'draft' ? 'selected' : '' }}>Draft</option>
+                                <option value="draft"     {{ old('status', $news->status) == 'draft'     ? 'selected' : '' }}>Draft</option>
                                 <option value="published" {{ old('status', $news->status) == 'published' ? 'selected' : '' }}>Published</option>
                             </select>
                             @error('status')
@@ -104,6 +105,53 @@
                             @enderror
                         </div>
 
+                        {{-- Kategori --}}
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <label for="category" class="form-label fw-semibold">
+                                Kategori <span class="text-danger">*</span>
+                            </label>
+                            @php $cat = old('category', $news->category); @endphp
+                            <select id="category"
+                                    name="category"
+                                    class="form-select @error('category') is-invalid @enderror"
+                                    required>
+                                <option value="K3 & Inspeksi"     {{ $cat == 'K3 & Inspeksi'     ? 'selected' : '' }}>K3 & Inspeksi</option>
+                                <option value="Regulasi & Hukum"  {{ $cat == 'Regulasi & Hukum'  ? 'selected' : '' }}>Regulasi & Hukum</option>
+                                <option value="Kalibrasi"         {{ $cat == 'Kalibrasi'         ? 'selected' : '' }}>Kalibrasi</option>
+                                <option value="Riksa Uji"         {{ $cat == 'Riksa Uji'         ? 'selected' : '' }}>Riksa Uji</option>
+                                <option value="Keselamatan Kerja" {{ $cat == 'Keselamatan Kerja' ? 'selected' : '' }}>Keselamatan Kerja</option>
+                                <option value="Berita Perusahaan" {{ $cat == 'Berita Perusahaan' ? 'selected' : '' }}>Berita Perusahaan</option>
+                                <option value="Tips & Edukasi"    {{ $cat == 'Tips & Edukasi'    ? 'selected' : '' }}>Tips & Edukasi</option>
+                            </select>
+                            @error('category')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Artikel Unggulan --}}
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold d-block">Artikel Unggulan</label>
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       role="switch"
+                                       id="is_featured"
+                                       name="is_featured"
+                                       value="1"
+                                       {{ old('is_featured', $news->is_featured) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_featured">
+                                    Jadikan unggulan
+                                </label>
+                            </div>
+                            <div class="form-text text-muted">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                Artikel unggulan ditampilkan di atas halaman berita.
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Thumbnail --}}
+                    <div class="row mb-4">
                         {{-- Thumbnail Saat Ini --}}
                         <div class="col-md-4 mb-3 mb-md-0">
                             <label class="form-label fw-semibold">Thumbnail Saat Ini</label>
@@ -119,7 +167,7 @@
                         </div>
 
                         {{-- Ganti Thumbnail --}}
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <label for="thumbnail" class="form-label fw-semibold">
                                 Ganti Gambar Thumbnail
                                 <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
@@ -164,10 +212,8 @@
 @endsection
 
 @push('scripts')
-{{-- Load TinyMCE dari CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    // Inisialisasi TinyMCE
     tinymce.init({
         selector: 'textarea#content',
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount',
@@ -177,7 +223,6 @@
         promotion: false
     });
 
-    // Preview Thumbnail
     function previewThumbnail(input) {
         const wrap = document.getElementById('previewWrap');
         const img  = document.getElementById('previewImg');

@@ -85,9 +85,10 @@
                         @enderror
                     </div>
 
-                    <div class="row mb-4">
+                    {{-- Baris: Status + Kategori --}}
+                    <div class="row mb-3">
                         {{-- Status --}}
-                        <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="col-md-4 mb-3 mb-md-0">
                             <label for="status" class="form-label fw-semibold">
                                 Status <span class="text-danger">*</span>
                             </label>
@@ -95,39 +96,82 @@
                                     name="status"
                                     class="form-select @error('status') is-invalid @enderror"
                                     required>
-                                <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>Draft</option>
-                                <option value="published" {{ old('status') == 'published' ? 'selected' : '' }}>Published</option>
+                                <option value="draft"      {{ old('status') == 'draft'      ? 'selected' : '' }}>Draft</option>
+                                <option value="published"  {{ old('status') == 'published'  ? 'selected' : '' }}>Published</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Thumbnail --}}
-                        <div class="col-md-6">
-                            <label for="thumbnail" class="form-label fw-semibold">
-                                Gambar Thumbnail <span class="text-danger">*</span>
+                        {{-- Kategori --}}
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <label for="category" class="form-label fw-semibold">
+                                Kategori <span class="text-danger">*</span>
                             </label>
-                            <input type="file"
-                                   id="thumbnail"
-                                   name="thumbnail"
-                                   class="form-control @error('thumbnail') is-invalid @enderror"
-                                   accept="image/*"
-                                   onchange="previewThumbnail(this)"
-                                   required>
-                            <div class="form-text">Format: JPG, JPEG, PNG, WebP. Maks: 2 MB.</div>
-                            @error('thumbnail')
+                            <select id="category"
+                                    name="category"
+                                    class="form-select @error('category') is-invalid @enderror"
+                                    required>
+                                <option value="K3 & Inspeksi"    {{ old('category') == 'K3 & Inspeksi'    ? 'selected' : '' }}>K3 & Inspeksi</option>
+                                <option value="Regulasi & Hukum" {{ old('category') == 'Regulasi & Hukum' ? 'selected' : '' }}>Regulasi & Hukum</option>
+                                <option value="Kalibrasi"        {{ old('category') == 'Kalibrasi'        ? 'selected' : '' }}>Kalibrasi</option>
+                                <option value="Riksa Uji"        {{ old('category') == 'Riksa Uji'        ? 'selected' : '' }}>Riksa Uji</option>
+                                <option value="Keselamatan Kerja"{{ old('category') == 'Keselamatan Kerja'? 'selected' : '' }}>Keselamatan Kerja</option>
+                                <option value="Berita Perusahaan"{{ old('category') == 'Berita Perusahaan'? 'selected' : '' }}>Berita Perusahaan</option>
+                                <option value="Tips & Edukasi"   {{ old('category') == 'Tips & Edukasi'   ? 'selected' : '' }}>Tips & Edukasi</option>
+                            </select>
+                            @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                        </div>
 
-                            {{-- Preview --}}
-                            <div id="previewWrap" class="mt-3 d-none">
-                                <p class="small text-muted mb-1">Preview:</p>
-                                <img id="previewImg"
-                                     src=""
-                                     alt="Preview"
-                                     style="max-width:200px;max-height:120px;object-fit:cover;border-radius:6px;border:1px solid #dee2e6">
+                        {{-- Artikel Unggulan --}}
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold d-block">Artikel Unggulan</label>
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       role="switch"
+                                       id="is_featured"
+                                       name="is_featured"
+                                       value="1"
+                                       {{ old('is_featured') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_featured">
+                                    Jadikan unggulan
+                                </label>
                             </div>
+                            <div class="form-text text-muted">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                Artikel unggulan ditampilkan di bagian atas halaman berita.
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Thumbnail --}}
+                    <div class="mb-4">
+                        <label for="thumbnail" class="form-label fw-semibold">
+                            Gambar Thumbnail <span class="text-danger">*</span>
+                        </label>
+                        <input type="file"
+                               id="thumbnail"
+                               name="thumbnail"
+                               class="form-control @error('thumbnail') is-invalid @enderror"
+                               accept="image/*"
+                               onchange="previewThumbnail(this)"
+                               required>
+                        <div class="form-text">Format: JPG, JPEG, PNG, WebP. Maks: 2 MB.</div>
+                        @error('thumbnail')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                        {{-- Preview --}}
+                        <div id="previewWrap" class="mt-3 d-none">
+                            <p class="small text-muted mb-1">Preview:</p>
+                            <img id="previewImg"
+                                 src=""
+                                 alt="Preview"
+                                 style="max-width:200px;max-height:120px;object-fit:cover;border-radius:6px;border:1px solid #dee2e6">
                         </div>
                     </div>
 
@@ -152,7 +196,6 @@
 {{-- Load TinyMCE dari CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    // Inisialisasi TinyMCE
     tinymce.init({
         selector: 'textarea#content',
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount',
@@ -162,7 +205,6 @@
         promotion: false
     });
 
-    // Preview Thumbnail
     function previewThumbnail(input) {
         const wrap = document.getElementById('previewWrap');
         const img  = document.getElementById('previewImg');

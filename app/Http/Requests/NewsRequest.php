@@ -14,10 +14,12 @@ class NewsRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'title' => ['required', 'string', 'max:255'],
+            'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:1000'],
-            'content' => ['required', 'string'],
-            'status' => ['required', 'in:draft,published'],
+            'content'     => ['required', 'string'],
+            'status'      => ['required', 'in:draft,published'],
+            'category'    => ['required', 'string', 'max:100'],
+            'is_featured' => ['nullable', 'boolean'],
         ];
 
         if ($this->isMethod('POST')) {

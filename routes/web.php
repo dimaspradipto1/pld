@@ -35,6 +35,8 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/organisasi', 'strukturOrganisasi')->name('homepage.struktur-organisasi');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
     Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
+    Route::get('/berita', 'news')->name('homepage.news');
+    Route::get('/berita/{id}', 'newsDetail')->name('homepage.news.detail');
     Route::get('/faq', 'faq')->name('homepage.faq');
     Route::get('/kontak', 'kontak')->name('homepage.kontak');
 });
