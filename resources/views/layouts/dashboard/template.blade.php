@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HOME - roster</title>
+    <title>Admin - Berkarya Jasa Inspeksi</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 

@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — Roster Diding Minimalis</title>
-  <meta name="description" content="Portal login distributor roster dinding dan bata ventilasi dekoratif">
+  <title>Login — PT Berkarya Jasa Inspeksi (BJI)</title>
+  <meta name="description" content="Portal login admin PT Berkarya Jasa Inspeksi — jasa Riksa Uji, kalibrasi, dan sertifikasi K3">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,20 +19,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --terracotta:     #c1440e;
-      --terracotta-dk:  #9a3309;
-      --terracotta-lt:  #e8622a;
-      --clay:           #d4845a;
-      --sand:           #f5ede3;
-      --concrete:       #8c7b6e;
-      --concrete-lt:    #b5a090;
+      --terracotta:     #E4032E;
+      --terracotta-dk:  #B4021F;
+      --terracotta-lt:  #F2394B;
+      --clay:           #4FA8E8;
+      --sand:           #EAF2FB;
+      --concrete:       #7C8CA6;
+      --concrete-lt:    #A9B6C9;
       --white:          #ffffff;
-      --cream:          #fdf8f4;
-      --charcoal:       #2c2118;
-      --dark-brown:     #3d2b1f;
-      --muted:          #7c6b5e;
-      --border:         #e8d5c4;
-      --shadow:         rgba(60, 30, 10, 0.12);
+      --cream:          #F5F9FD;
+      --charcoal:       #152B5C;
+      --dark-brown:     #0D1B3D;
+      --muted:          #5B6B85;
+      --border:         #D7E4F2;
+      --shadow:         rgba(21, 43, 92, 0.12);
     }
 
     html, body { height: 100%; }
@@ -59,41 +59,70 @@
       overflow: hidden;
     }
 
-    /* Foto produk sebagai background */
+    /* Background teknikal — gradient navy khas industri K3 */
     .panel-left .bg-photo {
       position: absolute;
       inset: 0;
-      background: url('{{ asset("assets/img/login-bg.png") }}') center/cover no-repeat;
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-brown) 65%, #2a1420 100%);
       z-index: 0;
     }
 
-    /* Overlay gradasi agar teks terbaca */
+    /* Ikon industri besar sebagai elemen dekoratif (bukan foto) */
+    .panel-left .industrial-icons {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .industrial-icons i {
+      position: absolute;
+      color: rgba(255,255,255,0.05);
+    }
+    .industrial-icons i.ic-1 { font-size: 340px; top: -70px; right: -90px; transform: rotate(12deg); }
+    .industrial-icons i.ic-2 { font-size: 200px; bottom: 40px; right: 120px; color: rgba(228,3,46,0.08); transform: rotate(-8deg); }
+    .industrial-icons i.ic-3 { font-size: 160px; bottom: -40px; left: 20px; transform: rotate(6deg); }
+    .industrial-icons i.ic-4 { font-size: 130px; top: 220px; left: 60%; color: rgba(228,3,46,0.06); transform: rotate(-10deg); }
+
+    /* Overlay gradasi tipis untuk kedalaman & keterbacaan teks */
     .panel-left .overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        135deg,
-        rgba(44, 22, 8, 0.82) 0%,
-        rgba(60, 30, 10, 0.65) 50%,
-        rgba(193, 68, 14, 0.45) 100%
+        180deg,
+        rgba(10, 18, 40, 0.2) 0%,
+        rgba(10, 18, 40, 0.55) 75%,
+        rgba(10, 18, 40, 0.8) 100%
       );
-      z-index: 1;
+      z-index: 2;
     }
 
-    /* Pattern roster dinding sebagai overlay dekoratif */
+    /* Grid blueprint sebagai overlay dekoratif teknikal */
     .panel-left .pattern-overlay {
       position: absolute;
       inset: 0;
-      z-index: 2;
-      opacity: 0.06;
+      z-index: 3;
       background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 30px),
-        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 30px);
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
     }
+
+    /* Bracket sudut ala gambar teknik */
+    .panel-left .corner-mark {
+      position: absolute;
+      width: 30px; height: 30px;
+      border-color: rgba(228,3,46,0.5);
+      border-style: solid;
+      border-width: 0;
+      z-index: 4;
+    }
+    .panel-left .corner-mark.tl { top: 26px; left: 26px; border-top-width: 2px; border-left-width: 2px; }
+    .panel-left .corner-mark.br { bottom: 26px; right: 26px; border-bottom-width: 2px; border-right-width: 2px; }
 
     .panel-left-content {
       position: relative;
-      z-index: 3;
+      z-index: 5;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -116,7 +145,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(193,68,14,0.5);
+      box-shadow: 0 6px 20px rgba(228,3,46,0.5);
       flex-shrink: 0;
     }
 
@@ -148,8 +177,8 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(193,68,14,0.35);
-      border: 1px solid rgba(255,160,100,0.3);
+      background: rgba(228,3,46,0.35);
+      border: 1px solid rgba(140,195,240,0.3);
       border-radius: 50px;
       padding: 5px 14px;
       margin-bottom: 24px;
@@ -160,7 +189,7 @@
       font-weight: 600;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      color: #ffc4a0;
+      color: #A8D4F5;
     }
     .badge-dot {
       width: 6px; height: 6px;
@@ -213,8 +242,8 @@
       transition: all 0.2s;
     }
     .chip:hover {
-      background: rgba(193,68,14,0.3);
-      border-color: rgba(255,160,100,0.3);
+      background: rgba(228,3,46,0.3);
+      border-color: rgba(140,195,240,0.3);
     }
     .chip i { font-size: 14px; color: var(--clay); }
     .chip span { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; }
@@ -251,7 +280,7 @@
       position: absolute;
       right: 0; top: 0; bottom: 0;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(193,68,14,0.4), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(228,3,46,0.4), transparent);
       z-index: 4;
     }
 
@@ -272,7 +301,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c1440e' fill-opacity='0.04'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='41' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='13' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='41' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E4032E' fill-opacity='0.04'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23E4032E' fill-opacity='0.08'/%3E%3Crect x='41' y='13' width='6' height='6' fill='%23E4032E' fill-opacity='0.08'/%3E%3Crect x='13' y='41' width='6' height='6' fill='%23E4032E' fill-opacity='0.08'/%3E%3Crect x='41' y='41' width='6' height='6' fill='%23E4032E' fill-opacity='0.08'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
     }
@@ -296,9 +325,9 @@
       border-radius: 24px;
       padding: 40px 36px;
       box-shadow:
-        0 4px 6px rgba(60,30,10,0.04),
-        0 20px 48px rgba(60,30,10,0.10),
-        0 0 0 1px rgba(193,68,14,0.08);
+        0 4px 6px rgba(13,27,61,0.04),
+        0 20px 48px rgba(13,27,61,0.10),
+        0 0 0 1px rgba(228,3,46,0.08);
     }
 
     .form-logo-sm {
@@ -405,7 +434,7 @@
     .form-input:focus {
       border-color: var(--terracotta);
       background: var(--white);
-      box-shadow: 0 0 0 3px rgba(193,68,14,0.1);
+      box-shadow: 0 0 0 3px rgba(228,3,46,0.1);
     }
     .form-input:focus ~ .input-icon { color: var(--terracotta); }
     .form-input.err {
@@ -438,7 +467,7 @@
     }
     .btn-show-pw:hover {
       color: var(--terracotta);
-      background: rgba(193,68,14,0.08);
+      background: rgba(228,3,46,0.08);
     }
 
     /* Remember row */
@@ -473,7 +502,7 @@
       font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: all 0.25s;
-      box-shadow: 0 4px 16px rgba(193,68,14,0.35);
+      box-shadow: 0 4px 16px rgba(228,3,46,0.35);
       position: relative;
       overflow: hidden;
       letter-spacing: 0.2px;
@@ -487,7 +516,7 @@
     .btn-masuk:hover {
       background: linear-gradient(135deg, var(--terracotta-dk) 0%, var(--terracotta) 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(193,68,14,0.45);
+      box-shadow: 0 8px 24px rgba(228,3,46,0.45);
     }
     .btn-masuk:active { transform: translateY(0); }
     .btn-masuk:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
@@ -588,30 +617,28 @@
   ══════════════════════════════════════════ --}}
   <div class="panel-left">
     <div class="bg-photo"></div>
+    <div class="industrial-icons">
+      <i class="bi bi-gear-wide-connected ic-1"></i>
+      <i class="bi bi-shield-fill-check ic-2"></i>
+      <i class="bi bi-speedometer2 ic-3"></i>
+      <i class="bi bi-clipboard2-check ic-4"></i>
+    </div>
     <div class="overlay"></div>
     <div class="pattern-overlay"></div>
+    <span class="corner-mark tl"></span>
+    <span class="corner-mark br"></span>
     <div class="panel-divider"></div>
 
     <div class="panel-left-content">
 
       {{-- Logo Atas --}}
       <div class="brand-top">
-        <div class="brand-icon-wrap">
-          {{-- Icon SVG pola roster dinding --}}
-          <svg class="roster-svg" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="17" y="1" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="1" y="17" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="17" y="17" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="5" y="5" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="21" y="5" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="5" y="21" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="21" y="21" width="4" height="4" rx="1" fill="#c1440e"/>
-          </svg>
+        <div class="brand-icon-wrap" style="background:var(--white); padding:6px;">
+          <img src="{{ asset('frontend/img/logo.png') }}" alt="BJI Logo" style="width:100%; height:100%; object-fit:contain;">
         </div>
         <div class="brand-title">
-          <div class="name">Roster Diding Minimalis</div>
-          <div class="sub">Portal Manajemen & Distribusi</div>
+          <div class="name">Berkarya Jasa Inspeksi</div>
+          <div class="sub">Portal Manajemen Admin</div>
         </div>
       </div>
 
@@ -619,34 +646,33 @@
       <div class="brand-middle">
         <div class="badge-kategori">
           <div class="badge-dot"></div>
-          <span>Produk Unggulan</span>
+          <span>Jasa Riksa Uji K3</span>
         </div>
 
-        <h1>Roster Dinding<br><em>Berkualitas Tinggi</em></h1>
+        <h1>Keselamatan Kerja<br><em>Adalah Prioritas</em></h1>
 
         <p>
-          Distributor bata ventilasi & roster dinding dekoratif pilihan —
-          dari pola minimalis hingga premium, cocok untuk hunian dan
-          bangunan komersial modern.
+          Perusahaan jasa keselamatan dan kesehatan kerja — Riksa Uji, kalibrasi,
+          konsultasi, dan sertifikasi peralatan sesuai standar K3 Kemnaker.
         </p>
 
-        {{-- Chips kategori produk --}}
+        {{-- Chips kategori layanan --}}
         <div class="product-chips">
           <div class="chip">
-            <i class="bi bi-grid-3x3"></i>
-            <span>Roster Beton</span>
+            <i class="bi bi-clipboard2-check"></i>
+            <span>Riksa Uji K3</span>
           </div>
           <div class="chip">
-            <i class="bi bi-square-half"></i>
-            <span>Roster Tanah Liat</span>
+            <i class="bi bi-speedometer2"></i>
+            <span>Kalibrasi</span>
           </div>
           <div class="chip">
-            <i class="bi bi-diamond"></i>
-            <span>Roster Minimalis</span>
+            <i class="bi bi-patch-check"></i>
+            <span>Sertifikasi Teknis</span>
           </div>
           <div class="chip">
-            <i class="bi bi-circle-square"></i>
-            <span>Roster Motif</span>
+            <i class="bi bi-headset"></i>
+            <span>Konsultasi</span>
           </div>
         </div>
       </div>
@@ -654,18 +680,18 @@
       {{-- Statistik Bawah --}}
       <div class="stats-row">
         <div class="stat">
+          <div class="stat-num">500<sup>+</sup></div>
+          <div class="stat-txt">Peralatan Diinspeksi</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
           <div class="stat-num">50<sup>+</sup></div>
-          <div class="stat-txt">Motif Tersedia</div>
+          <div class="stat-txt">Klien Industri</div>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <div class="stat-num">10<sup>rb+</sup></div>
-          <div class="stat-txt">Produk Terjual</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-num">5<sup>★</sup></div>
-          <div class="stat-txt">Rating Pelanggan</div>
+          <div class="stat-num">8<sup>th+</sup></div>
+          <div class="stat-txt">Tahun Pengalaman</div>
         </div>
       </div>
 
@@ -682,20 +708,15 @@
 
         {{-- Logo kecil di dalam card --}}
         <div class="form-logo-sm">
-          <div class="icon-sm">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="11" y="1" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="1" y="11" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="11" y="11" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-            </svg>
+          <div class="icon-sm" style="background:var(--white); border:1px solid var(--border); padding:3px;">
+            <img src="{{ asset('frontend/img/logo.png') }}" alt="BJI Logo" style="width:100%; height:100%; object-fit:contain;">
           </div>
-          <div class="txt">Roster Diding Minimalis</div>
+          <div class="txt">Berkarya Jasa Inspeksi</div>
         </div>
 
         <div class="form-heading">
           <h2>Masuk ke Akun Anda</h2>
-          <p>Kelola produk, stok, dan distribusi roster dinding Anda</p>
+          <p>Kelola layanan, konten, dan data perusahaan Anda</p>
         </div>
 
         {{-- Alert sukses --}}
@@ -816,7 +837,7 @@
 
       <div class="copyright">
         <i class="bi bi-shield-check"></i>
-        &copy; {{ date('Y') }} Roster Diding Minimalis — Semua Hak Dilindungi
+        &copy; {{ date('Y') }} PT Berkarya Jasa Inspeksi — Semua Hak Dilindungi
       </div>
 
     </div>
@@ -838,10 +859,10 @@
   document.querySelectorAll('.form-input').forEach(function (inp) {
     const wrap = inp.closest('.input-wrap');
     inp.addEventListener('focus', function () {
-      if (wrap) wrap.querySelector('.input-icon').style.color = '#c1440e';
+      if (wrap) wrap.querySelector('.input-icon').style.color = '#E4032E';
     });
     inp.addEventListener('blur', function () {
-      if (wrap) wrap.querySelector('.input-icon').style.color = '#8c7b6e';
+      if (wrap) wrap.querySelector('.input-icon').style.color = '#7C8CA6';
     });
   });
 

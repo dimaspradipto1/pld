@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Testimoni Pelanggan — Roster Dinding Minimalis')
-@section('meta_description', 'Baca ulasan dan testimoni langsung dari kontraktor, arsitek, dan pemilik rumah yang telah mempercayakan kebutuhan roster dinding mereka kepada kami.')
-@section('meta_keywords', 'testimoni roster, ulasan roster minimalis, review bata ventilasi, distributor roster terpercaya')
+@section('title', 'Testimoni Klien — PT Berkarya Jasa Inspeksi')
+@section('meta_description', 'Baca ulasan dan testimoni langsung dari manajemen K3, direksi, dan klien industri yang telah mempercayakan kebutuhan Riksa Uji dan sertifikasi K3 mereka kepada kami.')
+@section('meta_keywords', 'testimoni riksa uji, ulasan klien k3, review sertifikasi k3, jasa inspeksi terpercaya')
 
 @section('content')
 @php
@@ -40,23 +40,23 @@
 <!-- ═══════════════════════════════════════════════
      TESTIMONIAL SECTION
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white roster-pattern">
+<section class="section-bg-white tech-grid-pattern">
   <div class="container">
     <div class="text-center mb-4" data-aos="fade-up">
       <div class="section-label mx-auto">Ulasan Pengguna</div>
       <h2 class="section-title">Apa Kata <em>Mitra & Pelanggan</em> Kami?</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto mb-4">
-        Kepuasan pelanggan adalah tolok ukur kesuksesan kami. Berikut adalah pengalaman mereka yang telah menggunakan produk roster kami.
+        Kepuasan klien adalah tolok ukur kesuksesan kami. Berikut adalah pengalaman mereka yang telah menggunakan layanan Riksa Uji dan sertifikasi K3 kami.
       </p>
     </div>
 
     <!-- Filter Buttons (Dynamic via JS toggles) -->
     <div class="filter-tags" data-aos="fade-up" data-aos-delay="100">
       <span class="filter-tag active" onclick="filterReviews('all')">Semua</span>
-      <span class="filter-tag" onclick="filterReviews('kontraktor')">Kontraktor</span>
-      <span class="filter-tag" onclick="filterReviews('arsitek')">Arsitek</span>
-      <span class="filter-tag" onclick="filterReviews('pemilik')">Pemilik Rumah</span>
+      <span class="filter-tag" onclick="filterReviews('manajemen-k3')">Manajemen K3</span>
+      <span class="filter-tag" onclick="filterReviews('direksi')">Direksi</span>
+      <span class="filter-tag" onclick="filterReviews('klien-industri')">Klien Industri</span>
     </div>
 
     <!-- Review Grid -->
@@ -70,11 +70,11 @@
           }
           $initials = substr($initials, 0, 2);
 
-          $badgeLabel = 'Pemilik Rumah';
-          if ($testi->kategori === 'kontraktor') {
-              $badgeLabel = 'Kontraktor';
-          } elseif ($testi->kategori === 'arsitek') {
-              $badgeLabel = 'Arsitek';
+          $badgeLabel = 'Klien Industri';
+          if ($testi->kategori === 'manajemen-k3') {
+              $badgeLabel = 'Manajemen K3';
+          } elseif ($testi->kategori === 'direksi') {
+              $badgeLabel = 'Direksi';
           }
         @endphp
         <div class="col-md-6 col-lg-4 review-item" data-category="{{ $testi->kategori }}" data-aos="fade-up" data-aos-delay="{{ (($index % 3) + 1) * 100 }}">
@@ -114,10 +114,10 @@
         <div class="section-label" style="color: var(--clay);">Kirim Masukan</div>
         <h2 class="cta-title">Punya Pengalaman Baik<br><em>Bekerja Sama</em> dengan Kami?</h2>
         <p class="cta-desc">
-          Bagikan pengalaman Anda dalam membeli atau memasang produk Roster Dinding Minimalis kami. Ulasan Anda sangat berharga bagi peningkatan layanan kami.
+          Bagikan pengalaman Anda menggunakan layanan Riksa Uji, kalibrasi, atau sertifikasi K3 dari PT Berkarya Jasa Inspeksi. Ulasan Anda sangat berharga bagi peningkatan layanan kami.
         </p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" class="btn-primary-hero" target="_blank">
+          <a href="https://wa.me/{{ $cleanWa ?? '6282280312127' }}" class="btn-primary-hero" target="_blank">
             <i class="bi bi-chat-left-heart-fill"></i>
             Kirim Testimoni via WhatsApp
           </a>
@@ -143,8 +143,8 @@
             </div>
 
             <div class="mb-3">
-              <label class="form-label-custom">Pekerjaan & Kota Asal</label>
-              <input type="text" name="pekerjaan" class="form-control-custom @error('pekerjaan') is-invalid @enderror" placeholder="Contoh: Kontraktor, Bandung" value="{{ old('pekerjaan') }}" required>
+              <label class="form-label-custom">Jabatan & Perusahaan</label>
+              <input type="text" name="pekerjaan" class="form-control-custom @error('pekerjaan') is-invalid @enderror" placeholder="Contoh: HSE Manager, PT Industri Batam" value="{{ old('pekerjaan') }}" required>
               @error('pekerjaan')
                 <div class="invalid-feedback-custom">{{ $message }}</div>
               @enderror
@@ -155,9 +155,9 @@
                 <label class="form-label-custom">Kategori Profil</label>
                 <select name="kategori" class="form-select-custom @error('kategori') is-invalid @enderror" required>
                   <option value="" disabled selected>Pilih Kategori</option>
-                  <option value="kontraktor" {{ old('kategori') == 'kontraktor' ? 'selected' : '' }}>Kontraktor</option>
-                  <option value="arsitek" {{ old('kategori') == 'arsitek' ? 'selected' : '' }}>Arsitek</option>
-                  <option value="pemilik" {{ old('kategori') == 'pemilik' ? 'selected' : '' }}>Pemilik Rumah</option>
+                  <option value="manajemen-k3" {{ old('kategori') == 'manajemen-k3' ? 'selected' : '' }}>Manajemen K3</option>
+                  <option value="direksi" {{ old('kategori') == 'direksi' ? 'selected' : '' }}>Direksi</option>
+                  <option value="klien-industri" {{ old('kategori') == 'klien-industri' ? 'selected' : '' }}>Klien Industri</option>
                 </select>
                 @error('kategori')
                   <div class="invalid-feedback-custom">{{ $message }}</div>
@@ -183,7 +183,7 @@
 
             <div class="mb-4">
               <label class="form-label-custom">Tulis Ulasan Anda</label>
-              <textarea name="pesan" rows="4" class="form-control-custom @error('pesan') is-invalid @enderror" placeholder="Bagikan detail pengalaman Anda menggunakan produk kami..." required>{{ old('pesan') }}</textarea>
+              <textarea name="pesan" rows="4" class="form-control-custom @error('pesan') is-invalid @enderror" placeholder="Bagikan detail pengalaman Anda menggunakan layanan kami..." required>{{ old('pesan') }}</textarea>
               @error('pesan')
                 <div class="invalid-feedback-custom">{{ $message }}</div>
               @enderror
@@ -273,7 +273,7 @@
   .cta-section .form-select-custom:focus {
     background: rgba(255, 255, 255, 0.12) !important;
     border-color: var(--clay) !important;
-    box-shadow: 0 0 0 4px rgba(212, 132, 90, 0.25) !important;
+    box-shadow: 0 0 0 4px rgba(79, 168, 232, 0.25) !important;
   }
 
   .form-select-custom {
@@ -343,7 +343,7 @@
   .btn-submit-testi:hover {
     background: var(--terracotta-lt);
     border-color: var(--terracotta-lt);
-    box-shadow: 0 6px 20px rgba(193, 68, 14, 0.3);
+    box-shadow: 0 6px 20px rgba(228, 3, 46, 0.3);
     transform: translateY(-2px);
   }
   .btn-submit-testi:active {

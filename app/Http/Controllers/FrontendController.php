@@ -10,15 +10,25 @@ class FrontendController extends Controller
     {
         $banners      = \App\Models\Banner::where('aktif', true)->orderBy('urutan')->get();
         $features     = \App\Models\Feature::orderBy('urutan')->get();
+        $layanans     = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
+        $partners     = \App\Models\Partner::where('aktif', true)->orderBy('urutan')->get();
+        $visiMisis    = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
+        $nilaiPerusahaans = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
         $testimonials = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->take(6)->get();
-        return view('layouts.frontend.homepage', compact('banners', 'features', 'testimonials'));
+        return view('layouts.frontend.homepage', compact('banners', 'features', 'layanans', 'partners', 'visiMisis', 'nilaiPerusahaans', 'testimonials'));
     }
 
-    public function produk()
+    public function layanan()
     {
-        $categories = \App\Models\Category::all();
-        $products = \App\Models\Product::with(['category', 'galleries'])->get();
-        return view('layouts.frontend.product', compact('products', 'categories'));
+        $layanans = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
+        return view('layouts.frontend.layanan', compact('layanans'));
+    }
+
+    public function layananDetail($id)
+    {
+        $layanan  = \App\Models\Layanan::findOrFail($id);
+        $layanans = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
+        return view('layouts.frontend.layanan-detail', compact('layanan', 'layanans'));
     }
 
     public function galeri()
@@ -28,9 +38,12 @@ class FrontendController extends Controller
 
     public function tentang()
     {
-        $about      = \App\Models\About::first();
-        $milestones = \App\Models\Milestone::orderBy('tahun')->get();
-        return view('layouts.frontend.about', compact('about', 'milestones'));
+        $about               = \App\Models\About::first();
+        $milestones          = \App\Models\Milestone::orderBy('tahun')->get();
+        $struktur            = \App\Models\StrukturOrganisasi::first();
+        $visiMisis           = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
+        $nilaiPerusahaans    = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
+        return view('layouts.frontend.about', compact('about', 'milestones', 'struktur', 'visiMisis', 'nilaiPerusahaans'));
     }
 
     public function testimoni()
@@ -62,6 +75,12 @@ class FrontendController extends Controller
     {
         $faqs = \App\Models\Faq::all();
         return view('layouts.frontend.faq', compact('faqs'));
+    }
+
+    public function strukturOrganisasi()
+    {
+        $struktur = \App\Models\StrukturOrganisasi::first();
+        return view('layouts.frontend.struktur-organisasi', compact('struktur'));
     }
 
     public function kontak()

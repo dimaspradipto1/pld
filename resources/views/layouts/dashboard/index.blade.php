@@ -18,54 +18,54 @@
             <div class="col-lg-12">
                 <div class="row">
 
-                    <!-- Total Produk Card -->
+                    <!-- Total Layanan Card -->
                     <div class="col-xxl-3 col-md-6">
                         <div class="card info-card sales-card shadow-sm border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Total Produk</h5>
+                                <h5 class="card-title">Total Layanan</h5>
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-primary-light text-primary" style="width: 50px; height: 50px; background: rgba(13, 110, 253, 0.1);">
-                                        <i class="bi bi-box-seam" style="font-size: 24px;"></i>
+                                        <i class="bi bi-clipboard2-check" style="font-size: 24px;"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalProducts }}</h6>
-                                        <span class="text-muted small">Produk Roster</span>
+                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalLayanan }}</h6>
+                                        <span class="text-muted small">Jasa Riksa Uji</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Total Booking Card -->
+                    <!-- Total Testimonial Card -->
                     <div class="col-xxl-3 col-md-6">
                         <div class="card info-card revenue-card shadow-sm border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Total Booking</h5>
+                                <h5 class="card-title">Total Testimoni</h5>
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center text-success" style="width: 50px; height: 50px; background: rgba(25, 135, 84, 0.1);">
-                                        <i class="bi bi-calendar-check" style="font-size: 24px;"></i>
+                                        <i class="bi bi-chat-quote" style="font-size: 24px;"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalBookings }}</h6>
-                                        <span class="text-muted small">Pemesanan WA</span>
+                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalTestimonials }}</h6>
+                                        <span class="text-muted small">Ulasan Klien</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Total Kategori Card -->
+                    <!-- Total Partner Card -->
                     <div class="col-xxl-3 col-md-6">
                         <div class="card info-card customers-card shadow-sm border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Kategori</h5>
+                                <h5 class="card-title">Partner</h5>
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center text-warning" style="width: 50px; height: 50px; background: rgba(255, 193, 7, 0.1);">
-                                        <i class="bi bi-bookmark" style="font-size: 24px;"></i>
+                                        <i class="bi bi-building" style="font-size: 24px;"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalCategories }}</h6>
-                                        <span class="text-muted small">Kategori Produk</span>
+                                        <h6 class="fs-4 fw-bold mb-0">{{ $totalPartners }}</h6>
+                                        <span class="text-muted small">Klien & Mitra</span>
                                     </div>
                                 </div>
                             </div>
@@ -97,8 +97,8 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title">Tren Booking Roster</h5>
-                        <div id="bookingTrendChart"></div>
+                        <h5 class="card-title">Tren Testimoni Masuk</h5>
+                        <div id="testimonialTrendChart"></div>
                     </div>
                 </div>
             </div>
@@ -106,77 +106,51 @@
             <div class="col-lg-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title">Kategori Produk</h5>
-                        <div id="categoryRatioChart" style="min-height: 290px;"></div>
+                        <h5 class="card-title">Rasio Kategori Testimoni</h5>
+                        <div id="testimonialRatioChart" style="min-height: 290px;"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Latest Bookings Table -->
+            <!-- Latest Testimonials Table -->
             <div class="col-lg-12">
                 <div class="card shadow-sm border-0">
                     <div class="card-header py-3 bg-transparent border-0 d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0 fw-semibold text-dark">Booking Terbaru</h5>
-                        <a href="{{ route('booking.index') }}" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+                        <h5 class="mb-0 fw-semibold text-dark">Testimoni Terbaru</h5>
+                        <a href="{{ route('testimonial.index') }}" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
                     </div>
                     <div class="card-body pt-0">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover align-middle mb-0">
                                 <thead>
-                                                                   <tr>
-                                        <th>Nama Pelanggan</th>
-                                        <th>Produk</th>
-                                        <th>No. WhatsApp (Pelanggan)</th>
-                                        <th>Admin Tujuan</th>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Pekerjaan</th>
+                                        <th>Kategori</th>
+                                        <th>Bintang</th>
+                                        <th>Status</th>
                                         <th>Waktu</th>
-                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($latestBookings as $booking)
+                                    @forelse($latestTestimonials as $testimonial)
                                         <tr>
-                                            <td class="fw-semibold">{{ $booking->nama }}</td>
+                                            <td class="fw-semibold">{{ $testimonial->nama }}</td>
+                                            <td>{{ $testimonial->pekerjaan }}</td>
+                                            <td><span class="badge bg-light text-dark border">{{ $testimonial->kategori }}</span></td>
+                                            <td>{{ str_repeat('★', $testimonial->bintang) }}</td>
                                             <td>
-                                                @if($booking->product)
-                                                    {{ $booking->product->nama_produk }}
-                                                    <span class="badge bg-secondary ms-1">{{ $booking->product->kode_produk }}</span>
+                                                @if($testimonial->aktif)
+                                                    <span class="badge bg-success">Aktif</span>
                                                 @else
-                                                    <span class="text-muted fst-italic">Tanpa Produk</span>
+                                                    <span class="badge bg-secondary">Menunggu</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $booking->no_wa }}</td>
-                                            <td>
-                                                @if($booking->nomorAdmin)
-                                                    {{ $booking->nomorAdmin->nama_admin }}
-                                                    <span class="badge bg-light text-dark border ms-1">{{ $booking->nomorAdmin->no_wa }}</span>
-                                                @else
-                                                    <span class="text-muted fst-italic">Tanpa Admin</span>
-                                                @endif
-                                            </td>
-                                            <td>{{ $booking->created_at->diffForHumans() }}</td>
-                                            <td class="text-center">
-                                                @php
-                                                    $phone = preg_replace('/[^0-9]/', '', $booking->no_wa);
-                                                    if (strpos($phone, '62') === 0) {
-                                                        // Sudah diawali dengan 62
-                                                    } elseif (strpos($phone, '0') === 0) {
-                                                        $phone = '62' . substr($phone, 1);
-                                                    } else {
-                                                        $phone = '62' . $phone;
-                                                    }
-                                                    $prodName = $booking->product ? $booking->product->nama_produk : 'Produk Roster';
-                                                    $prodCode = $booking->product ? $booking->product->kode_produk : '-';
-                                                    $message = urlencode("Halo Kak " . $booking->nama . ", kami dari admin Roster. Terkait booking Anda untuk produk *" . $prodName . "* (Kode: " . $prodCode . "), ada yang bisa kami bantu?");
-                                                    $waUrl = "https://wa.me/" . $phone . "?text=" . $message;
-                                                @endphp
-                                                <a href="{{ $waUrl }}" target="_blank" class="btn btn-sm btn-success px-3">
-                                                    <i class="bi bi-whatsapp me-1"></i> Hubungi WA
-                                                </a>
-                                            </td>
+                                            <td>{{ $testimonial->created_at->diffForHumans() }}</td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5" class="text-center text-muted py-3">Belum ada data booking masuk.</td>
+                                            <td colspan="6" class="text-center text-muted py-3">Belum ada testimoni masuk.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -193,15 +167,15 @@
 @push('scripts')
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Data Tren Booking dari DB
-        const bookingsData = {!! json_encode($bookingsChart) !!};
-        const dates = bookingsData.map(item => item.date);
-        const totals = bookingsData.map(item => item.total);
+        // Data Tren Testimoni dari DB
+        const testimonialsData = {!! json_encode($testimonialsChart) !!};
+        const dates = testimonialsData.map(item => item.date);
+        const totals = testimonialsData.map(item => item.total);
 
-        // Tren Booking Chart (Area Chart)
-        new ApexCharts(document.querySelector("#bookingTrendChart"), {
+        // Tren Testimoni Chart (Area Chart)
+        new ApexCharts(document.querySelector("#testimonialTrendChart"), {
             series: [{
-                name: 'Total Booking',
+                name: 'Total Testimoni',
                 data: totals.length ? totals : [0]
             }],
             chart: {
@@ -209,7 +183,7 @@
                 type: 'area',
                 toolbar: { show: false }
             },
-            colors: ['#2eca6a'],
+            colors: ['#E4032E'],
             fill: {
                 type: "gradient",
                 gradient: {
@@ -231,20 +205,20 @@
             tooltip: { x: { format: 'yyyy-MM-dd' } }
         }).render();
 
-        // Data Kategori dari DB
-        const categoriesData = {!! json_encode($categoriesChart) !!};
-        const catLabels = categoriesData.map(item => item.nama_kategori);
-        const catCounts = categoriesData.map(item => item.products_count);
+        // Data Rasio Kategori dari DB
+        const ratioData = {!! json_encode($testimonialsRatio) !!};
+        const ratioLabels = ratioData.map(item => item.kategori);
+        const ratioCounts = ratioData.map(item => item.total);
 
-        // Kategori Ratio Chart (Donut Chart)
-        new ApexCharts(document.querySelector("#categoryRatioChart"), {
-            series: catCounts.length ? catCounts : [0],
+        // Rasio Kategori Chart (Donut Chart)
+        new ApexCharts(document.querySelector("#testimonialRatioChart"), {
+            series: ratioCounts.length ? ratioCounts : [0],
             chart: {
                 height: 290,
                 type: 'donut',
             },
-            labels: catLabels.length ? catLabels : ['Kosong'],
-            colors: ['#4154f1', '#2eca6a', '#ff771d', '#13caf0', '#ffc107'],
+            labels: ratioLabels.length ? ratioLabels : ['Kosong'],
+            colors: ['#E4032E', '#152B5C', '#4FA8E8', '#ffc107', '#2eca6a'],
             legend: {
                 position: 'bottom'
             },

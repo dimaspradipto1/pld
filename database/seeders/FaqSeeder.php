@@ -13,50 +13,50 @@ class FaqSeeder extends Seeder
     public function run(): void
     {
         $faqs = [
-            // Pemesanan & Pembayaran
+            // Layanan & Ruang Lingkup
             [
-                'question' => 'Bagaimana cara memesan roster dinding di sini?',
-                'answer' => 'Pemesanan dapat dilakukan dengan dua cara mudah. Pertama, melalui portal admin kami jika Anda telah terdaftar sebagai mitra aktif. Kedua, dengan langsung menghubungi WhatsApp Hubungan Pelanggan kami pada nomor yang tertera untuk konsultasi gratis dan penerbitan penawaran harga.',
-                'category' => 'pemesanan',
+                'question' => 'Apa saja jenis Riksa Uji yang dilayani oleh PT Berkarya Jasa Inspeksi?',
+                'answer' => 'Kami melayani 6 kategori Riksa Uji: K3 umum (Permenaker No. 8 Tahun 2020), Pesawat Angkat & Angkut, Pesawat Tenaga Produksi (Permenaker No. 38 Tahun 2016), Bejana Tekan & Tangki Timbun serta Pesawat Uap/Ketel Uap (Permenaker No. 37 Tahun 2016 & UU Uap 1930), Instalasi Listrik & Penyalur Petir (Permenaker No. 12 & 31 Tahun 2015), serta Instalasi Proteksi Kebakaran (Permenaker No. 04 Tahun 1980 & No. 02 Tahun 1983).',
+                'category' => 'layanan',
             ],
             [
-                'question' => 'Apakah ada syarat minimum pembelian produk roster?',
-                'answer' => 'Kami tidak menetapkan batas minimum pembelian; Anda dapat memesan eceran sesuai kebutuhan renovasi rumah. Namun, untuk mendapatkan fasilitas harga grosir distributor dan diskon volume, minimal pembelian adalah 100 pcs per jenis motif roster.',
-                'category' => 'pemesanan',
+                'question' => 'Apakah BJI melayani konsultasi sebelum proses Riksa Uji dilakukan?',
+                'answer' => 'Ya, tim ahli K3 kami menyediakan konsultasi gratis untuk membantu menentukan jenis pemeriksaan yang sesuai dengan kebutuhan peralatan dan instalasi Anda sebelum proses Riksa Uji dimulai.',
+                'category' => 'layanan',
             ],
             [
-                'question' => 'Metode pembayaran apa saja yang didukung?',
-                'answer' => 'Kami menerima pembayaran via Transfer Bank (Virtual Account / Rekening Resmi Perusahaan). Untuk proyek konstruksi skala menengah hingga besar, kami juga menyediakan skema termin pembayaran sesuai kesepakatan kontrak kerja sama.',
-                'category' => 'pemesanan',
-            ],
-
-            // Spesifikasi & Kustomisasi
-            [
-                'question' => 'Berapa dimensi ukuran standar dari roster beton?',
-                'answer' => 'Secara umum, dimensi standar roster beton kami adalah 20 x 20 x 10 cm. Berat rata-rata berkisar antara 3.5 kg hingga 4.2 kg per pcs tergantung dari pola motif lubang ventilasinya. Kami juga menyediakan opsi roster tipis berukuran tebal 8 cm untuk beberapa motif minimalis tertentu.',
-                'category' => 'spesifikasi',
-            ],
-            [
-                'question' => 'Apakah roster tanah liat aman dari rembesan air dan jamur?',
-                'answer' => 'Ya, seluruh roster tanah liat (terracotta) kami diproduksi menggunakan pembakaran suhu tinggi sehingga memiliki kepadatan prima. Namun untuk pemasangan eksterior luar ruangan, kami merekomendasikan pemberian lapisan coating waterproof transparan pasca pemasangan untuk mencegah tumbuhnya lumut dan jamur akibat kelembapan ekstrem.',
-                'category' => 'spesifikasi',
-            ],
-            [
-                'question' => 'Apakah bisa memesan roster dengan bentuk motif kustom sendiri?',
-                'answer' => 'Tentu bisa. Kami menerima pemesanan motif khusus (custom design) dengan ketentuan minimum pemesanan 500 pcs untuk menutupi biaya pembuatan cetakan baru. Estimasi waktu pembuatan berkisar antara 2 hingga 4 minggu dari persetujuan cetak blueprint desain.',
-                'category' => 'spesifikasi',
+                'question' => 'Berapa lama proses pemeriksaan dan pengujian hingga laporan selesai?',
+                'answer' => 'Durasi bervariasi tergantung jenis dan skala peralatan yang diperiksa. Kami berkomitmen menyusun laporan akhir kegiatan pemeriksaan dan pengujian — lengkap dengan kesimpulan dan saran — secara tepat waktu.',
+                'category' => 'layanan',
             ],
 
-            // Pengiriman & Garansi
+            // Sertifikasi & Legalitas
             [
-                'question' => 'Bagaimana mekanisme pengiriman barang ke luar kota/pulau?',
-                'answer' => 'Untuk pengiriman di wilayah Jawa, kami menggunakan truk armada milik sendiri untuk meminimalisasi handling berlebih. Sementara untuk pengiriman luar pulau (Sumatera, Bali, Kalimantan, Sulawesi), kami bekerja sama dengan perusahaan ekspedisi kargo tepercaya dengan sistem palet kayu kokoh guna menjamin keamanan produk.',
-                'category' => 'pengiriman',
+                'question' => 'Apakah hasil Riksa Uji BJI diakui secara hukum?',
+                'answer' => 'Ya. Seluruh proses pemeriksaan dan pengujian kami dilaksanakan sesuai Permenaker yang berlaku, dan hasilnya diterbitkan oleh tenaga ahli K3 yang kompeten serta dapat digunakan untuk keperluan legalitas operasional peralatan.',
+                'category' => 'sertifikasi',
             ],
             [
-                'question' => 'Apakah ada jaminan garansi jika roster pecah saat diterima?',
-                'answer' => 'Ya, kami memberikan garansi penggantian penuh 100% untuk setiap roster yang pecah selama proses perjalanan pengiriman. Konsumen cukup mengirimkan bukti foto/video unboxing saat barang diturunkan dari truk pengirim kepada layanan pelanggan kami dalam waktu maksimal 1x24 jam dari barang diterima.',
-                'category' => 'pengiriman',
+                'question' => 'Apa yang dimaksud dengan metode Non Destructive Test (NDT)?',
+                'answer' => 'NDT adalah metode pengujian peralatan tanpa merusak material atau mengurangi umur pakainya. Metode ini digunakan terutama saat pemeriksaan pertama kali pemakaian maupun saat proses instalasi alat baru.',
+                'category' => 'sertifikasi',
+            ],
+            [
+                'question' => 'Bagaimana proses perpanjangan lisensi peralatan yang sudah kedaluwarsa?',
+                'answer' => 'Kami membantu proses perpanjangan lisensi peralatan melalui pemeriksaan dan pengujian ulang sesuai jadwal berkala yang dipersyaratkan, sehingga peralatan Anda tetap laik dan legal untuk dioperasikan.',
+                'category' => 'sertifikasi',
+            ],
+
+            // Jadwal & Area Kerja
+            [
+                'question' => 'Apakah BJI melayani Riksa Uji di luar Kepulauan Riau?',
+                'answer' => 'Kantor utama kami berada di Batam, Kepulauan Riau, namun kami siap melayani kebutuhan Riksa Uji, kalibrasi, dan sertifikasi di berbagai wilayah sesuai kebutuhan klien industri.',
+                'category' => 'jadwal',
+            ],
+            [
+                'question' => 'Seberapa sering Riksa Uji berkala harus dilakukan?',
+                'answer' => 'Jadwal pemeriksaan berkala berbeda-beda tergantung jenis peralatan dan ketentuan Permenaker yang berlaku. Tim kami dapat membantu menyusun jadwal Riksa Uji berkala yang sesuai untuk seluruh peralatan Anda.',
+                'category' => 'jadwal',
             ],
         ];
 

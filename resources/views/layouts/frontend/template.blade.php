@@ -13,9 +13,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'Roster Dinding Minimalis — Distributor Roster & Bata Ventilasi Berkualitas')</title>
-  <meta name="description" content="@yield('meta_description', 'Distributor roster dinding dan bata ventilasi dekoratif berkualitas tinggi. Tersedia berbagai motif minimalis hingga premium untuk hunian dan bangunan komersial modern.')">
-  <meta name="keywords" content="@yield('meta_keywords', 'roster dinding, bata ventilasi, roster minimalis, roster beton, roster tanah liat, roster motif')">
+  <title>@yield('title', 'PT Berkarya Jasa Inspeksi (BJI) — Riksa Uji, Kalibrasi & Sertifikasi K3')</title>
+  <meta name="description" content="@yield('meta_description', 'PT Berkarya Jasa Inspeksi (BJI) — perusahaan jasa keselamatan dan kesehatan kerja: Riksa Uji peralatan, kalibrasi, konsultasi, dan sertifikasi teknis sesuai standar K3 Kemnaker.')">
+  <meta name="keywords" content="@yield('meta_keywords', 'riksa uji k3, kalibrasi, sertifikasi teknis, PJK3, ahli k3, riksa uji pesawat angkat angkut, bejana tekan, instalasi listrik, proteksi kebakaran')">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,20 +37,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --terracotta:     #c1440e;
-      --terracotta-dk:  #9a3309;
-      --terracotta-lt:  #e8622a;
-      --clay:           #d4845a;
-      --sand:           #f5ede3;
-      --concrete:       #8c7b6e;
-      --concrete-lt:    #b5a090;
+      --terracotta:     #DA251D; /* Red swatch */
+      --terracotta-dk:  #B01B15;
+      --terracotta-lt:  #EA4C44;
+      --clay:           #0090DF; /* Light Blue swatch */
+      --sand:           #E1F0F9;
+      --concrete:       #7C8CA6;
+      --concrete-lt:    #A9B6C9;
       --white:          #ffffff;
-      --cream:          #fdf8f4;
-      --charcoal:       #2c2118;
-      --dark-brown:     #3d2b1f;
-      --muted:          #7c6b5e;
-      --border:         #e8d5c4;
-      --shadow:         rgba(60, 30, 10, 0.12);
+      --cream:          #F7FAFC;
+      --charcoal:       #002060; /* Navy Blue swatch */
+      --dark-brown:     #001540;
+      --muted:          #5B6B85;
+      --border:         #D7E4F2;
+      --shadow:         rgba(0, 32, 96, 0.12);
+      --safety-green:   #76C143; /* Green swatch */
     }
 
     html { scroll-behavior: smooth; }
@@ -63,10 +64,10 @@
     }
 
     /* ═══════════════════════════════════════════════
-       ROSTER PATTERN — Ciri khas motif roster dinding
+       TECHNICAL GRID PATTERN — Ciri khas blueprint/engineering
     ═══════════════════════════════════════════════ */
-    .roster-pattern {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c1440e' fill-opacity='0.06'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.10'/%3E%3Crect x='41' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.10'/%3E%3Crect x='13' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.10'/%3E%3Crect x='41' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    .tech-grid-pattern {
+      /* Background grid lines removed */
     }
 
     /* ═══════════════════════════════════════════════
@@ -104,7 +105,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 20px rgba(60,30,10,0.08);
+      box-shadow: 0 2px 20px rgba(13,27,61,0.08);
     }
     .navbar-main .container { padding: 0 20px; }
     .navbar-main .navbar { padding: 14px 0; }
@@ -117,13 +118,14 @@
     }
     .brand-icon {
       width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
+      background: var(--white);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(193,68,14,0.35);
+      box-shadow: 0 4px 12px rgba(228,3,46,0.25);
       flex-shrink: 0;
+      padding: 4px;
     }
-    .brand-icon svg { width: 24px; height: 24px; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: contain; }
     .brand-text .name {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 17px;
@@ -151,7 +153,7 @@
     }
     .nav-link-custom:hover, .nav-link-custom.active {
       color: var(--terracotta) !important;
-      background: rgba(193,68,14,0.07);
+      background: rgba(228,3,46,0.07);
     }
 
     .btn-login-nav {
@@ -165,13 +167,13 @@
       border-radius: 10px;
       text-decoration: none;
       transition: all 0.25s;
-      box-shadow: 0 3px 12px rgba(193,68,14,0.35);
+      box-shadow: 0 3px 12px rgba(228,3,46,0.35);
     }
     .btn-login-nav:hover {
       background: linear-gradient(135deg, var(--terracotta-dk), var(--terracotta));
       color: white;
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(193,68,14,0.45);
+      box-shadow: 0 6px 18px rgba(228,3,46,0.45);
     }
 
     /* ═══════════════════════════════════════════════
@@ -197,9 +199,9 @@
       inset: 0;
       background: linear-gradient(
         120deg,
-        rgba(44, 22, 8, 0.92) 0%,
-        rgba(60, 30, 10, 0.75) 50%,
-        rgba(193, 68, 14, 0.35) 100%
+        rgba(10, 18, 40, 0.92) 0%,
+        rgba(13, 27, 61, 0.75) 50%,
+        rgba(228, 3, 46, 0.35) 100%
       );
       z-index: 1;
     }
@@ -207,10 +209,8 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      opacity: 0.04;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px),
-        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px);
+      opacity: 0;
+      pointer-events: none;
     }
     .hero-roster-visual {
       position: absolute;
@@ -245,8 +245,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(193,68,14,0.3);
-      border: 1px solid rgba(255,160,100,0.3);
+      background: rgba(228,3,46,0.3);
+      border: 1px solid rgba(140,195,240,0.3);
       border-radius: 50px;
       padding: 6px 16px;
       margin-bottom: 28px;
@@ -313,7 +313,7 @@
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.25s;
-      box-shadow: 0 6px 24px rgba(193,68,14,0.45);
+      box-shadow: 0 6px 24px rgba(228,3,46,0.45);
       position: relative; overflow: hidden;
     }
     .btn-primary-hero::after {
@@ -324,7 +324,7 @@
     .btn-primary-hero:hover {
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(193,68,14,0.55);
+      box-shadow: 0 10px 32px rgba(228,3,46,0.55);
     }
     .btn-outline-hero {
       display: inline-flex; align-items: center; gap: 9px;
@@ -348,40 +348,32 @@
     }
 
     /* Subpages Hero Banner */
-    .about-hero, .testi-hero, .faq-hero, .contact-hero, .product-hero {
+    .about-hero, .testi-hero, .faq-hero, .contact-hero, .layanan-hero {
       position: relative;
-      background: var(--charcoal);
+      background: linear-gradient(135deg, #001030 0%, #002060 50%, #001a4a 100%);
       padding: 90px 0 70px;
       overflow: hidden;
     }
-    .about-hero-bg, .testi-hero-bg, .faq-hero-bg, .contact-hero-bg, .product-hero-bg {
+    .about-hero-bg, .testi-hero-bg, .faq-hero-bg, .contact-hero-bg, .layanan-hero-bg {
       position: absolute;
       inset: 0;
-      background: url('{{ asset("assets/img/login-bg.png") }}') center/cover no-repeat;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(0,144,223,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(218,37,29,0.12) 0%, transparent 50%);
       z-index: 0;
-      filter: brightness(0.35);
     }
-    .about-hero-overlay, .testi-hero-overlay, .faq-hero-overlay, .contact-hero-overlay, .product-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(44, 22, 8, 0.94) 0%, rgba(60, 30, 10, 0.8) 100%);
-      z-index: 1;
+    .about-hero-overlay, .testi-hero-overlay, .faq-hero-overlay, .contact-hero-overlay, .layanan-hero-overlay {
+      display: none;
     }
-    .about-hero-pattern, .testi-hero-pattern, .faq-hero-pattern, .contact-hero-pattern, .product-hero-pattern {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      opacity: 0.05;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px),
-        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px);
+    .about-hero-pattern, .testi-hero-pattern, .faq-hero-pattern, .contact-hero-pattern, .layanan-hero-pattern {
+      display: none;
     }
-    .about-hero-content, .testi-hero-content, .faq-hero-content, .contact-hero-content, .product-hero-content {
+    .about-hero-content, .testi-hero-content, .faq-hero-content, .contact-hero-content, .layanan-hero-content {
       position: relative;
       z-index: 3;
       text-align: center;
     }
-    .about-hero-title, .testi-hero-title, .faq-hero-title, .contact-hero-title, .product-hero-title {
+    .about-hero-title, .testi-hero-title, .faq-hero-title, .contact-hero-title, .layanan-hero-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(32px, 4.5vw, 52px);
       font-weight: 800;
@@ -389,7 +381,7 @@
       letter-spacing: -1.5px;
       margin-bottom: 15px;
     }
-    .about-hero-title em, .testi-hero-title em, .faq-hero-title em, .contact-hero-title em, .product-hero-title em {
+    .about-hero-title em, .testi-hero-title em, .faq-hero-title em, .contact-hero-title em, .layanan-hero-title em {
       font-style: normal;
       color: var(--terracotta-lt);
     }
@@ -418,20 +410,14 @@
       inset: 0;
       background: linear-gradient(
         110deg,
-        rgba(20, 8, 2, 0.92) 0%,
-        rgba(40, 18, 6, 0.80) 55%,
-        rgba(60, 30, 10, 0.40) 100%
+        rgba(5, 8, 18, 0.92) 0%,
+        rgba(9, 16, 36, 0.80) 55%,
+        rgba(13, 27, 61, 0.40) 100%
       );
       z-index: 1;
     }
     .ahv2-pattern {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      opacity: 0.04;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.6) 40px, rgba(255,255,255,0.6) 41px),
-        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.6) 40px, rgba(255,255,255,0.6) 41px);
+      display: none;
     }
 
     /* Badge */
@@ -439,8 +425,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(193,68,14,0.15);
-      border: 1px solid rgba(193,68,14,0.4);
+      background: rgba(228,3,46,0.15);
+      border: 1px solid rgba(228,3,46,0.4);
       color: #f0b090;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 12px;
@@ -461,8 +447,8 @@
       flex-shrink: 0;
     }
     @keyframes pulse-dot {
-      0%,100% { box-shadow: 0 0 0 0 rgba(193,68,14,0.6); }
-      50%      { box-shadow: 0 0 0 6px rgba(193,68,14,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(228,3,46,0.6); }
+      50%      { box-shadow: 0 0 0 6px rgba(228,3,46,0); }
     }
 
     /* Title */
@@ -502,7 +488,7 @@
       width: 100%;
       height: 100%;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(193,68,14,0.3);
+      border: 1px solid rgba(228,3,46,0.3);
       border-radius: 24px;
       overflow: hidden;
       display: flex;
@@ -512,7 +498,7 @@
       gap: 0;
       backdrop-filter: blur(20px);
       box-shadow:
-        0 0 0 1px rgba(193,68,14,0.15),
+        0 0 0 1px rgba(228,3,46,0.15),
         0 20px 60px rgba(0,0,0,0.5),
         inset 0 1px 0 rgba(255,255,255,0.08);
       animation: float-card 5s ease-in-out infinite;
@@ -531,18 +517,18 @@
     .ahv2-roster-grid .r {
       aspect-ratio: 1;
       border-radius: 6px;
-      background: rgba(193,68,14,0.12);
-      border: 1px solid rgba(193,68,14,0.2);
+      background: rgba(228,3,46,0.12);
+      border: 1px solid rgba(228,3,46,0.2);
     }
     .ahv2-roster-grid .r.filled {
-      background: linear-gradient(135deg, rgba(193,68,14,0.6), rgba(120,40,8,0.8));
-      border-color: rgba(193,68,14,0.5);
-      box-shadow: 0 2px 8px rgba(193,68,14,0.3);
+      background: linear-gradient(135deg, rgba(228,3,46,0.6), rgba(180,2,31,0.8));
+      border-color: rgba(228,3,46,0.5);
+      box-shadow: 0 2px 8px rgba(228,3,46,0.3);
     }
     .ahv2-roster-grid .r.hole {
       background: transparent;
-      border: 1.5px solid rgba(193,68,14,0.35);
-      box-shadow: inset 0 0 10px rgba(193,68,14,0.15);
+      border: 1.5px solid rgba(228,3,46,0.35);
+      box-shadow: inset 0 0 10px rgba(228,3,46,0.15);
     }
     .ahv2-img-label {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -550,7 +536,7 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: rgba(193,68,14,0.7);
+      color: rgba(228,3,46,0.7);
       padding-bottom: 20px;
     }
 
@@ -703,8 +689,8 @@
       cursor: default;
     }
     .hero-chip:hover {
-      background: rgba(193,68,14,0.28);
-      border-color: rgba(255,160,100,0.3);
+      background: rgba(228,3,46,0.28);
+      border-color: rgba(140,195,240,0.3);
     }
     .hero-chip i { font-size: 13px; color: var(--clay); }
     .hero-chip span { font-size: 12.5px; color: rgba(255,255,255,0.8); font-weight: 500; }
@@ -712,7 +698,7 @@
     .hero-product-strip {
       background: var(--white);
       border-top: 3px solid var(--terracotta);
-      box-shadow: 0 -4px 30px rgba(60,30,10,0.1);
+      box-shadow: 0 -4px 30px rgba(13,27,61,0.1);
     }
     .product-strip-item {
       display: flex; align-items: center; gap: 14px;
@@ -722,7 +708,7 @@
     .product-strip-item:last-child { border-right: none; }
     .strip-icon {
       width: 48px; height: 48px;
-      background: linear-gradient(135deg, rgba(193,68,14,0.12), rgba(232,98,42,0.1));
+      background: linear-gradient(135deg, rgba(228,3,46,0.12), rgba(242,57,75,0.1));
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -749,10 +735,8 @@
       color: white;
       position: relative;
     }
-    .section-bg-dark.roster-pattern {
-      background-image:
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-        linear-gradient(135deg, #2c2118, #3d2b1f);
+    .section-bg-dark.tech-grid-pattern {
+      background: linear-gradient(135deg, var(--charcoal), var(--dark-brown));
     }
 
     .section-label {
@@ -800,78 +784,53 @@
     }
     .divider-line.centered { margin-left: auto; margin-right: auto; }
 
-    /* Roster decorators */
-    .roster-icon {
-      display: inline-grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-      padding: 4px;
-    }
-    .roster-icon .r-cell {
-      width: 10px; height: 10px;
-      background: var(--terracotta);
-      border-radius: 2px;
-      opacity: 0.8;
-    }
-    .roster-icon .r-cell.empty { background: transparent; }
-
-    .roster-decor {
+    /* Technical grid decorator */
+    .tech-decor {
       display: grid;
       grid-template-columns: repeat(4, 32px);
       grid-template-rows: repeat(4, 32px);
       gap: 5px;
       opacity: 0.15;
     }
-    .roster-decor .rd { background: var(--terracotta); border-radius: 4px; }
-    .roster-decor .rd.empty { background: transparent; }
+    .tech-decor .rd { background: var(--terracotta); border-radius: 2px; }
+    .tech-decor .rd.empty { background: transparent; }
 
     /* ═══════════════════════════════════════════════
        FEATURE CARDS
     ═══════════════════════════════════════════════ */
     .feature-card {
       background: var(--white);
-      border-radius: 20px;
-      padding: 36px 30px;
+      border-radius: 10px;
+      padding: 34px 28px;
       border: 1px solid var(--border);
+      border-top: 3px solid var(--charcoal);
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
       height: 100%;
     }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--terracotta), var(--terracotta-lt));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s;
-    }
     .feature-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(60,30,10,0.12);
-      border-color: rgba(193,68,14,0.2);
+      box-shadow: 0 20px 50px rgba(13,27,61,0.12);
+      border-top-color: var(--terracotta);
     }
-    .feature-card:hover::before { transform: scaleX(1); }
 
     .feature-icon-wrap {
-      width: 64px; height: 64px;
-      background: linear-gradient(135deg, rgba(193,68,14,0.1), rgba(232,98,42,0.08));
-      border-radius: 16px;
+      width: 58px; height: 58px;
+      background: var(--charcoal);
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 22px;
       transition: all 0.3s;
     }
     .feature-card:hover .feature-icon-wrap {
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
+      background: var(--terracotta);
     }
     .feature-icon-wrap i {
-      font-size: 26px;
-      color: var(--terracotta);
+      font-size: 24px;
+      color: white;
       transition: color 0.3s;
     }
-    .feature-card:hover .feature-icon-wrap i { color: white; }
 
     .feature-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -891,51 +850,57 @@
     ═══════════════════════════════════════════════ */
     .product-card {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: 10px;
       overflow: hidden;
       border: 1px solid var(--border);
       transition: all 0.3s;
       height: 100%;
     }
+    a.product-card-link {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    a.product-card-link .product-card-title {
+      color: var(--charcoal);
+    }
     .product-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(60,30,10,0.14);
+      box-shadow: 0 20px 50px rgba(13,27,61,0.14);
     }
     .product-card-img {
-      height: 200px;
-      background: linear-gradient(135deg, var(--sand), rgba(193,68,14,0.15));
+      height: 160px;
+      background: linear-gradient(135deg, var(--charcoal) 0%, #001a4e 100%);
       display: flex; align-items: center; justify-content: center;
       position: relative;
       overflow: hidden;
-    }
-    .product-card-img .pattern-bg {
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c1440e' fill-opacity='0.1'%3E%3Crect x='3' y='3' width='15' height='15' rx='2'/%3E%3Crect x='22' y='3' width='15' height='15' rx='2'/%3E%3Crect x='3' y='22' width='15' height='15' rx='2'/%3E%3Crect x='22' y='22' width='15' height='15' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+      border-bottom: 3px solid var(--terracotta);
     }
     .product-card-img .product-icon {
-      width: 80px; height: 80px;
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
-      border-radius: 20px;
+      width: 64px; height: 64px;
+      background: var(--terracotta);
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 24px rgba(193,68,14,0.4);
+      box-shadow: 0 8px 24px rgba(228,3,46,0.35);
       position: relative; z-index: 1;
       transition: all 0.3s;
     }
     .product-card:hover .product-icon {
-      transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 12px 32px rgba(193,68,14,0.5);
+      transform: scale(1.06);
     }
-    .product-card-img .product-icon i { font-size: 34px; color: white; }
+    .product-card-img .product-icon i { font-size: 28px; color: white; }
     .product-badge {
       position: absolute; top: 14px; right: 14px;
-      background: var(--charcoal);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
       color: white;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.5px;
       padding: 4px 10px;
-      border-radius: 6px;
+      border-radius: 4px;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      backdrop-filter: blur(4px);
     }
     .product-card-body { padding: 24px; }
     .product-card-title {
@@ -964,7 +929,7 @@
       font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
       padding: 8px 16px;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
       transition: all 0.2s;
     }
@@ -977,33 +942,58 @@
       position: relative;
     }
     .about-img-main {
-      border-radius: 24px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(60,30,10,0.2);
-      background: linear-gradient(135deg, var(--sand), rgba(193,68,14,0.2));
+      box-shadow: 0 20px 60px rgba(13,27,61,0.25);
+      background:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+        var(--charcoal);
+      background-size: 28px 28px, 28px 28px, auto;
       height: 420px;
       display: flex; align-items: center; justify-content: center;
       position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
     }
-    .about-roster-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 56px);
-      grid-template-rows: repeat(5, 56px);
-      gap: 8px;
+    .tech-corner {
+      position: absolute;
+      width: 28px; height: 28px;
+      border-color: var(--terracotta-lt);
+      border-style: solid;
+      border-width: 0;
+      opacity: 0.8;
     }
-    .about-roster-grid .r {
-      background: rgba(193,68,14,0.12);
-      border: 2px solid rgba(193,68,14,0.2);
-      border-radius: 8px;
-      transition: all 0.5s;
+    .tech-corner.tl { top: 18px; left: 18px; border-top-width: 3px; border-left-width: 3px; }
+    .tech-corner.tr { top: 18px; right: 18px; border-top-width: 3px; border-right-width: 3px; }
+    .tech-corner.bl { bottom: 18px; left: 18px; border-bottom-width: 3px; border-left-width: 3px; }
+    .tech-corner.br { bottom: 18px; right: 18px; border-bottom-width: 3px; border-right-width: 3px; }
+    .tech-panel-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
-    .about-roster-grid .r.filled {
-      background: linear-gradient(135deg, rgba(193,68,14,0.35), rgba(232,98,42,0.2));
-      border-color: rgba(193,68,14,0.4);
+    .tech-panel-icon {
+      width: 88px; height: 88px;
+      margin: 0 auto 20px;
+      background: var(--terracotta);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 32px rgba(228,3,46,0.4);
     }
-    .about-roster-grid .r.hole {
-      background: var(--charcoal);
-      border-color: rgba(193,68,14,0.1);
+    .tech-panel-icon i { font-size: 42px; color: white; }
+    .tech-panel-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .tech-panel-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.5px;
+      margin-top: 6px;
     }
 
     .about-stat-card {
@@ -1011,7 +1001,7 @@
       background: var(--white);
       border-radius: 16px;
       padding: 20px 24px;
-      box-shadow: 0 10px 40px rgba(60,30,10,0.15);
+      box-shadow: 0 10px 40px rgba(13,27,61,0.15);
       border: 1px solid var(--border);
     }
     .about-stat-card.card-1 {
@@ -1052,47 +1042,36 @@
     /* Visi Misi Values (About specific) */
     .value-card {
       background: var(--white);
-      border-radius: 20px;
-      padding: 36px 30px;
+      border-radius: 10px;
+      padding: 34px 28px;
       border: 1px solid var(--border);
+      border-top: 3px solid var(--charcoal);
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
       height: 100%;
     }
-    .value-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--terracotta), var(--terracotta-lt));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s;
-    }
     .value-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(60,30,10,0.12);
-      border-color: rgba(193,68,14,0.2);
+      box-shadow: 0 20px 50px rgba(13,27,61,0.12);
+      border-top-color: var(--terracotta);
     }
-    .value-card:hover::before { transform: scaleX(1); }
     .value-icon-wrap {
-      width: 60px; height: 60px;
-      background: linear-gradient(135deg, rgba(193,68,14,0.1), rgba(232,98,42,0.08));
-      border-radius: 14px;
+      width: 56px; height: 56px;
+      background: var(--charcoal);
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 22px;
       transition: all 0.3s;
     }
     .value-card:hover .value-icon-wrap {
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
+      background: var(--terracotta);
     }
     .value-icon-wrap i {
-      font-size: 24px;
-      color: var(--terracotta);
+      font-size: 22px;
+      color: white;
       transition: color 0.3s;
     }
-    .value-card:hover .value-icon-wrap i { color: white; }
     .value-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 18px;
@@ -1151,13 +1130,13 @@
       position: relative;
       border-radius: 16px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(60,30,10,0.05);
+      box-shadow: 0 4px 20px rgba(13,27,61,0.05);
       transition: all 0.3s;
     }
     .timeline-container:hover .timeline-content {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(60,30,10,0.1);
-      border-color: rgba(193,68,14,0.2);
+      box-shadow: 0 12px 30px rgba(13,27,61,0.1);
+      border-color: rgba(228,3,46,0.2);
     }
     .timeline-container:hover::after {
       background-color: var(--terracotta);
@@ -1186,15 +1165,19 @@
        COUNTER SECTION
     ═══════════════════════════════════════════════ */
     .counter-section {
-      background: linear-gradient(135deg, var(--terracotta-dk) 0%, var(--terracotta) 60%, var(--terracotta-lt) 100%);
+      background: var(--charcoal);
       padding: 70px 0;
       position: relative;
       overflow: hidden;
+      border-top: 3px solid var(--terracotta);
     }
     .counter-section::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
     .counter-item { text-align: center; position: relative; }
     .counter-item::after {
@@ -1203,7 +1186,7 @@
       right: 0; top: 50%;
       transform: translateY(-50%);
       width: 1px; height: 60px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
     }
     .counter-item:last-child::after { display: none; }
     .counter-num {
@@ -1213,17 +1196,17 @@
       color: white;
       line-height: 1;
     }
-    .counter-num sup { font-size: 22px; }
+    .counter-num sup { font-size: 22px; color: var(--terracotta-lt); }
     .counter-label {
       font-size: 13px;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.55);
       font-weight: 500;
       margin-top: 8px;
       letter-spacing: 0.3px;
     }
     .counter-icon {
-      font-size: 28px;
-      color: rgba(255,255,255,0.3);
+      font-size: 26px;
+      color: var(--terracotta-lt);
       margin-bottom: 10px;
     }
 
@@ -1241,7 +1224,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       padding: 8px 20px;
-      border-radius: 50px;
+      border-radius: 6px;
       font-size: 13.5px;
       font-weight: 600;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -1253,27 +1236,28 @@
       background: var(--terracotta);
       border-color: var(--terracotta);
       color: white;
-      box-shadow: 0 4px 12px rgba(193,68,14,0.25);
+      box-shadow: 0 4px 12px rgba(228,3,46,0.25);
     }
 
     .testimonial-card {
       background: var(--white);
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 32px;
       border: 1px solid var(--border);
+      border-top: 3px solid var(--charcoal);
       height: 100%;
       position: relative;
       transition: all 0.3s;
     }
     .testimonial-card:hover {
-      box-shadow: 0 16px 40px rgba(60,30,10,0.1);
+      box-shadow: 0 16px 40px rgba(13,27,61,0.1);
       transform: translateY(-4px);
-      border-color: rgba(193,68,14,0.15);
+      border-color: rgba(228,3,46,0.15);
     }
     .testimonial-card::before {
       content: '\201C';
       font-size: 80px;
-      color: rgba(193,68,14,0.08);
+      color: rgba(228,3,46,0.08);
       font-family: Georgia, serif;
       line-height: 0.8;
       position: absolute;
@@ -1285,8 +1269,8 @@
     .testimonial-author { display: flex; align-items: center; gap: 12px; }
     .author-avatar {
       width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
-      border-radius: 50%;
+      background: var(--charcoal);
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800; font-size: 16px;
@@ -1325,11 +1309,11 @@
       color: var(--charcoal);
       outline: none;
       transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(60,30,10,0.04);
+      box-shadow: 0 4px 15px rgba(13,27,61,0.04);
     }
     .search-input-custom:focus {
       border-color: var(--terracotta);
-      box-shadow: 0 10px 30px rgba(193,68,14,0.12);
+      box-shadow: 0 10px 30px rgba(228,3,46,0.12);
     }
     .search-box-wrap i {
       position: absolute;
@@ -1362,7 +1346,7 @@
       overflow: hidden;
       transition: all 0.3s;
     }
-    .faq-item:hover { border-color: rgba(193,68,14,0.25); }
+    .faq-item:hover { border-color: rgba(228,3,46,0.25); }
     .faq-question {
       padding: 20px 24px;
       cursor: pointer;
@@ -1390,7 +1374,7 @@
       color: var(--muted);
       line-height: 1.8;
       display: none;
-      border-top: 1px solid rgba(232,213,196,0.3);
+      border-top: 1px solid rgba(215,228,242,0.3);
       padding-top: 16px;
     }
     .faq-item.open .faq-answer { display: block; }
@@ -1407,13 +1391,13 @@
       transition: all 0.3s;
     }
     .contact-card-custom:hover {
-      box-shadow: 0 12px 30px rgba(60,30,10,0.08);
+      box-shadow: 0 12px 30px rgba(13,27,61,0.08);
       transform: translateY(-3px);
-      border-color: rgba(193,68,14,0.15);
+      border-color: rgba(228,3,46,0.15);
     }
     .contact-card-icon {
       width: 56px; height: 56px;
-      background: linear-gradient(135deg, rgba(193,68,14,0.1), rgba(232,98,42,0.08));
+      background: linear-gradient(135deg, rgba(228,3,46,0.1), rgba(242,57,75,0.08));
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 20px;
@@ -1451,7 +1435,7 @@
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 40px;
-      box-shadow: 0 10px 40px rgba(60,30,10,0.05);
+      box-shadow: 0 10px 40px rgba(13,27,61,0.05);
     }
     .form-label-custom {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -1474,7 +1458,7 @@
     .form-control-custom:focus {
       background: var(--white);
       border-color: var(--terracotta);
-      box-shadow: 0 4px 15px rgba(193,68,14,0.08);
+      box-shadow: 0 4px 15px rgba(228,3,46,0.08);
     }
     .btn-submit-form {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -1488,12 +1472,12 @@
       padding: 14px;
       border-radius: 12px;
       transition: all 0.25s;
-      box-shadow: 0 4px 15px rgba(193,68,14,0.3);
+      box-shadow: 0 4px 15px rgba(228,3,46,0.3);
     }
     .btn-submit-form:hover {
       background: linear-gradient(135deg, var(--terracotta-dk), var(--terracotta));
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(193,68,14,0.4);
+      box-shadow: 0 6px 20px rgba(228,3,46,0.4);
     }
 
     .map-section {
@@ -1504,7 +1488,7 @@
       border-radius: 24px;
       overflow: hidden;
       border: 1.5px solid var(--border);
-      box-shadow: 0 15px 50px rgba(60,30,10,0.08);
+      box-shadow: 0 15px 50px rgba(13,27,61,0.08);
       height: 480px;
       width: 100%;
       background: var(--sand);
@@ -1552,11 +1536,12 @@
     .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; text-decoration: none; }
     .footer-logo-icon {
       width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
+      background: var(--white);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
+      padding: 3px;
     }
-    .footer-logo-icon svg { width: 22px; height: 22px; }
+    .footer-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
     .footer-brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 16px; font-weight: 800;
@@ -1594,7 +1579,7 @@
     .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
     .footer-contact-icon {
       width: 32px; height: 32px;
-      background: rgba(193,68,14,0.2);
+      background: rgba(228,3,46,0.2);
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -1624,17 +1609,17 @@
       color: white;
       font-size: 16px;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(193,68,14,0.4);
+      box-shadow: 0 6px 20px rgba(228,3,46,0.4);
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s;
       z-index: 999;
     }
     .back-to-top.show { opacity: 1; transform: translateY(0); }
-    .back-to-top:hover { color: white; transform: translateY(-3px); box-shadow: 0 10px 28px rgba(193,68,14,0.55); }
+    .back-to-top:hover { color: white; transform: translateY(-3px); box-shadow: 0 10px 28px rgba(228,3,46,0.55); }
 
     .navbar-toggler { border: 1.5px solid var(--border); border-radius: 8px; padding: 6px 10px; }
-    .navbar-toggler:focus { box-shadow: none; outline: 2px solid rgba(193,68,14,0.3); }
+    .navbar-toggler:focus { box-shadow: none; outline: 2px solid rgba(228,3,46,0.3); }
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c1440e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
@@ -1660,7 +1645,7 @@
         border-radius: 16px;
         padding: 20px;
         margin-top: 15px;
-        box-shadow: 0 12px 30px rgba(60,30,10,0.12);
+        box-shadow: 0 12px 30px rgba(13,27,61,0.12);
       }
       .navbar-collapse.show {
         animation: slideDownMenu 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -1692,15 +1677,6 @@
         border-bottom: none !important; 
       }
 
-      /* Roster grid mobile overflow fix */
-      .about-roster-grid {
-        grid-template-columns: repeat(6, 40px) !important;
-        grid-template-rows: repeat(5, 40px) !important;
-        gap: 6px !important;
-      }
-      .about-img-main {
-        height: 300px !important;
-      }
       .about-stat-card { display: none; }
 
       /* Testimonials spacing */
@@ -1739,33 +1715,225 @@
         margin-top: 30px;
       }
     }
+
+    /* ═══════════════════════════════════════════════
+       NILAI PERUSAHAAN - INTERACTIVE CIRCULAR LAYOUT
+    ═══════════════════════════════════════════════ */
+    .nilai-interactive-section {
+      background-color: var(--white);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nilai-label-wrap {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    
+    .nilai-label-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--terracotta);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    .nilai-label-line {
+      width: 60px;
+      height: 3px;
+      background-color: var(--terracotta);
+      margin: 8px auto 0 auto;
+      border-radius: 2px;
+    }
+    
+    .nilai-title-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-top: 5px;
+    }
+    
+    .nilai-title-text .text-red {
+      color: var(--terracotta) !important;
+    }
+    
+    .nilai-title-line {
+      width: 40px;
+      height: 3px;
+      background-color: var(--terracotta);
+      margin: 15px auto 0 auto;
+      border-radius: 2px;
+    }
+    
+    .nilai-waves-bg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 260px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .nilai-waves-bg svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Grid Layout for Desktop */
+    .nilai-interactive-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+      min-height: 580px;
+      z-index: 2;
+    }
+    
+    .nilai-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 10;
+    }
+    
+    .nilai-col-left,
+    .nilai-col-right {
+      height: 480px;
+      justify-content: space-between !important;
+    }
+    
+    .nilai-card-interactive {
+      background: transparent;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+
+    /* Left column: right-aligned text, padding toward the connecting dot */
+    .nilai-col-left .nilai-card-interactive {
+      padding-right: 40px;
+      border-right: 2px solid transparent;
+    }
+    .nilai-col-left .nilai-card-interactive:hover {
+      border-right-color: rgba(0,144,223,0.2);
+    }
+
+    /* Right column: left-aligned text, padding toward the connecting dot */
+    .nilai-col-right .nilai-card-interactive {
+      padding-left: 40px;
+      border-left: 2px solid transparent;
+    }
+    .nilai-col-right .nilai-card-interactive:hover {
+      border-left-color: rgba(0,144,223,0.2);
+    }
+
+    .nilai-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    
+    .nilai-card-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    
+    /* Center Image Wrap with leg blending mask */
+    .nilai-center-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+      z-index: 5;
+    }
+    
+    .nilai-center-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 15px 35px rgba(0, 32, 96, 0.18));
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    }
+    
+    .nilai-center-placeholder {
+      background: linear-gradient(135deg, var(--charcoal), var(--dark-brown));
+      height: 380px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      box-shadow: 0 15px 30px rgba(0, 32, 96, 0.15);
+    }
+    
+    /* SVG Dotted curves styling */
+    .nilai-grid-curves {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+    
+    /* Mobile styling */
+    .nilai-mobile-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 30px rgba(13,27,61,0.04);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .nilai-mobile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(13,27,61,0.08);
+      border-color: var(--terracotta-lt);
+    }
+    
+    .nilai-mobile-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--sand);
+      color: var(--terracotta);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    
+    .nilai-mobile-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    
+    .nilai-mobile-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     TOPBAR
-═══════════════════════════════════════════════ -->
-<div class="topbar d-none d-lg-block">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-2 flex-wrap">
-        <a href="mailto:{{ $contact->email ?? 'info@rosterdinding.com' }}"><i class="bi bi-envelope me-1"></i> {{ $contact->email ?? 'info@rosterdinding.com' }}</a>
-        <span class="sep">|</span>
-        <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" target="_blank"><i class="bi bi-telephone me-1"></i> {{ $contact->no_wa ?? '+62 812 3456 7890' }}</a>
-        <span class="sep">|</span>
-        <span><i class="bi bi-geo-alt me-1"></i> {{ $contact->alamat ? Str::limit($contact->alamat, 60) : 'Distributor Roster Dinding & Bata Ventilasi' }}</span>
-      </div>
-      <div class="d-flex align-items-center">
-        <span class="me-2" style="font-size:11px; letter-spacing:.5px;">Ikuti Kami:</span>
-        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ═══════════════════════════════════════════════
      NAVBAR
@@ -1775,20 +1943,11 @@
     <nav class="navbar navbar-expand-lg w-100">
       <a href="{{ route('homepage') }}" class="brand-wrap me-4">
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="10" height="10" rx="2" fill="white" fill-opacity="0.95"/>
-            <rect x="13" y="1" width="10" height="10" rx="2" fill="white" fill-opacity="0.95"/>
-            <rect x="1" y="13" width="10" height="10" rx="2" fill="white" fill-opacity="0.95"/>
-            <rect x="13" y="13" width="10" height="10" rx="2" fill="white" fill-opacity="0.95"/>
-            <rect x="4" y="4" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="16" y="4" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="4" y="16" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="16" y="16" width="4" height="4" rx="1" fill="#c1440e"/>
-          </svg>
+          <img src="{{ asset('frontend/img/logo.png') }}" alt="BJI Logo">
         </div>
         <div class="brand-text">
-          <div class="name">Roster Dinding</div>
-          <div class="sub">Minimalis · Distributor Resmi</div>
+          <div class="name">Berkarya Jasa Inspeksi</div>
+          <div class="sub">Riksa Uji · Kalibrasi · Sertifikasi</div>
         </div>
       </a>
 
@@ -1799,8 +1958,9 @@
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav mx-auto gap-1">
           <li class="nav-item"><a href="{{ route('homepage') }}" class="nav-link nav-link-custom">Beranda</a></li>
-          <li class="nav-item"><a href="{{ route('homepage.produk') }}" class="nav-link nav-link-custom">Produk</a></li>
+          <li class="nav-item"><a href="{{ route('homepage.layanan') }}" class="nav-link nav-link-custom">Layanan</a></li>
           <li class="nav-item"><a href="{{ route('homepage.tentang') }}" class="nav-link nav-link-custom">Tentang</a></li>
+          <li class="nav-item"><a href="{{ route('homepage.struktur-organisasi') }}" class="nav-link nav-link-custom">Struktur</a></li>
           <li class="nav-item"><a href="{{ route('homepage.testimoni') }}" class="nav-link nav-link-custom">Testimoni</a></li>
           <li class="nav-item"><a href="{{ route('homepage.faq') }}" class="nav-link nav-link-custom">FAQ</a></li>
           <li class="nav-item"><a href="{{ route('homepage.kontak') }}" class="nav-link nav-link-custom">Kontak</a></li>
@@ -1808,7 +1968,7 @@
         <div class="mt-3 mt-lg-0">
           <a href="{{ route('login') }}" class="btn-login-nav">
             <i class="bi bi-box-arrow-in-right"></i>
-            Masuk Portal
+            Login
           </a>
         </div>
       </div>
@@ -1831,24 +1991,15 @@
       <div class="col-lg-4">
         <a href="{{ route('homepage') }}" class="footer-logo">
           <div class="footer-logo-icon">
-            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="9" height="9" rx="2" fill="white" fill-opacity="0.95"/>
-              <rect x="12" y="1" width="9" height="9" rx="2" fill="white" fill-opacity="0.95"/>
-              <rect x="1" y="12" width="9" height="9" rx="2" fill="white" fill-opacity="0.95"/>
-              <rect x="12" y="12" width="9" height="9" rx="2" fill="white" fill-opacity="0.95"/>
-              <rect x="4" y="4" width="3" height="3" rx="1" fill="white" fill-opacity="0.95"/>
-              <rect x="15" y="4" width="3" height="3" rx="1" fill="white" fill-opacity="0.95"/>
-              <rect x="4" y="15" width="3" height="3" rx="1" fill="white" fill-opacity="0.95"/>
-              <rect x="15" y="15" width="3" height="3" rx="1" fill="white" fill-opacity="0.95"/>
-            </svg>
+            <img src="{{ asset('frontend/img/logo.png') }}" alt="BJI Logo">
           </div>
           <div>
-            <div class="footer-brand-name">Roster Dinding Minimalis</div>
-            <div class="footer-brand-sub">Distributor Resmi · Bata Ventilasi</div>
+            <div class="footer-brand-name">Berkarya Jasa Inspeksi</div>
+            <div class="footer-brand-sub">Riksa Uji · Kalibrasi · Sertifikasi K3</div>
           </div>
         </a>
         <p class="footer-desc">
-          Distributor terpercaya roster dinding dan bata ventilasi dekoratif berkualitas tinggi sejak 2016. Melayani seluruh Indonesia.
+          Perusahaan jasa keselamatan dan kesehatan kerja (K3) — Riksa Uji, kalibrasi, konsultasi, dan sertifikasi peralatan sesuai standar Kemnaker.
         </p>
         <div class="footer-social">
           <a href="#"><i class="bi bi-instagram"></i></a>
@@ -1863,24 +2014,25 @@
         <div class="footer-heading">Navigasi</div>
         <ul class="footer-links">
           <li><a href="{{ route('homepage') }}"><i class="bi bi-chevron-right"></i> Beranda</a></li>
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Produk</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Layanan</a></li>
           <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
+          <li><a href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-chevron-right"></i> Struktur Organisasi</a></li>
           <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Testimoni</a></li>
           <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> FAQ</a></li>
           <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Kontak</a></li>
         </ul>
       </div>
 
-      <!-- Products -->
+      <!-- Layanan -->
       <div class="col-6 col-lg-2">
-        <div class="footer-heading">Produk</div>
+        <div class="footer-heading">Layanan</div>
         <ul class="footer-links">
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Roster Beton</a></li>
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Roster Tanah Liat</a></li>
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Roster Minimalis</a></li>
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Roster Motif</a></li>
-          <li><a href="{{ route('homepage') }}#produk"><i class="bi bi-chevron-right"></i> Bata Ventilasi</a></li>
-          <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Custom Order</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Riksa Uji K3</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Pesawat Angkat & Angkut</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Bejana Tekan & Ketel Uap</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Instalasi Listrik & Petir</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Proteksi Kebakaran</a></li>
+          <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Konsultasi</a></li>
         </ul>
       </div>
 
@@ -1891,21 +2043,21 @@
           <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="footer-contact-text">
             <strong>Alamat</strong>
-            {{ $contact->alamat ?? 'Jl. Industri No. 123, Kota, Indonesia' }}
+            {{ $contact->alamat ?? 'Jl. Tiban Koperasi Blok D No. 57, Tiban Indah, Sekupang, Kepulauan Riau' }}
           </div>
         </div>
         <div class="footer-contact-item">
           <div class="footer-contact-icon"><i class="bi bi-telephone"></i></div>
           <div class="footer-contact-text">
             <strong>Telepon / WhatsApp</strong>
-            {{ $contact->no_wa ?? '+62 812 3456 7890' }}
+            {{ $contact->no_wa ?? '0822-8031-2127' }}
           </div>
         </div>
         <div class="footer-contact-item">
           <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
           <div class="footer-contact-text">
             <strong>Email</strong>
-            {{ $contact->email ?? 'info@rosterdinding.com' }}
+            {{ $contact->email ?? 'berkaryajasainspeksi@gmail.com' }}
           </div>
         </div>
         <div class="footer-contact-item">
@@ -1921,7 +2073,7 @@
     <div class="footer-divider"></div>
 
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 footer-bottom">
-      <span>© 2026 Roster Dinding Minimalis. Hak cipta dilindungi.</span>
+      <span>© 2026 PT Berkarya Jasa Inspeksi. Hak cipta dilindungi.</span>
       <div class="d-flex gap-3">
         <a href="#">Kebijakan Privasi</a>
         <a href="#">Syarat & Ketentuan</a>
@@ -1994,8 +2146,8 @@
   const navbar = document.querySelector('.navbar-main');
   window.addEventListener('scroll', () => {
     navbar.style.boxShadow = window.scrollY > 20
-      ? '0 4px 30px rgba(60,30,10,0.15)'
-      : '0 2px 20px rgba(60,30,10,0.08)';
+      ? '0 4px 30px rgba(13,27,61,0.15)'
+      : '0 2px 20px rgba(13,27,61,0.08)';
   });
 </script>
 

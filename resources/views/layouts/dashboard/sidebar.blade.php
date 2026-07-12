@@ -11,10 +11,10 @@
           </li><!-- End Dashboard Nav -->
 
           <li class="nav-item">
-        <a class="nav-link {{ Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{ Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>frontend</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+        <ul id="components-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Banner</span>
@@ -36,6 +36,16 @@
             </a>
           </li>
           <li>
+            <a href="{{ route('visimisi.index') }}" class="{{ Route::is('visimisi.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Visi & Misi</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('nilaiperusahaan.index') }}" class="{{ Route::is('nilaiperusahaan.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Nilai Perusahaan</span>
+            </a>
+          </li>
+          <li>
             <a href="{{ route('milestone.index') }}" class="{{ Route::is('milestone.*') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Milestone</span>
             </a>
@@ -45,44 +55,23 @@
               <i class="bi bi-circle"></i><span>Keunggulan</span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('layanan.index') }}" class="{{ Route::is('layanan.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Layanan</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('struktur-organisasi.index') }}" class="{{ Route::is('struktur-organisasi.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Struktur Organisasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('partner.index') }}" class="{{ Route::is('partner.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Partner</span>
+            </a>
+          </li>
         </ul>
       </li>
-          <li class="nav-item">
-              <a class="nav-link {{ Route::is('booking.*') ? '' : 'collapsed' }}" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-journal-text"></i><span>Booking</span><i class="bi bi-chevron-down ms-auto"></i>
-              </a>
-              <ul id="forms-nav" class="nav-content collapse {{ Route::is('booking.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                  <li>
-                      <a href="{{ route('booking.index') }}" class="{{ Route::is('booking.index') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>All Booking</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('booking.create') }}" class="{{ Route::is('booking.create') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Create Booking</span>
-                      </a>
-                  </li>
-              </ul>
-          </li><!-- End Booking Nav -->
-
-          <li class="nav-item">
-              <a class="nav-link {{ Route::is('product.*') || Route::is('product-image.*') ? '' : 'collapsed' }}" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-layout-text-window-reverse"></i><span>Produk</span><i
-                      class="bi bi-chevron-down ms-auto"></i>
-              </a>
-              <ul id="tables-nav" class="nav-content collapse {{ Route::is('product.*') || Route::is('product-image.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                  <li>
-                      <a href="{{ route('product.index') }}" class="{{ Route::is('product.index') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>All Produk</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('product-image.index') }}" class="{{ Route::is('product-image.index') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Product Image</span>
-                      </a>
-                  </li>
-              </ul>
-          </li><!-- End Tables Nav -->
 
           <li class="nav-item">
               <a class="nav-link {{ Route::is('news.*') ? '' : 'collapsed' }}" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
@@ -123,13 +112,6 @@
           <li class="nav-heading">Pages</li>
 
           <li class="nav-item">
-              <a class="nav-link {{ Route::is('kategori.*') ? '' : 'collapsed' }}"
-                  href="{{ route('kategori.index') }}">
-                  <i class="bi bi-bookmark"></i>
-                  <span>Kategori Produk</span>
-              </a>
-          </li>
-          <li class="nav-item">
               <a class="nav-link {{ Route::is('profil.*') ? '' : 'collapsed' }}" href="{{ route('profil.index') }}">
                   <i class="bi bi-person"></i>
                   <span>Profile</span>
@@ -140,13 +122,6 @@
               <a class="nav-link {{ Route::is('contact.*') ? '' : 'collapsed' }}" href="{{ route('contact.index') }}">
                   <i class="bi bi-telephone"></i>
                   <span>Kontak</span>
-              </a>
-          </li>
-
-          <li class="nav-item">
-              <a class="nav-link {{ Route::is('nomoradmin.*') ? '' : 'collapsed' }}" href="{{ route('nomoradmin.index') }}">
-                  <i class="bi bi-person-badge"></i>
-                  <span>Nomor Admin</span>
               </a>
           </li>
 

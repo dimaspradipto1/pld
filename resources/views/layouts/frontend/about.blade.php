@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tentang Kami — Roster Dinding Minimalis')
-@section('meta_description', 'Ketahui lebih dalam tentang Roster Dinding Minimalis, distributor resmi bata ventilasi dan roster beton dekoratif berkualitas tinggi sejak 2016.')
-@section('meta_keywords', 'roster dinding, tentang roster dinding, profil roster, bata ventilasi, sejarah roster minimalis')
+@section('title', 'Tentang Kami — PT Berkarya Jasa Inspeksi (BJI)')
+@section('meta_description', 'Kenali lebih dekat PT Berkarya Jasa Inspeksi (BJI), perusahaan jasa keselamatan dan kesehatan kerja (K3) — profil, visi misi, nilai perusahaan, dan struktur organisasi kami.')
+@section('meta_keywords', 'tentang bji, profil perusahaan k3, visi misi k3, struktur organisasi, berkarya jasa inspeksi')
 
 @section('content')
 @php
@@ -46,25 +46,14 @@
       <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
         <div class="about-visual">
           <div class="about-img-main">
-            <!-- Roster Grid Visual -->
-            <div class="about-roster-grid">
-              @php
-                $filledCells = [1,2,4,5,7,8,9,11,13,14,16,17,19,20,22,23,25,26,28,29];
-                $holeCells = [3,6,10,12,15,18,21,24,27,30];
-              @endphp
-              @for($i = 1; $i <= 30; $i++)
-                @if(in_array($i, $holeCells))
-                  <div class="r hole"></div>
-                @elseif(in_array($i, $filledCells))
-                  <div class="r filled"></div>
-                @else
-                  <div class="r"></div>
-                @endif
-              @endfor
-            </div>
-            <!-- Label overlay -->
-            <div style="position:absolute; bottom:24px; left:50%; transform:translateX(-50%); text-align:center;">
-              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:rgba(193,68,14,0.7); letter-spacing:1px; text-transform:uppercase;">Pola Estetis Roster</div>
+            <span class="tech-corner tl"></span>
+            <span class="tech-corner tr"></span>
+            <span class="tech-corner bl"></span>
+            <span class="tech-corner br"></span>
+            <div class="tech-panel-content">
+              <div class="tech-panel-icon"><i class="bi bi-shield-fill-check"></i></div>
+              <div class="tech-panel-title">Standar K3 Nasional</div>
+              <div class="tech-panel-sub">Permenaker &amp; Kemnaker Compliant</div>
             </div>
           </div>
         </div>
@@ -72,10 +61,10 @@
 
       <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800">
         <div class="section-label">Profil Perusahaan</div>
-        <h2 class="section-title">{{ $about->judul_profil ?? 'Dedikasi Terhadap' }} <em>Keindahan & Sirkulasi Udara Alami</em></h2>
+        <h2 class="section-title">{!! $about->judul_profil ?? 'Perusahaan Jasa <em>Keselamatan dan Kesehatan Kerja</em>' !!}</h2>
         <div class="divider-line"></div>
         <p class="section-desc mb-4" style="text-align: justify;">
-          {{ $about->deskripsi_profil_1 ?? 'Roster Dinding Minimalis didirikan pada tahun 2016 berawal dari sebuah keyakinan sederhana: bahwa sirkulasi udara alami dan pencahayaan matahari dapat dipadukan secara harmonis dengan nilai estetika arsitektur modern. Kami memahami bahwa rumah bukan sekadar tempat berlindung, melainkan mahakarya visual yang hidup.' }}
+          {{ $about->deskripsi_profil_1 ?? 'PT Berkarya Jasa Inspeksi adalah perusahaan jasa keselamatan dan kesehatan kerja. Bergerak di bidang pemeriksaan uji kelayakan peralatan, konsultasi, sertifikasi, kalibrasi, dan perpanjangan lisensi peralatan. Kegiatan kami adalah memastikan bahwa peralatan sudah benar dan sesuai dengan standar K3 yang berlaku sesuai dengan peraturan perundang-undangan.' }}
         </p>
         @if($about?->deskripsi_profil_2)
         <p class="section-desc mb-4" style="text-align: justify;">
@@ -90,7 +79,7 @@
 <!-- ═══════════════════════════════════════════════
      VISI & MISI
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-sand roster-pattern">
+<section class="section-bg-sand tech-grid-pattern">
   <div class="container">
     <div class="row g-4 justify-content-center">
       <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -99,9 +88,18 @@
             <i class="bi {{ $about->visi_icon ?? 'bi-eye' }}"></i>
           </div>
           <div class="value-title" style="font-size:22px;">{{ $about->visi_judul ?? 'Visi Kami' }}</div>
-          <p class="value-desc" style="font-size:15px; line-height:1.8; text-align: justify;">
-            {{ $about->visi ?? 'Menjadi distributor roster dinding dan bata ventilasi terdepan di Indonesia yang dikenal karena keunggulan kualitas material, keragaman motif arsitektural, dan integritas pelayanan yang menginspirasi keindahan setiap ruang tinggal.' }}
-          </p>
+          @php $visiPoin = $visiMisis['visi'] ?? collect(); @endphp
+          @if($visiPoin->count())
+            @foreach($visiPoin as $v)
+              <p class="value-desc" style="font-size:15px; line-height:1.8; text-align: justify;">
+                {{ $v->isi }}
+              </p>
+            @endforeach
+          @else
+            <p class="value-desc" style="font-size:15px; line-height:1.8; text-align: justify;">
+              Menjadi mitra bisnis terpercaya untuk layanan inspeksi, pengujian, dan sertifikasi di bidang keselamatan dan kesehatan kerja.
+            </p>
+          @endif
         </div>
       </div>
 
@@ -112,14 +110,15 @@
           </div>
           <div class="value-title" style="font-size:22px;">{{ $about->misi_judul ?? 'Misi Kami' }}</div>
           @php
-            $misiPoin = $about?->misi
-              ? array_filter(array_map('trim', explode("\n", $about->misi)))
-              : [
-                  'Menyediakan produk roster dekoratif kualitas premium bersertifikat SNI dengan daya tahan optimal terhadap cuaca tropis.',
-                  'Menawarkan ragam motif roster inovatif yang mengikuti perkembangan tren arsitektur dunia.',
-                  'Memberikan konsultasi gratis dan estimasi kebutuhan yang akurat demi efisiensi biaya proyek konsumen.',
-                  'Mengirimkan pesanan tepat waktu dan aman menggunakan armada khusus untuk menjaga kualitas fisik barang hingga lokasi tujuan.',
-                ];
+            $misiPoin = ($visiMisis['misi'] ?? collect())->pluck('isi');
+            if ($misiPoin->isEmpty()) {
+              $misiPoin = collect([
+                'Meningkatkan kualitas SDM di bidang K3.',
+                'Meningkatkan pengujian, pelayanan teknis, dan informasi di bidang K3.',
+                'Meningkatkan kualitas pelaksanaan, pembinaan, dan pengawasan Keselamatan dan Kesehatan Kerja dalam mewujudkan upaya kinerja K3 yang optimal.',
+                'Menjadi mitra terpercaya bagi klien dan instansi pemerintahan untuk meningkatkan efisiensi dan produktivitas.',
+              ]);
+            }
           @endphp
           <ul class="value-desc" style="font-size:14.5px; line-height:1.75; padding-left: 20px; text-align: justify; margin: 0;">
             @foreach($misiPoin as $poin)
@@ -135,55 +134,176 @@
 <!-- ═══════════════════════════════════════════════
      NILAI-NILAI UTAMA
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white">
-  <div class="container">
+<section class="section-bg-white nilai-interactive-section position-relative overflow-hidden">
+  
+  <!-- Wave Backgrounds (Desktop Only) -->
+  <div class="nilai-waves-bg d-none d-lg-block">
+    <svg viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left Red Wave (extends to the center-right to overlap) -->
+      <path d="M 0,220 C 350,150 500,450 780,420 C 950,400 1150,250 1440,300 L 1440,600 L 0,600 Z" fill="url(#red-grad)" opacity="0.9" />
+      
+      <!-- Right Blue Wave (extends to the center-left to overlap) -->
+      <path d="M 1440,250 C 1100,180 950,450 680,430 C 500,410 300,220 0,350 L 0,600 L 1440,600 Z" fill="url(#blue-grad)" opacity="0.92" />
+      
+      <defs>
+        <linearGradient id="red-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#DA251D" />
+          <stop offset="100%" stop-color="#EA4C44" />
+        </linearGradient>
+        <linearGradient id="blue-grad" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#002060" />
+          <stop offset="100%" stop-color="#0090DF" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="container position-relative" style="z-index: 10;">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Nilai Utama Kami</div>
-      <h2 class="section-title">{{ $about->judul_nilai ?? 'Prinsip Kerja yang Kami' }} <em>Pegang Teguh</em></h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto">
-        {{ $about->deskripsi_nilai ?? 'Kualitas dan kepercayaan bukanlah sebuah kebetulan, melainkan hasil dari komitmen terhadap nilai-nilai yang kami terapkan setiap hari.' }}
-      </p>
+      <div class="nilai-label-wrap">
+        <span class="nilai-label-text">NILAI PERUSAHAAN</span>
+        <div class="nilai-label-line"></div>
+      </div>
+      <h2 class="nilai-title-text">{{ $about->judul_nilai ?? 'Nilai yang Kami' }} <span class="text-red">Pegang Teguh</span></h2>
+      <div class="nilai-title-line"></div>
+      @if(isset($about->deskripsi_nilai))
+        <p class="section-desc mx-auto mt-3" style="max-width: 700px; color: var(--muted); font-size: 15px;">
+          {{ $about->deskripsi_nilai }}
+        </p>
+      @endif
     </div>
 
-<div class="row g-4">
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="value-card">
-          <div class="value-icon-wrap">
-            <i class="bi {{ $about->nilai_1_icon ?? 'bi-shield-fill-check' }}"></i>
-          </div>
-          <div class="value-title">{{ $about->nilai_1_judul ?? 'Kualitas Bersertifikasi' }}</div>
-          <p class="value-desc">{{ $about->nilai_1_deskripsi ?? 'Produk kami melalui proses kontrol kualitas ketat untuk memastikan kekuatan beton prima dan sudut presisi standar SNI.' }}</p>
+    @php
+      $safety = $nilaiPerusahaans->where('urutan', 1)->first() ?? $nilaiPerusahaans->first();
+      $integrity = $nilaiPerusahaans->where('urutan', 2)->first() ?? $nilaiPerusahaans->skip(1)->first();
+      $profesional = $nilaiPerusahaans->where('urutan', 3)->first() ?? $nilaiPerusahaans->skip(2)->first();
+      $sinergi = $nilaiPerusahaans->where('urutan', 4)->first() ?? $nilaiPerusahaans->skip(3)->first();
+    @endphp
+
+    <!-- Interactive Grid Layout for Desktop -->
+    <div class="nilai-interactive-grid d-none d-lg-grid">
+      <!-- SVG Lines Overlay -->
+      <svg class="nilai-grid-curves" viewBox="0 0 1140 620" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Safety to Left Shoulder -->
+        @if($safety)
+        <path d="M 330,110 Q 430,110 500,230" stroke="#76C143" stroke-width="2.5" stroke-dasharray="5,5" fill="none" />
+        <circle cx="330" cy="110" r="5" fill="#76C143" />
+        @endif
+
+        <!-- Integrity to Right Shoulder -->
+        @if($integrity)
+        <path d="M 810,110 Q 710,110 640,230" stroke="#0090DF" stroke-width="2.5" stroke-dasharray="5,5" fill="none" />
+        <circle cx="810" cy="110" r="5" fill="#0090DF" />
+        @endif
+
+        <!-- Profesional to Bottom Left -->
+        @if($profesional)
+        <path d="M 330,470 Q 430,470 500,340" stroke="#DA251D" stroke-width="2.5" stroke-dasharray="5,5" fill="none" />
+        <circle cx="330" cy="470" r="5" fill="#DA251D" />
+        @endif
+
+        <!-- Sinergi to Bottom Right -->
+        @if($sinergi)
+        <path d="M 810,470 Q 710,470 640,340" stroke="#002060" stroke-width="2.5" stroke-dasharray="5,5" fill="none" />
+        <circle cx="810" cy="470" r="5" fill="#002060" />
+        @endif
+      </svg>
+
+      <!-- Left Column -->
+      <div class="nilai-col nilai-col-left">
+        <!-- Safety -->
+        @if($safety)
+        <div class="nilai-card-interactive" data-aos="fade-right" data-aos-delay="100">
+          <h3 class="nilai-card-title text-lg-end text-start">{{ $safety->judul }}</h3>
+          <p class="nilai-card-desc text-lg-end text-start">{{ $safety->deskripsi }}</p>
+        </div>
+        @endif
+
+        <!-- Profesional -->
+        @if($profesional)
+        <div class="nilai-card-interactive" data-aos="fade-right" data-aos-delay="300">
+          <h3 class="nilai-card-title text-lg-end text-start">{{ $profesional->judul }}</h3>
+          <p class="nilai-card-desc text-lg-end text-start">{{ $profesional->deskripsi }}</p>
+        </div>
+        @endif
+      </div>
+
+      <!-- Center Column -->
+      <div class="nilai-col nilai-col-center">
+        @php
+          $teamPhotoPath = 'frontend/img/nilai-tim.png';
+          $teamPhotoExists = file_exists(public_path($teamPhotoPath));
+        @endphp
+        <div class="nilai-center-image-wrap" data-aos="zoom-in" data-aos-delay="200">
+          @if($teamPhotoExists)
+            <img src="{{ asset($teamPhotoPath) }}" alt="Tim K3 PT Berkarya Jasa Inspeksi" class="nilai-center-img">
+          @else
+            <div class="nilai-center-placeholder">
+              <i class="bi bi-people-fill"></i>
+              <span>Tim K3 BJI</span>
+            </div>
+          @endif
         </div>
       </div>
 
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
-        <div class="value-card">
-          <div class="value-icon-wrap">
-            <i class="bi {{ $about->nilai_2_icon ?? 'bi-palette-fill' }}"></i>
-          </div>
-          <div class="value-title">{{ $about->nilai_2_judul ?? 'Keanekaragaman Motif' }}</div>
-          <p class="value-desc">{{ $about->nilai_2_deskripsi ?? 'Kami menghadirkan lebih dari 50+ pilihan motif eksklusif mulai dari gaya klasik, minimalis geometric, hingga motif etnik modern.' }}</p>
+      <!-- Right Column -->
+      <div class="nilai-col nilai-col-right">
+        <!-- Integrity -->
+        @if($integrity)
+        <div class="nilai-card-interactive" data-aos="fade-left" data-aos-delay="100">
+          <h3 class="nilai-card-title text-lg-start text-start">{{ $integrity->judul }}</h3>
+          <p class="nilai-card-desc text-lg-start text-start">{{ $integrity->deskripsi }}</p>
         </div>
-      </div>
+        @endif
 
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="value-card">
-          <div class="value-icon-wrap">
-            <i class="bi {{ $about->nilai_3_icon ?? 'bi-people-fill' }}"></i>
-          </div>
-          <div class="value-title">{{ $about->nilai_3_judul ?? 'Fokus pada Pelanggan' }}</div>
-          <p class="value-desc">{{ $about->nilai_3_deskripsi ?? 'Tim kami berorientasi pada kepuasan pelanggan dengan merespons cepat setiap pertanyaan dan membantu kalkulasi kebutuhan.' }}</p>
+        <!-- Sinergi -->
+        @if($sinergi)
+        <div class="nilai-card-interactive" data-aos="fade-left" data-aos-delay="300">
+          <h3 class="nilai-card-title text-lg-start text-start">{{ $sinergi->judul }}</h3>
+          <p class="nilai-card-desc text-lg-start text-start">{{ $sinergi->deskripsi }}</p>
         </div>
+        @endif
       </div>
+    </div>
 
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="400">
-        <div class="value-card">
-          <div class="value-icon-wrap">
-            <i class="bi {{ $about->nilai_4_icon ?? 'bi-truck-flatbed' }}"></i>
+    <!-- Mobile Stack Layout (for screens < 992px) -->
+    <div class="d-block d-lg-none">
+      <div class="row g-4 justify-content-center">
+        <!-- Center Image on top for Mobile -->
+        <div class="col-md-8 text-center mb-4">
+          @php
+            $teamPhotoPath = 'frontend/img/nilai-tim.png';
+            $teamPhotoExists = file_exists(public_path($teamPhotoPath));
+          @endphp
+          <div class="nilai-center-image-wrap-mobile" data-aos="zoom-in">
+            @if($teamPhotoExists)
+              <img src="{{ asset($teamPhotoPath) }}" alt="Tim K3 PT Berkarya Jasa Inspeksi" class="img-fluid rounded-4 shadow-sm" style="max-width: 450px;">
+            @else
+              <div class="nilai-center-placeholder-mobile py-5">
+                <i class="bi bi-people-fill fs-1"></i>
+                <div>Tim K3 BJI</div>
+              </div>
+            @endif
           </div>
-          <div class="value-title">{{ $about->nilai_4_judul ?? 'Distribusi Aman' }}</div>
-          <p class="value-desc">{{ $about->nilai_4_deskripsi ?? 'Didukung logistik profesional, pengiriman dijamin aman dan minim risiko pecah di jalan. Kami garansi 100% jika ada kerusakan.' }}</p>
+        </div>
+        
+        <!-- Cards List for Mobile -->
+        <div class="col-12">
+          <div class="row g-3">
+            @foreach($nilaiPerusahaans as $index => $nilai)
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+                <div class="nilai-mobile-card p-4">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="nilai-mobile-icon">
+                      <i class="bi {{ $nilai->icon }}"></i>
+                    </div>
+                    <h4 class="nilai-mobile-title mb-0">{{ $nilai->judul }}</h4>
+                  </div>
+                  <p class="nilai-mobile-desc mb-0">{{ $nilai->deskripsi }}</p>
+                </div>
+              </div>
+            @endforeach
+          </div>
         </div>
       </div>
     </div>
@@ -191,16 +311,37 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     STRUKTUR ORGANISASI
+═══════════════════════════════════════════════ -->
+@if(isset($struktur) && $struktur->url_struktur)
+<section class="section-bg-sand">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label mx-auto">Struktur Organisasi</div>
+      <h2 class="section-title">Susunan <em>Organisasi</em> Kami</h2>
+      <div class="divider-line centered"></div>
+    </div>
+
+    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+      <div class="struktur-img-wrap p-3 bg-white rounded-4 shadow-sm d-inline-block">
+        <img src="{{ asset($struktur->url_struktur) }}" alt="Struktur Organisasi PT Berkarya Jasa Inspeksi" class="img-fluid rounded-3" style="max-height: 600px;">
+      </div>
+    </div>
+  </div>
+</section>
+@endif
+
+<!-- ═══════════════════════════════════════════════
      TIMELINE PERJALANAN
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-cream roster-pattern">
+<section class="section-bg-cream tech-grid-pattern">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Milestone</div>
       <h2 class="section-title">Perjalanan & <em>Perkembangan</em> Kami</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Jejak langkah kami dalam menghadirkan estetika dinding roster terbaik untuk jutaan bangunan di Indonesia.
+        Jejak langkah kami dalam menghadirkan layanan Riksa Uji, kalibrasi, dan sertifikasi K3 terpercaya.
       </p>
     </div>
 
@@ -229,44 +370,44 @@
     <div class="row align-items-center g-5">
       <div class="col-xl-7" data-aos="fade-right">
         <div class="section-label" style="color: var(--clay);">Hubungi Kami</div>
-        <h2 class="cta-title">Tertarik Menggunakan<br><em>Roster Dinding</em> untuk Hunian Anda?</h2>
+        <h2 class="cta-title">Butuh Layanan<br><em>Riksa Uji K3</em> Terpercaya?</h2>
         <p class="cta-desc">
-          Konsultasikan kebutuhan motif, warna, dan kuantitas roster dinding Anda dengan tim ahli kami.
-          Dapatkan gratis penawaran harga terbaik serta panduan instalasi!
+          Konsultasikan kebutuhan Riksa Uji, kalibrasi, dan sertifikasi peralatan Anda dengan tim ahli kami.
+          Konsultasi gratis dan proses sesuai standar Permenaker!
         </p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" class="btn-primary-hero" target="_blank">
+          <a href="https://wa.me/{{ $cleanWa ?? '6282280312127' }}" class="btn-primary-hero" target="_blank">
             <i class="bi bi-whatsapp"></i>
             Konsultasi WhatsApp
           </a>
-          <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" class="btn-outline-hero" target="_blank">
+          <a href="https://wa.me/{{ $cleanWa ?? '6282280312127' }}" class="btn-outline-hero" target="_blank">
             <i class="bi bi-telephone"></i>
-            {{ $contact->no_wa ?? '+62 812 3456 7890' }}
+            {{ $contact->no_wa ?? '0822-8031-2127' }}
           </a>
         </div>
       </div>
       <div class="col-xl-5" data-aos="fade-left">
         <div class="d-flex flex-column gap-3">
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(228,3,46,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-geo-alt-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
               <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; color:white; margin-bottom:4px;">Kantor Utama</div>
-              <div style="font-size:13px; color:rgba(255,255,255,0.5);">{{ $contact->alamat ?? 'Jl. Industri No. 123, Kota, Indonesia' }}</div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.5);">{{ $contact->alamat ?? 'Jl. Tiban Koperasi Blok D No. 57, Tiban Indah, Sekupang, Kepulauan Riau' }}</div>
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(228,3,46,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-envelope-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
               <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; color:white; margin-bottom:4px;">Email Resmi</div>
-              <div style="font-size:13px; color:rgba(255,255,255,0.5);">{{ $contact->email ?? 'info@rosterdinding.com' }}</div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.5);">{{ $contact->email ?? 'berkaryajasainspeksi@gmail.com' }}</div>
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(228,3,46,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-clock-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
@@ -280,3 +421,79 @@
   </div>
 </div>
 @endsection
+
+@push('styles')
+<style>
+  .nilai-team-visual {
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nilai-team-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .nilai-team-placeholder {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+      var(--charcoal);
+    background-size: 28px 28px, 28px 28px, auto;
+    color: rgba(255,255,255,0.35);
+  }
+  .nilai-team-placeholder i { font-size: 48px; }
+  .nilai-team-placeholder span {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .struktur-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 22px;
+    text-align: center;
+    min-width: 170px;
+    box-shadow: 0 4px 16px rgba(13,27,61,0.05);
+  }
+  .struktur-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .struktur-jabatan {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  .struktur-nama {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .struktur-connector {
+    width: 2px;
+    height: 24px;
+    background: var(--border);
+  }
+</style>
+@endpush

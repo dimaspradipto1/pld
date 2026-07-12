@@ -14,27 +14,27 @@ class FeatureSeeder extends Seeder
     {
         $features = [
             [
-                'icon'      => 'bi-grid-3x3-gap-fill',
-                'judul'     => 'Motif Terlengkap',
-                'deskripsi' => 'Tersedia 50+ pilihan motif roster dari minimalis modern hingga premium klasik, cocok untuk berbagai konsep arsitektur.',
+                'icon'      => 'bi-patch-check-fill',
+                'judul'     => 'Bersertifikat & Terpercaya',
+                'deskripsi' => 'Seluruh hasil Riksa Uji kami diakui secara hukum sesuai Permenaker yang berlaku dan diterbitkan oleh ahli K3 berkompeten.',
                 'urutan'    => 1,
             ],
             [
-                'icon'      => 'bi-award',
-                'judul'     => 'Bersertifikat SNI',
-                'deskripsi' => 'Seluruh produk kami telah memenuhi standar SNI dan teruji kekuatan serta ketahanan materialnya untuk jangka panjang.',
+                'icon'      => 'bi-tools',
+                'judul'     => 'Metode Pengujian Standar',
+                'deskripsi' => 'Menggunakan metode Non Destructive Test (NDT) dan prosedur pemeriksaan sesuai standar nasional yang berlaku.',
                 'urutan'    => 2,
             ],
             [
-                'icon'      => 'bi-currency-dollar',
-                'judul'     => 'Harga Kompetitif',
-                'deskripsi' => 'Harga grosir langsung dari distributor resmi. Dapatkan penawaran terbaik untuk pembelian partai besar dengan diskon menarik.',
+                'icon'      => 'bi-file-earmark-check',
+                'judul'     => 'Laporan Lengkap & Tepat Waktu',
+                'deskripsi' => 'Laporan hasil pemeriksaan dan pengujian disusun lengkap beserta kesimpulan dan saran, diserahkan tepat waktu.',
                 'urutan'    => 3,
             ],
             [
-                'icon'      => 'bi-headset',
-                'judul'     => 'Konsultasi Gratis',
-                'deskripsi' => 'Tim ahli kami siap membantu Anda memilih jenis dan motif roster yang tepat sesuai desain dan kebutuhan bangunan Anda.',
+                'icon'      => 'bi-people-fill',
+                'judul'     => 'Tim Ahli K3 Berkompeten',
+                'deskripsi' => 'Didukung tenaga ahli K3 berpengalaman yang siap membantu konsultasi kebutuhan inspeksi dan sertifikasi Anda.',
                 'urutan'    => 4,
             ],
         ];

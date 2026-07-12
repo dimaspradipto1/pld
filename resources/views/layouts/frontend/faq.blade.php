@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Frequently Asked Questions (FAQ) — Roster Dinding Minimalis')
-@section('meta_description', 'Temukan jawaban cepat atas pertanyaan yang sering diajukan mengenai produk roster dinding, bata ventilasi, metode pembayaran, pengiriman, dan garansi.')
-@section('meta_keywords', 'faq roster, tanya jawab roster, informasi pengiriman roster, garansi roster pecah, kustom roster')
+@section('title', 'Frequently Asked Questions (FAQ) — PT Berkarya Jasa Inspeksi')
+@section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar layanan Riksa Uji K3, kalibrasi, sertifikasi, legalitas, dan jadwal layanan PT Berkarya Jasa Inspeksi.')
+@section('meta_keywords', 'faq riksa uji, tanya jawab k3, sertifikasi k3, jadwal riksa uji, ndt, pjk3')
 
 @section('content')
 @php
@@ -40,7 +40,7 @@
 <!-- ═══════════════════════════════════════════════
      FAQ ACCORDION SECTION
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white roster-pattern">
+<section class="section-bg-white tech-grid-pattern">
   <div class="container">
     
     <!-- Search Bar -->
@@ -52,14 +52,14 @@
     <div class="row justify-content-center">
       <div class="col-lg-10">
         
-        <!-- Category 1: Pemesanan & Pembayaran -->
+        <!-- Category 1: Layanan & Ruang Lingkup -->
         <div class="faq-category-group mb-5" data-aos="fade-up">
           <h3 class="faq-cat-title">
-            <i class="bi bi-cart-check-fill text-terracotta"></i>
-            Pemesanan & Pembayaran
+            <i class="bi bi-clipboard2-check text-terracotta"></i>
+            Layanan & Ruang Lingkup
           </h3>
 
-          @forelse($faqs->where('category', 'pemesanan') as $index => $faq)
+          @forelse($faqs->where('category', 'layanan') as $index => $faq)
             <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
               <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
                 <span>{{ $faq->question }}</span>
@@ -74,14 +74,14 @@
           @endforelse
         </div>
 
-        <!-- Category 2: Spesifikasi & Kustomisasi -->
+        <!-- Category 2: Sertifikasi & Legalitas -->
         <div class="faq-category-group mb-5" data-aos="fade-up">
           <h3 class="faq-cat-title">
-            <i class="bi bi-bricks text-terracotta"></i>
-            Spesifikasi & Kustomisasi Produk
+            <i class="bi bi-patch-check-fill text-terracotta"></i>
+            Sertifikasi & Legalitas
           </h3>
 
-          @forelse($faqs->where('category', 'spesifikasi') as $index => $faq)
+          @forelse($faqs->where('category', 'sertifikasi') as $index => $faq)
             <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
               <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
                 <span>{{ $faq->question }}</span>
@@ -96,14 +96,14 @@
           @endforelse
         </div>
 
-        <!-- Category 3: Distribusi & Garansi -->
+        <!-- Category 3: Jadwal & Area Kerja -->
         <div class="faq-category-group mb-4" data-aos="fade-up">
           <h3 class="faq-cat-title">
-            <i class="bi bi-truck text-terracotta"></i>
-            Pengiriman & Klaim Garansi
+            <i class="bi bi-calendar-check text-terracotta"></i>
+            Jadwal & Area Kerja
           </h3>
 
-          @forelse($faqs->where('category', 'pengiriman') as $index => $faq)
+          @forelse($faqs->where('category', 'jadwal') as $index => $faq)
             <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
               <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
                 <span>{{ $faq->question }}</span>
@@ -134,10 +134,10 @@
         <div class="section-label" style="color: var(--clay);">Hubungi Kami</div>
         <h2 class="cta-title">Masih Memiliki<br><em>Pertanyaan Lain</em> yang Belum Terjawab?</h2>
         <p class="cta-desc">
-          Jangan ragu untuk berkonsultasi langsung dengan perwakilan resmi kami. Tim ahli kami siap membantu menjelaskan detail teknis pemasangan, spesifikasi material, hingga penawaran diskon khusus proyek Anda.
+          Jangan ragu untuk berkonsultasi langsung dengan tim ahli K3 kami. Kami siap membantu menjelaskan ruang lingkup Riksa Uji, dasar hukum, hingga jadwal pemeriksaan yang sesuai kebutuhan Anda.
         </p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" class="btn-primary-hero" target="_blank">
+          <a href="https://wa.me/{{ $cleanWa ?? '6282280312127' }}" class="btn-primary-hero" target="_blank">
             <i class="bi bi-whatsapp"></i>
             Hubungi Lewat WhatsApp
           </a>
