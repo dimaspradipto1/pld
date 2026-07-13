@@ -40,11 +40,10 @@ class FrontendController extends Controller
     public function tentang()
     {
         $about               = \App\Models\About::first();
-        $milestones          = \App\Models\Milestone::orderBy('tahun')->get();
         $struktur            = \App\Models\StrukturOrganisasi::first();
         $visiMisis           = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
         $nilaiPerusahaans    = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
-        return view('layouts.frontend.about', compact('about', 'milestones', 'struktur', 'visiMisis', 'nilaiPerusahaans'));
+        return view('layouts.frontend.about', compact('about', 'struktur', 'visiMisis', 'nilaiPerusahaans'));
     }
 
     public function testimoni()

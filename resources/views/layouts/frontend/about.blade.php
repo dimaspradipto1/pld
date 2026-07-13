@@ -331,36 +331,6 @@
 </section>
 @endif
 
-<!-- ═══════════════════════════════════════════════
-     TIMELINE PERJALANAN
-═══════════════════════════════════════════════ -->
-<section class="section-bg-cream tech-grid-pattern">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Milestone</div>
-      <h2 class="section-title">Perjalanan & <em>Perkembangan</em> Kami</h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto">
-        Jejak langkah kami dalam menghadirkan layanan Riksa Uji, kalibrasi, dan sertifikasi K3 terpercaya.
-      </p>
-    </div>
-
-    <div class="timeline">
-      @forelse($milestones as $ms)
-        @php $side = $loop->iteration % 2 === 1 ? 'left' : 'right'; @endphp
-        <div class="timeline-container {{ $side }}" data-aos="{{ $side === 'left' ? 'fade-right' : 'fade-left' }}">
-          <div class="timeline-content">
-            <div class="timeline-year">{{ $ms->tahun }}</div>
-            <div class="timeline-title">{{ $ms->judul }}</div>
-            <p class="timeline-text">{{ $ms->deskripsi }}</p>
-          </div>
-        </div>
-      @empty
-        <p class="text-center text-muted">Belum ada data milestone.</p>
-      @endforelse
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════════
      CTA SECTION
