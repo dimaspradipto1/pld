@@ -1965,6 +1965,7 @@
           <li class="nav-item"><a href="{{ route('homepage.layanan') }}" class="nav-link nav-link-custom">Layanan</a></li>
           <li class="nav-item"><a href="{{ route('homepage.tentang') }}" class="nav-link nav-link-custom">Tentang</a></li>
           <li class="nav-item"><a href="{{ route('homepage.struktur-organisasi') }}" class="nav-link nav-link-custom">Struktur</a></li>
+          <li class="nav-item"><a href="{{ route('homepage.galeri') }}" class="nav-link nav-link-custom">Galeri</a></li>
           <li class="nav-item"><a href="{{ route('homepage.news') }}" class="nav-link nav-link-custom">Berita</a></li>
           <li class="nav-item"><a href="{{ route('homepage.testimoni') }}" class="nav-link nav-link-custom">Testimoni</a></li>
           <li class="nav-item"><a href="{{ route('homepage.faq') }}" class="nav-link nav-link-custom">FAQ</a></li>
@@ -2022,6 +2023,7 @@
           <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Layanan</a></li>
           <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
           <li><a href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-chevron-right"></i> Struktur Organisasi</a></li>
+          <li><a href="{{ route('homepage.galeri') }}"><i class="bi bi-chevron-right"></i> Galeri</a></li>
           <li><a href="{{ route('homepage.news') }}"><i class="bi bi-chevron-right"></i> Berita & Artikel</a></li>
           <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Testimoni</a></li>
           <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> FAQ</a></li>

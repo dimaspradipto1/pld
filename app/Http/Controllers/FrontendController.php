@@ -33,7 +33,8 @@ class FrontendController extends Controller
 
     public function galeri()
     {
-        return view('layouts.frontend.homepage');
+        $galleries = \App\Models\Gallery::latest()->get();
+        return view('layouts.frontend.galeri', compact('galleries'));
     }
 
     public function tentang()
