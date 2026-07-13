@@ -11,10 +11,10 @@
           </li><!-- End Dashboard Nav -->
 
           <li class="nav-item">
-        <a class="nav-link {{ Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{ Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Company Profile</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('milestone.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+        <ul id="components-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('testimonial.*') || Route::is('faq.*') || Route::is('about.*') || Route::is('layanan.*') || Route::is('struktur-organisasi.*') || Route::is('partner.*') || Route::is('visimisi.*') || Route::is('nilaiperusahaan.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Banner</span>
@@ -43,11 +43,6 @@
           <li>
             <a href="{{ route('nilaiperusahaan.index') }}" class="{{ Route::is('nilaiperusahaan.*') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Nilai Perusahaan</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('milestone.index') }}" class="{{ Route::is('milestone.*') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Milestone</span>
             </a>
           </li>
           <li>
