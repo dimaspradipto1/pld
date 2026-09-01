@@ -11,6 +11,7 @@ class Prestasi extends Model
     protected $fillable = [
         'foto',
         'judul_prestasi',
+        'slug',
         'nama_mahasiswa',
         'nim',
         'prodi',
@@ -27,4 +28,22 @@ class Prestasi extends Model
         'is_active' => 'boolean',
         'urutan'    => 'integer',
     ];
+
+    protected static function booted()
+    {
+        static::saving(function ($prestasi) {
+            if (empty($prestasi->slug) || $prestasi->isDirty('judul_prestasi')) {
+                $baseSlug = \Illuminate\Support\Str::slug($prestasi->judul_prestasi);
+                $slug = $baseSlug;
+                $counter = 1;
+
+                while (static::where('slug', $slug)->where('id', '!=', $prestasi->id ?? 0)->exists()) {
+                    $slug = "{$baseSlug}-{$counter}";
+                    $counter++;
+                }
+
+                $prestasi->slug = $slug;
+            }
+        });
+    }
 }

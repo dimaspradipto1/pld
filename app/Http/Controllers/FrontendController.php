@@ -300,11 +300,17 @@ class FrontendController extends Controller
         return view('layouts.frontend.prestasi', compact('prestasiList', 'search', 'selectedTingkat', 'selectedProdi', 'tingkatList'));
     }
 
-    public function prestasiDetail($id)
+    public function prestasiDetail($slug)
     {
-        $prestasi = \App\Models\Prestasi::where('is_active', true)->findOrFail($id);
+        $prestasi = \App\Models\Prestasi::where('is_active', true)
+            ->where(function ($q) use ($slug) {
+                $q->where('slug', $slug)
+                  ->orWhere('id', $slug);
+            })
+            ->firstOrFail();
+
         $otherPrestasis = \App\Models\Prestasi::where('is_active', true)
-                            ->where('id', '!=', $id)
+                            ->where('id', '!=', $prestasi->id)
                             ->orderBy('urutan')
                             ->latest('id')
                             ->take(5)

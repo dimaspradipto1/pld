@@ -45,7 +45,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/layanan/{id}', 'layananDetail')->name('homepage.layanan.detail');
     Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/prestasi-mahasiswa', 'prestasi')->name('homepage.prestasi');
-    Route::get('/prestasi-mahasiswa/{id}', 'prestasiDetail')->name('homepage.prestasi.detail');
+    Route::get('/prestasi-mahasiswa/{slug}', 'prestasiDetail')->name('homepage.prestasi.detail');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
     Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
     Route::get('/berita', 'news')->name('homepage.news');

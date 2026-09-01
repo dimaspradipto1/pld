@@ -185,7 +185,7 @@
               <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
                 <div>
                   <h4 class="fw-bold mb-2 text-dark" style="font-size: 16.5px; line-height: 1.45;">
-                    <a href="{{ route('homepage.prestasi.detail', $prestasi->id) }}" class="text-dark text-decoration-none">
+                    <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="text-dark text-decoration-none">
                       {{ $prestasi->judul_prestasi }}
                     </a>
                   </h4>
@@ -217,7 +217,7 @@
                 </div>
 
                 <div class="pt-3 border-top">
-                  <a href="{{ route('homepage.prestasi.detail', $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--fikes-purple); font-size: 13.5px;">
+                  <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--fikes-purple); font-size: 13.5px;">
                     <span>Lihat Selengkapnya</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>

@@ -12,10 +12,11 @@
   }
   .prestasi-img-main {
     width: 100%;
-    max-height: 520px;
-    object-fit: cover;
+    height: auto;
+    display: block;
     border-radius: 20px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
   }
   .info-badge-card {
     background: #ffffff;
@@ -224,7 +225,7 @@
             </h5>
             <div class="d-flex flex-column">
               @foreach($otherPrestasis as $other)
-                <a href="{{ route('homepage.prestasi.detail', $other->id) }}" class="other-prestasi-item">
+                <a href="{{ route('homepage.prestasi.detail', $other->slug ?? $other->id) }}" class="other-prestasi-item">
                   @if(!empty($other->foto))
                     <img src="{{ asset('storage/' . $other->foto) }}" alt="{{ $other->judul_prestasi }}" class="other-prestasi-img">
                   @else
