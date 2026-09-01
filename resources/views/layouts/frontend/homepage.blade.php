@@ -517,27 +517,80 @@
     box-shadow: 0 20px 45px -12px rgba(130, 60, 162, 0.5);
   }
 
-  /* Partner Logo Box */
-  .partner-logo-box {
+  /* BuildWithAngga Style 2-Row Infinite Marquee */
+  .marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 15px 0;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .marquee-track-container {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-left {
+    animation: scrollMarqueeLeft 40s linear infinite;
+  }
+  .marquee-right {
+    animation: scrollMarqueeRight 40s linear infinite;
+  }
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes scrollMarqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes scrollMarqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .partner-marquee-card {
     background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 14px;
-    padding: 16px;
+    border: 1.5px solid var(--border-light);
+    border-radius: 18px;
+    padding: 14px 26px;
+    height: 84px;
+    min-width: 220px;
+    max-width: 260px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 84px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
   }
-  .partner-logo-box:hover {
-    transform: translateY(-3px);
-    border-color: var(--border-purple);
+  .partner-marquee-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--fikes-purple, #823ca2);
+    box-shadow: 0 12px 25px -8px rgba(130, 60, 162, 0.25);
   }
-  .partner-logo-img {
-    max-height: 44px;
-    max-width: 120px;
+  .partner-marquee-img {
+    max-height: 48px;
+    max-width: 170px;
     object-fit: contain;
+    filter: grayscale(15%);
+    transition: all 0.3s ease;
+  }
+  .partner-marquee-card:hover .partner-marquee-img {
+    filter: grayscale(0%);
+    transform: scale(1.06);
+  }
+  .partner-marquee-text {
+    font-weight: 700;
+    color: var(--obsidian-dark, #190a24);
+    font-size: 13.5px;
+    text-align: center;
+    line-height: 1.35;
   }
 
   /* Prestasi Cards */
@@ -1112,7 +1165,7 @@
           </div>
           <div class="col-sm-6">
             <div class="p-3 rounded-3 bg-light border">
-              <div class="fw-bold text-dark mb-1"><i class="bi bi-handshake-fill text-success me-2"></i>Kerja Sama Riset</div>
+              <div class="fw-bold text-dark mb-1"><i class="bi bi-briefcase-fill text-success me-2"></i>Kerja Sama Riset</div>
               <p class="text-muted small mb-0">Kolaborasi penelitian bersama instansi pemerintah & swasta.</p>
             </div>
           </div>
@@ -1625,10 +1678,10 @@
 @endif
 
 <!-- ═══════════════════════════════════════════════
-     13. PARTNER & KERJA SAMA
+     13. PARTNER & KERJA SAMA (2-ROW INFINITE SLIDER)
 ═══════════════════════════════════════════════ -->
 @if(isset($partners) && $partners->count() > 0)
-<section class="section-bg-white" id="mitra">
+<section class="section-bg-white py-5" id="mitra">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Jejaring Mitra</div>
@@ -1638,19 +1691,78 @@
         FIKES UIS bermitra dengan berbagai sektor industri terkemuka dalam penempatan magang klinis, riset, dan rekrutmen lulusan.
       </p>
     </div>
+  </div>
 
-    <div class="row g-3 justify-content-center">
-      @foreach($partners as $partner)
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="fade-up">
-          <div class="partner-logo-box">
-            @if($partner->logo)
-              <img src="{{ asset('storage/' . $partner->logo) }}" alt="{{ $partner->nama }}" class="partner-logo-img">
+  @php
+    $totalPartners = $partners->count();
+    $half = ceil($totalPartners / 2);
+    $rawRow1 = $partners->slice(0, $half);
+    $rawRow2 = $partners->slice($half);
+
+    if ($rawRow2->isEmpty()) {
+        $rawRow2 = $rawRow1;
+    }
+
+    // Perbanyak item agar loop slider terasa panjang dan mulus di layar lebar
+    $row1 = collect();
+    while ($row1->count() < 8) {
+        $row1 = $row1->concat($rawRow1);
+    }
+    $row2 = collect();
+    while ($row2->count() < 8) {
+        $row2 = $row2->concat($rawRow2);
+    }
+  @endphp
+
+  <div class="marquee-wrapper" data-aos="fade-up">
+    <!-- Baris 1: Bergerak ke Kiri -->
+    <div class="marquee-track-container mb-3">
+      <div class="marquee-track marquee-left">
+        @foreach($row1 as $p)
+          <div class="partner-marquee-card">
+            @if($p->logo)
+              <img src="{{ asset('storage/' . $p->logo) }}" alt="{{ $p->nama }}" class="partner-marquee-img" loading="lazy">
             @else
-              <span class="fw-bold text-muted small text-center" style="font-size: 11.5px;">{{ $partner->nama }}</span>
+              <span class="partner-marquee-text">{{ $p->nama }}</span>
             @endif
           </div>
-        </div>
-      @endforeach
+        @endforeach
+        {{-- Duplicate Set for Continuous Loop --}}
+        @foreach($row1 as $p)
+          <div class="partner-marquee-card" aria-hidden="true">
+            @if($p->logo)
+              <img src="{{ asset('storage/' . $p->logo) }}" alt="{{ $p->nama }}" class="partner-marquee-img" loading="lazy">
+            @else
+              <span class="partner-marquee-text">{{ $p->nama }}</span>
+            @endif
+          </div>
+        @endforeach
+      </div>
+    </div>
+
+    <!-- Baris 2: Bergerak ke Kanan -->
+    <div class="marquee-track-container">
+      <div class="marquee-track marquee-right">
+        @foreach($row2 as $p)
+          <div class="partner-marquee-card">
+            @if($p->logo)
+              <img src="{{ asset('storage/' . $p->logo) }}" alt="{{ $p->nama }}" class="partner-marquee-img" loading="lazy">
+            @else
+              <span class="partner-marquee-text">{{ $p->nama }}</span>
+            @endif
+          </div>
+        @endforeach
+        {{-- Duplicate Set for Continuous Loop --}}
+        @foreach($row2 as $p)
+          <div class="partner-marquee-card" aria-hidden="true">
+            @if($p->logo)
+              <img src="{{ asset('storage/' . $p->logo) }}" alt="{{ $p->nama }}" class="partner-marquee-img" loading="lazy">
+            @else
+              <span class="partner-marquee-text">{{ $p->nama }}</span>
+            @endif
+          </div>
+        @endforeach
+      </div>
     </div>
   </div>
 </section>

@@ -901,7 +901,7 @@
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-file-earmark-medical"></i> Penelitian Dosen</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-journal-richtext"></i> Publikasi Ilmiah</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-heart-pulse"></i> Pengabdian Masyarakat</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-handshake"></i> Kerja Sama Riset</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-briefcase"></i> Kerja Sama Riset</a></li>
           </ul>
         </li>
 
