@@ -1377,6 +1377,69 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     9.3 ORGANISASI & KEGIATAN MAHASISWA (ORMAWA)
+═══════════════════════════════════════════════ -->
+<section class="section-bg-white py-5" id="organisasi-mahasiswa" style="border-top: 1px solid var(--border-light);">
+  <div class="container py-3">
+    <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3" data-aos="fade-up">
+      <div>
+        <div class="section-label mb-2">Lembaga Kemahasiswaan</div>
+        <h2 class="section-title mb-0">Organisasi & <em>Kegiatan Mahasiswa</em></h2>
+      </div>
+      <a href="{{ route('homepage.organisasi') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple); font-size: 13.5px; padding: 10px 22px;">
+        <i class="bi bi-people-fill me-1"></i> Lihat Semua Organisasi
+      </a>
+    </div>
+
+    @if(isset($organisasis) && $organisasis->count() > 0)
+      <div class="row g-4">
+        @foreach($organisasis->take(4) as $index => $ormawa)
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+            <div class="p-4 rounded-4 bg-white border text-center h-100 shadow-sm d-flex flex-column justify-content-between" style="transition: all 0.3s ease; border-color: #ede4f2 !important;">
+              <div>
+                <div style="width: 70px; height: 70px; border-radius: 50%; background: #ffffff; border: 2px solid #ecd8f5; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; padding: 5px;">
+                  @if(!empty($ormawa->logo))
+                    <img src="{{ asset('storage/' . $ormawa->logo) }}" alt="{{ $ormawa->nama_organisasi }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 50%;">
+                  @else
+                    <span class="fw-bold" style="color: #823ca2; font-size: 16px;">{{ strtoupper(substr($ormawa->singkatan ?: $ormawa->nama_organisasi, 0, 2)) }}</span>
+                  @endif
+                </div>
+
+                <div class="mb-2">
+                  <span class="badge" style="background: rgba(130, 60, 162, 0.1); color: #823ca2; font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 10px;">
+                    {{ $ormawa->kategori }}
+                  </span>
+                </div>
+
+                <h5 class="fw-bold text-dark mb-1" style="font-size: 16px; line-height: 1.35;">
+                  <a href="{{ route('homepage.organisasi.detail', $ormawa->slug) }}" class="text-dark text-decoration-none">
+                    {{ $ormawa->singkatan ?: $ormawa->nama_organisasi }}
+                  </a>
+                </h5>
+                @if(!empty($ormawa->singkatan) && $ormawa->singkatan !== $ormawa->nama_organisasi)
+                  <div class="text-muted small mb-2 text-truncate" style="font-size: 12px;">{{ $ormawa->nama_organisasi }}</div>
+                @endif
+
+                <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                  {{ strip_tags($ormawa->deskripsi ?: ($ormawa->visi ?: 'Lembaga kemahasiswaan aktif di lingkungan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')) }}
+                </p>
+              </div>
+
+              <div class="pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                <small class="text-muted"><i class="bi bi-person-fill text-primary me-1"></i>{{ Str::limit($ormawa->nama_ketua ?: 'Ketua Ormawa', 14) }}</small>
+                <a href="{{ route('homepage.organisasi.detail', $ormawa->slug) }}" class="fw-bold text-decoration-none" style="color: var(--fikes-purple); font-size: 12.5px;">
+                  Detail <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @endif
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
      9.5 GALERI DOKUMENTASI & KEGIATAN KAMPUS
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-sand py-5" id="galeri">
@@ -1428,46 +1491,71 @@
 <!-- ═══════════════════════════════════════════════
      10. ALUMNI & KARIER
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white" id="alumni">
+<section class="section-bg-white py-5" id="alumni">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Kisah Sukses Alumni</div>
       <h2 class="section-title">Jejak Karir <em>Alumni FIKES UIS</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Lulusan FIKES UIS telah berkarier di berbagai perusahaan multinasional, BUMN, rumah sakit, dan lembaga pemerintahan.
+        Lulusan FIKES UIS telah berkarier di berbagai rumah sakit ternama, industri farmasi, laboratorium klinis, BUMN, dan institusi kesehatan terkemuka.
       </p>
     </div>
 
-    <div class="row g-4">
-      @if(isset($testimonials) && $testimonials->count() > 0)
-        @foreach($testimonials->take(3) as $index => $testi)
-          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
-            <div class="testi-card">
-              <div>
-                <div class="testi-stars">
-                  @for($s = 1; $s <= 5; $s++)
-                    <i class="bi bi-star{{ $s <= $testi->bintang ? '-fill' : '' }}"></i>
-                  @endfor
+    <!-- Swiper Testimonial Slider -->
+    <div class="position-relative px-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper alumniSwiper pb-5">
+        <div class="swiper-wrapper">
+          @if(isset($testimonials) && $testimonials->count() > 0)
+            @foreach($testimonials as $index => $testi)
+              @php
+                $initials = '';
+                $words = explode(' ', $testi->nama);
+                foreach ($words as $w) {
+                    $initials .= strtoupper(substr($w, 0, 1));
+                }
+                $initials = substr($initials, 0, 2);
+              @endphp
+              <div class="swiper-slide h-auto">
+                <div class="testi-card h-100 shadow-sm" style="background: #ffffff; border: 1.5px solid #f0e6f5; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                  <div>
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="testi-stars m-0" style="color: #ff9c00; font-size: 15px; display: flex; gap: 3px;">
+                        @for($s = 1; $s <= 5; $s++)
+                          <i class="bi bi-star{{ $s <= $testi->bintang ? '-fill' : '' }}"></i>
+                        @endfor
+                      </div>
+                      <span class="badge" style="background: #f5edf8; color: #823ca2; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
+                        {{ $testi->kategori ?? 'Alumni' }}
+                      </span>
+                    </div>
+                    <p class="testi-text mb-4" style="font-size: 14px; line-height: 1.6; color: #333333; font-style: italic;">"{{ $testi->pesan }}"</p>
+                  </div>
+                  <div class="testi-author pt-3 border-top d-flex align-items-center gap-3" style="border-color: #f7effa !important;">
+                    <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #823ca2; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
+                    <div>
+                      <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
+                      <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni FIKES UIS' }}</div>
+                    </div>
+                  </div>
                 </div>
-                <p class="testi-text">"{{ $testi->pesan }}"</p>
               </div>
-              <div class="testi-author">
-                <div class="testi-avatar">{{ strtoupper(substr($testi->nama, 0, 1)) }}</div>
-                <div>
-                  <div class="testi-name">{{ $testi->nama }}</div>
-                  <div class="testi-role">{{ $testi->pekerjaan ?? 'Alumni FIKES UIS' }}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        @endforeach
-      @endif
+            @endforeach
+          @endif
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-prev alumni-prev" style="color: #823ca2;"></div>
+      <div class="swiper-button-next alumni-next" style="color: #823ca2;"></div>
     </div>
 
-    <div class="text-center mt-4">
-      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple);">
-        <i class="bi bi-chat-heart"></i> Lihat Semua Ulasan Alumni
+    <div class="text-center mt-3" data-aos="fade-up">
+      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero px-4 py-2" style="color: var(--fikes-purple); border-color: var(--fikes-purple); border-radius: 25px; font-weight: 600;">
+        <i class="bi bi-chat-heart me-1"></i> Lihat Semua Ulasan Alumni
       </a>
     </div>
   </div>
@@ -1817,3 +1905,41 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.alumniSwiper')) {
+      new Swiper('.alumniSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: {
+          delay: 3800,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true
+        },
+        navigation: {
+          nextEl: '.alumni-next',
+          prevEl: '.alumni-prev'
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 26
+          }
+        }
+      });
+    }
+  });
+</script>
+@endpush

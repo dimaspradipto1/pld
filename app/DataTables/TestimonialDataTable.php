@@ -43,18 +43,23 @@ class TestimonialDataTable extends DataTable
                     : '<span class="text-muted fst-italic">—</span>';
             })
             ->addColumn('kategori', function ($testimonial) {
-                $badges = [
-                    'kontraktor' => '<span class="badge bg-primary">Kontraktor</span>',
-                    'arsitek'    => '<span class="badge bg-info">Arsitek</span>',
-                    'pemilik'    => '<span class="badge bg-secondary">Pemilik Rumah</span>',
-                ];
-                return $badges[$testimonial->kategori] ?? '<span class="badge bg-dark">Lainnya</span>';
+                $kat = strtolower($testimonial->kategori ?? '');
+                if (str_contains($kat, 'alumni')) {
+                    return '<span class="badge text-white" style="background:#823ca2;">Alumni</span>';
+                } elseif (str_contains($kat, 'mahasiswa')) {
+                    return '<span class="badge bg-primary">Mahasiswa</span>';
+                } elseif (str_contains($kat, 'mitra') || str_contains($kat, 'rumah sakit')) {
+                    return '<span class="badge bg-success">Mitra RS / Klinik</span>';
+                } elseif (str_contains($kat, 'dosen') || str_contains($kat, 'staff')) {
+                    return '<span class="badge bg-info text-dark">Dosen / Staff</span>';
+                }
+                return '<span class="badge bg-secondary">' . e($testimonial->kategori ?? 'Umum') . '</span>';
             })
             ->addColumn('aktif', function ($testimonial) {
                 if ($testimonial->aktif) {
-                    return '<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Aktif</span>';
+                    return '<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Aktif / Tayang</span>';
                 }
-                return '<span class="badge bg-warning"><i class="bi bi-hourglass-split me-1"></i>Pending</span>';
+                return '<span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split me-1"></i>Pending</span>';
             })
             ->addColumn('action', function ($testimonial) {
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:5px">';
@@ -96,7 +101,7 @@ class TestimonialDataTable extends DataTable
     {
         return $model->newQuery()
             ->select(['id', 'nama', 'pekerjaan', 'kategori', 'bintang', 'pesan', 'aktif'])
-            ->orderByDesc('id'); // Tampilkan yang terbaru di atas
+            ->latest('id'); // Input terakhir selalu berada di posisi paling atas (DESC)
     }
 
     /**
@@ -108,7 +113,6 @@ class TestimonialDataTable extends DataTable
             ->setTableId('testimonial-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -132,7 +136,7 @@ class TestimonialDataTable extends DataTable
                 ->searchable(false)
                 ->orderable(false),
 
-            Column::computed('nama')
+            Column::make('nama')
                 ->title('Nama & Pekerjaan'),
 
             Column::computed('rating')

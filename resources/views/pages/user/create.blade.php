@@ -112,22 +112,53 @@
                         </div>
                     </div>
 
-                    {{-- Hak Akses --}}
+                    {{-- Hak Akses (Multi-Role) --}}
                     <div class="mb-4">
-                        <label for="roles" class="form-label fw-semibold">
-                            Hak Akses <span class="text-danger">*</span>
+                        <label class="form-label fw-semibold text-dark mb-2">
+                            Hak Akses (Dapat Memilih Lebih dari Satu) <span class="text-danger">*</span>
                         </label>
-                        <select id="roles"
-                                name="roles"
-                                class="form-select @error('roles') is-invalid @enderror"
-                                required>
-                            <option value="" disabled {{ old('roles') ? '' : 'selected' }}>-- Pilih Hak Akses --</option>
-                            <option value="admin" {{ old('roles') === 'admin' ? 'selected' : '' }}>Admin (Akses Penuh)</option>
-                            <option value="penulis" {{ old('roles') === 'penulis' ? 'selected' : '' }}>Penulis Berita (Hanya Upload Berita)</option>
-                            <option value="user"  {{ old('roles') === 'user'  ? 'selected' : '' }}>User</option>
-                        </select>
+
+                        @php
+                            $selectedRoles = (array) old('roles', ['penulis']);
+                        @endphp
+
+                        <div class="d-flex flex-column gap-2">
+                            {{-- Admin --}}
+                            <div class="p-2 px-3 border rounded-3 bg-light d-flex align-items-center justify-content-between">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" name="roles[]" value="admin" id="role_admin" {{ in_array('admin', $selectedRoles) ? 'checked' : '' }}>
+                                    <label class="form-check-label fw-bold text-primary" for="role_admin">
+                                        Admin
+                                    </label>
+                                </div>
+                                <span class="badge bg-primary">Akses Penuh Seluruh Menu</span>
+                            </div>
+
+                            {{-- Penulis Berita --}}
+                            <div class="p-2 px-3 border rounded-3 bg-light d-flex align-items-center justify-content-between">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" name="roles[]" value="penulis" id="role_penulis" {{ in_array('penulis', $selectedRoles) ? 'checked' : '' }}>
+                                    <label class="form-check-label fw-bold text-dark" for="role_penulis">
+                                        Penulis Berita
+                                    </label>
+                                </div>
+                                <span class="badge bg-warning text-dark">Kelola Berita & Pengumuman</span>
+                            </div>
+
+                            {{-- Pengelola Organisasi --}}
+                            <div class="p-2 px-3 border rounded-3 bg-light d-flex align-items-center justify-content-between">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" name="roles[]" value="organisasi" id="role_organisasi" {{ in_array('organisasi', $selectedRoles) ? 'checked' : '' }}>
+                                    <label class="form-check-label fw-bold text-dark" for="role_organisasi">
+                                        Pengelola Organisasi
+                                    </label>
+                                </div>
+                                <span class="badge text-white" style="background:#823ca2;">Kelola Organisasi Mahasiswa</span>
+                            </div>
+                        </div>
+
                         @error('roles')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="text-danger small mt-1">{{ $message }}</div>
                         @enderror
                     </div>
 

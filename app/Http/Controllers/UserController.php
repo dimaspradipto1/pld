@@ -33,11 +33,13 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): RedirectResponse
     {
+        $roles = is_array($request->roles) ? implode(',', array_filter($request->roles)) : $request->roles;
+
         User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'roles'    => $request->roles,
+            'roles'    => $roles ?: 'user',
         ]);
 
         alert()->success('Berhasil!', 'Pengguna berhasil ditambahkan.');
@@ -58,10 +60,12 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user): RedirectResponse
     {
+        $roles = is_array($request->roles) ? implode(',', array_filter($request->roles)) : $request->roles;
+
         $data = [
             'name'  => $request->name,
             'email' => $request->email,
-            'roles' => $request->roles,
+            'roles' => $roles ?: 'user',
         ];
 
         // Hanya update password jika field diisi

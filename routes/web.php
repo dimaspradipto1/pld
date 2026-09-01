@@ -27,6 +27,7 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\TopbarController;
+use App\Http\Controllers\OrganisasiMahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +50,13 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/prestasi-mahasiswa', 'prestasi')->name('homepage.prestasi');
     Route::get('/prestasi-mahasiswa/{slug}', 'prestasiDetail')->name('homepage.prestasi.detail');
+    Route::get('/organisasi-mahasiswa', 'organisasiMahasiswa')->name('homepage.organisasi');
+    Route::get('/organisasi-mahasiswa/{slug}', 'organisasiMahasiswaDetail')->name('homepage.organisasi.detail');
     Route::get('/dosen', 'dosen')->name('homepage.dosen');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
-    Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
+    Route::get('/alumni', 'testimoni')->name('homepage.alumni');
+    Route::get('/alumni/kirim-testimoni', 'alumniCreateTestimoni')->name('homepage.alumni.create');
+    Route::post('/alumni/kirim-testimoni', 'storeTestimonial')->name('homepage.alumni.store');
     Route::get('/berita', 'news')->name('homepage.news');
     Route::get('/berita/{id}', 'newsDetail')->name('homepage.news.detail');
     Route::get('/faq', 'faq')->name('homepage.faq');
@@ -119,6 +124,9 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('feature', FeatureController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('prestasi', PrestasiController::class);
+    Route::resource('admin-organisasi-mahasiswa', OrganisasiMahasiswaController::class)
+        ->parameters(['admin-organisasi-mahasiswa' => 'organisasi-mahasiswa'])
+        ->names('organisasi-mahasiswa');
     Route::get('admin-program-studi', [LayananController::class, 'index'])->name('layanan.index');
     Route::post('admin-program-studi', [LayananController::class, 'updateAll'])->name('layanan.update-all');
 

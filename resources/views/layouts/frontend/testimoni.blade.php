@@ -1,53 +1,212 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Testimoni Civitas & Alumni — Fakultas Ilmu Kesehatan (FIKES)')
-@section('meta_description', 'Baca ulasan dan pengalaman langsung dari mahasiswa, alumni, dan mitra rumah sakit yang telah bekerjasama dengan Fakultas Ilmu Kesehatan (FIKES).')
-@section('meta_keywords', 'testimoni fikes, ulasan mahasiswa fikes, review alumni kesehatan, testimoni fakultas ilmu kesehatan')
+@section('title', 'Kisah Sukses & Testimoni Alumni — Fakultas Ilmu Kesehatan (FIKES)')
+@section('meta_description', 'Baca ulasan, pengalaman, dan jejak karier alumni, mahasiswa, serta mitra institusi kesehatan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
+@section('meta_keywords', 'testimoni alumni fikes, review fikes uis, jejak karir alumni kesehatan, ulasan lulusan fikes')
+
+@push('styles')
+<style>
+  .rating-score-box {
+    background: linear-gradient(135deg, #190a24 0%, #3d1257 60%, #823ca2 100%);
+    border-radius: 20px;
+    padding: 32px;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(130, 60, 162, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rating-big-num {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ff9c00;
+    margin-bottom: 8px;
+  }
+  .rating-bar-wrap {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 32px;
+    border: 1px solid #ede4f2;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .star-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .star-progress-row:last-child {
+    margin-bottom: 0;
+  }
+  .star-label {
+    width: 65px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .progress-custom {
+    flex-grow: 1;
+    height: 10px;
+    border-radius: 10px;
+    background: #f0e6f5;
+    overflow: hidden;
+  }
+  .progress-bar-fikes {
+    background: linear-gradient(90deg, #ff9c00 0%, #823ca2 100%);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+  }
+  .star-pct {
+    width: 45px;
+    font-size: 12.5px;
+    color: #666666;
+    font-weight: 600;
+    text-align: right;
+  }
+</style>
+@endpush
 
 @section('content')
-@php
-  $cleanWa = '';
-  if (!empty($contact->no_wa)) {
-      $cleanWa = preg_replace('/[^0-9]/', '', $contact->no_wa);
-      if (strpos($cleanWa, '08') === 0) {
-          $cleanWa = '628' . substr($cleanWa, 2);
-      }
-  }
-@endphp
 
 <!-- ═══════════════════════════════════════════════
      HERO BANNER
 ═══════════════════════════════════════════════ -->
-<div class="about-hero" style="background: var(--obsidian-dark); padding: 70px 0 50px; border-bottom: 2px solid var(--fikes-purple);">
+<div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--fikes-purple);">
   <div class="container">
     <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
-      <h1 style="font-size: 38px; font-weight: 800; color: var(--white); margin-bottom: 8px;">
-        Testimoni <em style="font-style: normal; color: var(--fikes-orange);">Civitas & Alumni</em>
+      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(255, 156, 0, 0.15); border: 1px solid rgba(255, 156, 0, 0.4);">
+        <i class="bi bi-mortarboard-fill text-warning"></i>
+        <span class="text-warning small fw-bold">PORTAL ALUMNI & CIVITAS</span>
+      </div>
+      <h1 style="font-size: 38px; font-weight: 800; color: var(--white); margin-bottom: 10px;">
+        Kisah Sukses & <em style="font-style: normal; color: var(--fikes-orange);">Testimoni Alumni</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--fikes-orange); font-weight: 600;">Testimoni</span>
+        <span style="color: var(--fikes-orange); font-weight: 600;">Testimoni Alumni</span>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     TESTIMONIAL SECTION
+     RATING ANALYTICS & SUMMARY SECTION
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white">
+<section class="section-bg-sand py-5">
   <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Ulasan Pengguna</div>
-      <h2 class="section-title">Pengalaman Nyata di <em>FIKES</em></h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto mb-4">
-        Cerita dan pengalaman berharga dari mahasiswa, dosen, alumni, serta mitra institusi kesehatan yang telah berkolaborasi dengan Fakultas Ilmu Kesehatan.
-      </p>
+    <div class="row g-4 align-items-stretch">
+      <!-- Left: Big Score Box -->
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="rating-score-box">
+          <div class="rating-big-num">{{ number_format($avgScore, 1) }}</div>
+          <div class="d-flex justify-content-center gap-1 fs-5 mb-2" style="color: #ff9c00;">
+            @for($i = 1; $i <= 5; $i++)
+              <i class="bi bi-star{{ $i <= round($avgScore) ? '-fill' : '' }}"></i>
+            @endfor
+          </div>
+          <h4 class="fw-bold text-white mb-1" style="font-size: 18px;">Penilaian Keseluruhan</h4>
+          <p class="text-white-50 small mb-0">Berdasarkan {{ $totalCount }} ulasan terverifikasi civitas & alumni FIKES UIS</p>
+        </div>
+      </div>
+
+      <!-- Right: Rating Breakdown Bars -->
+      <div class="col-lg-8" data-aos="fade-left">
+        <div class="rating-bar-wrap">
+          <h3 class="fw-bold text-dark mb-3" style="font-size: 18px;">
+            <i class="bi bi-bar-chart-line-fill me-2" style="color:#823ca2;"></i> Distribusi Penilaian Bintang
+          </h3>
+
+          @foreach([5, 4, 3, 2, 1] as $star)
+            <div class="star-progress-row">
+              <div class="star-label">
+                <span>{{ $star }}</span>
+                <i class="bi bi-star-fill text-warning" style="font-size: 12px;"></i>
+              </div>
+              <div class="progress-custom">
+                <div class="progress-bar-fikes" style="width: {{ $ratingPercentages[$star] ?? 0 }}%;"></div>
+              </div>
+              <div class="star-pct">{{ $ratingCounts[$star] ?? 0 }} <small class="text-muted">({{ $ratingPercentages[$star] ?? 0 }}%)</small></div>
+            </div>
+          @endforeach
+
+          <div class="d-flex align-items-center justify-content-between pt-3 mt-3 border-top" style="border-color: #f2e9f7 !important;">
+            <span class="text-muted small">Kategori terdaftar: <strong>{{ count($categories) }} Segmen Civitas</strong></span>
+            <span class="badge" style="background:#823ca2; color:#fff;">100% Ulasan Terverifikasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS LIST & FILTER SECTION
+═══════════════════════════════════════════════ -->
+<section class="section-bg-white py-5">
+  <div class="container">
+    
+    <!-- Filter & Search Bar -->
+    <div class="dash-card mb-5" data-aos="fade-up" style="background: #faf7fc; border: 1px solid #eddff5; border-radius: 18px; padding: 20px 24px;">
+      <form action="{{ route('homepage.testimoni') }}" method="GET" class="row g-3 align-items-center">
+        
+        <!-- Search Input -->
+        <div class="col-md-5">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0" style="border-color: #d8c2e6;"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" name="q" class="form-control border-start-0" placeholder="Cari nama alumni, profesi, atau kata kunci..." value="{{ $search }}" style="border-color: #d8c2e6;">
+          </div>
+        </div>
+
+        <!-- Filter Kategori -->
+        <div class="col-md-3">
+          <select name="kategori" class="form-select" style="border-color: #d8c2e6;">
+            <option value="">Semua Kategori</option>
+            @foreach($categories as $cat)
+              <option value="{{ $cat }}" {{ $selectedKategori === $cat ? 'selected' : '' }}>{{ $cat }}</option>
+            @endforeach
+          </select>
+        </div>
+
+        <!-- Filter Rating -->
+        <div class="col-md-2">
+          <select name="rating" class="form-select" style="border-color: #d8c2e6;">
+            <option value="">Semua Rating</option>
+            <option value="5" {{ $selectedRating == 5 ? 'selected' : '' }}>★ 5 Bintang</option>
+            <option value="4" {{ $selectedRating == 4 ? 'selected' : '' }}>★ 4 Bintang</option>
+            <option value="3" {{ $selectedRating == 3 ? 'selected' : '' }}>★ 3 Bintang</option>
+            <option value="2" {{ $selectedRating == 2 ? 'selected' : '' }}>★ 2 Bintang</option>
+            <option value="1" {{ $selectedRating == 1 ? 'selected' : '' }}>★ 1 Bintang</option>
+          </select>
+        </div>
+
+        <!-- Submit & Reset -->
+        <div class="col-md-2 d-flex gap-2">
+          <button type="submit" class="btn btn-primary w-100 fw-bold" style="background:#823ca2; border-color:#823ca2;">
+            Filter
+          </button>
+          @if(!empty($search) || !empty($selectedKategori) || !empty($selectedRating))
+            <a href="{{ route('homepage.testimoni') }}" class="btn btn-outline-secondary" title="Reset Filter">
+              <i class="bi bi-arrow-counterclockwise"></i>
+            </a>
+          @endif
+        </div>
+      </form>
     </div>
 
-    <!-- Review Grid -->
+    <!-- Testimonial Cards Grid -->
     <div class="row g-4 mb-5">
       @forelse($testimonials as $index => $testi)
         @php
@@ -58,121 +217,47 @@
           }
           $initials = substr($initials, 0, 2);
         @endphp
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ (($index % 3) + 1) * 100 }}">
-          <div class="testi-card">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ (($index % 3) + 1) * 80 }}">
+          <div class="testi-card h-100 shadow-sm" style="background: #ffffff; border: 1.5px solid #f0e6f5; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
             <div>
-              <div class="testi-stars">
-                @for($i = 1; $i <= 5; $i++)
-                  <i class="bi bi-star{{ $i <= $testi->bintang ? '-fill' : '' }}"></i>
-                @endfor
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="testi-stars m-0" style="color: #ff9c00; font-size: 15px; display: flex; gap: 3px;">
+                  @for($i = 1; $i <= 5; $i++)
+                    <i class="bi bi-star{{ $i <= $testi->bintang ? '-fill' : '' }}"></i>
+                  @endfor
+                </div>
+                <span class="badge" style="background: #f5edf8; color: #823ca2; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
+                  {{ $testi->kategori ?? 'Alumni' }}
+                </span>
               </div>
-              <p class="testi-text">"{{ $testi->pesan }}"</p>
+              <p class="testi-text mb-4" style="font-size: 14px; line-height: 1.6; color: #333333; font-style: italic;">"{{ $testi->pesan }}"</p>
             </div>
-            <div class="testi-author">
-              <div class="testi-avatar">{{ $initials }}</div>
+            <div class="testi-author pt-3 border-top d-flex align-items-center gap-3" style="border-color: #f7effa !important;">
+              <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #823ca2; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
               <div>
-                <div class="testi-name">{{ $testi->nama }}</div>
-                <div class="testi-role">{{ $testi->pekerjaan ?? $testi->kategori ?? 'Civitas FIKES' }}</div>
+                <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
+                <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni FIKES UIS' }}</div>
               </div>
             </div>
           </div>
         </div>
       @empty
         <div class="col-12 text-center py-5">
-          <p class="text-muted">Belum ada testimoni terpublikasi.</p>
+          <div class="py-5" style="background: #faf7fc; border-radius: 20px;">
+            <i class="bi bi-chat-square-text text-muted" style="font-size: 48px;"></i>
+            <h5 class="fw-bold mt-3 text-dark">Tidak Ada Testimoni yang Sesuai</h5>
+            <p class="text-muted small">Coba ubah kata kunci pencarian atau reset filter untuk menampilkan semua ulasan.</p>
+            <a href="{{ route('homepage.testimoni') }}" class="btn btn-sm btn-outline-primary" style="color:#823ca2; border-color:#823ca2;">Reset Filter</a>
+          </div>
         </div>
       @endforelse
     </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════════════════════════════
-     FORM KIRIM TESTIMONI
-═══════════════════════════════════════════════ -->
-<section class="section-bg-sand">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8" data-aos="fade-up">
-        <div class="card border-0 shadow-lg p-4 p-md-5" style="border-radius: 24px; background: var(--white); border: 1px solid var(--border-light) !important;">
-          <div class="text-center mb-4">
-            <div class="section-label mx-auto">Formulir Ulasan</div>
-            <h3 class="fw-bold mb-2">Bagikan Pengalaman Anda di FIKES</h3>
-            <p class="text-muted small">Ulasan Anda sangat berarti untuk kemajuan mutu pendidikan dan pelayanan FIKES.</p>
-          </div>
-
-          @if(session('success'))
-            <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
-              <i class="bi bi-check-circle-fill me-2 fs-5"></i>
-              <div>{{ session('success') }}</div>
-            </div>
-          @endif
-
-          <form action="{{ route('homepage.testimoni.store') }}" method="POST">
-            @csrf
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Anda" value="{{ old('nama') }}" required>
-                @error('nama')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Profesi / Status</label>
-                <input type="text" name="pekerjaan" class="form-control @error('pekerjaan') is-invalid @enderror" placeholder="Contoh: Mahasiswa / Alumni / Perawat" value="{{ old('pekerjaan') }}" required>
-                @error('pekerjaan')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Kategori Civitas</label>
-                <select name="kategori" class="form-select @error('kategori') is-invalid @enderror" required>
-                  <option value="" disabled selected>Pilih Kategori</option>
-                  <option value="Mahasiswa" {{ old('kategori') == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
-                  <option value="Alumni" {{ old('kategori') == 'Alumni' ? 'selected' : '' }}>Alumni</option>
-                  <option value="Dosen & Staff" {{ old('kategori') == 'Dosen & Staff' ? 'selected' : '' }}>Dosen & Staff</option>
-                  <option value="Mitra Rumah Sakit" {{ old('kategori') == 'Mitra Rumah Sakit' ? 'selected' : '' }}>Mitra Rumah Sakit / Instansi</option>
-                  <option value="Masyarakat Umum" {{ old('kategori') == 'Masyarakat Umum' ? 'selected' : '' }}>Masyarakat Umum</option>
-                </select>
-                @error('kategori')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Rating (1 - 5 Bintang)</label>
-                <select name="bintang" class="form-select @error('bintang') is-invalid @enderror" required>
-                  <option value="5" {{ old('bintang', 5) == 5 ? 'selected' : '' }}>★★★★★ (5 Bintang - Sangat Puas)</option>
-                  <option value="4" {{ old('bintang') == 4 ? 'selected' : '' }}>★★★★☆ (4 Bintang - Puas)</option>
-                  <option value="3" {{ old('bintang') == 3 ? 'selected' : '' }}>★★★☆☆ (3 Bintang - Cukup)</option>
-                  <option value="2" {{ old('bintang') == 2 ? 'selected' : '' }}>★★☆☆☆ (2 Bintang - Kurang)</option>
-                  <option value="1" {{ old('bintang') == 1 ? 'selected' : '' }}>★☆☆☆☆ (1 Bintang - Sangat Kurang)</option>
-                </select>
-                @error('bintang')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="col-12">
-                <label class="form-label fw-semibold">Pesan / Ulasan Anda</label>
-                <textarea name="pesan" rows="4" class="form-control @error('pesan') is-invalid @enderror" placeholder="Tuliskan pengalaman Anda secara jujur dan objektif..." required>{{ old('pesan') }}</textarea>
-                @error('pesan')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="col-12 text-center mt-4">
-                <button type="submit" class="btn-primary-hero px-5 py-3" style="cursor: pointer;">
-                  <i class="bi bi-send-fill me-2"></i> Kirim Ulasan
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+    <!-- PAGINATION (10 DATA PER HALAMAN) -->
+    <div class="d-flex justify-content-center mt-4">
+      {{ $testimonials->links('pagination::bootstrap-5') }}
     </div>
+
   </div>
 </section>
 

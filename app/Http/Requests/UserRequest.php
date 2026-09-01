@@ -44,13 +44,13 @@ class UserRequest extends FormRequest
         $rules = [
             'name'  => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $userId],
-            'roles' => ['required', 'string', 'in:admin,user,penulis'],
+            'roles' => ['required'],
         ];
 
         if ($this->isMethod('POST')) {
-            $rules['password'] = ['required', 'string', 'min:8', 'confirmed'];
+            $rules['password'] = ['required', 'string', 'min:6', 'confirmed'];
         } else {
-            $rules['password'] = ['nullable', 'string', 'min:8', 'confirmed'];
+            $rules['password'] = ['nullable', 'string', 'min:6', 'confirmed'];
         }
 
         return $rules;

@@ -132,14 +132,14 @@
 
         <!-- Kemahasiswaan Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.prestasi*') || request()->routeIs('homepage.organisasi*') || request()->routeIs('homepage.galeri*') || request()->routeIs('homepage.testimoni*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Kemahasiswaan <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.prestasi') }}"><i class="bi bi-trophy-fill text-warning"></i> Prestasi Mahasiswa</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-people"></i> Organisasi & Kegiatan</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Galeri Dokumentasi</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni & Testimoni</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.prestasi*') ? 'active' : '' }}" href="{{ route('homepage.prestasi') }}"><i class="bi bi-trophy-fill text-warning"></i> Prestasi Mahasiswa</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.organisasi*') ? 'active' : '' }}" href="{{ route('homepage.organisasi') }}"><i class="bi bi-people-fill text-primary"></i> Organisasi & Kegiatan</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.galeri*') ? 'active' : '' }}" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Galeri Dokumentasi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.testimoni*') ? 'active' : '' }}" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni & Testimoni</a></li>
           </ul>
         </li>
 

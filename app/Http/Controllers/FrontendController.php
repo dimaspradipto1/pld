@@ -14,7 +14,7 @@ class FrontendController extends Controller
         $partners         = \App\Models\Partner::where('aktif', true)->orderBy('urutan')->get();
         $visiMisis        = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
         $nilaiPerusahaans = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
-        $testimonials     = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->take(6)->get();
+        $testimonials     = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->get();
         $latestNews       = \App\Models\News::where('status', 'published')->latest()->paginate(10, ['*'], 'page_berita')->withQueryString();
         $announcements    = \App\Models\News::where('status', 'published')
                                 ->where(function ($q) {
@@ -27,6 +27,7 @@ class FrontendController extends Controller
         $faqs             = \App\Models\Faq::take(6)->get();
         $galleries        = \App\Models\Gallery::latest()->take(6)->get();
         $prestasis        = \App\Models\Prestasi::where('is_active', true)->orderBy('urutan')->latest('id')->take(6)->get();
+        $organisasis      = \App\Models\OrganisasiMahasiswa::where('is_active', true)->orderBy('urutan')->get();
         $about            = \App\Models\About::first();
         $sambutanDekan    = \App\Models\SambutanDekan::first();
         $struktur         = \App\Models\StrukturOrganisasi::first();
@@ -45,6 +46,7 @@ class FrontendController extends Controller
             'faqs',
             'galleries',
             'prestasis',
+            'organisasis',
             'about',
             'sambutanDekan',
             'struktur',
@@ -204,31 +206,6 @@ class FrontendController extends Controller
         return view('layouts.frontend.sejarah', compact('about', 'milestones'));
     }
 
-    public function testimoni()
-    {
-        $testimonials = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->get();
-        return view('layouts.frontend.testimoni', compact('testimonials'));
-    }
-
-    /**
-     * Menyimpan testimoni yang diajukan oleh pengguna/publik.
-     */
-    public function storeTestimonial(\App\Http\Requests\TestimonialRequest $request)
-    {
-        \App\Models\Testimonial::create([
-            'nama'      => $request->nama,
-            'pekerjaan' => $request->pekerjaan,
-            'kategori'  => $request->kategori,
-            'bintang'   => $request->bintang,
-            'pesan'     => $request->pesan,
-            'aktif'     => false, // Default pending (butuh moderasi admin)
-        ]);
-
-        alert()->success('Terima Kasih!', 'Ulasan Anda berhasil dikirim dan akan segera diproses oleh admin.');
-
-        return redirect()->back();
-    }
-
     public function faq()
     {
         $faqs = \App\Models\Faq::all();
@@ -366,5 +343,140 @@ class FrontendController extends Controller
                             ->get();
 
         return view('layouts.frontend.prestasi-detail', compact('prestasi', 'otherPrestasis'));
+    }
+
+    public function organisasiMahasiswa(\Illuminate\Http\Request $request)
+    {
+        $search = $request->query('q');
+        $selectedKategori = $request->query('kategori');
+
+        $query = \App\Models\OrganisasiMahasiswa::where('is_active', true);
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama_organisasi', 'like', "%{$search}%")
+                  ->orWhere('singkatan', 'like', "%{$search}%")
+                  ->orWhere('nama_ketua', 'like', "%{$search}%")
+                  ->orWhere('deskripsi', 'like', "%{$search}%");
+            });
+        }
+
+        if (!empty($selectedKategori)) {
+            $query->where('kategori', $selectedKategori);
+        }
+
+        $organisasiList = $query->orderBy('urutan')->latest('id')->paginate(9)->withQueryString();
+
+        $kategoriList = ['BEM / DPM', 'Himpunan Mahasiswa (HIMA)', 'Unit Kegiatan Mahasiswa (UKM)', 'Komunitas Minat Bakat'];
+
+        return view('layouts.frontend.organisasi', compact('organisasiList', 'search', 'selectedKategori', 'kategoriList'));
+    }
+
+    public function organisasiMahasiswaDetail($slug)
+    {
+        $organisasi = \App\Models\OrganisasiMahasiswa::where('is_active', true)
+            ->where(function ($q) use ($slug) {
+                $q->where('slug', $slug)
+                  ->orWhere('id', $slug);
+            })
+            ->firstOrFail();
+
+        $otherOrganisasis = \App\Models\OrganisasiMahasiswa::where('is_active', true)
+                                ->where('id', '!=', $organisasi->id)
+                                ->orderBy('urutan')
+                                ->latest('id')
+                                ->take(5)
+                                ->get();
+
+        return view('layouts.frontend.organisasi-detail', compact('organisasi', 'otherOrganisasis'));
+    }
+
+    public function testimoni(\Illuminate\Http\Request $request)
+    {
+        $search = $request->query('q');
+        $selectedKategori = $request->query('kategori');
+        $selectedRating = $request->query('rating');
+
+        $query = \App\Models\Testimonial::where('aktif', true);
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%{$search}%")
+                  ->orWhere('pekerjaan', 'like', "%{$search}%")
+                  ->orWhere('pesan', 'like', "%{$search}%");
+            });
+        }
+
+        if (!empty($selectedKategori)) {
+            $query->where('kategori', $selectedKategori);
+        }
+
+        if (!empty($selectedRating)) {
+            $query->where('bintang', $selectedRating);
+        }
+
+        $testimonials = $query->orderByDesc('id')->paginate(10)->withQueryString();
+
+        // Rating Stats for Analytics Chart & Summary
+        $allActive = \App\Models\Testimonial::where('aktif', true)->get();
+        $totalCount = $allActive->count();
+        $avgScore = $totalCount > 0 ? round($allActive->avg('bintang'), 1) : 5.0;
+
+        $ratingCounts = [
+            5 => $allActive->where('bintang', 5)->count(),
+            4 => $allActive->where('bintang', 4)->count(),
+            3 => $allActive->where('bintang', 3)->count(),
+            2 => $allActive->where('bintang', 2)->count(),
+            1 => $allActive->where('bintang', 1)->count(),
+        ];
+
+        $ratingPercentages = [];
+        foreach ($ratingCounts as $star => $count) {
+            $ratingPercentages[$star] = $totalCount > 0 ? round(($count / $totalCount) * 100) : 0;
+        }
+
+        $categories = $allActive->pluck('kategori')->filter()->unique()->values();
+
+        return view('layouts.frontend.testimoni', compact(
+            'testimonials',
+            'search',
+            'selectedKategori',
+            'selectedRating',
+            'totalCount',
+            'avgScore',
+            'ratingCounts',
+            'ratingPercentages',
+            'categories'
+        ));
+    }
+
+    public function alumniCreateTestimoni()
+    {
+        return view('layouts.frontend.alumni-form');
+    }
+
+    public function storeTestimonial(\Illuminate\Http\Request $request)
+    {
+        $validated = $request->validate([
+            'nama'      => ['required', 'string', 'max:255'],
+            'pekerjaan' => ['required', 'string', 'max:255'],
+            'kategori'  => ['required', 'string', 'max:150'],
+            'bintang'   => ['required', 'integer', 'min:1', 'max:5'],
+            'pesan'     => ['required', 'string', 'max:2000'],
+        ], [
+            'nama.required'      => 'Nama lengkap wajib diisi.',
+            'pekerjaan.required' => 'Profesi / instansi / angkatan wajib diisi.',
+            'kategori.required'  => 'Kategori hubungan wajib dipilih.',
+            'bintang.required'   => 'Rating kepuasan bintang wajib dipilih.',
+            'pesan.required'     => 'Pesan / testimoni Anda wajib diisi.',
+        ]);
+
+        $validated['aktif'] = false; // Pending moderasi admin
+
+        \App\Models\Testimonial::create($validated);
+
+        return redirect()
+            ->route('homepage.alumni.create')
+            ->with('success', 'Terima kasih atas kontribusi Anda! Testimoni & kisah sukses Anda telah berhasil kami terima dan akan segera ditinjau oleh admin.');
     }
 }

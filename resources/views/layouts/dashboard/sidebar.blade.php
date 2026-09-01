@@ -11,7 +11,14 @@
               </a>
           </li><!-- End Dashboard Nav -->
 
-          @if(Auth::user()->roles === 'admin')
+          @php
+              $currentUser = Auth::user();
+              $isAdmin = $currentUser?->isAdmin();
+              $isPenulis = $currentUser?->hasExactRole('penulis');
+              $isOrganisasi = $currentUser?->hasExactRole('organisasi');
+          @endphp
+
+          @if($isAdmin)
           <!-- 2. Profil (Sesuai Urutan & Dropdown Header) -->
           <li class="nav-item">
             <a class="nav-link {{ Route::is('about.*') || Route::is('visimisi.*') || Route::is('sambutan-dekan.*') || Route::is('struktur-organisasi.*') || Route::is('milestone.*') ? '' : 'collapsed' }}" data-bs-target="#profil-nav" data-bs-toggle="collapse" href="#">
@@ -91,18 +98,23 @@
 
           <!-- 5. Kemahasiswaan (Sesuai Urutan Header) -->
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('prestasi.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Route::is('prestasi.*') || Route::is('organisasi-mahasiswa.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-people"></i><span>Kemahasiswaan</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="kemahasiswaan-nav" class="nav-content collapse {{ Route::is('prestasi.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+            <ul id="kemahasiswaan-nav" class="nav-content collapse {{ Route::is('prestasi.*') || Route::is('organisasi-mahasiswa.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
               <li>
                 <a href="{{ route('prestasi.index') }}" class="{{ Route::is('prestasi.*') ? 'active' : '' }}">
                   <i class="bi bi-circle"></i><span>Prestasi Mahasiswa</span>
                 </a>
               </li>
               <li>
+                <a href="{{ route('organisasi-mahasiswa.index') }}" class="{{ Route::is('organisasi-mahasiswa.*') ? 'active' : '' }}">
+                  <i class="bi bi-circle"></i><span>Organisasi Mahasiswa</span>
+                </a>
+              </li>
+              <li>
                 <a href="{{ route('gallery.index') }}" class="{{ Route::is('gallery.index') ? 'active' : '' }}">
-                  <i class="bi bi-circle"></i><span>Galeri & Kegiatan</span>
+                  <i class="bi bi-circle"></i><span>Galeri Dokumentasi</span>
                 </a>
               </li>
               <li>
@@ -131,9 +143,17 @@
               </li>
             </ul>
           </li>
+          @elseif($isOrganisasi)
+          <!-- Menu Khusus Role Organisasi Mahasiswa -->
+          <li class="nav-item">
+            <a class="nav-link {{ Route::is('organisasi-mahasiswa.*') ? '' : 'collapsed' }}" href="{{ route('organisasi-mahasiswa.index') }}">
+              <i class="bi bi-people-fill"></i><span>Organisasi Mahasiswa</span>
+            </a>
+          </li>
           @endif
 
-          <!-- 7. Informasi (Sesuai Urutan Header) -->
+          @if($isAdmin || $isPenulis)
+          <!-- 7. Informasi (Berita & Pengumuman) -->
           <li class="nav-item">
               <a class="nav-link {{ Route::is('news.*') || Route::is('faq.*') ? '' : 'collapsed' }}" data-bs-target="#informasi-nav" data-bs-toggle="collapse" href="#">
                   <i class="bi bi-newspaper"></i><span>Informasi</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -149,7 +169,7 @@
                           <i class="bi bi-circle"></i><span>Tulis Berita / Pengumuman</span>
                       </a>
                   </li>
-                  @if(Auth::user()->roles === 'admin')
+                  @if($isAdmin)
                   <li>
                       <a href="{{ route('faq.index') }}" class="{{ Route::is('faq.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>FAQ Informasi</span>
@@ -158,8 +178,9 @@
                   @endif
               </ul>
           </li>
+          @endif
 
-          @if(Auth::user()->roles === 'admin')
+          @if($isAdmin)
           <!-- 8. Kontak (Sesuai Urutan Header) -->
           <li class="nav-item">
               <a class="nav-link {{ Route::is('contact.*') ? '' : 'collapsed' }}" href="{{ route('contact.index') }}">
@@ -170,10 +191,10 @@
 
           <!-- Pengaturan Konten Beranda / Landing Page -->
           <li class="nav-item">
-              <a class="nav-link {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('nilaiperusahaan.*') || Route::is('pmb-setting.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
+              <a class="nav-link {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
                   <i class="bi bi-layout-text-window-reverse"></i><span>Konten Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
-              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('nilaiperusahaan.*') || Route::is('pmb-setting.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                   <li>
                       <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>Banner Hero</span>
@@ -182,11 +203,6 @@
                   <li>
                       <a href="{{ route('feature.index') }}" class="{{ Route::is('feature.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>Keunggulan Fakultas</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('nilaiperusahaan.index') }}" class="{{ Route::is('nilaiperusahaan.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Nilai Budaya Civitas</span>
                       </a>
                   </li>
                   <li>
@@ -200,21 +216,23 @@
 
           <li class="nav-heading">Pengaturan & Administrator</li>
 
+          @if($isAdmin)
           <li class="nav-item">
               <a class="nav-link {{ Route::is('topbar.*') ? '' : 'collapsed' }}" href="{{ route('topbar.index') }}">
                   <i class="bi bi-layout-text-window-reverse"></i>
                   <span>Pengaturan Topbar</span>
               </a>
           </li>
+          @endif
 
           <li class="nav-item">
-              <a class="nav-link {{ Route::is('profil.*') ? '' : 'collapsed' }}" href="{{ route('profil.index') }}">
+              <a class="nav-link {{ Route::is('user.my-profile') || Route::is('profil.*') ? '' : 'collapsed' }}" href="{{ route('user.my-profile') }}">
                   <i class="bi bi-person"></i>
                   <span>Profil Akun</span>
               </a>
           </li>
 
-          @if(Auth::user()->roles === 'admin')
+          @if($isAdmin)
           <li class="nav-item">
               <a class="nav-link {{ Route::is('user.*') ? '' : 'collapsed' }}" href="{{ route('user.index') }}">
                   <i class="bi bi-people"></i>

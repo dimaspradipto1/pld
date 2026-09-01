@@ -85,8 +85,8 @@ class NewsDataTable extends DataTable
             ->with('user')
             ->select(['id', 'user_id', 'thumbnail', 'title', 'status', 'created_at']);
 
-        // Jika role penulis, hanya tampilkan berita miliknya sendiri. Admin & Superadmin menampilkan semua.
-        if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->roles === 'penulis') {
+        // Jika role penulis (dan bukan admin), hanya tampilkan berita miliknya sendiri. Admin menampilkan semua.
+        if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->hasExactRole('penulis') && !\Illuminate\Support\Facades\Auth::user()->isAdmin()) {
             $query->where('user_id', \Illuminate\Support\Facades\Auth::id());
         }
 

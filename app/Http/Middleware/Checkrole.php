@@ -22,21 +22,38 @@ class Checkrole
 
         $user = Auth::user();
 
-        // Role Penulis: Hanya diizinkan mengakses Dashboard, Berita (News), Profil Akun, dan Logout
-        if ($user->roles === 'penulis') {
-            $allowedPatterns = ['dashboard', 'news.*', 'profil.*', 'logout'];
-            $isAllowed = false;
+        // 1. Admin memiliki akses penuh ke seluruh rute admin
+        if ($user->isAdmin()) {
+            return $next($request);
+        }
 
-            foreach ($allowedPatterns as $pattern) {
-                if ($request->routeIs($pattern)) {
-                    $isAllowed = true;
-                    break;
-                }
-            }
+        // 2. Tentukan pola rute yang diizinkan berdasarkan multi-role
+        $allowedPatterns = ['dashboard', 'user.my-profile', 'user.update-my-*', 'logout'];
 
-            if (!$isAllowed) {
-                return redirect()->route('news.index')->with('error', 'Akses dibatasi. Akun Anda hanya memiliki izin untuk mengelola Berita & Artikel.');
+        if ($user->hasExactRole('penulis')) {
+            $allowedPatterns[] = 'news.*';
+        }
+
+        if ($user->hasExactRole('organisasi')) {
+            $allowedPatterns[] = 'organisasi-mahasiswa.*';
+        }
+
+        $isAllowed = false;
+        foreach ($allowedPatterns as $pattern) {
+            if ($request->routeIs($pattern)) {
+                $isAllowed = true;
+                break;
             }
+        }
+
+        if (!$isAllowed) {
+            if ($user->hasExactRole('organisasi') && !$user->hasExactRole('penulis')) {
+                return redirect()->route('organisasi-mahasiswa.index')->with('error', 'Akses dibatasi. Akun Anda hanya memiliki izin untuk mengelola Organisasi Mahasiswa.');
+            }
+            if ($user->hasExactRole('penulis')) {
+                return redirect()->route('news.index')->with('error', 'Akses dibatasi. Akun Anda hanya memiliki izin untuk mengelola Berita & Pengumuman.');
+            }
+            return redirect()->route('dashboard')->with('error', 'Akses dibatasi untuk akun Anda.');
         }
 
         return $next($request);

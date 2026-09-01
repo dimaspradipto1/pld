@@ -432,23 +432,6 @@
           <div class="f-chip"><i class="bi bi-shield-check"></i> <span>Standar Nasional</span></div>
         </div>
       </div>
-
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-num">1.500<sup>+</sup></div>
-          <div class="stat-txt">Mahasiswa Aktif</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-num">50<sup>+</sup></div>
-          <div class="stat-txt">Mitra Rumah Sakit</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <div class="stat-num">100<sup>%</sup></div>
-          <div class="stat-txt">Komitmen Mutu</div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -514,7 +497,21 @@
           </button>
         </form>
 
-        <div class="form-footer">
+        <!-- Link Akses Formulir Testimoni Alumni (Tanpa Login) -->
+        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(130, 60, 162, 0.12); text-align: center;">
+          <div style="background: rgba(130, 60, 162, 0.05); border: 1.5px dashed rgba(130, 60, 162, 0.25); border-radius: 14px; padding: 14px 16px; transition: all 0.25s ease;">
+            <p style="font-size: 12.5px; color: #555555; margin-bottom: 6px; font-weight: 500;">
+              🎓 <strong>Alumni atau Mitra FIKES UIS?</strong>
+            </p>
+            <a href="{{ route('homepage.alumni.create') }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: #823ca2; text-decoration: none; padding: 6px 12px; border-radius: 8px; background: rgba(130, 60, 162, 0.08);">
+              <i class="bi bi-chat-quote-fill"></i>
+              <span>Isi Ulasan & Testimoni Alumni di Sini</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-footer" style="margin-top: 18px;">
           <p><a href="{{ route('homepage') }}" class="back-to-home-link"><i class="bi bi-arrow-left"></i> Kembali ke Beranda</a></p>
         </div>
       </div>

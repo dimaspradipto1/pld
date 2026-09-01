@@ -25,13 +25,19 @@ class UserDataTable extends DataTable
             ->addColumn('name', fn ($item) => e($item->name))
             ->addColumn('email', fn ($item) => e($item->email))
             ->addColumn('roles', function ($item) {
-                $label = match ($item->roles) {
-                    'admin'   => ['label' => 'Admin',          'class' => 'bg-primary'],
-                    'penulis' => ['label' => 'Penulis Berita', 'class' => 'bg-warning text-dark'],
-                    'user'    => ['label' => 'User',           'class' => 'bg-info text-dark'],
-                    default   => ['label' => ucfirst($item->roles ?? '-'), 'class' => 'bg-secondary'],
-                };
-                return '<span class="badge rounded-pill ' . $label['class'] . '">' . $label['label'] . '</span>';
+                $roles = array_filter($item->roles_array, fn($r) => in_array($r, ['admin', 'penulis', 'organisasi']));
+                $html = '<div class="d-flex flex-wrap gap-1 justify-content-center">';
+                foreach ($roles as $r) {
+                    $badge = match ($r) {
+                        'admin'      => ['label' => 'Admin',          'class' => 'bg-primary text-white', 'style' => ''],
+                        'penulis'    => ['label' => 'Penulis Berita', 'class' => 'bg-warning text-dark',  'style' => ''],
+                        'organisasi' => ['label' => 'Organisasi',     'class' => 'text-white',            'style' => 'background:#823ca2;'],
+                        default      => ['label' => ucfirst($r),      'class' => 'bg-secondary text-white','style' => ''],
+                    };
+                    $html .= '<span class="badge rounded-pill ' . $badge['class'] . '" style="' . $badge['style'] . '">' . $badge['label'] . '</span>';
+                }
+                $html .= '</div>';
+                return $html;
             })
             ->addColumn('action', function ($user) {
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:5px">';
