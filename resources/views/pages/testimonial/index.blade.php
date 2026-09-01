@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="pagetitle">
-    <h1>Testimoni Pelanggan</h1>
+    <h1>Testimoni Alumni</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>

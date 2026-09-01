@@ -106,9 +106,9 @@
               @endif
               @if(!empty($item->judul))
                 <div class="galeri-caption">
-                  <h6 class="text-white mb-1 fw-bold">{{ $item->judul }}</h6>
+                  <h6 class="text-dark mb-1 fw-bold" style="font-size: 15px; color: #1e293b !important;">{{ $item->judul }}</h6>
                   @if(!empty($item->deskripsi))
-                    <small class="text-white-50 d-block">{!! Str::limit(strip_tags($item->deskripsi), 80) !!}</small>
+                    <small class="text-muted d-block" style="font-size: 13px; line-height: 1.5; color: #64748b !important;">{!! Str::limit(strip_tags($item->deskripsi), 90) !!}</small>
                   @endif
                 </div>
               @endif
