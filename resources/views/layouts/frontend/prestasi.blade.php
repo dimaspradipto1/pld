@@ -86,6 +86,32 @@
     color: #ffffff !important;
     border-color: var(--fikes-purple, #823ca2);
   }
+
+  /* Custom Pagination */
+  .pagination {
+    gap: 6px;
+    margin-bottom: 0;
+  }
+  .page-item .page-link {
+    border-radius: 10px !important;
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+  }
+  .page-item.active .page-link {
+    background-color: var(--fikes-purple, #823ca2) !important;
+    border-color: var(--fikes-purple, #823ca2) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
+  }
+  .page-item .page-link:hover {
+    background-color: #f3e8f8;
+    color: var(--fikes-purple, #823ca2);
+    border-color: var(--fikes-purple, #823ca2);
+  }
 </style>
 @endpush
 
@@ -229,9 +255,11 @@
       </div>
 
       <!-- Pagination -->
-      <div class="mt-5 d-flex justify-content-center">
-        {{ $prestasiList->links('pagination::bootstrap-5') }}
-      </div>
+      @if(method_exists($prestasiList, 'hasPages') && $prestasiList->hasPages())
+        <div class="mt-5 d-flex justify-content-center">
+          {{ $prestasiList->links('pagination::bootstrap-5') }}
+        </div>
+      @endif
     @else
       <div class="p-5 text-center bg-white rounded-4 shadow-sm">
         <i class="bi bi-trophy fs-1 text-muted mb-3 d-block"></i>
