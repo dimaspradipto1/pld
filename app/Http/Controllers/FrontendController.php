@@ -35,6 +35,17 @@ class FrontendController extends Controller
         $pmbSetting       = \App\Models\PmbSetting::first();
         $facultyStat      = \App\Models\FacultyStat::where('is_active', true)->latest('id')->first();
 
+        if (!$facultyStat) {
+            $facultyStat = (object) [
+                'title'           => 'FIKES UIS Dalam Angka',
+                'jumlah_prodi'    => 0,
+                'total_mahasiswa' => 0,
+                'total_dosen'     => 0,
+                'total_alumni'    => 0,
+                'image'           => null,
+            ];
+        }
+
         return view('layouts.frontend.homepage', compact(
             'banners',
             'features',
