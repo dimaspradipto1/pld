@@ -35,16 +35,16 @@
                     </div>
                 @endif
 
-                <form action="{{ route('about.store') }}" method="POST">
+                <form action="{{ route('about.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <!-- SECTION 1: PROFIL PERUSAHAAN -->
+                    <!-- SECTION 1: PROFIL FAKULTAS -->
                     <div class="border-bottom pb-3 mb-4">
-                        <h6 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>1. Profil Perusahaan</h6>
+                        <h6 class="fw-bold text-primary mb-3"><i class="bi bi-building me-2"></i>1. Profil Fakultas</h6>
                         
                         <div class="mb-3">
-                            <label for="judul_profil" class="form-label fw-semibold">Judul Profil</label>
-                            <input type="text" id="judul_profil" name="judul_profil" class="form-control @error('judul_profil') is-invalid @enderror" value="{{ old('judul_profil') }}" placeholder="Contoh: Dedikasi Terhadap Keindahan & Sirkulasi Udara Alami">
+                            <label for="judul_profil" class="form-label fw-semibold">Judul Profil Fakultas</label>
+                            <input type="text" id="judul_profil" name="judul_profil" class="form-control @error('judul_profil') is-invalid @enderror" value="{{ old('judul_profil') }}" placeholder="Contoh: Dedikasi Mencetak Pemimpin di Bidang Kesehatan">
                             @error('judul_profil')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -52,7 +52,7 @@
 
                         <div class="mb-3">
                             <label for="deskripsi_profil_1" class="form-label fw-semibold">Deskripsi Profil Paragraf 1</label>
-                            <textarea id="deskripsi_profil_1" name="deskripsi_profil_1" rows="3" class="form-control @error('deskripsi_profil_1') is-invalid @enderror" placeholder="Paragraf pertama untuk deskripsi profil perusahaan">{{ old('deskripsi_profil_1') }}</textarea>
+                            <textarea id="deskripsi_profil_1" name="deskripsi_profil_1" rows="3" class="form-control @error('deskripsi_profil_1') is-invalid @enderror" placeholder="Paragraf pertama untuk deskripsi profil fakultas">{{ old('deskripsi_profil_1') }}</textarea>
                             @error('deskripsi_profil_1')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -60,7 +60,7 @@
 
                         <div class="mb-3">
                             <label for="deskripsi_profil_2" class="form-label fw-semibold">Deskripsi Profil Paragraf 2</label>
-                            <textarea id="deskripsi_profil_2" name="deskripsi_profil_2" rows="3" class="form-control @error('deskripsi_profil_2') is-invalid @enderror" placeholder="Paragraf kedua untuk deskripsi profil perusahaan (opsional)">{{ old('deskripsi_profil_2') }}</textarea>
+                            <textarea id="deskripsi_profil_2" name="deskripsi_profil_2" rows="3" class="form-control @error('deskripsi_profil_2') is-invalid @enderror" placeholder="Paragraf kedua untuk deskripsi profil fakultas (opsional)">{{ old('deskripsi_profil_2') }}</textarea>
                             @error('deskripsi_profil_2')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

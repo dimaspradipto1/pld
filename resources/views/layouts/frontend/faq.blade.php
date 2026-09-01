@@ -1,13 +1,60 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Frequently Asked Questions (FAQ) — Roster Dinding Minimalis')
-@section('meta_description', 'Temukan jawaban cepat atas pertanyaan yang sering diajukan mengenai produk roster dinding, bata ventilasi, metode pembayaran, pengiriman, dan garansi.')
-@section('meta_keywords', 'faq roster, tanya jawab roster, informasi pengiriman roster, garansi roster pecah, kustom roster')
+@section('title', 'Tanya Jawab (FAQ) — Fakultas Ilmu Kesehatan (FIKES)')
+@section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar program studi, penerimaan mahasiswa baru, fasilitas laboratorium, dan akreditasi FIKES.')
+@section('meta_keywords', 'faq fikes, tanya jawab fakultas ilmu kesehatan, pendaftaran mahasiswa kesehatan, akreditasi fikes')
+
+@push('styles')
+<style>
+  .faq-hero {
+    position: relative;
+    background: var(--obsidian-dark);
+    padding: 70px 0 50px;
+    border-bottom: 2px solid var(--fikes-purple);
+  }
+  .faq-hero-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .faq-hero-title em {
+    font-style: normal;
+    color: var(--fikes-orange);
+  }
+  .accordion-item {
+    border: 1px solid var(--border-light) !important;
+    border-radius: 16px !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .accordion-button {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--text-main);
+    padding: 18px 24px;
+    background: var(--white);
+  }
+  .accordion-button:not(.collapsed) {
+    background: var(--fikes-purple-light);
+    color: var(--fikes-purple);
+    box-shadow: none;
+  }
+  .accordion-body {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    padding: 20px 24px;
+  }
+</style>
+@endpush
 
 @section('content')
 @php
-  $cleanWa = '';
-  if (!empty($contact->no_wa)) {
+  $cleanWa = $cleanWa ?? '';
+  if (empty($cleanWa) && !empty($contact->no_wa)) {
       $cleanWa = preg_replace('/[^0-9]/', '', $contact->no_wa);
       if (strpos($cleanWa, '08') === 0) {
           $cleanWa = '628' . substr($cleanWa, 2);
@@ -19,188 +66,77 @@
      HERO BANNER
 ═══════════════════════════════════════════════ -->
 <div class="faq-hero">
-  <div class="faq-hero-bg"></div>
-  <div class="faq-hero-overlay"></div>
-  <div class="faq-hero-pattern"></div>
-
   <div class="container">
     <div class="faq-hero-content" data-aos="fade-up" data-aos-duration="800">
       <h1 class="faq-hero-title">
         Tanya Jawab <em>(FAQ)</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}">Beranda</a>
-        <span class="sep">/</span>
-        <span class="active">FAQ</span>
+        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span class="mx-2 text-white-50">/</span>
+        <span style="color: var(--fikes-orange); font-weight: 600;">FAQ</span>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     FAQ ACCORDION SECTION
+     FAQ SECTION
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white roster-pattern">
+<section class="section-bg-sand">
   <div class="container">
     
-    <!-- Search Bar -->
-    <div class="search-box-wrap" data-aos="fade-up">
-      <i class="bi bi-search"></i>
-      <input type="text" id="faqSearchInput" class="search-input-custom" placeholder="Ketik kata kunci pertanyaan... (misal: pengiriman, custom, harga)" onkeyup="searchFaq()">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-label mx-auto">Pusat Bantuan & Informasi</div>
+      <h2 class="section-title">Pertanyaan yang Sering <em>Diajukan</em></h2>
+      <div class="divider-line centered"></div>
+      <p class="section-desc mx-auto">
+        Kumpulan jawaban informatif seputar proses akademik, persyaratan seleksi masuk, fasilitas, dan kemitraan di FIKES.
+      </p>
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-10">
-        
-        <!-- Category 1: Pemesanan & Pembayaran -->
-        <div class="faq-category-group mb-5" data-aos="fade-up">
-          <h3 class="faq-cat-title">
-            <i class="bi bi-cart-check-fill text-terracotta"></i>
-            Pemesanan & Pembayaran
-          </h3>
-
-          @forelse($faqs->where('category', 'pemesanan') as $index => $faq)
-            <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
-              <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
-                <span>{{ $faq->question }}</span>
-                <div class="faq-icon"><i class="bi bi-plus"></i></div>
+      <div class="col-lg-9" data-aos="fade-up">
+        <div class="accordion" id="faqAccordion">
+          @if(isset($faqs) && $faqs->count() > 0)
+            @foreach($faqs as $index => $faq)
+              <div class="accordion-item shadow-sm">
+                <h2 class="accordion-header" id="heading{{ $faq->id ?? $index }}">
+                  <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $faq->id ?? $index }}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}">
+                    <i class="bi bi-question-circle-fill me-2" style="color: var(--fikes-purple);"></i>
+                    {{ $faq->question ?? $faq->pertanyaan }}
+                  </button>
+                </h2>
+                <div id="collapse{{ $faq->id ?? $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    {{ $faq->answer ?? $faq->jawaban }}
+                  </div>
+                </div>
               </div>
-              <div class="faq-answer">
-                {{ $faq->answer }}
-              </div>
-            </div>
-          @empty
-            <div class="text-muted text-center py-3">Belum ada FAQ untuk kategori ini.</div>
-          @endforelse
+            @endforeach
+          @else
+            <div class="text-center py-4 text-muted">Belum ada data FAQ tersedia.</div>
+          @endif
         </div>
 
-        <!-- Category 2: Spesifikasi & Kustomisasi -->
-        <div class="faq-category-group mb-5" data-aos="fade-up">
-          <h3 class="faq-cat-title">
-            <i class="bi bi-bricks text-terracotta"></i>
-            Spesifikasi & Kustomisasi Produk
-          </h3>
-
-          @forelse($faqs->where('category', 'spesifikasi') as $index => $faq)
-            <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
-              <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
-                <span>{{ $faq->question }}</span>
-                <div class="faq-icon"><i class="bi bi-plus"></i></div>
-              </div>
-              <div class="faq-answer">
-                {{ $faq->answer }}
-              </div>
-            </div>
-          @empty
-            <div class="text-muted text-center py-3">Belum ada FAQ untuk kategori ini.</div>
-          @endforelse
+        <div class="card border-0 shadow-sm p-4 text-center mt-5" style="border-radius: 20px; background: var(--obsidian-dark); color: white;">
+          <h4 class="fw-bold mb-2">Masih Memiliki Pertanyaan Lain?</h4>
+          <p class="text-white-50 small mb-3">Tim layanan informasi akademik kami siap membantu menjawab segala pertanyaan Anda.</p>
+          <div class="d-flex justify-content-center gap-3">
+            @if(!empty($cleanWa))
+              <a href="https://wa.me/{{ $cleanWa }}" target="_blank" class="btn-primary-hero">
+                <i class="bi bi-whatsapp"></i> Chat WhatsApp
+              </a>
+            @endif
+            <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero">
+              <i class="bi bi-envelope"></i> Kontak Kami
+            </a>
+          </div>
         </div>
-
-        <!-- Category 3: Distribusi & Garansi -->
-        <div class="faq-category-group mb-4" data-aos="fade-up">
-          <h3 class="faq-cat-title">
-            <i class="bi bi-truck text-terracotta"></i>
-            Pengiriman & Klaim Garansi
-          </h3>
-
-          @forelse($faqs->where('category', 'pengiriman') as $index => $faq)
-            <div class="faq-item {{ $index === 0 ? 'open' : '' }}" id="faq-{{ $faq->id }}">
-              <div class="faq-question" onclick="toggleFaq('faq-{{ $faq->id }}')">
-                <span>{{ $faq->question }}</span>
-                <div class="faq-icon"><i class="bi bi-plus"></i></div>
-              </div>
-              <div class="faq-answer">
-                {{ $faq->answer }}
-              </div>
-            </div>
-          @empty
-            <div class="text-muted text-center py-3">Belum ada FAQ untuk kategori ini.</div>
-          @endforelse
-        </div>
-
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     CTA SECTION
-═══════════════════════════════════════════════ -->
-<div class="cta-section">
-  <div class="container position-relative" style="z-index:1;">
-    <div class="row align-items-center g-5">
-      <div class="col-xl-7" data-aos="fade-right">
-        <div class="section-label" style="color: var(--clay);">Hubungi Kami</div>
-        <h2 class="cta-title">Masih Memiliki<br><em>Pertanyaan Lain</em> yang Belum Terjawab?</h2>
-        <p class="cta-desc">
-          Jangan ragu untuk berkonsultasi langsung dengan perwakilan resmi kami. Tim ahli kami siap membantu menjelaskan detail teknis pemasangan, spesifikasi material, hingga penawaran diskon khusus proyek Anda.
-        </p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" class="btn-primary-hero" target="_blank">
-            <i class="bi bi-whatsapp"></i>
-            Hubungi Lewat WhatsApp
-          </a>
-          <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero">
-            Lihat Informasi Kontak
-          </a>
-        </div>
-      </div>
-      <div class="col-xl-5" data-aos="fade-left">
-        <!-- Operational Hours Box -->
-        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:32px;">
-          <h4 style="font-family:'Plus Jakarta Sans',sans-serif; color:white; font-size:18px; font-weight:700; margin-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
-            <i class="bi bi-clock-fill text-clay me-2"></i> Jam Operasional Konsultasi
-          </h4>
-          <div class="d-flex justify-content-between mb-3" style="font-size:14px;">
-            <span style="color:rgba(255,255,255,0.6);">Senin – Jumat</span>
-            <span style="color:white; font-weight:600;">08:00 – 17:00 WIB</span>
-          </div>
-          <div class="d-flex justify-content-between mb-3" style="font-size:14px;">
-            <span style="color:rgba(255,255,255,0.6);">Sabtu</span>
-            <span style="color:white; font-weight:600;">08:00 – 15:00 WIB</span>
-          </div>
-          <div class="d-flex justify-content-between" style="font-size:14px;">
-            <span style="color:rgba(255,255,255,0.6);">Minggu / Hari Besar</span>
-            <span class="badge bg-danger" style="font-size:11px; padding:4px 8px; font-weight:600;">Tutup</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection
-
-@push('scripts')
-<script>
-  // FAQ Live Search
-  function searchFaq() {
-    const query = document.getElementById('faqSearchInput').value.toLowerCase();
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-      const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-      
-      if (question.includes(query) || answer.includes(query)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    // Automatically open the first matching item if searching
-    if (query.length > 1) {
-      let firstVisible = false;
-      faqItems.forEach(item => {
-        if (item.style.display === 'block' && !firstVisible) {
-          item.classList.add('open');
-          firstVisible = true;
-        } else {
-          item.classList.remove('open');
-        }
-      });
-    }
-  }
-</script>
-@endpush

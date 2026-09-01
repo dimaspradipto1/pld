@@ -12,10 +12,18 @@ class News extends Model
     protected $fillable = [
         'user_id',
         'thumbnail',
+        'gallery',
         'title',
         'description',
         'content',
         'status',
+        'category',
+        'is_featured',
+    ];
+
+    protected $casts = [
+        'is_featured' => 'boolean',
+        'gallery'     => 'array',
     ];
 
     public function user(): BelongsTo

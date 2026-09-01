@@ -29,13 +29,23 @@ class NewsController extends Controller
             $thumbnailPath = $request->file('thumbnail')->store('news', 'public');
         }
 
+        $galleryPaths = [];
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $photo) {
+                $galleryPaths[] = $photo->store('news/gallery', 'public');
+            }
+        }
+
         News::create([
-            'user_id' => Auth::id(),
-            'thumbnail' => $thumbnailPath,
-            'title' => $request->title,
+            'user_id'     => Auth::id(),
+            'thumbnail'   => $thumbnailPath,
+            'gallery'     => !empty($galleryPaths) ? $galleryPaths : null,
+            'title'       => $request->title,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status,
+            'content'     => $request->content,
+            'status'      => $request->status,
+            'category'    => $request->category,
+            'is_featured' => $request->boolean('is_featured'),
         ]);
 
         return redirect()
@@ -59,17 +69,40 @@ class NewsController extends Controller
             $thumbnailPath = $request->file('thumbnail')->store('news', 'public');
         }
 
+        $currentGallery = is_array($news->gallery) ? $news->gallery : [];
+
+        // Hapus gambar yang dicentang hapus
+        if ($request->filled('delete_gallery_images')) {
+            $deleteList = (array) $request->input('delete_gallery_images');
+            foreach ($deleteList as $delPath) {
+                if (Storage::disk('public')->exists($delPath)) {
+                    Storage::disk('public')->delete($delPath);
+                }
+                $currentGallery = array_values(array_filter($currentGallery, fn ($item) => $item !== $delPath));
+            }
+        }
+
+        // Tambah gambar baru jika diupload
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $photo) {
+                $currentGallery[] = $photo->store('news/gallery', 'public');
+            }
+        }
+
         $news->update([
-            'thumbnail' => $thumbnailPath,
-            'title' => $request->title,
+            'thumbnail'   => $thumbnailPath,
+            'gallery'     => !empty($currentGallery) ? array_values($currentGallery) : null,
+            'title'       => $request->title,
             'description' => $request->description,
-            'content' => $request->content,
-            'status' => $request->status,
+            'content'     => $request->content,
+            'status'      => $request->status,
+            'category'    => $request->category,
+            'is_featured' => $request->boolean('is_featured'),
         ]);
 
         return redirect()
             ->route('news.index')
-            ->with('success', 'Berita berhasil diperbarui.');
+            ->with('success', 'Berita dan galeri berhasil diperbarui.');
     }
 
     public function destroy(News $news): RedirectResponse
@@ -78,10 +111,46 @@ class NewsController extends Controller
             Storage::disk('public')->delete($news->thumbnail);
         }
 
+        if (is_array($news->gallery)) {
+            foreach ($news->gallery as $imgPath) {
+                if (Storage::disk('public')->exists($imgPath)) {
+                    Storage::disk('public')->delete($imgPath);
+                }
+            }
+        }
+
+        // Hapus juga file gambar konten TinyMCE jika tersimpan di local storage
+        if (!empty($news->content)) {
+            preg_match_all('/src="[^"]*\/storage\/(news\/content\/[^"]+)"/i', $news->content, $matches);
+            if (!empty($matches[1])) {
+                foreach ($matches[1] as $contentImg) {
+                    if (Storage::disk('public')->exists($contentImg)) {
+                        Storage::disk('public')->delete($contentImg);
+                    }
+                }
+            }
+        }
+
         $news->delete();
 
         return redirect()
             ->route('news.index')
-            ->with('success', 'Berita berhasil dihapus.');
+            ->with('success', 'Berita dan file gambar terkait berhasil dihapus.');
+    }
+
+    public function uploadImage(\Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse
+    {
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:10240',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->store('news/content', 'public');
+            return response()->json([
+                'location' => asset('storage/' . $path)
+            ]);
+        }
+
+        return response()->json(['error' => 'Gagal mengunggah gambar'], 400);
     }
 }

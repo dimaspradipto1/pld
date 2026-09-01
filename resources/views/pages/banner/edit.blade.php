@@ -51,7 +51,7 @@
                                name="judul"
                                class="form-control @error('judul') is-invalid @enderror"
                                value="{{ old('judul', $banner->judul) }}"
-                               placeholder="Contoh: Promo Roster Minimalis">
+                               placeholder="Contoh: Layanan Riksa Uji K3 BJI">
                         @error('judul')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

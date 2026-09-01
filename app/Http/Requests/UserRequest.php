@@ -21,14 +21,22 @@ class UserRequest extends FormRequest
             ];
         }
 
-        // 2. Validasi Update Password Pengguna
-        if ($this->routeIs('user.updatePassword')) {
+        // 2. Validasi Update Password Pengguna (Admin atau Self)
+        if ($this->routeIs('user.updatePassword') || $this->routeIs('user.update-my-password')) {
             return [
                 'password' => ['required', 'string', 'min:6', 'confirmed'],
             ];
         }
 
-        // 3. Validasi CRUD User (Store & Update)
+        // 3. Validasi Update My Profile Sendiri
+        if ($this->routeIs('user.update-my-profile')) {
+            return [
+                'name'  => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . ($this->user()?->id ?? '')],
+            ];
+        }
+
+        // 4. Validasi CRUD User (Store & Update)
         $userId = $this->route('user') 
             ? (is_object($this->route('user')) ? $this->route('user')->id : $this->route('user')) 
             : null;
@@ -36,7 +44,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name'  => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $userId],
-            'roles' => ['required', 'string', 'in:admin,user'],
+            'roles' => ['required', 'string', 'in:admin,user,penulis'],
         ];
 
         if ($this->isMethod('POST')) {

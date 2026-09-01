@@ -12,51 +12,53 @@ class FaqSeeder extends Seeder
      */
     public function run(): void
     {
+        Faq::truncate();
+
         $faqs = [
-            // Pemesanan & Pembayaran
+            // Akademik & Program Studi
             [
-                'question' => 'Bagaimana cara memesan roster dinding di sini?',
-                'answer' => 'Pemesanan dapat dilakukan dengan dua cara mudah. Pertama, melalui portal admin kami jika Anda telah terdaftar sebagai mitra aktif. Kedua, dengan langsung menghubungi WhatsApp Hubungan Pelanggan kami pada nomor yang tertera untuk konsultasi gratis dan penerbitan penawaran harga.',
-                'category' => 'pemesanan',
+                'question' => 'Apa saja program studi yang tersedia di Fakultas Ilmu Kesehatan (FIKES)?',
+                'answer'   => 'FIKES menyelenggarakan berbagai program studi unggulan seperti S1 Ilmu Keperawatan & Profesi Ners, Kebidanan (D3/S1 & Profesi), S1 Farmasi, S1 Ilmu Gizi, serta S1 Kesehatan Masyarakat.',
+                'category' => 'akademik',
             ],
             [
-                'question' => 'Apakah ada syarat minimum pembelian produk roster?',
-                'answer' => 'Kami tidak menetapkan batas minimum pembelian; Anda dapat memesan eceran sesuai kebutuhan renovasi rumah. Namun, untuk mendapatkan fasilitas harga grosir distributor dan diskon volume, minimal pembelian adalah 100 pcs per jenis motif roster.',
-                'category' => 'pemesanan',
+                'question' => 'Bagaimana status akreditasi program studi di FIKES?',
+                'answer'   => 'Seluruh program studi di FIKES telah terakreditasi oleh Lembaga Akreditasi Mandiri Pendidikan Tinggi Kesehatan Indonesia (LAM-PTKes) dan Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT).',
+                'category' => 'akademik',
             ],
             [
-                'question' => 'Metode pembayaran apa saja yang didukung?',
-                'answer' => 'Kami menerima pembayaran via Transfer Bank (Virtual Account / Rekening Resmi Perusahaan). Untuk proyek konstruksi skala menengah hingga besar, kami juga menyediakan skema termin pembayaran sesuai kesepakatan kontrak kerja sama.',
-                'category' => 'pemesanan',
-            ],
-
-            // Spesifikasi & Kustomisasi
-            [
-                'question' => 'Berapa dimensi ukuran standar dari roster beton?',
-                'answer' => 'Secara umum, dimensi standar roster beton kami adalah 20 x 20 x 10 cm. Berat rata-rata berkisar antara 3.5 kg hingga 4.2 kg per pcs tergantung dari pola motif lubang ventilasinya. Kami juga menyediakan opsi roster tipis berukuran tebal 8 cm untuk beberapa motif minimalis tertentu.',
-                'category' => 'spesifikasi',
-            ],
-            [
-                'question' => 'Apakah roster tanah liat aman dari rembesan air dan jamur?',
-                'answer' => 'Ya, seluruh roster tanah liat (terracotta) kami diproduksi menggunakan pembakaran suhu tinggi sehingga memiliki kepadatan prima. Namun untuk pemasangan eksterior luar ruangan, kami merekomendasikan pemberian lapisan coating waterproof transparan pasca pemasangan untuk mencegah tumbuhnya lumut dan jamur akibat kelembapan ekstrem.',
-                'category' => 'spesifikasi',
-            ],
-            [
-                'question' => 'Apakah bisa memesan roster dengan bentuk motif kustom sendiri?',
-                'answer' => 'Tentu bisa. Kami menerima pemesanan motif khusus (custom design) dengan ketentuan minimum pemesanan 500 pcs untuk menutupi biaya pembuatan cetakan baru. Estimasi waktu pembuatan berkisar antara 2 hingga 4 minggu dari persetujuan cetak blueprint desain.',
-                'category' => 'spesifikasi',
+                'question' => 'Apakah lulusan FIKES langsung mendapatkan gelar profesi?',
+                'answer'   => 'Untuk program studi yang memiliki jenjang profesi (seperti Keperawatan Ners dan Bidan), mahasiswa dapat melanjutkan ke tahap pendidikan profesi setelah menyelesaikan tahap sarjana untuk memperoleh Surat Tanda Registrasi (STR).',
+                'category' => 'akademik',
             ],
 
-            // Pengiriman & Garansi
+            // Pendaftaran & Penerimaan Mahasiswa Baru
             [
-                'question' => 'Bagaimana mekanisme pengiriman barang ke luar kota/pulau?',
-                'answer' => 'Untuk pengiriman di wilayah Jawa, kami menggunakan truk armada milik sendiri untuk meminimalisasi handling berlebih. Sementara untuk pengiriman luar pulau (Sumatera, Bali, Kalimantan, Sulawesi), kami bekerja sama dengan perusahaan ekspedisi kargo tepercaya dengan sistem palet kayu kokoh guna menjamin keamanan produk.',
-                'category' => 'pengiriman',
+                'question' => 'Bagaimana alur pendaftaran mahasiswa baru di FIKES?',
+                'answer'   => 'Pendaftaran dapat dilakukan secara online melalui portal resmi PMB atau datang langsung ke sekretariat pendaftaran FIKES dengan membawa berkas persyaratan akademik dan kesehatan.',
+                'category' => 'pendaftaran',
             ],
             [
-                'question' => 'Apakah ada jaminan garansi jika roster pecah saat diterima?',
-                'answer' => 'Ya, kami memberikan garansi penggantian penuh 100% untuk setiap roster yang pecah selama proses perjalanan pengiriman. Konsumen cukup mengirimkan bukti foto/video unboxing saat barang diturunkan dari truk pengirim kepada layanan pelanggan kami dalam waktu maksimal 1x24 jam dari barang diterima.',
-                'category' => 'pengiriman',
+                'question' => 'Apakah ada tes kesehatan khusus dalam seleksi masuk FIKES?',
+                'answer'   => 'Ya, calon mahasiswa wajib mengikuti pemeriksaan kesehatan (seperti tes bebas buta warna untuk program studi tertentu, bebas narkoba, dan pemeriksaan fisik dasar) demi memastikan kesiapan praktek klinik.',
+                'category' => 'pendaftaran',
+            ],
+            [
+                'question' => 'Apakah tersedia program beasiswa di FIKES?',
+                'answer'   => 'Tersedia berbagai pilihan beasiswa, antara lain KIP-Kuliah, Beasiswa Prestasi Akademik/Non-Akademik, Beasiswa Yayasan, dan Beasiswa Kemitraan Instansi.',
+                'category' => 'pendaftaran',
+            ],
+
+            // Fasilitas & Praktek Kerja
+            [
+                'question' => 'Di mana saja mahasiswa FIKES melaksanakan praktek klinik / lapangan?',
+                'answer'   => 'Mahasiswa melaksanakan praktek di rumah sakit pendidikan tipe A & B, RSUD, RS swasta terakreditasi paripurna, Puskesmas, laboratorium klinik, dan industri farmasi mitra resmi FIKES.',
+                'category' => 'fasilitas',
+            ],
+            [
+                'question' => 'Fasilitas laboratorium apa saja yang disediakan di kampus FIKES?',
+                'answer'   => 'Kampus menyediakan Laboratorium Keterampilan Medis (OSCE Center), Mini Hospital, Laboratorium Farmakologi & Kimia, Laboratorium Dietetika & Pangan, serta Laboratorium Simulasi Kebidanan.',
+                'category' => 'fasilitas',
             ],
         ];
 

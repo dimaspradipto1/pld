@@ -13,11 +13,11 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-9 col-md-11">
+    <div class="col-lg-10 col-md-12">
         <div class="card shadow-sm">
             <div class="card-header py-3">
                 <h5 class="mb-0 fw-semibold">
-                    <i class="bi bi-pencil-square me-2 text-warning"></i>Form Edit Post
+                    <i class="bi bi-pencil-square me-2 text-warning"></i>Form Edit Post & Berita FIKES
                 </h5>
             </div>
             <div class="card-body pt-4">
@@ -42,7 +42,7 @@
                     {{-- Judul --}}
                     <div class="mb-3">
                         <label for="title" class="form-label fw-semibold">
-                            Judul Post <span class="text-danger">*</span>
+                            Judul Post / Berita <span class="text-danger">*</span>
                         </label>
                         <input type="text"
                                id="title"
@@ -86,6 +86,7 @@
                         @enderror
                     </div>
 
+                    {{-- Baris: Status + Kategori + Unggulan --}}
                     <div class="row mb-4">
                         {{-- Status --}}
                         <div class="col-md-4 mb-3 mb-md-0">
@@ -96,67 +97,189 @@
                                     name="status"
                                     class="form-select @error('status') is-invalid @enderror"
                                     required>
-                                <option value="draft" {{ old('status', $news->status) == 'draft' ? 'selected' : '' }}>Draft</option>
-                                <option value="published" {{ old('status', $news->status) == 'published' ? 'selected' : '' }}>Published</option>
+                                <option value="draft"     {{ old('status', $news->status) == 'draft'     ? 'selected' : '' }}>Draft</option>
+                                <option value="published" {{ old('status', $news->status) == 'published' ? 'selected' : '' }}>Published (Terbit)</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        {{-- Thumbnail Saat Ini --}}
+                        {{-- Kategori --}}
                         <div class="col-md-4 mb-3 mb-md-0">
-                            <label class="form-label fw-semibold">Thumbnail Saat Ini</label>
-                            <div>
-                                @if ($news->thumbnail)
-                                    <img src="{{ asset('storage/' . $news->thumbnail) }}"
-                                         alt="{{ $news->title }}"
-                                         style="max-width:200px;max-height:120px;object-fit:cover;border-radius:6px;border:1px solid #dee2e6">
-                                @else
-                                    <span class="text-muted small">Tidak ada thumbnail</span>
-                                @endif
-                            </div>
-                        </div>
-
-                        {{-- Ganti Thumbnail --}}
-                        <div class="col-md-4">
-                            <label for="thumbnail" class="form-label fw-semibold">
-                                Ganti Gambar Thumbnail
-                                <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
+                            <label for="category" class="form-label fw-semibold">
+                                Kategori Berita <span class="text-danger">*</span>
                             </label>
-                            <input type="file"
-                                   id="thumbnail"
-                                   name="thumbnail"
-                                   class="form-control @error('thumbnail') is-invalid @enderror"
-                                   accept="image/*"
-                                   onchange="previewThumbnail(this)">
-                            <div class="form-text">Kosongkan jika tidak ingin mengganti. Format: JPG, JPEG, PNG, WebP. Maks: 2 MB.</div>
-                            @error('thumbnail')
+                            @php $cat = old('category', $news->category); @endphp
+                            <select id="category"
+                                    name="category"
+                                    class="form-select @error('category') is-invalid @enderror"
+                                    required>
+                                <option value="Berita Fakultas"         {{ $cat == 'Berita Fakultas' ? 'selected' : '' }}>Berita Fakultas</option>
+                                <option value="Akademik & Mahasiswa"   {{ $cat == 'Akademik & Mahasiswa' ? 'selected' : '' }}>Akademik & Mahasiswa</option>
+                                <option value="K3 & Keselamatan Kerja"  {{ $cat == 'K3 & Keselamatan Kerja' ? 'selected' : '' }}>K3 & Keselamatan Kerja</option>
+                                <option value="Kesehatan Lingkungan"    {{ $cat == 'Kesehatan Lingkungan' ? 'selected' : '' }}>Kesehatan Lingkungan</option>
+                                <option value="Penelitian & Riset"      {{ $cat == 'Penelitian & Riset' ? 'selected' : '' }}>Penelitian & Riset</option>
+                                <option value="Pengabdian Masyarakat"   {{ $cat == 'Pengabdian Masyarakat' ? 'selected' : '' }}>Pengabdian Masyarakat</option>
+                                <option value="Tips & Edukasi Kesehatan"{{ $cat == 'Tips & Edukasi Kesehatan' ? 'selected' : '' }}>Tips & Edukasi Kesehatan</option>
+                                <option value="Pengumuman & Agenda"     {{ $cat == 'Pengumuman & Agenda' ? 'selected' : '' }}>Pengumuman & Agenda</option>
+                            </select>
+                            @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                        </div>
 
-                            {{-- Preview baru --}}
-                            <div id="previewWrap" class="mt-3 d-none">
-                                <p class="small text-muted mb-1">Preview Baru:</p>
-                                <img id="previewImg"
-                                     src=""
-                                     alt="Preview"
-                                     style="max-width:200px;max-height:120px;object-fit:cover;border-radius:6px;border:2px solid #0d6efd">
+                        {{-- Artikel Unggulan --}}
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold d-block">Artikel Unggulan</label>
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       role="switch"
+                                       id="is_featured"
+                                       name="is_featured"
+                                       value="1"
+                                       {{ old('is_featured', $news->is_featured) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_featured">
+                                    Jadikan Berita Utama
+                                </label>
+                            </div>
+                            <div class="form-text text-muted small">
+                                <i class="bi bi-star-fill text-warning"></i> Ditampilkan di banner sorotan utama.
                             </div>
                         </div>
                     </div>
 
-                    {{-- Buttons --}}
-                    <div class="d-flex gap-2">
+                    {{-- Thumbnail --}}
+                    <div class="mb-4 p-3 rounded bg-light border">
+                        <div class="row">
+                            {{-- Thumbnail Saat Ini --}}
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <label class="form-label fw-semibold">Thumbnail Saat Ini</label>
+                                <div>
+                                    @if ($news->thumbnail)
+                                        <img src="{{ asset('storage/' . $news->thumbnail) }}"
+                                             alt="{{ $news->title }}"
+                                             class="img-thumbnail rounded shadow-sm"
+                                             style="max-height: 140px; object-fit: cover;">
+                                    @else
+                                        <span class="badge bg-secondary">Tidak ada thumbnail</span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            {{-- Ganti Thumbnail --}}
+                            <div class="col-md-8">
+                                <label for="thumbnail" class="form-label fw-semibold">
+                                    Ganti Thumbnail <span class="text-muted small">(Opsional)</span>
+                                </label>
+                                <input type="file"
+                                       id="thumbnail"
+                                       name="thumbnail"
+                                       class="form-control @error('thumbnail') is-invalid @enderror"
+                                       accept="image/*"
+                                       onchange="previewThumbnail(this)">
+                                <div class="form-text text-muted">
+                                    Kosongkan jika tidak ingin mengganti. Format: JPG, JPEG, PNG, WebP. Maks: 5 MB.
+                                </div>
+                                @error('thumbnail')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+
+                                {{-- Preview thumbnail baru --}}
+                                <div id="thumbnailPreviewWrap" class="mt-2 d-none">
+                                    <p class="small text-muted mb-1 fw-semibold">Preview Baru:</p>
+                                    <img id="thumbnailPreview"
+                                         src=""
+                                         alt="Preview Thumbnail"
+                                         class="img-thumbnail rounded"
+                                         style="max-height: 120px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Galeri Foto Berita --}}
+                    <div class="mb-4 p-3 rounded bg-light border">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label class="form-label fw-semibold mb-0">
+                                <i class="bi bi-images me-1 text-success"></i> Galeri Dokumentasi Foto
+                            </label>
+                            <span class="badge bg-primary rounded-pill">Multi Upload</span>
+                        </div>
+
+                        {{-- Galeri Yang Sudah Ada --}}
+                        @if(!empty($news->gallery) && is_array($news->gallery) && count($news->gallery) > 0)
+                            <div class="mt-2 mb-3 p-3 bg-white rounded border">
+                                <p class="small fw-semibold text-dark mb-2">
+                                    <i class="bi bi-collection-play me-1"></i> Foto Galeri Tersimpan ({{ count($news->gallery) }} foto):
+                                </p>
+                                <div class="row g-2">
+                                    @foreach($news->gallery as $gIndex => $imgPath)
+                                        <div class="col-6 col-sm-4 col-md-3">
+                                            <div class="card h-100 border p-1 position-relative shadow-sm">
+                                                <img src="{{ asset('storage/' . $imgPath) }}" class="rounded w-100" style="height: 100px; object-fit: cover;">
+                                                <div class="form-check p-1 bg-white rounded border mt-1 mx-auto w-100 text-center">
+                                                    <input class="form-check-input ms-1" type="checkbox" name="delete_gallery_images[]" value="{{ $imgPath }}" id="del_img_{{ $gIndex }}">
+                                                    <label class="form-check-label small text-danger fw-semibold ms-1" for="del_img_{{ $gIndex }}" style="font-size: 11px;">
+                                                        Hapus Foto
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="form-text text-muted small mt-2">
+                                    <i class="bi bi-info-circle"></i> Centang opsi <strong>"Hapus Foto"</strong> pada foto yang ingin dihapus dari galeri berita ini saat menyimpan.
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- Tambah Foto Galeri Baru --}}
+                        <div class="mt-2">
+                            <label for="gallery" class="form-label small fw-semibold text-dark">
+                                Tambah Foto Baru ke Galeri:
+                            </label>
+                            <input type="file"
+                                   id="gallery"
+                                   name="gallery[]"
+                                   class="form-control @error('gallery') is-invalid @enderror @error('gallery.*') is-invalid @enderror"
+                                   multiple
+                                   accept="image/*"
+                                   onchange="previewGallery(this)">
+                            <div class="form-text text-muted">Bisa memilih lebih dari 1 file sekaligus (JPG, PNG, WebP. Maks 5 MB).</div>
+                            @error('gallery')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                            @error('gallery.*')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+
+                            {{-- Preview Foto Baru yang Akan Diupload --}}
+                            <div id="galleryPreviewContainer" class="mt-3 d-none">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="small fw-semibold text-dark" id="galleryCountText">Foto Baru Terpilih: 0</span>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="clearGallery()">
+                                        <i class="bi bi-trash"></i> Reset
+                                    </button>
+                                </div>
+                                <div id="galleryGrid" class="row g-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Tombol --}}
+                    <div class="d-flex gap-2 justify-content-end pt-3 border-top">
                         <a href="{{ route('news.index') }}" class="btn btn-secondary">
                             <i class="bi bi-arrow-left me-1"></i> Batal
                         </a>
-                        <button type="submit" class="btn btn-warning text-white">
+                        <button type="submit" class="btn btn-primary" style="background: var(--fikes-purple); border-color: var(--fikes-purple);">
                             <i class="bi bi-save me-1"></i> Simpan Perubahan
                         </button>
                     </div>
 
                 </form>
+
             </div>
         </div>
     </div>
@@ -164,26 +287,92 @@
 @endsection
 
 @push('scripts')
-{{-- Load TinyMCE dari CDN --}}
-<script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
+{{-- TinyMCE --}}
+<script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js"></script>
 <script>
-    // Inisialisasi TinyMCE
     tinymce.init({
-        selector: 'textarea#content',
-        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount',
-        toolbar: 'undo redo | blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-        height: 400,
-        branding: false,
-        promotion: false
+        selector: '#content',
+        height: 420,
+        menubar: false,
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table wordcount',
+        toolbar: 'undo redo | blocks | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image | removeformat | code fullscreen',
+        content_style: 'body { font-family: Plus Jakarta Sans, Arial, sans-serif; font-size: 14px; line-height: 1.6; } img { max-width: 100%; height: auto; }',
+        image_title: true,
+        automatic_uploads: true,
+        file_picker_types: 'image',
+        images_upload_handler: function (blobInfo, progress) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', '{{ route("news.upload-image") }}');
+                xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+
+                xhr.upload.onprogress = (e) => {
+                    progress(e.loaded / e.total * 100);
+                };
+
+                xhr.onload = () => {
+                    if (xhr.status === 403 || xhr.status === 419) {
+                        reject({ message: 'Sesi berakhir atau CSRF token invalid.', remove: true });
+                        return;
+                    }
+                    if (xhr.status < 200 || xhr.status >= 300) {
+                        reject('Gagal upload gambar. HTTP Error: ' + xhr.status);
+                        return;
+                    }
+                    try {
+                        const json = JSON.parse(xhr.responseText);
+                        if (!json || typeof json.location !== 'string') {
+                            reject('Respon server tidak valid.');
+                            return;
+                        }
+                        resolve(json.location);
+                    } catch (e) {
+                        reject('Respon server error: ' + e.message);
+                    }
+                };
+
+                xhr.onerror = () => {
+                    reject('Gagal koneksi ke server saat mengunggah gambar.');
+                };
+
+                const formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+                xhr.send(formData);
+            });
+        },
+        file_picker_callback: function (cb, value, meta) {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+
+            input.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.addEventListener('load', () => {
+                    const id = 'blobid' + (new Date()).getTime();
+                    const blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                    const base64 = reader.result.split(',')[1];
+                    const blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
+
+                    cb(blobInfo.blobUri(), { title: file.name, alt: file.name });
+                });
+                reader.readAsDataURL(file);
+            });
+
+            input.click();
+        }
     });
 
-    // Preview Thumbnail
     function previewThumbnail(input) {
-        const wrap = document.getElementById('previewWrap');
-        const img  = document.getElementById('previewImg');
+        const wrap = document.getElementById('thumbnailPreviewWrap');
+        const img = document.getElementById('thumbnailPreview');
         if (input.files && input.files[0]) {
             const reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 img.src = e.target.result;
                 wrap.classList.remove('d-none');
             };
@@ -191,6 +380,44 @@
         } else {
             wrap.classList.add('d-none');
         }
+    }
+
+    function previewGallery(input) {
+        const container = document.getElementById('galleryPreviewContainer');
+        const grid = document.getElementById('galleryGrid');
+        const countText = document.getElementById('galleryCountText');
+        grid.innerHTML = '';
+
+        if (input.files && input.files.length > 0) {
+            countText.innerText = `Foto Baru Terpilih: ${input.files.length} Gambar`;
+            container.classList.remove('d-none');
+
+            Array.from(input.files).forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const col = document.createElement('div');
+                    col.className = 'col-6 col-md-4 col-lg-3';
+                    col.innerHTML = `
+                        <div class="card h-100 shadow-sm border p-1 position-relative">
+                            <img src="${e.target.result}" class="rounded w-100" style="height: 100px; object-fit: cover;">
+                            <span class="badge bg-dark position-absolute top-0 start-0 m-2 opacity-75">+${index + 1}</span>
+                            <div class="small text-truncate text-muted mt-1 px-1" style="font-size: 11px;">${file.name}</div>
+                        </div>
+                    `;
+                    grid.appendChild(col);
+                };
+                reader.readAsDataURL(file);
+            });
+        } else {
+            container.classList.add('d-none');
+        }
+    }
+
+    function clearGallery() {
+        const input = document.getElementById('gallery');
+        input.value = '';
+        document.getElementById('galleryPreviewContainer').classList.add('d-none');
+        document.getElementById('galleryGrid').innerHTML = '';
     }
 </script>
 @endpush

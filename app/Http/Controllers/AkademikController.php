@@ -1,0 +1,159 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Akademik;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
+
+class AkademikController extends Controller
+{
+    /**
+     * Default defaults for each academic category
+     */
+    private array $defaults = [
+        'kurikulum' => [
+            'judul'     => 'Kurikulum & Capaian Pembelajaran',
+            'subjudul'  => 'Struktur kurikulum berbasis kompetensi dan Outcome-Based Education (OBE) FIKES UIS.',
+            'deskripsi' => '<p>Kurikulum Fakultas Ilmu Kesehatan dirancang untuk menghasilkan lulusan yang kompeten, berdaya saing global, dan berintegritas tinggi. Mengacu pada Kerangka Kualifikasi Nasional Indonesia (KKNI) serta standar profesi kesehatan.</p>',
+            'link_url'  => '',
+        ],
+        'kalender' => [
+            'judul'     => 'Kalender Akademik Tahun Akademik 2026/2027',
+            'subjudul'  => 'Jadwal perkuliahan, registrasi, UTS, UAS, dan kegiatan akademik fakultas.',
+            'deskripsi' => '<p>Kalender Akademik memuat seluruh linimasa kegiatan perkuliahan Semester Ganjil dan Genap, termasuk masa registrasi ulang, pengisian KRS, bimbingan akademik, hingga yudisium dan wisuda.</p>',
+            'link_url'  => '',
+        ],
+        'pedoman' => [
+            'judul'     => 'Pedoman & Panduan Akademik Mahasiswa',
+            'subjudul'  => 'Buku panduan tata tertib, prosedur skripsi, magang/PKL, dan etika akademik.',
+            'deskripsi' => '<p>Buku Pedoman Akademik merupakan acuan utama bagi seluruh civitas akademika FIKES UIS dalam menjalankan aktivitas belajar-mengajar, tata tertib perkuliahan, evaluasi hasil belajar, dan layanan kemahasiswaan.</p>',
+            'link_url'  => '',
+        ],
+        'sistem' => [
+            'judul'     => 'Portal Sistem Informasi Akademik (SIAKAD & E-Learning)',
+            'subjudul'  => 'Layanan portal digital terpadu untuk pengisian KRS, presensi, nilai, dan pembelajaran online.',
+            'deskripsi' => '<p>Sistem Informasi Akademik (SIAKAD) FIKES Universitas Ibnu Sina memfasilitasi mahasiswa dan dosen dalam proses administrasi perkuliahan secara daring, cepat, dan transparan.</p>',
+            'link_url'  => 'https://siakad.uis.ac.id',
+        ],
+    ];
+
+    /**
+     * Helper to get or create record by tipe
+     */
+    private function getOrCreateItem(string $tipe): Akademik
+    {
+        $default = $this->defaults[$tipe] ?? [
+            'judul'     => ucfirst($tipe),
+            'subjudul'  => '',
+            'deskripsi' => '',
+            'link_url'  => '',
+        ];
+
+        return Akademik::firstOrCreate(
+            ['tipe' => $tipe],
+            [
+                'judul'     => $default['judul'],
+                'subjudul'  => $default['subjudul'],
+                'deskripsi' => $default['deskripsi'],
+                'link_url'  => $default['link_url'],
+                'is_active' => true,
+            ]
+        );
+    }
+
+    public function kurikulum(): View
+    {
+        $item = $this->getOrCreateItem('kurikulum');
+        $pageTitle = 'Kurikulum';
+        $tipe = 'kurikulum';
+        return view('pages.akademik.edit', compact('item', 'pageTitle', 'tipe'));
+    }
+
+    public function kalender(): View
+    {
+        $item = $this->getOrCreateItem('kalender');
+        $pageTitle = 'Kalender Akademik';
+        $tipe = 'kalender';
+        return view('pages.akademik.edit', compact('item', 'pageTitle', 'tipe'));
+    }
+
+    public function pedoman(): View
+    {
+        $item = $this->getOrCreateItem('pedoman');
+        $pageTitle = 'Pedoman Akademik';
+        $tipe = 'pedoman';
+        return view('pages.akademik.edit', compact('item', 'pageTitle', 'tipe'));
+    }
+
+    public function sistem(): View
+    {
+        $item = $this->getOrCreateItem('sistem');
+        $pageTitle = 'Sistem Akademik';
+        $tipe = 'sistem';
+        return view('pages.akademik.edit', compact('item', 'pageTitle', 'tipe'));
+    }
+
+    public function update(Request $request, string $tipe): RedirectResponse
+    {
+        if (!in_array($tipe, ['kurikulum', 'kalender', 'pedoman', 'sistem'])) {
+            abort(404);
+        }
+
+        $validated = $request->validate([
+            'judul'        => ['required', 'string', 'max:255'],
+            'subjudul'     => ['nullable', 'string', 'max:500'],
+            'deskripsi'    => ['nullable', 'string'],
+            'link_url'     => ['nullable', 'string', 'max:500'],
+            'file_nama'    => ['nullable', 'string', 'max:255'],
+            'file_dokumen' => ['nullable', 'file', 'mimes:pdf,doc,docx,xls,xlsx,zip,rar', 'max:20480'], // max 20MB
+            'gambar'       => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:3072'],
+            'is_active'    => ['nullable', 'boolean'],
+        ], [
+            'file_dokumen.mimes' => 'Format file yang diperbolehkan: PDF, DOC, DOCX, XLS, XLSX, ZIP, RAR.',
+            'file_dokumen.max'   => 'Ukuran file dokumen maksimal 20MB.',
+            'gambar.image'       => 'File banner/gambar harus berupa gambar.',
+            'gambar.max'         => 'Ukuran gambar maksimal 3MB.',
+        ]);
+
+        $validated['is_active'] = $request->has('is_active');
+
+        $item = $this->getOrCreateItem($tipe);
+
+        // Upload File Dokumen (PDF dll)
+        if ($request->hasFile('file_dokumen')) {
+            if ($item->file_dokumen && Storage::disk('public')->exists($item->file_dokumen)) {
+                Storage::disk('public')->delete($item->file_dokumen);
+            }
+            $file = $request->file('file_dokumen');
+            $validated['file_dokumen'] = $file->store('akademik/dokumen', 'public');
+            if (empty($validated['file_nama'])) {
+                $validated['file_nama'] = $file->getClientOriginalName();
+            }
+        }
+
+        // Upload Gambar Banner/Cover
+        if ($request->hasFile('gambar')) {
+            if ($item->gambar && Storage::disk('public')->exists($item->gambar)) {
+                Storage::disk('public')->delete($item->gambar);
+            }
+            $validated['gambar'] = $request->file('gambar')->store('akademik/gambar', 'public');
+        }
+
+        $item->update($validated);
+
+        $routeName = match ($tipe) {
+            'kurikulum' => 'akademik.kurikulum',
+            'kalender'  => 'akademik.kalender',
+            'pedoman'   => 'akademik.pedoman',
+            'sistem'    => 'akademik.sistem',
+            default     => 'akademik.kurikulum',
+        };
+
+        return redirect()
+            ->route($routeName)
+            ->with('success', "Pengaturan data {$this->defaults[$tipe]['judul']} berhasil diperbarui!");
+    }
+}

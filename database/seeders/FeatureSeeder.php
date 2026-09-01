@@ -12,29 +12,31 @@ class FeatureSeeder extends Seeder
      */
     public function run(): void
     {
+        Feature::truncate();
+
         $features = [
             [
-                'icon'      => 'bi-grid-3x3-gap-fill',
-                'judul'     => 'Motif Terlengkap',
-                'deskripsi' => 'Tersedia 50+ pilihan motif roster dari minimalis modern hingga premium klasik, cocok untuk berbagai konsep arsitektur.',
+                'icon'      => 'bi-patch-check-fill',
+                'judul'     => 'Akreditasi Unggul',
+                'deskripsi' => 'Program studi telah terakreditasi oleh LAM-PTKes dan BAN-PT dengan jaminan mutu pendidikan tinggi kesehatan berstandar nasional.',
                 'urutan'    => 1,
             ],
             [
-                'icon'      => 'bi-award',
-                'judul'     => 'Bersertifikat SNI',
-                'deskripsi' => 'Seluruh produk kami telah memenuhi standar SNI dan teruji kekuatan serta ketahanan materialnya untuk jangka panjang.',
+                'icon'      => 'bi-hospital-fill',
+                'judul'     => 'Laboratorium Terpadu Modern',
+                'deskripsi' => 'Dilengkapi laboratorium klinik, simulasi keperawatan, kebidanan, dan farmasi dengan alat praktikum medis terkini.',
                 'urutan'    => 2,
             ],
             [
-                'icon'      => 'bi-currency-dollar',
-                'judul'     => 'Harga Kompetitif',
-                'deskripsi' => 'Harga grosir langsung dari distributor resmi. Dapatkan penawaran terbaik untuk pembelian partai besar dengan diskon menarik.',
+                'icon'      => 'bi-mortarboard-fill',
+                'judul'     => 'Dosen Ahli & Berpengalaman',
+                'deskripsi' => 'Tenaga pengajar berkualifikasi magister dan doktor bidang kesehatan yang aktif dalam riset, publikasi, dan praktik klinis.',
                 'urutan'    => 3,
             ],
             [
-                'icon'      => 'bi-headset',
-                'judul'     => 'Konsultasi Gratis',
-                'deskripsi' => 'Tim ahli kami siap membantu Anda memilih jenis dan motif roster yang tepat sesuai desain dan kebutuhan bangunan Anda.',
+                'icon'      => 'bi-diagram-3-fill',
+                'judul'     => 'Jejaring Rumah Sakit Luas',
+                'deskripsi' => 'Kemitraan strategis dengan rumah sakit umum, rumah sakit swasta, dan dinas kesehatan untuk praktik klinik dan karir alumni.',
                 'urutan'    => 4,
             ],
         ];

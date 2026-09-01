@@ -14,10 +14,10 @@ class AboutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'judul_profil' => ['nullable', 'string', 'max:255'],
+            'judul_profil'       => ['nullable', 'string', 'max:255'],
             'deskripsi_profil_1' => ['nullable', 'string'],
             'deskripsi_profil_2' => ['nullable', 'string'],
-            'visi'       => ['nullable', 'string'],
+            'visi'               => ['nullable', 'string'],
             'visi_judul' => ['nullable', 'string', 'max:255'],
             'visi_icon'  => ['nullable', 'string', 'max:255'],
             'misi'       => ['nullable', 'string'],

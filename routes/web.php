@@ -8,30 +8,45 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductImageController;
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\NomorAdminController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MilestoneController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\VisiMisiController;
+use App\Http\Controllers\NilaiPerusahaanController;
+use App\Http\Controllers\SambutanDekanController;
+use App\Http\Controllers\PmbSettingController;
+use App\Http\Controllers\AkademikController;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend / Public Routes
+| Frontend / Public Routes — FIKES (Fakultas Ilmu Kesehatan)
 |--------------------------------------------------------------------------
 */
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'homepage')->name('homepage');
-    Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/tentang', 'tentang')->name('homepage.tentang');
+    Route::get('/sambutan-dekan', 'sambutanDekan')->name('homepage.sambutan-dekan');
+    Route::get('/visi-misi', 'visiMisi')->name('homepage.visi-misi');
+    Route::get('/sejarah', 'sejarah')->name('homepage.sejarah');
+    Route::get('/organisasi', 'strukturOrganisasi')->name('homepage.struktur-organisasi');
+    Route::get('/kurikulum', 'kurikulum')->name('homepage.kurikulum');
+    Route::get('/kalender-akademik', 'kalenderAkademik')->name('homepage.kalender-akademik');
+    Route::get('/pedoman-akademik', 'pedomanAkademik')->name('homepage.pedoman-akademik');
+    Route::get('/sistem-akademik', 'sistemAkademik')->name('homepage.sistem-akademik');
+    Route::get('/layanan', 'layanan')->name('homepage.layanan');
+    Route::get('/layanan/{id}', 'layananDetail')->name('homepage.layanan.detail');
+    Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
     Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
+    Route::get('/berita', 'news')->name('homepage.news');
+    Route::get('/berita/{id}', 'newsDetail')->name('homepage.news.detail');
     Route::get('/faq', 'faq')->name('homepage.faq');
     Route::get('/kontak', 'kontak')->name('homepage.kontak');
 });
@@ -55,6 +70,11 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // My Profile & Self Password Management
+    Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.my-profile');
+    Route::patch('/my-profile', [UserController::class, 'updateMyProfile'])->name('user.update-my-profile');
+    Route::patch('/my-profile/password', [UserController::class, 'updateMyPassword'])->name('user.update-my-password');
+
     Route::get('/user/{user}/update-password', [UserController::class, 'updatePasswordForm'])
         ->name('user.updatePasswordForm');
     Route::patch('/user/{user}/update-password', [UserController::class, 'updatePassword'])
@@ -64,14 +84,35 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('profil', ProfilController::class);
     Route::resource('contact', ContactController::class);
+    Route::post('news/upload-image', [NewsController::class, 'uploadImage'])->name('news.upload-image');
     Route::resource('news', NewsController::class);
-    Route::resource('nomoradmin', NomorAdminController::class);
     Route::resource('admin-faq', FaqController::class)
         ->parameters(['admin-faq' => 'faq'])
         ->names('faq');
     Route::resource('about', AboutController::class);
+    Route::get('sambutan-dekan-admin', [SambutanDekanController::class, 'index'])->name('sambutan-dekan.index');
+    Route::put('sambutan-dekan-admin', [SambutanDekanController::class, 'update'])->name('sambutan-dekan.update');
+    Route::get('pmb-setting-admin', [PmbSettingController::class, 'index'])->name('pmb-setting.index');
+    Route::put('pmb-setting-admin', [PmbSettingController::class, 'update'])->name('pmb-setting.update');
+
+    // Akademik Routes
+    Route::prefix('admin-akademik')->name('akademik.')->group(function () {
+        Route::get('kurikulum', [AkademikController::class, 'kurikulum'])->name('kurikulum');
+        Route::get('kalender', [AkademikController::class, 'kalender'])->name('kalender');
+        Route::get('pedoman', [AkademikController::class, 'pedoman'])->name('pedoman');
+        Route::get('sistem', [AkademikController::class, 'sistem'])->name('sistem');
+        Route::put('{tipe}', [AkademikController::class, 'update'])->name('update');
+    });
+
     Route::resource('milestone', MilestoneController::class);
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('testimonial', TestimonialController::class);
+    Route::resource('admin-layanan', LayananController::class)
+        ->parameters(['admin-layanan' => 'layanan'])
+        ->names('layanan');
+    Route::resource('struktur-organisasi', StrukturOrganisasiController::class);
+    Route::resource('partner', PartnerController::class);
+    Route::resource('visimisi', VisiMisiController::class);
+    Route::resource('nilaiperusahaan', NilaiPerusahaanController::class);
 });

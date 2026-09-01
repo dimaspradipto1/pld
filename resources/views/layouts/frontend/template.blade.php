@@ -13,9 +13,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'FIKES — Fakultas Ilmu Kesehatan | Roster & Fasilitas')</title>
-  <meta name="description" content="@yield('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Penyedia Roster Dinding, Fasilitas, Laboratorium, dan Informasi Akademik Berkualitas.')">
-  <meta name="keywords" content="@yield('meta_keywords', 'fikes, fakultas ilmu kesehatan, roster dinding, ventilasi, fasilitas kesehatan, bata ventilasi')">
+  <title>@yield('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas')</title>
+  <meta name="description" content="@yield('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
+  <meta name="keywords" content="@yield('meta_keywords', 'fikes, fakultas ilmu kesehatan, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
+  <meta name="author" content="@yield('meta_author', 'Fakultas Ilmu Kesehatan')">
+
+  <!-- Open Graph / Facebook / WhatsApp / Telegram Preview -->
+  <meta property="og:type" content="@yield('og_type', 'website')">
+  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
+  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta property="og:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
+  <meta property="og:image:secure_url" content="@yield('og_image', asset('assets/img/logouis.png'))">
+  <meta property="og:site_name" content="FIKES — Fakultas Ilmu Kesehatan">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ url()->current() }}">
+  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
+  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta name="twitter:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/logouis.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('assets/img/logouis.png') }}">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +49,15 @@
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- AOS Animation -->
+  <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  @stack('styles')
-
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ═══════════════════════════════════════════════
+       DESIGN TOKENS — FIKES (SOLID PALETTE, ZERO GRADIENTS)
+       Purple: #823ca2 | Orange: #ff9c00
+    ═══════════════════════════════════════════════ */
     :root {
-      /* FIKES Official Primary Solid Colors */
       --fikes-purple:       #823ca2;
       --fikes-purple-dark:  #682985;
       --fikes-purple-deep:  #47175d;
@@ -50,34 +70,22 @@
       --fikes-orange-light: #fff8eb;
       --fikes-orange-subtle:#ffeecd;
       
-      /* Neutral & Obsidian Faculty Dark Tones */
       --obsidian-dark:      #190a24;
       --obsidian-card:      #241033;
-      --obsidian-surface:   #321746;
       
       --white:              #ffffff;
       --page-bg:            #fcfaff;
       --surface-light:      #f6effb;
+      --surface-muted:      #f0e5f7;
+      
       --text-main:          #190a24;
       --text-muted:         #655672;
       --text-light:         #9586a2;
+      
       --border-light:       #ebdff2;
-      --border-focus:       #823ca2;
+      --border-purple:      #cfb5db;
+      --border-orange:      #ffd79a;
       
-      /* Semantic fallback mapping */
-      --terracotta:         #823ca2;
-      --terracotta-dk:      #682985;
-      --terracotta-lt:      #ff9c00;
-      --clay:               #ff9c00;
-      --sand:               #f5eefb;
-      --charcoal:           #190a24;
-      --dark-brown:         #241033;
-      --muted:              #655672;
-      --border:             #ebdff2;
-      --cream:              #fcfaff;
-      
-      /* Crisp Elevation Shadows (Zero Gradients, Premium Depth) */
-      --shadow-xs:          0 2px 4px rgba(25, 10, 36, 0.04);
       --shadow-sm:          0 4px 12px rgba(130, 60, 162, 0.08);
       --shadow-md:          0 8px 24px rgba(130, 60, 162, 0.12);
       --shadow-lg:          0 16px 36px rgba(130, 60, 162, 0.15);
@@ -94,1187 +102,658 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--page-bg);
+      background-color: var(--page-bg);
       color: var(--text-main);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* ═══════════════════════════════════════════════
-       CLEAN GEOMETRIC PATTERN (Solid SVG overlay)
-    ═══════════════════════════════════════════════ */
-    .roster-pattern {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23823ca2' fill-opacity='0.035'%3E%3Crect x='5' y='5' width='22' height='22' rx='3'/%3E%3Crect x='33' y='5' width='22' height='22' rx='3'/%3E%3Crect x='5' y='33' width='22' height='22' rx='3'/%3E%3Crect x='33' y='33' width='22' height='22' rx='3'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23ff9c00' fill-opacity='0.08' rx='1'/%3E%3Crect x='41' y='13' width='6' height='6' fill='%23ff9c00' fill-opacity='0.08' rx='1'/%3E%3Crect x='13' y='41' width='6' height='6' fill='%23ff9c00' fill-opacity='0.08' rx='1'/%3E%3Crect x='41' y='41' width='6' height='6' fill='%23ff9c00' fill-opacity='0.08' rx='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--text-main);
     }
 
+    a { text-decoration: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+
     /* ═══════════════════════════════════════════════
-       TOPBAR
+       TOPBAR — Solid Obsidian Theme
     ═══════════════════════════════════════════════ */
-    .topbar {
+    .topbar-main {
       background: var(--obsidian-dark);
-      padding: 10px 0;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(130, 60, 162, 0.3);
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.8);
     }
-    .topbar a { color: rgba(255, 255, 255, 0.75); text-decoration: none; transition: color 0.2s ease; }
-    .topbar a:hover { color: var(--fikes-orange); }
-    .topbar .sep { color: rgba(255, 255, 255, 0.2); margin: 0 12px; }
-    .topbar .social-link {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 12px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      margin-left: 6px;
+
+    .topbar-main a {
+      color: rgba(255, 255, 255, 0.85);
     }
-    .topbar .social-link:hover { 
-      background: var(--fikes-orange); 
-      color: var(--obsidian-dark);
-      transform: translateY(-2px);
+    .topbar-main a:hover {
+      color: var(--fikes-orange);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--fikes-purple);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
     }
 
     /* ═══════════════════════════════════════════════
-       NAVBAR
+       NAVBAR — Solid FIKES Purple (#823ca2) with Orange (#ff9c00) Font & Dropdowns
     ═══════════════════════════════════════════════ */
     .navbar-main {
-      background: var(--white);
-      border-bottom: 1px solid var(--border-light);
-      padding: 0;
+      background: var(--fikes-purple, #823ca2);
+      padding: 10px 0;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 16px rgba(25, 10, 36, 0.05);
-      transition: box-shadow 0.3s ease;
+      z-index: 1050;
+      border-bottom: 2.5px solid var(--fikes-orange, #ff9c00);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
     }
-    .navbar-main .container { padding: 0 20px; }
-    .navbar-main .navbar { padding: 12px 0; }
 
-    .brand-wrap {
+    .navbar-brand-custom {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
     }
-    .brand-text .name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--fikes-purple);
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-    }
-    .brand-text .sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-weight: 500;
-      letter-spacing: 0.3px;
+
+    .brand-logo-img {
+      height: 48px;
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-link-custom {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted) !important;
-      padding: 8px 16px !important;
-      border-radius: 10px;
-      transition: all 0.2s ease;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      margin: 0 2px;
-    }
-    .nav-link-custom:hover {
-      color: var(--fikes-purple) !important;
-      background: var(--fikes-purple-light);
-    }
-    .nav-link-custom.active {
-      color: var(--white) !important;
-      background: var(--fikes-purple);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff !important;
+      padding: 7px 10px !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .btn-login-nav {
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px;
-      background: var(--fikes-orange);
-      color: #190a24;
-      font-size: 14px;
-      font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 10px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-orange);
+    .nav-link-custom:hover,
+    .nav-link-custom.active,
+    .show > .nav-link-custom {
+      color: var(--fikes-orange, #ff9c00) !important;
+      background: rgba(255, 255, 255, 0.15);
     }
-    .btn-login-nav:hover {
-      background: var(--fikes-orange-hover);
-      color: #190a24;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(255, 156, 0, 0.4);
+
+    /* Hide bootstrap default dropdown caret (prevent double arrow) */
+    .navbar-main .dropdown-toggle::after {
+      display: none !important;
+    }
+
+    /* Modern Dropdown Menus */
+    .dropdown-menu-custom {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--fikes-purple);
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      padding: 10px 8px;
+      min-width: 220px;
+      animation: fadeInDown 0.2s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown-item-custom {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-item-custom:hover {
+      background: var(--fikes-purple-light);
+      color: var(--fikes-purple);
+      padding-left: 18px;
+    }
+
+    .dropdown-item-custom i {
+      font-size: 14px;
+      color: var(--fikes-orange);
+    }
+
+    .navbar-toggler {
+      border: 1.5px solid var(--fikes-orange, #ff9c00) !important;
+      padding: 6px 10px;
+      border-radius: 8px;
+      outline: none !important;
+    }
+    .navbar-toggler-icon {
+      filter: invert(1);
     }
 
     /* ═══════════════════════════════════════════════
-       HERO & SUBPAGE BANNERS (Solid High-Contrast)
+       MOBILE NAVBAR DRAWER & STYLING (< 1200px)
     ═══════════════════════════════════════════════ */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      background: var(--obsidian-dark);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
+    @media (max-width: 1199.98px) {
+      .navbar-collapse {
+        background: #1e092b !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 20px !important;
+        padding: 20px 16px !important;
+        margin-top: 14px !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45) !important;
+      }
+      .navbar-nav {
+        align-items: stretch !important;
+        text-align: left !important;
+        gap: 5px !important;
+        width: 100% !important;
+      }
+      .nav-item {
+        width: 100% !important;
+      }
+      .nav-link-custom {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 11px 16px !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border-radius: 12px !important;
+        margin-bottom: 2px !important;
+        transition: all 0.2s ease !important;
+        width: 100% !important;
+      }
+      .nav-link-custom:hover,
+      .nav-link-custom.active,
+      .show > .nav-link-custom {
+        background: var(--fikes-purple, #823ca2) !important;
+        color: #ffffff !important;
+      }
+      .dropdown-menu-custom {
+        background: rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-left: 3px solid var(--fikes-orange) !important;
+        border-radius: 12px !important;
+        margin: 6px 0 10px 10px !important;
+        padding: 8px !important;
+        box-shadow: none !important;
+        animation: none !important;
+      }
+      .dropdown-item-custom {
+        color: rgba(255, 255, 255, 0.85) !important;
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+        border-radius: 8px !important;
+      }
+      .dropdown-item-custom:hover,
+      .dropdown-item-custom.active {
+        background: rgba(255, 156, 0, 0.18) !important;
+        color: var(--fikes-orange, #ff9c00) !important;
+      }
+      .navbar-main .d-flex.align-items-center.gap-2.mt-3.mt-xl-0 {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px !important;
+        margin-top: 18px !important;
+        padding-top: 14px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      }
+      .btn-pmb-nav,
+      .btn-portal-nav {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 11px 14px !important;
+        font-size: 13px !important;
+        border-radius: 10px !important;
+        text-align: center !important;
+      }
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: url('{{ asset("assets/img/login-bg.png") }}') center/cover no-repeat;
-      z-index: 0;
-      opacity: 0.25;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(25, 10, 36, 0.88);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      padding: 100px 0;
-    }
-    .hero-badge {
+
+    /* CTA Buttons */
+    .btn-pmb-nav {
+      background: var(--fikes-orange, #ff9c00);
+      color: #190a24 !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 12.5px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 156, 0, 0.35);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(130, 60, 162, 0.25);
-      border: 1px solid rgba(255, 156, 0, 0.4);
-      border-radius: 50px;
-      padding: 6px 18px;
-      margin-bottom: 24px;
-      backdrop-filter: blur(10px);
-    }
-    .hero-badge-dot {
-      width: 8px; height: 8px;
-      background: var(--fikes-orange);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--fikes-orange);
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.7; }
-    }
-    .hero-badge span {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--fikes-orange);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .hero-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(38px, 5.5vw, 64px);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.12;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
-    }
-    .hero-title em {
-      font-style: normal;
-      color: var(--fikes-orange);
-    }
-    .hero-desc {
-      font-size: 17px;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.8;
-      margin-bottom: 38px;
-      max-width: 580px;
-    }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 50px;
-    }
-    .btn-primary-hero {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--fikes-orange);
-      color: #190a24;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 15px 32px;
-      border-radius: 12px;
-      text-decoration: none;
+      gap: 6px;
+      border: 1px solid var(--fikes-orange, #ff9c00);
       transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .btn-pmb-nav:hover {
+      background: #e68c00;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+
+    .btn-portal-nav {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .btn-portal-nav:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: var(--fikes-orange);
+      color: var(--fikes-orange) !important;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary-hero {
+      background: var(--fikes-orange);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
       box-shadow: var(--shadow-orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
     }
     .btn-primary-hero:hover {
       background: var(--fikes-orange-hover);
-      color: #190a24;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(255, 156, 0, 0.45);
-    }
-    .btn-outline-hero {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.35);
       color: var(--white);
-      font-size: 15px;
-      font-weight: 600;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-hero {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 14px 30px;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
       border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.25s ease;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
     }
     .btn-outline-hero:hover {
-      background: var(--fikes-purple);
-      border-color: var(--fikes-purple);
-      color: var(--white);
-      transform: translateY(-3px);
+      background: var(--white);
+      color: var(--obsidian-dark);
+      border-color: var(--white);
+      transform: translateY(-2px);
     }
 
-    /* Subpages Hero Banner */
-    .about-hero, .testi-hero, .faq-hero, .contact-hero, .product-hero {
-      position: relative;
-      background: var(--obsidian-dark);
-      padding: 80px 0 65px;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .about-hero-bg, .testi-hero-bg, .faq-hero-bg, .contact-hero-bg, .product-hero-bg {
-      position: absolute;
-      inset: 0;
-      background: url('{{ asset("assets/img/login-bg.png") }}') center/cover no-repeat;
-      z-index: 0;
-      opacity: 0.18;
-    }
-    .about-hero-overlay, .testi-hero-overlay, .faq-hero-overlay, .contact-hero-overlay, .product-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(25, 10, 36, 0.9);
-      z-index: 1;
-    }
-    .about-hero-content, .testi-hero-content, .faq-hero-content, .contact-hero-content, .product-hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-    }
-    .about-hero-title, .testi-hero-title, .faq-hero-title, .contact-hero-title, .product-hero-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(32px, 4.5vw, 50px);
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -1px;
-      margin-bottom: 15px;
-    }
-    .about-hero-title em, .testi-hero-title em, .faq-hero-title em, .contact-hero-title em, .product-hero-title em {
-      font-style: normal;
-      color: var(--fikes-orange);
-    }
+    /* ═══════════════════════════════════════════════
+       SECTION GENERAL STYLING
+    ═══════════════════════════════════════════════ */
+    section { padding: 80px 0; position: relative; }
+    .section-bg-white { background: var(--white); }
+    .section-bg-sand { background: var(--page-bg); }
+    .section-bg-cream { background: var(--surface-light); }
 
-    .breadcrumb-custom {
+    .section-label {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 6px 18px;
-      border-radius: 50px;
-      font-size: 13px;
-      backdrop-filter: blur(8px);
-    }
-    .breadcrumb-custom a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.2s; }
-    .breadcrumb-custom a:hover { color: var(--fikes-orange); }
-    .breadcrumb-custom span.sep { color: rgba(255, 255, 255, 0.3); }
-    .breadcrumb-custom span.active { color: var(--white); font-weight: 600; }
-
-    /* Product strip */
-    .hero-product-strip {
-      background: var(--white);
-      border-top: 3px solid var(--fikes-purple);
-      box-shadow: 0 4px 24px rgba(25, 10, 36, 0.06);
-    }
-    .product-strip-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 24px 12px;
-      border-right: 1px solid var(--border-light);
-    }
-    .product-strip-item:last-child { border-right: none; }
-    .strip-icon {
-      width: 50px; height: 50px;
       background: var(--fikes-purple-light);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-    .strip-icon i { font-size: 24px; color: var(--fikes-purple); }
-    .product-strip-item:hover .strip-icon {
-      background: var(--fikes-purple);
-      transform: scale(1.08);
-    }
-    .product-strip-item:hover .strip-icon i { color: var(--white); }
-    .strip-title {
+      color: var(--fikes-purple);
+      border: 1px solid var(--border-purple);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 2px;
-    }
-    .strip-sub { font-size: 12.5px; color: var(--text-muted); }
-
-    /* ═══════════════════════════════════════════════
-       SECTION COMMON
-    ═══════════════════════════════════════════════ */
-    section { padding: 85px 0; }
-    .section-bg-cream { background: var(--page-bg); }
-    .section-bg-sand { background: var(--surface-light); }
-    .section-bg-white { background: var(--white); }
-    .section-bg-dark {
-      background: var(--obsidian-dark);
-      color: white;
-      position: relative;
-    }
-
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--fikes-purple);
-      background: var(--fikes-purple-light);
-      padding: 6px 14px;
+      letter-spacing: 1.2px;
+      padding: 6px 16px;
       border-radius: 50px;
-      border: 1px solid var(--fikes-purple-subtle);
-      font-family: 'Plus Jakarta Sans', sans-serif;
       margin-bottom: 16px;
     }
 
     .section-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(28px, 3.5vw, 40px);
+      font-size: 36px;
       font-weight: 800;
-      color: var(--text-main);
-      line-height: 1.2;
       letter-spacing: -0.8px;
+      line-height: 1.25;
       margin-bottom: 16px;
     }
-    .section-title.light { color: var(--white); }
-    .section-title em { font-style: normal; color: var(--fikes-orange); }
+    .section-title em {
+      font-style: normal;
+      color: var(--fikes-purple);
+    }
 
     .section-desc {
       font-size: 16px;
       color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 600px;
+      max-width: 680px;
+      line-height: 1.7;
     }
-    .section-desc.light { color: rgba(255, 255, 255, 0.7); }
 
     .divider-line {
-      width: 50px; height: 4px;
+      width: 60px;
+      height: 4px;
       background: var(--fikes-orange);
-      border-radius: 4px;
-      margin: 16px 0 24px;
+      border-radius: 2px;
+      margin-bottom: 24px;
     }
     .divider-line.centered { margin-left: auto; margin-right: auto; }
 
     /* ═══════════════════════════════════════════════
-       FEATURE CARDS (Modern Elevate)
+       CARDS & INTERACTIVE ELEMENTS
     ═══════════════════════════════════════════════ */
-    .feature-card {
+    .feature-card, .value-card, .service-card {
       background: var(--white);
-      border-radius: 20px;
-      padding: 34px 28px;
       border: 1px solid var(--border-light);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      height: 100%;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: var(--fikes-purple);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .feature-card:hover::before { transform: scaleX(1); }
-
-    .feature-icon-wrap {
-      width: 60px; height: 60px;
-      background: var(--fikes-purple-light);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 22px;
-      transition: all 0.3s ease;
-    }
-    .feature-icon-wrap i {
-      font-size: 28px;
-      color: var(--fikes-purple);
-      transition: color 0.3s;
-    }
-    .feature-card:hover .feature-icon-wrap {
-      background: var(--fikes-purple);
-      transform: scale(1.05);
-    }
-    .feature-card:hover .feature-icon-wrap i { color: var(--white); }
-
-    .feature-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 10px;
-    }
-    .feature-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════════
-       PRODUCT CARDS (Katalog)
-    ═══════════════════════════════════════════════ */
-    .product-card {
-      background: var(--white);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .product-card-img {
-      height: 210px;
-      background: var(--fikes-purple-light);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover .product-card-img img {
-      transform: scale(1.06);
-    }
-    .product-placeholder-bg {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: var(--fikes-purple);
-    }
-    .product-placeholder-icon {
-      font-size: 38px;
-      opacity: 0.6;
-    }
-    .product-placeholder-text {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      opacity: 0.8;
-    }
-    .product-card-body { 
-      padding: 22px; 
-      display: flex; 
-      flex-direction: column; 
-      flex-grow: 1; 
-    }
-    .product-card-cat {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--fikes-purple);
-      background: var(--fikes-purple-light);
-      padding: 3px 10px;
-      border-radius: 50px;
-      display: inline-block;
-      width: fit-content;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 8px;
-    }
-    .product-card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 10px;
-      line-height: 1.35;
-    }
-    .product-card-desc { 
-      font-size: 13.5px; 
-      color: var(--text-muted); 
-      line-height: 1.6; 
-      margin-bottom: 18px; 
-    }
-    .product-card-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-light);
-      margin-top: auto;
-    }
-    .btn-card {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--fikes-purple);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 8px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-card:hover { 
-      background: var(--fikes-purple-dark); 
-      color: white; 
-      transform: translateX(2px); 
-    }
-
-    /* ═══════════════════════════════════════════════
-       ABOUT VISUALS & STATS
-    ═══════════════════════════════════════════════ */
-    .about-visual { position: relative; }
-    .about-img-main {
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      background: var(--fikes-purple-light);
-      border: 1px solid var(--border-light);
-      height: 420px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .about-roster-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 56px);
-      grid-template-rows: repeat(5, 56px);
-      gap: 8px;
-    }
-    .about-roster-grid .r {
-      background: rgba(130, 60, 162, 0.12);
-      border: 2px solid rgba(130, 60, 162, 0.25);
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    .about-roster-grid .r.filled {
-      background: var(--fikes-purple);
-      border-color: var(--fikes-purple-dark);
-    }
-    .about-roster-grid .r.hole {
-      background: var(--white);
-      border-color: var(--fikes-orange);
-    }
-
-    /* Visi Misi Values */
-    .value-card {
-      background: var(--white);
       border-radius: 20px;
       padding: 36px 30px;
-      border: 1px solid var(--border-light);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      height: 100%;
-    }
-    .value-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .value-icon-wrap {
-      width: 60px; height: 60px;
-      background: var(--fikes-purple-light);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 22px;
-      transition: all 0.3s ease;
-    }
-    .value-card:hover .value-icon-wrap {
-      background: var(--fikes-purple);
-      color: white;
-    }
-    .value-icon-wrap i { font-size: 24px; color: var(--fikes-purple); transition: color 0.3s; }
-    .value-card:hover .value-icon-wrap i { color: white; }
-    .value-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 12px;
-    }
-    .value-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
-
-    /* Timeline */
-    .timeline { position: relative; max-width: 900px; margin: 0 auto; }
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 3px;
-      background-color: var(--border-light);
-      top: 0; bottom: 0; left: 50%;
-      margin-left: -1.5px;
-    }
-    .timeline-container {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-    }
-    .timeline-container::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      right: -9px;
-      background-color: var(--fikes-orange);
-      border: 3px solid var(--white);
-      top: 25px;
-      border-radius: 50%;
-      z-index: 1;
-      box-shadow: 0 0 0 3px rgba(255, 156, 0, 0.25);
-      transition: all 0.3s ease;
-    }
-    .left { left: 0; }
-    .right { left: 50%; }
-    .right::after { left: -9px; }
-    .timeline-content {
-      padding: 24px;
-      background-color: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--border-light);
       box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-    }
-    .timeline-container:hover .timeline-content {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .timeline-year {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--fikes-purple);
-      margin-bottom: 6px;
-    }
-    .timeline-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-    .timeline-text { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
-
-    /* ═══════════════════════════════════════════════
-       COUNTER SECTION (Solid Purple Anchor)
-    ═══════════════════════════════════════════════ */
-    .counter-section {
-      background: var(--fikes-purple);
-      padding: 70px 0;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .counter-item { text-align: center; position: relative; }
-    .counter-item::after {
-      content: '';
-      position: absolute;
-      right: 0; top: 50%;
-      transform: translateY(-50%);
-      width: 1px; height: 50px;
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .counter-item:last-child::after { display: none; }
-    .counter-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 46px;
-      font-weight: 800;
-      color: white;
-      line-height: 1;
-    }
-    .counter-num sup { font-size: 20px; color: var(--fikes-orange); }
-    .counter-label {
-      font-size: 13.5px;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 500;
-      margin-top: 8px;
-    }
-    .counter-icon {
-      font-size: 28px;
-      color: var(--fikes-orange);
-      margin-bottom: 10px;
-    }
-
-    /* ═══════════════════════════════════════════════
-       TESTIMONIALS & FILTERS
-    ═══════════════════════════════════════════════ */
-    .filter-tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-    .filter-tag {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      padding: 8px 22px;
-      border-radius: 50px;
-      font-size: 13.5px;
-      font-weight: 600;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .filter-tag:hover, .filter-tag.active {
-      background: var(--fikes-purple);
-      border-color: var(--fikes-purple);
-      color: white;
-      box-shadow: var(--shadow-purple);
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 32px;
-      border: 1px solid var(--border-light);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       height: 100%;
-      position: relative;
-      transition: all 0.3s ease;
     }
-    .testimonial-card:hover {
+    .feature-card:hover, .value-card:hover, .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-purple);
       box-shadow: var(--shadow-lg);
-      transform: translateY(-5px);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .testimonial-card::before {
-      content: '\201C';
-      font-size: 70px;
-      color: var(--fikes-purple-light);
-      font-family: Georgia, serif;
-      line-height: 0.8;
-      position: absolute;
-      top: 24px; right: 24px;
-    }
-    .stars { display: flex; gap: 3px; margin-bottom: 16px; }
-    .stars i { font-size: 14px; color: var(--fikes-orange); }
-    .testimonial-text { 
-      font-size: 14.5px; 
-      color: var(--text-muted); 
-      line-height: 1.8; 
-      margin-bottom: 22px; 
-      font-style: italic; 
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar {
-      width: 44px; height: 44px;
-      background: var(--fikes-purple);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800; font-size: 15px;
-      color: white; flex-shrink: 0;
-    }
-    .author-name { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: var(--text-main); 
-    }
-    .author-badge {
-      display: inline-block;
-      font-size: 10.5px;
-      font-weight: 700;
-      background: var(--fikes-orange-light);
-      color: var(--fikes-orange-dark);
-      padding: 2px 9px;
-      border-radius: 4px;
-      margin-top: 3px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
     }
 
-    /* ═══════════════════════════════════════════════
-       FAQ & SEARCH
-    ═══════════════════════════════════════════════ */
-    .search-box-wrap {
-      max-width: 600px;
-      margin: 0 auto 40px;
-      position: relative;
-    }
-    .search-input-custom {
-      width: 100%;
-      background: var(--white);
-      border: 1.5px solid var(--border-light);
-      padding: 15px 22px 15px 52px;
-      border-radius: 14px;
-      font-size: 15px;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.25s ease;
-      box-shadow: var(--shadow-xs);
-    }
-    .search-input-custom:focus {
-      border-color: var(--fikes-purple);
-      box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.12);
-    }
-    .search-box-wrap i {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 18px;
-      color: var(--fikes-purple);
-      pointer-events: none;
-    }
-
-    .faq-cat-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 20px;
+    .feature-icon-wrap, .value-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: var(--fikes-purple-light);
+      border-radius: 16px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      border-left: 4px solid var(--fikes-purple);
-      padding-left: 12px;
+      justify-content: center;
+      color: var(--fikes-purple);
+      font-size: 28px;
+      margin-bottom: 24px;
+      border: 1px solid var(--fikes-purple-subtle);
     }
 
+    .feature-title, .value-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc, .value-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Counter Section */
+    .counter-section {
+      background: var(--obsidian-dark);
+      padding: 60px 0;
+      color: var(--white);
+      border-top: 1px solid rgba(130, 60, 162, 0.3);
+      border-bottom: 1px solid rgba(130, 60, 162, 0.3);
+    }
+    .counter-item { text-align: center; }
+    .counter-icon { font-size: 32px; color: var(--fikes-orange); margin-bottom: 10px; }
+    .counter-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .counter-num sup { font-size: 22px; color: var(--fikes-orange); }
+    .counter-label { font-size: 14px; color: rgba(255, 255, 255, 0.7); font-weight: 500; }
+
+    /* Testimonials */
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-purple);
+    }
+    .testi-stars { color: var(--fikes-orange); font-size: 16px; margin-bottom: 14px; }
+    .testi-text { font-size: 14.5px; color: var(--text-main); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 46px; height: 46px;
+      background: var(--fikes-purple);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px;
+    }
+    .testi-name { font-weight: 700; font-size: 15px; }
+    .testi-role { font-size: 12.5px; color: var(--text-muted); }
+
+    /* FAQ */
     .faq-item {
       background: var(--white);
-      border-radius: 14px;
       border: 1px solid var(--border-light);
-      margin-bottom: 12px;
+      border-radius: 16px;
+      margin-bottom: 14px;
       overflow: hidden;
       transition: all 0.25s ease;
     }
-    .faq-item:hover { border-color: var(--fikes-purple-subtle); }
-    .faq-question {
-      padding: 18px 22px;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    .faq-header {
+      padding: 20px 24px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 15.5px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       color: var(--text-main);
       user-select: none;
     }
+    .faq-header:hover { color: var(--fikes-purple); }
     .faq-icon {
-      width: 32px; height: 32px;
+      width: 28px; height: 28px;
       background: var(--fikes-purple-light);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-    .faq-icon i { font-size: 14px; color: var(--fikes-purple); transition: transform 0.3s; }
-    .faq-item.open .faq-icon { background: var(--fikes-purple); }
-    .faq-item.open .faq-icon i { color: white; transform: rotate(45deg); }
-    .faq-answer {
-      padding: 0 22px 18px;
-      font-size: 14.5px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      display: none;
-      border-top: 1px solid var(--border-light);
-      padding-top: 14px;
-    }
-    .faq-item.open .faq-answer { display: block; }
-
-    /* ═══════════════════════════════════════════════
-       CONTACT & FORMS
-    ═══════════════════════════════════════════════ */
-    .contact-card-custom {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 20px;
-      padding: 30px;
-      height: 100%;
-      transition: all 0.3s ease;
-    }
-    .contact-card-custom:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-      border-color: var(--fikes-purple-subtle);
-    }
-    .contact-card-icon {
-      width: 54px; height: 54px;
-      background: var(--fikes-purple-light);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
       color: var(--fikes-purple);
-      font-size: 24px;
-      transition: all 0.3s ease;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      transition: transform 0.25s ease;
     }
-    .contact-card-custom:hover .contact-card-icon {
-      background: var(--fikes-purple);
-      color: white;
-    }
-    .contact-card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-    .contact-card-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    .contact-card-text a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .contact-card-text a:hover { color: var(--fikes-purple); }
-
-    .form-wrap-custom {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: var(--shadow-md);
-    }
-    .form-label-custom {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-    .form-control-custom {
-      width: 100%;
-      background: var(--surface-light);
-      border: 1.5px solid transparent;
-      border-radius: 12px;
-      padding: 12px 18px;
+    .faq-body {
+      padding: 0 24px 22px;
       font-size: 14.5px;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.25s;
+      color: var(--text-muted);
+      line-height: 1.75;
+      display: none;
     }
-    .form-control-custom:focus {
-      background: var(--white);
-      border-color: var(--fikes-purple);
-      box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.1);
-    }
-    .btn-submit-form {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--fikes-purple);
-      color: white;
-      border: none;
-      width: 100%;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 14px;
-      border-radius: 12px;
-      transition: all 0.25s ease;
-      box-shadow: var(--shadow-purple);
-    }
-    .btn-submit-form:hover {
-      background: var(--fikes-purple-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(130, 60, 162, 0.35);
-    }
+    .faq-item.open .faq-body { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--fikes-purple); color: var(--white); }
 
     /* ═══════════════════════════════════════════════
-       CTA SECTION (Solid Obsidian Contrast)
-    ═══════════════════════════════════════════════ */
-    .cta-section {
-      background: var(--obsidian-dark);
-      padding: 85px 0;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .cta-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1px;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .cta-title em { font-style: normal; color: var(--fikes-orange); }
-    .cta-desc { font-size: 16px; color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 32px; }
-
-    /* ═══════════════════════════════════════════════
-       FOOTER (Solid Obsidian Design)
+       FOOTER — Solid Dark Obsidian
     ═══════════════════════════════════════════════ */
     .footer-main {
       background: var(--obsidian-dark);
-      padding: 70px 0 35px;
       color: rgba(255, 255, 255, 0.7);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 70px 0 28px;
+      border-top: 2px solid var(--fikes-purple);
     }
-    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; text-decoration: none; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 18px;
+    }
     .footer-brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px; font-weight: 800;
-      color: white; letter-spacing: -0.3px; line-height: 1.1;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
     }
-    .footer-brand-sub { font-size: 11px; color: rgba(255, 255, 255, 0.5); }
-    .footer-desc { font-size: 13.5px; line-height: 1.75; color: rgba(255, 255, 255, 0.55); margin-bottom: 22px; }
-
-    .footer-social { display: flex; gap: 8px; }
+    .footer-brand-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .footer-social { display: flex; gap: 10px; }
     .footer-social a {
-      width: 36px; height: 36px;
-      border-radius: 10px;
+      width: 38px; height: 38px;
       background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 15px;
-      text-decoration: none;
-      transition: all 0.25s ease;
+      color: var(--white);
+      font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .footer-social a:hover { 
-      background: var(--fikes-orange); 
-      color: var(--obsidian-dark);
-      transform: translateY(-2px);
+    .footer-social a:hover {
+      background: var(--fikes-purple);
+      border-color: var(--fikes-purple);
+      color: var(--white);
     }
-
-    .footer-heading { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      font-size: 13.5px; 
-      font-weight: 700; 
-      color: white; 
-      letter-spacing: 0.6px; 
-      text-transform: uppercase; 
-      margin-bottom: 18px; 
+    .footer-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
     }
     .footer-links { list-style: none; padding: 0; margin: 0; }
     .footer-links li { margin-bottom: 10px; }
     .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
       font-size: 13.5px;
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex; align-items: center; gap: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .footer-links a:hover { color: var(--fikes-orange); }
-    .footer-links a i { font-size: 11px; color: var(--fikes-orange); }
-
-    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .footer-links a:hover { color: var(--fikes-orange); transform: translateX(3px); }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+    }
     .footer-contact-icon {
-      width: 34px; height: 34px;
-      background: rgba(130, 60, 162, 0.35);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
+      color: var(--fikes-orange);
+      font-size: 18px;
       flex-shrink: 0;
+      margin-top: 2px;
     }
-    .footer-contact-icon i { font-size: 14px; color: var(--fikes-orange); }
-    .footer-contact-text { font-size: 13px; color: rgba(255, 255, 255, 0.6); line-height: 1.5; }
-    .footer-contact-text strong { display: block; color: rgba(255, 255, 255, 0.85); font-weight: 600; margin-bottom: 2px; }
-
+    .footer-contact-text strong { display: block; color: var(--white); margin-bottom: 2px; }
     .footer-divider {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin: 36px 0 24px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 48px 0 24px;
     }
-    .footer-bottom { font-size: 12.5px; color: rgba(255, 255, 255, 0.45); }
-    .footer-bottom a { color: rgba(255, 255, 255, 0.6); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--fikes-orange); }
+    .footer-bottom { font-size: 13px; }
+    .footer-bottom a { color: rgba(255, 255, 255, 0.6); }
+    .footer-bottom a:hover { color: var(--white); }
 
-    /* ═══════════════════════════════════════════════
-       BACK TO TOP & TOGGLER
-    ═══════════════════════════════════════════════ */
+    /* Back to Top */
     .back-to-top {
       position: fixed;
-      bottom: 28px; right: 28px;
-      width: 44px; height: 44px;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
       background: var(--fikes-purple);
+      color: var(--white);
       border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-size: 17px;
-      text-decoration: none;
-      box-shadow: var(--shadow-purple);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
       z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-purple);
     }
-    .back-to-top.show { opacity: 1; transform: translateY(0); }
-    .back-to-top:hover { 
-      background: var(--fikes-purple-dark); 
-      color: white; 
-      transform: translateY(-3px); 
-      box-shadow: 0 10px 28px rgba(130, 60, 162, 0.45); 
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover {
+      background: var(--fikes-purple-dark);
+      transform: translateY(-3px);
+      color: var(--white);
     }
 
-    .navbar-toggler { border: 1.5px solid var(--border-light); border-radius: 8px; padding: 6px 10px; }
-    .navbar-toggler:focus { box-shadow: none; outline: 2px solid var(--fikes-purple); }
+    /* Check list */
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .check-icon {
+      width: 22px; height: 22px;
+      background: var(--fikes-purple-light);
+      color: var(--fikes-purple);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
 
-    /* ═══════════════════════════════════════════════
-       RESPONSIVENESS
-    ═══════════════════════════════════════════════ */
-    @media (max-width: 768px) {
-      section { padding: 50px 0; }
-      .section-title { font-size: 26px; }
-      .section-desc { font-size: 14px; line-height: 1.6; }
-
-      .navbar-collapse {
-        background: var(--white);
-        border: 1px solid var(--border-light);
-        border-radius: 16px;
-        padding: 18px;
-        margin-top: 12px;
-        box-shadow: var(--shadow-md);
-      }
-      .nav-link-custom {
-        padding: 10px 14px !important;
-        font-size: 14px;
-        margin-bottom: 4px;
-      }
-      .btn-login-nav {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: 8px;
-      }
-
-      .product-strip-item { 
-        border-right: none; 
-        border-bottom: 1px solid var(--border-light); 
-        padding: 16px 0; 
-      }
-      .row > div:last-child .product-strip-item { 
-        border-bottom: none !important; 
-      }
+    /* Responsive Map Embed */
+    .map-responsive-container iframe,
+    .map-wrapper iframe,
+    .contact-map-card iframe {
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 440px !important;
+      border: 0 !important;
+      display: block !important;
     }
   </style>
+
+  @stack('styles')
 </head>
 
 <body>
@@ -1282,60 +761,156 @@
 <!-- ═══════════════════════════════════════════════
      TOPBAR
 ═══════════════════════════════════════════════ -->
-<div class="topbar d-none d-lg-block">
+<div class="topbar-main d-none d-lg-block">
   <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-2 flex-wrap">
-        <a href="mailto:{{ $contact->email ?? 'info@fikes.ac.id' }}"><i class="bi bi-envelope me-1"></i> {{ $contact->email ?? 'info@fikes.ac.id' }}</a>
-        <span class="sep">|</span>
-        <a href="https://wa.me/{{ $cleanWa ?? '6281234567890' }}" target="_blank"><i class="bi bi-telephone me-1"></i> {{ $contact->no_wa ?? '+62 812 3456 7890' }}</a>
-        <span class="sep">|</span>
-        <span><i class="bi bi-geo-alt me-1"></i> {{ $contact->alamat ? Str::limit($contact->alamat, 60) : 'Fakultas Ilmu Kesehatan (FIKES)' }}</span>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-4">
+        <span class="topbar-badge"><i class="bi bi-shield-check"></i> FIKES UIS</span>
+        <span><i class="bi bi-geo-alt me-1" style="color:var(--fikes-orange);"></i> {{ $contact->alamat ?? 'Fakultas Ilmu Kesehatan UIS, Kampus Terpadu' }}</span>
+        <span><i class="bi bi-clock me-1" style="color:var(--fikes-orange);"></i> Senin - Sabtu: 08.00 - 17.00 WIB</span>
       </div>
-      <div class="d-flex align-items-center">
-        <span class="me-2" style="font-size:11px; letter-spacing:.5px;">Ikuti Kami:</span>
-        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-whatsapp"></i></a>
+      <div class="d-flex align-items-center gap-3">
+        <!-- Social Media -->
+        <a href="https://instagram.com" target="_blank" title="Instagram" class="text-white-50"><i class="bi bi-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank" title="YouTube" class="text-white-50"><i class="bi bi-youtube"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn" class="text-white-50"><i class="bi bi-linkedin"></i></a>
+        <span style="opacity:0.25; color:white;">|</span>
+        @if(!empty($contact->no_wa))
+          <a href="https://wa.me/{{ $cleanWa }}" target="_blank"><i class="bi bi-whatsapp me-1 text-success"></i> {{ $contact->no_wa }}</a>
+        @endif
+        @if(!empty($contact->email))
+          <a href="mailto:{{ $contact->email }}"><i class="bi bi-envelope me-1" style="color:var(--fikes-orange);"></i> {{ $contact->email }}</a>
+        @endif
       </div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     NAVBAR
+     NAVBAR — FIKES UIS
 ═══════════════════════════════════════════════ -->
-<nav class="navbar-main">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg w-100">
-      <a href="{{ route('homepage') }}" class="brand-wrap me-4">
-        <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo Fikes" style="height: 42px; width: auto; object-fit: contain;">
-        <div class="brand-text">
-          <div class="name">FIKES</div>
-          <div class="sub">Fakultas Ilmu Kesehatan</div>
-        </div>
-      </a>
+<nav class="navbar navbar-expand-xl navbar-main">
+  <div class="container-fluid px-lg-4 px-xl-5">
+    <!-- Logo FIKES UIS -->
+    <a class="navbar-brand navbar-brand-custom me-2 me-xl-4" href="{{ route('homepage') }}">
+      <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES UIS" class="brand-logo-img">
+    </a>
 
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav mx-auto gap-1">
-          <li class="nav-item"><a href="{{ route('homepage') }}" class="nav-link nav-link-custom">Beranda</a></li>
-          <li class="nav-item"><a href="{{ route('homepage.tentang') }}" class="nav-link nav-link-custom">Tentang</a></li>
-          <li class="nav-item"><a href="{{ route('homepage.testimoni') }}" class="nav-link nav-link-custom">Testimoni</a></li>
-          <li class="nav-item"><a href="{{ route('homepage.faq') }}" class="nav-link nav-link-custom">FAQ</a></li>
-          <li class="nav-item"><a href="{{ route('homepage.kontak') }}" class="nav-link nav-link-custom">Kontak</a></li>
-        </ul>
-        <div class="mt-3 mt-lg-0">
-          <a href="{{ route('login') }}" class="btn-login-nav">
-            <i class="bi bi-box-arrow-in-right"></i>
-            Masuk Portal
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto gap-1 align-items-center">
+        <!-- Beranda -->
+        <li class="nav-item">
+          <a href="{{ route('homepage') }}" class="nav-link nav-link-custom {{ request()->routeIs('homepage') ? 'active' : '' }}">Beranda</a>
+        </li>
+
+        <!-- Profil Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.tentang') || request()->routeIs('homepage.sambutan-dekan') || request()->routeIs('homepage.visi-misi') || request()->routeIs('homepage.struktur-organisasi') || request()->routeIs('homepage.sejarah') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profil <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
-        </div>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.tentang') ? 'active' : '' }}" href="{{ route('homepage.tentang') }}"><i class="bi bi-building"></i> Tentang FIKES</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.visi-misi') ? 'active' : '' }}" href="{{ route('homepage.visi-misi') }}"><i class="bi bi-bullseye"></i> Visi & Misi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sambutan-dekan') ? 'active' : '' }}" href="{{ route('homepage.sambutan-dekan') }}"><i class="bi bi-person-badge"></i> Sambutan Dekan</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.struktur-organisasi') ? 'active' : '' }}" href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-diagram-3"></i> Struktur Organisasi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sejarah') ? 'active' : '' }}" href="{{ route('homepage.sejarah') }}"><i class="bi bi-hourglass-split"></i> Sejarah Fakultas</a></li>
+          </ul>
+        </li>
+
+        <!-- Akademik Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.kurikulum') || request()->routeIs('homepage.kalender-akademik') || request()->routeIs('homepage.pedoman-akademik') || request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Akademik <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.kurikulum') ? 'active' : '' }}" href="{{ route('homepage.kurikulum') }}"><i class="bi bi-journal-text"></i> Kurikulum</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.kalender-akademik') ? 'active' : '' }}" href="{{ route('homepage.kalender-akademik') }}"><i class="bi bi-calendar-check"></i> Kalender Akademik</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.pedoman-akademik') ? 'active' : '' }}" href="{{ route('homepage.pedoman-akademik') }}"><i class="bi bi-book"></i> Pedoman Akademik</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="{{ route('homepage.sistem-akademik') }}"><i class="bi bi-laptop"></i> Sistem Akademik</a></li>
+          </ul>
+        </li>
+
+        <!-- Program Studi Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.layanan*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Program Studi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
+          </ul>
+        </li>
+
+        <!-- Kemahasiswaan Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kemahasiswaan <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-people"></i> Organisasi Mahasiswa</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-trophy"></i> Prestasi Mahasiswa</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Kegiatan Mahasiswa</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni</a></li>
+          </ul>
+        </li>
+
+        <!-- Penelitian & Pengabdian Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Penelitian & Pengabdian <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-file-earmark-medical"></i> Penelitian Dosen</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-journal-richtext"></i> Publikasi Ilmiah</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-heart-pulse"></i> Pengabdian Masyarakat</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-handshake"></i> Kerja Sama Riset</a></li>
+          </ul>
+        </li>
+
+        <!-- Informasi Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.news*') || request()->routeIs('homepage.faq') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Informasi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Berita Fakultas']) }}"><i class="bi bi-newspaper"></i> Berita</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman & Agenda']) }}"><i class="bi bi-megaphone"></i> Pengumuman</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman & Agenda']) }}"><i class="bi bi-calendar-event"></i> Agenda</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-card-text"></i> Artikel</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.faq') }}"><i class="bi bi-question-circle"></i> FAQ Informasi</a></li>
+          </ul>
+        </li>
+
+        <!-- Kontak -->
+        <li class="nav-item">
+          <a href="{{ route('homepage.kontak') }}" class="nav-link nav-link-custom {{ request()->routeIs('homepage.kontak') ? 'active' : '' }}">Kontak</a>
+        </li>
+      </ul>
+
+      <!-- CTA Buttons -->
+      <div class="d-flex align-items-center gap-2 mt-3 mt-xl-0">
+        @php
+          $pmbNavUrl = $pmbSetting->tombol_link_1 ?? route('homepage.kontak');
+          if (!str_starts_with($pmbNavUrl, 'http') && !str_starts_with($pmbNavUrl, '/')) {
+              $pmbNavUrl = '/' . $pmbNavUrl;
+          }
+          $pmbNavTarget = str_starts_with($pmbNavUrl, 'http') ? '_blank' : '_self';
+        @endphp
+        <a href="{{ $pmbNavUrl }}" target="{{ $pmbNavTarget }}" class="btn-pmb-nav" title="Penerimaan Mahasiswa Baru">
+          <i class="bi bi-pencil-square"></i>
+          <span>PMB / Daftar</span>
+        </a>
+        <a href="{{ route('login') }}" class="btn-portal-nav" title="Login">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
       </div>
-    </nav>
+    </div>
   </div>
 </nav>
 
@@ -1352,15 +927,11 @@
     <div class="row g-5">
       <!-- Brand -->
       <div class="col-lg-4">
-        <a href="{{ route('homepage') }}" class="footer-logo">
-          <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo Fikes" style="height: 42px; width: auto; object-fit: contain; margin-right: 10px;">
-          <div>
-            <div class="footer-brand-name">FIKES</div>
-            <div class="footer-brand-sub">Fakultas Ilmu Kesehatan</div>
-          </div>
+        <a href="{{ route('homepage') }}" class="footer-logo mb-3 d-inline-block">
+          <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES UIS" style="height: 48px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-desc">
-          Fakultas Ilmu Kesehatan terdepan dalam inovasi, layanan fasilitas kesehatan, dan penyediaan produk berkualitas standar nasional.
+          Pusat keunggulan pendidikan, riset, serta pelayanan kesehatan terintegrasi yang berdedikasi melahirkan lulusan profesional, beretika, dan berkompeten.
         </p>
         <div class="footer-social">
           <a href="#"><i class="bi bi-instagram"></i></a>
@@ -1375,22 +946,23 @@
         <div class="footer-heading">Navigasi</div>
         <ul class="footer-links">
           <li><a href="{{ route('homepage') }}"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+          <li><a href="{{ route('homepage.layanan') }}"><i class="bi bi-chevron-right"></i> Layanan</a></li>
+          <li><a href="{{ route('homepage.galeri') }}"><i class="bi bi-chevron-right"></i> Galeri</a></li>
+          <li><a href="{{ route('homepage.news') }}"><i class="bi bi-chevron-right"></i> Berita</a></li>
           <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Tentang Kami</a></li>
-          <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Testimoni</a></li>
-          <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> FAQ</a></li>
           <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Kontak</a></li>
         </ul>
       </div>
 
-      <!-- Layanan & Informasi -->
+      <!-- Fakultas Info -->
       <div class="col-6 col-lg-2">
-        <div class="footer-heading">Fakultas</div>
+        <div class="footer-heading">Akademik</div>
         <ul class="footer-links">
-          <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Visi & Misi</a></li>
-          <li><a href="{{ route('homepage.tentang') }}"><i class="bi bi-chevron-right"></i> Profil FIKES</a></li>
-          <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Ulasan Civitas</a></li>
-          <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> Informasi FAQ</a></li>
-          <li><a href="{{ route('homepage.kontak') }}"><i class="bi bi-chevron-right"></i> Layanan Kontak</a></li>
+          <li><a href="{{ route('homepage.visi-misi') }}"><i class="bi bi-chevron-right"></i> Visi & Misi</a></li>
+          <li><a href="{{ route('homepage.sambutan-dekan') }}"><i class="bi bi-chevron-right"></i> Sambutan Dekan</a></li>
+          <li><a href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-chevron-right"></i> Struktur Organisasi</a></li>
+          <li><a href="{{ route('homepage.testimoni') }}"><i class="bi bi-chevron-right"></i> Testimoni</a></li>
+          <li><a href="{{ route('homepage.faq') }}"><i class="bi bi-chevron-right"></i> FAQ Informasi</a></li>
         </ul>
       </div>
 
@@ -1400,7 +972,7 @@
         <div class="footer-contact-item">
           <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="footer-contact-text">
-            <strong>Alamat</strong>
+            <strong>Alamat Kampus</strong>
             {{ $contact->alamat ?? 'Fakultas Ilmu Kesehatan, Kampus Terpadu' }}
           </div>
         </div>
@@ -1414,7 +986,7 @@
         <div class="footer-contact-item">
           <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
           <div class="footer-contact-text">
-            <strong>Email</strong>
+            <strong>Email Resmi</strong>
             {{ $contact->email ?? 'info@fikes.ac.id' }}
           </div>
         </div>
@@ -1452,10 +1024,8 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-  // AOS Init
   AOS.init({ once: true, offset: 60 });
 
-  // Back to top
   const btn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     btn.classList.toggle('show', window.scrollY > 400);
@@ -1465,48 +1035,12 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // FAQ Toggle
   function toggleFaq(id) {
     const item = document.getElementById(id);
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
-
-  // Smooth scroll for nav links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  @if($isHome)
-  // Active nav on scroll (Only run on homepage context)
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('.nav-link-custom');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
-    });
-    navLinks.forEach(l => {
-      l.classList.remove('active');
-      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
-    });
-  });
-  @endif
-
-  // Navbar scroll shadow
-  const navbar = document.querySelector('.navbar-main');
-  window.addEventListener('scroll', () => {
-    navbar.style.boxShadow = window.scrollY > 20
-      ? '0 4px 24px rgba(25, 10, 36, 0.12)'
-      : '0 2px 16px rgba(25, 10, 36, 0.05)';
-  });
 </script>
 
 @stack('scripts')

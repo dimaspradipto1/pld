@@ -16,9 +16,29 @@ class Checkrole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->roles == 'admin' || Auth::user() -> roles == 'user') {
-            return $next($request);
+        if (!Auth::check()) {
+            return redirect()->route('login');
         }
+
+        $user = Auth::user();
+
+        // Role Penulis: Hanya diizinkan mengakses Dashboard, Berita (News), Profil Akun, dan Logout
+        if ($user->roles === 'penulis') {
+            $allowedPatterns = ['dashboard', 'news.*', 'profil.*', 'logout'];
+            $isAllowed = false;
+
+            foreach ($allowedPatterns as $pattern) {
+                if ($request->routeIs($pattern)) {
+                    $isAllowed = true;
+                    break;
+                }
+            }
+
+            if (!$isAllowed) {
+                return redirect()->route('news.index')->with('error', 'Akses dibatasi. Akun Anda hanya memiliki izin untuk mengelola Berita & Artikel.');
+            }
+        }
+
         return $next($request);
     }
 }

@@ -3,8 +3,8 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="">
-                <span class="d-none d-lg-block" style="font-size: 15px">FIKES</span>
+                <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES UIS" style="height: 36px; max-height: 36px;">
+                <span class="d-none d-lg-block ms-2 fw-bold" style="font-size: 17px; color: #ff9c00;"></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -166,24 +166,27 @@
                 </li> --}}
 
                 <li class="nav-item dropdown pe-3">
-
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="{{ asset('assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
-                    </a><!-- End Profile Iamge Icon -->
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm"
+                             style="width:36px;height:36px;background: linear-gradient(135deg, #823ca2 0%, #ff9c00 100%);font-size:13px;">
+                            {{ strtoupper(substr(Auth::user()->name ?? 'AD', 0, 2)) }}
+                        </div>
+                        <span class="d-none d-md-block dropdown-toggle ps-2 fw-semibold">{{ Auth::user()->name }}</span>
+                    </a><!-- End Profile Image Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            {{-- <span>{{ Auth::user()->roles }}</span> --}}
+                        <li class="dropdown-header text-start">
+                            <h6 class="mb-0 fw-bold">{{ Auth::user()->name }}</h6>
+                            <span class="text-muted small">{{ ucfirst(Auth::user()->roles) }}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-person"></i>
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('user.my-profile') }}">
+                                <i class="bi bi-person me-2 text-primary"></i>
                                 <span>My Profile</span>
                             </a>
                         </li>
@@ -192,9 +195,9 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                <i class="bi bi-gear"></i>
-                                <span>Account Settings</span>
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('user.my-profile') }}">
+                                <i class="bi bi-key me-2 text-warning"></i>
+                                <span>Update Password</span>
                             </a>
                         </li>
                         <li>
@@ -202,19 +205,9 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                                <i class="bi bi-question-circle"></i>
-                                <span>Need Help?</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
+                            <a class="dropdown-item d-flex align-items-center text-danger" href="{{ route('logout') }}" onclick="return confirmLogout(event, '{{ route('logout') }}')">
+                                <i class="bi bi-box-arrow-right me-2 text-danger"></i>
+                                <span class="fw-semibold">Sign Out</span>
                             </a>
                         </li>
 

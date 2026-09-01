@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1>Dashboard Fakultas Ilmu Kesehatan (FIKES)</h1>
+        <h1>Dashboard Portal — Fakultas Ilmu Kesehatan (FIKES)</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
@@ -12,88 +12,84 @@
     </div>
 
     <section class="section dashboard">
-        <div class="row">
+        <div class="row g-3 mb-4">
 
-            <!-- Stats Columns -->
-            <div class="col-lg-12">
-                <div class="row g-3 mb-4">
-
-                    <!-- Total Post Card -->
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #823ca2 !important;">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted fs-6 mb-2">Berita & Informasi</h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(130, 60, 162, 0.12); color: #823ca2;">
-                                        <i class="bi bi-newspaper" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalNews }}</h6>
-                                        <span class="text-muted small">Artikel Terpublikasi</span>
-                                    </div>
-                                </div>
+            <!-- Total Post Card -->
+            <div class="col-xxl-3 col-md-6">
+                <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #823ca2 !important;">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted fs-6 mb-2">Berita & Informasi</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(130, 60, 162, 0.12); color: #823ca2;">
+                                <i class="bi bi-newspaper" style="font-size: 24px;"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalNews }}</h6>
+                                <span class="text-muted small">Artikel Terpublikasi</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Total Testimoni Card -->
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #ff9c00 !important;">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted fs-6 mb-2">Ulasan & Testimoni</h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(255, 156, 0, 0.12); color: #ff9c00;">
-                                        <i class="bi bi-chat-quote" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalTestimonials }}</h6>
-                                        <span class="text-muted small">Ulasan Masuk</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Galeri Card -->
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #823ca2 !important;">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted fs-6 mb-2">Galeri & Media</h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(130, 60, 162, 0.12); color: #823ca2;">
-                                        <i class="bi bi-images" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalGalleries }}</h6>
-                                        <span class="text-muted small">File Media & Dokumentasi</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total FAQ Card -->
-                    <div class="col-xxl-3 col-md-6">
-                        <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #ff9c00 !important;">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted fs-6 mb-2">FAQ / Bantuan</h5>
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(255, 156, 0, 0.12); color: #ff9c00;">
-                                        <i class="bi bi-question-circle" style="font-size: 24px;"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalFaqs }}</h6>
-                                        <span class="text-muted small">Tanya Jawab Tersedia</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-            <!-- Recent News Table -->
+            <!-- Total Layanan Card -->
+            <div class="col-xxl-3 col-md-6">
+                <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #ff9c00 !important;">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted fs-6 mb-2">Layanan & Fasilitas</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(255, 156, 0, 0.12); color: #ff9c00;">
+                                <i class="bi bi-hospital" style="font-size: 24px;"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalLayanan }}</h6>
+                                <span class="text-muted small">Fasilitas / Layanan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Galeri Card -->
+            <div class="col-xxl-3 col-md-6">
+                <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #823ca2 !important;">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted fs-6 mb-2">Galeri & Media</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(130, 60, 162, 0.12); color: #823ca2;">
+                                <i class="bi bi-images" style="font-size: 24px;"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalGalleries }}</h6>
+                                <span class="text-muted small">Dokumentasi Kegiatan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Testimoni Card -->
+            <div class="col-xxl-3 col-md-6">
+                <div class="card info-card shadow-sm border-0 h-100" style="border-left: 4px solid #ff9c00 !important;">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted fs-6 mb-2">Ulasan Civitas</h5>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: rgba(255, 156, 0, 0.12); color: #ff9c00;">
+                                <i class="bi bi-chat-quote" style="font-size: 24px;"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6 class="fs-3 fw-bold mb-0 text-dark">{{ $totalTestimonials }}</h6>
+                                <span class="text-muted small">Testimoni Masuk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row g-3">
+            <!-- Recent News -->
             <div class="col-lg-7">
                 <div class="card shadow-sm border-0">
                     <div class="card-header py-3 bg-transparent border-0 d-flex align-items-center justify-content-between">
@@ -179,7 +175,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

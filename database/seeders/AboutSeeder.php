@@ -12,45 +12,47 @@ class AboutSeeder extends Seeder
      */
     public function run(): void
     {
+        About::truncate();
+
         About::create([
-            // Profil Perusahaan
-            'judul_profil'      => 'Dedikasi Terhadap Keindahan & Sirkulasi Udara Alami',
-            'deskripsi_profil_1' => 'Roster Dinding Minimalis didirikan pada tahun 2016 berawal dari sebuah keyakinan sederhana: bahwa sirkulasi udara alami dan pencahayaan matahari dapat dipadukan secara harmonis dengan nilai estetika arsitektur modern. Kami memahami bahwa rumah bukan sekadar tempat berlindung, melainkan mahakarya visual yang hidup.',
-            'deskripsi_profil_2' => 'Sebagai distributor resmi terpercaya, kami menjembatani kebutuhan pemilik rumah, arsitek, dan kontraktor dengan produsen roster beton dan bata ventilasi berstandar SNI. Selama bertahun-tahun, kami telah terlibat dalam ratusan proyek hunian, ruko, bangunan ibadah, hingga bangunan komersial berskala besar di seluruh wilayah Indonesia.',
+            // Profil Fakultas
+            'judul_profil'       => 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>',
+            'deskripsi_profil_1' => 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.',
+            'deskripsi_profil_2' => 'FIKES didukung oleh tenaga pendidik berkualifikasi magister dan doktor, sarana laboratorium terpadu berstandar nasional, serta jejaring kemitraan rumah sakit pendidikan terkemuka.',
 
             // Visi
             'visi_judul' => 'Visi Kami',
             'visi_icon'  => 'bi-eye',
-            'visi'       => 'Menjadi distributor roster dinding dan bata ventilasi terdepan di Indonesia yang dikenal karena keunggulan kualitas material, keragaman motif arsitektural, dan integritas pelayanan yang menginspirasi keindahan setiap ruang tinggal.',
+            'visi'       => 'Menjadi Fakultas Ilmu Kesehatan yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi yang berlandaskan nilai integritas dan kemanusiaan.',
 
-            // Misi (setiap poin dipisah dengan \n)
+            // Misi
             'misi_judul' => 'Misi Kami',
             'misi_icon'  => 'bi-rocket-takeoff',
-            'misi'       => "Menyediakan produk roster dekoratif kualitas premium bersertifikat SNI dengan daya tahan optimal terhadap cuaca tropis.\nMenawarkan ragam motif roster inovatif yang mengikuti perkembangan tren arsitektur dunia.\nMemberikan konsultasi gratis dan estimasi kebutuhan yang akurat demi efisiensi biaya proyek konsumen.\nMengirimkan pesanan tepat waktu dan aman menggunakan armada khusus untuk menjaga kualitas fisik barang hingga lokasi tujuan.",
+            'misi'       => "Menyelenggarakan pendidikan akademik dan profesi kesehatan yang berkualitas dan berstandar nasional/internasional.\nMengembangkan penelitian terapan dan inovatif di bidang ilmu kesehatan yang bermanfaat bagi masyarakat.\nMelaksanakan pengabdian kepada masyarakat secara berkelanjutan demi meningkatkan derajat kesehatan publik.\nMenjalin kerjasama strategis dengan institusi pelayanan kesehatan, rumah sakit, dan mitra global.",
 
-            // Nilai Utama Kami — Section Header
-            'judul_nilai'     => 'Prinsip Kerja yang Kami Pegang Teguh',
-            'deskripsi_nilai' => 'Kualitas dan kepercayaan bukanlah sebuah kebetulan, melainkan hasil dari komitmen terhadap nilai-nilai yang kami terapkan setiap hari.',
+            // Nilai Budaya Civitas
+            'judul_nilai'     => 'Nilai Budaya Civitas',
+            'deskripsi_nilai' => 'Prinsip dasar yang melandasi seluruh proses pembelajaran, riset, dan pelayanan kesehatan di lingkungan FIKES.',
 
-            // Nilai 1 — Kualitas Bersertifikasi
-            'nilai_1_judul'     => 'Kualitas Bersertifikasi',
-            'nilai_1_deskripsi' => 'Produk kami melalui proses kontrol kualitas ketat untuk memastikan kekuatan beton prima dan sudut presisi standar SNI.',
+            // Nilai 1 — Integritas
+            'nilai_1_judul'     => 'Integritas',
+            'nilai_1_deskripsi' => 'Menjunjung tinggi etika profesi, moralitas luhur, dan kejujuran akademik dalam setiap pengajaran dan riset.',
             'nilai_1_icon'      => 'bi-shield-fill-check',
 
-            // Nilai 2 — Keanekaragaman Motif
-            'nilai_2_judul'     => 'Keanekaragaman Motif',
-            'nilai_2_deskripsi' => 'Kami menghadirkan lebih dari 50+ pilihan motif eksklusif mulai dari gaya klasik, minimalis geometric, hingga motif etnik modern.',
-            'nilai_2_icon'      => 'bi-palette-fill',
+            // Nilai 2 — Keunggulan
+            'nilai_2_judul'     => 'Keunggulan',
+            'nilai_2_deskripsi' => 'Senantiasa meningkatkan standar mutu akademik demi mencetak lulusan tenaga kesehatan berkualifikasi unggul.',
+            'nilai_2_icon'      => 'bi-award-fill',
 
-            // Nilai 3 — Fokus pada Pelanggan
-            'nilai_3_judul'     => 'Fokus pada Pelanggan',
-            'nilai_3_deskripsi' => 'Tim kami berorientasi pada kepuasan pelanggan dengan merespons cepat setiap pertanyaan dan membantu kalkulasi kebutuhan.',
-            'nilai_3_icon'      => 'bi-people-fill',
+            // Nilai 3 — Humanis
+            'nilai_3_judul'     => 'Humanis',
+            'nilai_3_deskripsi' => 'Mengedepankan rasa empati, kasih sayang, dan kepedulian tulus terhadap pasien dan masyarakat.',
+            'nilai_3_icon'      => 'bi-heart-fill',
 
-            // Nilai 4 — Distribusi Aman
-            'nilai_4_judul'     => 'Distribusi Aman',
-            'nilai_4_deskripsi' => 'Didukung logistik profesional, pengiriman dijamin aman dan minim risiko pecah di jalan. Kami garansi 100% jika ada kerusakan.',
-            'nilai_4_icon'      => 'bi-truck-flatbed',
+            // Nilai 4 — Inovatif
+            'nilai_4_judul'     => 'Inovatif',
+            'nilai_4_deskripsi' => 'Adaptif terhadap perkembangan sains dan teknologi kesehatan terkini dalam pendidikan dan riset terapan.',
+            'nilai_4_icon'      => 'bi-lightning-charge-fill',
         ]);
     }
 }

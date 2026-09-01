@@ -27,7 +27,20 @@ class AppServiceProvider extends ServiceProvider
         }
 
         \Illuminate\Support\Facades\View::composer('*', function ($view) {
-            $view->with('contact', \App\Models\Contact::first());
+            $contact    = \App\Models\Contact::latest()->first();
+            $pmbSetting = \App\Models\PmbSetting::first();
+            $cleanWa    = '';
+            if ($contact && !empty($contact->no_wa)) {
+                $cleanWa = preg_replace('/[^0-9]/', '', $contact->no_wa);
+                if (strpos($cleanWa, '08') === 0) {
+                    $cleanWa = '628' . substr($cleanWa, 2);
+                }
+            }
+            $view->with([
+                'contact'    => $contact,
+                'cleanWa'    => $cleanWa,
+                'pmbSetting' => $pmbSetting,
+            ]);
         });
     }
 }

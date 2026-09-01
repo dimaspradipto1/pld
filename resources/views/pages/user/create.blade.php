@@ -122,7 +122,8 @@
                                 class="form-select @error('roles') is-invalid @enderror"
                                 required>
                             <option value="" disabled {{ old('roles') ? '' : 'selected' }}>-- Pilih Hak Akses --</option>
-                            <option value="admin" {{ old('roles') === 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="admin" {{ old('roles') === 'admin' ? 'selected' : '' }}>Admin (Akses Penuh)</option>
+                            <option value="penulis" {{ old('roles') === 'penulis' ? 'selected' : '' }}>Penulis Berita (Hanya Upload Berita)</option>
                             <option value="user"  {{ old('roles') === 'user'  ? 'selected' : '' }}>User</option>
                         </select>
                         @error('roles')

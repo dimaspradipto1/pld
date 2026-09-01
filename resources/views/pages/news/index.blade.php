@@ -24,9 +24,9 @@
         <h5 class="mb-0 fw-semibold">
             <i class="bi bi-newspaper me-2 text-primary"></i>Daftar Post / Berita
         </h5>
-        <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm">
+        {{-- <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm">
             <i class="bi bi-plus-lg me-1"></i> Tambah Post
-        </a>
+        </a> --}}
     </div>
     <div class="card-body pt-3">
         <div class="table-responsive">

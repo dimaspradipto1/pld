@@ -26,9 +26,10 @@ class UserDataTable extends DataTable
             ->addColumn('email', fn ($item) => e($item->email))
             ->addColumn('roles', function ($item) {
                 $label = match ($item->roles) {
-                    'admin' => ['label' => 'Admin',  'class' => 'bg-primary'],
-                    'user'  => ['label' => 'User',   'class' => 'bg-info text-dark'],
-                    default => ['label' => ucfirst($item->roles ?? '-'), 'class' => 'bg-secondary'],
+                    'admin'   => ['label' => 'Admin',          'class' => 'bg-primary'],
+                    'penulis' => ['label' => 'Penulis Berita', 'class' => 'bg-warning text-dark'],
+                    'user'    => ['label' => 'User',           'class' => 'bg-info text-dark'],
+                    default   => ['label' => ucfirst($item->roles ?? '-'), 'class' => 'bg-secondary'],
                 };
                 return '<span class="badge rounded-pill ' . $label['class'] . '">' . $label['label'] . '</span>';
             })

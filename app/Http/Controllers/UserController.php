@@ -95,6 +95,50 @@ class UserController extends Controller
     }
 
     /**
+     * Tampilkan halaman My Profile untuk user yang sedang login.
+     */
+    public function myProfile(): View
+    {
+        $user = Auth::user();
+        return view('pages.user.my-profile', compact('user'));
+    }
+
+    /**
+     * Update profil (nama & email) user yang sedang login.
+     */
+    public function updateMyProfile(UserRequest $request): RedirectResponse
+    {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        $user->update([
+            'name'  => $request->name,
+            'email' => $request->email,
+        ]);
+
+        alert()->success('Berhasil!', 'Profil akun Anda berhasil diperbarui.');
+
+        return redirect()->route('user.my-profile');
+    }
+
+    /**
+     * Update password user yang sedang login.
+     */
+    public function updateMyPassword(UserRequest $request): RedirectResponse
+    {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        alert()->success('Berhasil!', 'Password akun Anda berhasil diperbarui.');
+
+        return redirect()->route('user.my-profile');
+    }
+
+    /**
      * Tampilkan form update password.
      */
     public function updatePasswordForm(User $user): View
@@ -103,7 +147,7 @@ class UserController extends Controller
     }
 
     /**
-     * Proses update password pengguna.
+     * Proses update password pengguna (oleh Admin).
      */
     public function updatePassword(UserRequest $request, User $user): RedirectResponse
     {

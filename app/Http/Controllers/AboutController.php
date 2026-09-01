@@ -6,6 +6,7 @@ use App\DataTables\AboutDataTable;
 use App\Http\Requests\AboutRequest;
 use App\Models\About;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AboutController extends Controller
@@ -26,7 +27,7 @@ class AboutController extends Controller
 
         return redirect()
             ->route('about.index')
-            ->with('success', 'Data Tentang Kami berhasil ditambahkan.');
+            ->with('success', 'Data Profil Tentang Kami berhasil ditambahkan.');
     }
 
     public function edit(About $about): View
@@ -40,7 +41,7 @@ class AboutController extends Controller
 
         return redirect()
             ->route('about.index')
-            ->with('success', 'Data Tentang Kami berhasil diperbarui.');
+            ->with('success', 'Data Profil Tentang Kami berhasil diperbarui.');
     }
 
     public function destroy(About $about): RedirectResponse
@@ -49,6 +50,6 @@ class AboutController extends Controller
 
         return redirect()
             ->route('about.index')
-            ->with('success', 'Data Tentang Kami berhasil dihapus.');
+            ->with('success', 'Data Profil Tentang Kami berhasil dihapus.');
     }
 }

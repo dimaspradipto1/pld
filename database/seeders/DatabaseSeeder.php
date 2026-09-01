@@ -6,11 +6,16 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\AboutSeeder;
+use Database\Seeders\BannerSeeder;
+use Database\Seeders\ContactSeeder;
 use Database\Seeders\FeatureSeeder;
-use Database\Seeders\ProductSeeder;
-use Database\Seeders\KategoriSeeder;
+use Database\Seeders\LayananSeeder;
 use Database\Seeders\MilestoneSeeder;
+use Database\Seeders\NilaiPerusahaanSeeder;
+use Database\Seeders\PartnerSeeder;
+use Database\Seeders\StrukturOrganisasiSeeder;
 use Database\Seeders\TestimonialSeeder;
+use Database\Seeders\VisiMisiSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
@@ -24,13 +29,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            KategoriSeeder::class,
-            ProductSeeder::class,
-            ProductImageSeeder::class,
             FaqSeeder::class,
             AboutSeeder::class,
+            VisiMisiSeeder::class,
+            NilaiPerusahaanSeeder::class,
             MilestoneSeeder::class,
+            ContactSeeder::class,
+            BannerSeeder::class,
             FeatureSeeder::class,
+            LayananSeeder::class,
+            StrukturOrganisasiSeeder::class,
+            PartnerSeeder::class,
             TestimonialSeeder::class,
         ]);
     }
