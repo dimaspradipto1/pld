@@ -69,6 +69,13 @@ class KurikulumDataTable extends DataTable
                 $btn .= '</div>';
                 return $btn;
             })
+            ->filterColumn('prodi', function ($query, $keyword) {
+                $query->where(function ($q) use ($keyword) {
+                    $q->whereHas('prodi', function ($sub) use ($keyword) {
+                        $sub->where('judul', 'like', "%{$keyword}%");
+                    })->orWhere('kurikulums.prodi_nama', 'like', "%{$keyword}%");
+                });
+            })
             ->setRowId('DT_RowIndex')
             ->rawColumns(['prodi', 'semester_badge', 'sks_badge', 'rps_action', 'status', 'action']);
     }
@@ -94,6 +101,10 @@ class KurikulumDataTable extends DataTable
             ->setTableId('kurikulum-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
+            ->parameters([
+                'scrollX'   => true,
+                'autoWidth' => false,
+            ])
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([

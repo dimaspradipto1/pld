@@ -635,13 +635,14 @@
     .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--fikes-purple); color: var(--white); }
 
     /* ═══════════════════════════════════════════════
-       FOOTER — Solid Dark Obsidian
+       FOOTER — Purple #823ca2
     ═══════════════════════════════════════════════ */
     .footer-main {
-      background: var(--obsidian-dark);
-      color: rgba(255, 255, 255, 0.7);
+      background: #823ca2;
+      background: linear-gradient(180deg, #823ca2 0%, #591e73 100%);
+      color: rgba(255, 255, 255, 0.88);
       padding: 70px 0 28px;
-      border-top: 2px solid var(--fikes-purple);
+      border-top: 3.5px solid var(--fikes-orange, #ff9c00);
     }
     .footer-logo {
       display: flex;
@@ -658,45 +659,50 @@
     }
     .footer-brand-sub {
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.75);
     }
     .footer-desc {
       font-size: 14px;
       line-height: 1.75;
       margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.85);
     }
     .footer-social { display: flex; gap: 10px; }
     .footer-social a {
       width: 38px; height: 38px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       color: var(--white);
       font-size: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.25s ease;
     }
     .footer-social a:hover {
-      background: var(--fikes-purple);
-      border-color: var(--fikes-purple);
-      color: var(--white);
+      background: var(--fikes-orange, #ff9c00);
+      border-color: var(--fikes-orange, #ff9c00);
+      color: #190a24;
+      transform: translateY(-2px);
     }
     .footer-heading {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--white);
       margin-bottom: 20px;
+      letter-spacing: 0.3px;
     }
     .footer-links { list-style: none; padding: 0; margin: 0; }
     .footer-links li { margin-bottom: 10px; }
     .footer-links a {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 13.5px;
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: all 0.2s ease;
     }
-    .footer-links a:hover { color: var(--fikes-orange); transform: translateX(3px); }
+    .footer-links a:hover { color: #ffd026; transform: translateX(3px); }
     .footer-contact-item {
       display: flex;
       align-items: flex-start;
@@ -705,7 +711,7 @@
       font-size: 13.5px;
     }
     .footer-contact-icon {
-      color: var(--fikes-orange);
+      color: #ffd026;
       font-size: 18px;
       flex-shrink: 0;
       margin-top: 2px;
@@ -713,11 +719,12 @@
     .footer-contact-text strong { display: block; color: var(--white); margin-bottom: 2px; }
     .footer-divider {
       height: 1px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.2);
       margin: 48px 0 24px;
     }
-    .footer-bottom { font-size: 13px; }
-    .footer-bottom a { color: rgba(255, 255, 255, 0.6); }
+    .footer-bottom { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+    .footer-bottom a { color: rgba(255, 255, 255, 0.85); }
+    .footer-bottom a:hover { color: #ffd026; }
     .footer-bottom a:hover { color: var(--white); }
 
     /* Back to Top */
@@ -787,30 +794,58 @@
 <!-- ═══════════════════════════════════════════════
      TOPBAR
 ═══════════════════════════════════════════════ -->
+@php
+  $topbar = $topbarSetting;
+  $badgeText = $topbar?->badge_text ?? 'FIKES UIS';
+  $badgeIcon = $topbar?->badge_icon ?: 'bi-shield-check';
+  $alamatText = $topbar?->alamat ?? $contact?->alamat ?? 'Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau 29444';
+  $jamOperasional = $topbar?->jam_operasional ?? 'Senin - Sabtu: 08.00 - 17.00 WIB';
+  $telpWa = $topbar?->telepon ?? $contact?->no_wa ?? '123456789';
+  $socialMediaList = is_array($topbar?->social_media) && count($topbar->social_media) > 0
+    ? $topbar->social_media
+    : [
+        ['platform' => 'Instagram', 'icon' => 'bi-instagram', 'url' => 'https://instagram.com'],
+        ['platform' => 'YouTube', 'icon' => 'bi-youtube', 'url' => 'https://youtube.com'],
+      ];
+@endphp
+@if(!isset($topbar) || $topbar->is_active)
 <div class="topbar-main d-none d-lg-block">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center gap-4">
-        <span class="topbar-badge"><i class="bi bi-shield-check"></i> FIKES UIS</span>
-        <span><i class="bi bi-geo-alt me-1" style="color:var(--fikes-orange);"></i> {{ $contact->alamat ?? 'Fakultas Ilmu Kesehatan UIS, Kampus Terpadu' }}</span>
-        <span><i class="bi bi-clock me-1" style="color:var(--fikes-orange);"></i> Senin - Sabtu: 08.00 - 17.00 WIB</span>
+        <span class="topbar-badge"><i class="bi {{ $badgeIcon }}"></i> {{ $badgeText }}</span>
+        @if(!empty($alamatText))
+          <span><i class="bi bi-geo-alt me-1" style="color:var(--fikes-orange);"></i> {{ $alamatText }}</span>
+        @endif
+        @if(!empty($jamOperasional))
+          <span><i class="bi bi-clock me-1" style="color:var(--fikes-orange);"></i> {{ $jamOperasional }}</span>
+        @endif
       </div>
       <div class="d-flex align-items-center gap-3">
-        <!-- Social Media -->
-        <a href="https://instagram.com" target="_blank" title="Instagram" class="text-white-50"><i class="bi bi-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" title="YouTube" class="text-white-50"><i class="bi bi-youtube"></i></a>
-        <a href="https://linkedin.com" target="_blank" title="LinkedIn" class="text-white-50"><i class="bi bi-linkedin"></i></a>
-        <span style="opacity:0.25; color:white;">|</span>
-        @if(!empty($contact->no_wa))
-          <a href="https://wa.me/{{ $cleanWa }}" target="_blank"><i class="bi bi-whatsapp me-1 text-success"></i> {{ $contact->no_wa }}</a>
+        <!-- Dynamic Social Media -->
+        @foreach($socialMediaList as $sosmed)
+          @if(!empty($sosmed['url']))
+            <a href="{{ $sosmed['url'] }}" target="_blank" title="{{ $sosmed['platform'] ?? 'Media Sosial' }}" class="text-white-50">
+              <i class="bi {{ !empty($sosmed['icon']) ? $sosmed['icon'] : 'bi-globe' }}"></i>
+            </a>
+          @endif
+        @endforeach
+
+        @if(!empty($telpWa) || !empty($emailText))
+          <span style="opacity:0.25; color:white;">|</span>
         @endif
-        @if(!empty($contact->email))
-          <a href="mailto:{{ $contact->email }}"><i class="bi bi-envelope me-1" style="color:var(--fikes-orange);"></i> {{ $contact->email }}</a>
+
+        @if(!empty($telpWa))
+          <a href="https://wa.me/{{ $cleanWa }}" target="_blank"><i class="bi bi-whatsapp me-1 text-success"></i> {{ $telpWa }}</a>
+        @endif
+        @if(!empty($emailText))
+          <a href="mailto:{{ $emailText }}"><i class="bi bi-envelope me-1" style="color:var(--fikes-orange);"></i> {{ $emailText }}</a>
         @endif
       </div>
     </div>
   </div>
 </div>
+@endif
 
 <!-- ═══════════════════════════════════════════════
      NAVBAR — FIKES UIS
@@ -882,7 +917,7 @@
 
         <!-- Program Studi Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.layanan*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.layanan*') || request()->routeIs('homepage.dosen*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Program Studi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
@@ -909,6 +944,24 @@
                   </a>
                 </li>
               @endforeach
+
+              {{-- Dosen Submenu --}}
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-item-custom d-flex justify-content-between align-items-center {{ request()->routeIs('homepage.dosen*') ? 'active' : '' }}" href="{{ route('homepage.dosen') }}">
+                  <span><i class="bi bi-person-workspace me-1"></i> Dosen</span>
+                  <i class="bi bi-chevron-right ms-2 d-none d-xl-inline" style="font-size: 10px;"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 280px;">
+                  @foreach($navProdis as $np)
+                    <li>
+                      <a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen', ['prodi' => $np->id]) }}">
+                        <i class="bi bi-person-badge-fill text-warning"></i> Dosen {{ $np->judul }}
+                      </a>
+                    </li>
+                  @endforeach
+                </ul>
+              </li>
+
               <li><hr class="dropdown-divider my-1"></li>
               <li>
                 <a class="dropdown-item dropdown-item-custom fw-semibold" href="{{ route('homepage.layanan') }}" style="color: var(--fikes-purple);">
@@ -921,6 +974,7 @@
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen') }}"><i class="bi bi-person-workspace"></i> Dosen FIKES</a></li>
             @endif
           </ul>
         </li>

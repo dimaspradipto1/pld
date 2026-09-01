@@ -82,6 +82,13 @@
             </a>
           </li>
 
+          <!-- 4b. Dosen / Tenaga Pengajar -->
+          <li class="nav-item">
+            <a class="nav-link {{ Route::is('dosen.*') ? '' : 'collapsed' }}" href="{{ route('dosen.index') }}">
+              <i class="bi bi-person-workspace"></i><span>Dosen / Tenaga Pengajar</span>
+            </a>
+          </li>
+
           <!-- 5. Kemahasiswaan (Sesuai Urutan Header) -->
           <li class="nav-item">
             <a class="nav-link {{ Route::is('prestasi.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
@@ -192,6 +199,13 @@
           @endif
 
           <li class="nav-heading">Pengaturan & Administrator</li>
+
+          <li class="nav-item">
+              <a class="nav-link {{ Route::is('topbar.*') ? '' : 'collapsed' }}" href="{{ route('topbar.index') }}">
+                  <i class="bi bi-layout-text-window-reverse"></i>
+                  <span>Pengaturan Topbar</span>
+              </a>
+          </li>
 
           <li class="nav-item">
               <a class="nav-link {{ Route::is('profil.*') ? '' : 'collapsed' }}" href="{{ route('profil.index') }}">

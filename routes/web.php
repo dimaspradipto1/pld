@@ -25,6 +25,8 @@ use App\Http\Controllers\PmbSettingController;
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\TopbarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/prestasi-mahasiswa', 'prestasi')->name('homepage.prestasi');
     Route::get('/prestasi-mahasiswa/{slug}', 'prestasiDetail')->name('homepage.prestasi.detail');
+    Route::get('/dosen', 'dosen')->name('homepage.dosen');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
     Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
     Route::get('/berita', 'news')->name('homepage.news');
@@ -118,6 +121,18 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('prestasi', PrestasiController::class);
     Route::get('admin-program-studi', [LayananController::class, 'index'])->name('layanan.index');
     Route::post('admin-program-studi', [LayananController::class, 'updateAll'])->name('layanan.update-all');
+
+    // Dosen Bulk Actions & Excel Import / Template
+    Route::post('admin-dosen/bulk-delete', [DosenController::class, 'bulkDelete'])->name('dosen.bulk-delete');
+    Route::post('admin-dosen/delete-all', [DosenController::class, 'deleteAll'])->name('dosen.delete-all');
+    Route::get('admin-dosen/download-template', [DosenController::class, 'downloadTemplate'])->name('dosen.download-template');
+    Route::post('admin-dosen/import-excel', [DosenController::class, 'importExcel'])->name('dosen.import-excel');
+    Route::resource('admin-dosen', DosenController::class)
+        ->parameters(['admin-dosen' => 'dosen'])
+        ->names('dosen');
+    Route::resource('admin-topbar', TopbarController::class)
+        ->parameters(['admin-topbar' => 'topbar'])
+        ->names('topbar');
     Route::resource('struktur-organisasi', StrukturOrganisasiController::class);
     Route::resource('partner', PartnerController::class);
     Route::resource('visimisi', VisiMisiController::class);

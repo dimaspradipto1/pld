@@ -114,8 +114,43 @@ class FrontendController extends Controller
             'link_url'  => 'https://siakad.uis.ac.id',
             'is_active' => true,
         ]);
-        $pageTitle = 'Sistem Akademik';
+        $pageTitle = 'Sistem Akademik & Portal Online';
         return view('layouts.frontend.akademik', compact('item', 'pageTitle'));
+    }
+
+    public function dosen(\Illuminate\Http\Request $request)
+    {
+        $prodis = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
+
+        $selectedProdiId = $request->query('prodi');
+        if ($selectedProdiId) {
+            $currentProdi = $prodis->firstWhere('id', $selectedProdiId) ?? $prodis->first();
+        } else {
+            $currentProdi = $prodis->first();
+        }
+
+        $search = trim($request->query('q', ''));
+
+        $query = \App\Models\Dosen::where('is_active', true);
+        if ($currentProdi) {
+            $query->where('layanan_id', $currentProdi->id);
+        }
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama_dosen', 'like', "%{$search}%")
+                  ->orWhere('nidn', 'like', "%{$search}%")
+                  ->orWhere('nuptk', 'like', "%{$search}%")
+                  ->orWhere('jabatan_fungsional', 'like', "%{$search}%");
+            });
+        }
+
+        $totalDosen = (clone $query)->count();
+        $dosens = $query->orderBy('urutan')->orderBy('nama_dosen')->paginate(10)->withQueryString();
+
+        $pageTitle = 'Dosen ' . ($currentProdi?->judul ?? 'Program Studi FIKES UIS');
+
+        return view('layouts.frontend.dosen', compact('prodis', 'currentProdi', 'dosens', 'totalDosen', 'search', 'pageTitle'));
     }
 
     public function layanan()
