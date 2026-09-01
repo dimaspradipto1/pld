@@ -17,13 +17,13 @@ class BannerSeeder extends Seeder
         $banners = [
             [
                 'judul'  => 'Mewujudkan Tenaga Kesehatan Unggul, Profesional & Berintegritas',
-                'url'    => '',
+                'url'    => 'banners/U5BsPjmGmPRWbcUG2FlnoBQjlHIYIksdUPwZYi2W.png',
                 'urutan' => 1,
                 'aktif'  => true,
             ],
             [
                 'judul'  => 'Fasilitas Laboratorium Modern & Kerjasama Rumah Sakit Terpadu',
-                'url'    => '',
+                'url'    => 'banners/xWH57UmSDG5rm40tdAeLBk7Jor3IIGSJwhdG1oYK.png',
                 'urutan' => 2,
                 'aktif'  => true,
             ],
