@@ -701,92 +701,49 @@
     </div>
 
     <div class="row g-4">
-      <!-- Prodi 1: S2 Kesmas -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="prodi-card">
-          <div>
-            <span class="prodi-badge">Pascasarjana (S2) • M.Kes</span>
-            <h3 class="prodi-title" style="font-size:20px;">S2 Kesehatan Masyarakat</h3>
-            <p class="text-muted small mb-3" style="line-height: 1.65; text-align: justify;">
-              Fokus pada kepemimpinan strategis kesehatan publik, epidemiologi lanjutan, evaluasi kebijakan kesehatan, dan manajemen K3 tingkat lanjut bagi para profesional.
-            </p>
+      @if(isset($layanans) && $layanans->count() > 0)
+        @foreach($layanans as $index => $l)
+          @php
+            $rincianItems = $l->rincian ? array_filter(array_map('trim', explode("\n", $l->rincian))) : [];
+            $prodiUrl = !empty($l->link) ? $l->link : route('homepage.layanan.detail', $l->id);
+            $isExternal = !empty($l->link) && (str_starts_with($l->link, 'http://') || str_starts_with($l->link, 'https://'));
+          @endphp
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+            <div class="prodi-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                @if($l->dasar_hukum)
+                  <span class="prodi-badge">{{ $l->dasar_hukum }}</span>
+                @endif
+                <h3 class="prodi-title" style="font-size:20px;">{{ $l->judul }}</h3>
+                <div class="text-muted small mb-3 prodi-desc" style="line-height: 1.65; text-align: justify;">
+                  {!! $l->deskripsi !!}
+                </div>
 
-            <div class="prodi-subhead"><i class="bi bi-award-fill me-1"></i> Kompetensi Utama:</div>
-            <ul class="prodi-list">
-              <li><i class="bi bi-check-circle-fill"></i> Analisis Kebijakan & Manajemen Pelayanan Kesehatan</li>
-              <li><i class="bi bi-check-circle-fill"></i> Epidemiologi Terapan & Perancangan Program Kesehatan</li>
-              <li><i class="bi bi-check-circle-fill"></i> Kepemimpinan Strategis & Riset Publikasi Internasional</li>
-            </ul>
+                @if(!empty($l->rincian))
+                  <div class="prodi-subhead mb-2"><i class="bi bi-award-fill me-1"></i> Kompetensi / Keunggulan:</div>
+                  @if(str_contains($l->rincian, '<') && str_contains($l->rincian, '>'))
+                    <div class="prodi-rich-rincian small mb-0">
+                      {!! $l->rincian !!}
+                    </div>
+                  @else
+                    <ul class="prodi-list">
+                      @foreach(array_slice($rincianItems, 0, 4) as $point)
+                        <li><i class="bi bi-check-circle-fill"></i> {{ $point }}</li>
+                      @endforeach
+                    </ul>
+                  @endif
+                @endif
+              </div>
 
-            <div class="prodi-subhead"><i class="bi bi-briefcase-fill me-1"></i> Prospek Karir:</div>
-            <p class="text-muted small mb-0">Direktur/Manajer RS, Peneliti, Konsultan Kebijakan, Akademisi/Dosen, Kepala Dinas Kesehatan.</p>
+              <div class="mt-4 pt-3 border-top">
+                <a href="{{ $prodiUrl }}" @if($isExternal) target="_blank" rel="noopener noreferrer" @endif class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:10px 16px;">
+                  Detail {{ $l->judul }} @if($isExternal)<i class="bi bi-box-arrow-up-right ms-1"></i>@else<i class="bi bi-arrow-right"></i>@endif
+                </a>
+              </div>
+            </div>
           </div>
-
-          <div class="mt-4 pt-3 border-top">
-            <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:10px 16px;">
-              Detail S2 Kesmas <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prodi 2: S1 K3 -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="prodi-card">
-          <div>
-            <span class="prodi-badge">Sarjana (S1) • Terakreditasi</span>
-            <h3 class="prodi-title" style="font-size:20px;">S1 Kesehatan dan Keselamatan Kerja</h3>
-            <p class="text-muted small mb-3" style="line-height: 1.65; text-align: justify;">
-              Membekali keahlian identifikasi bahaya, penilaian risiko, audit SMK3 (ISO 45001), ergonomi industri, dan proteksi keselamatan kerja di sektor industri migas, maritim, dan manufaktur.
-            </p>
-
-            <div class="prodi-subhead"><i class="bi bi-award-fill me-1"></i> Kompetensi Utama:</div>
-            <ul class="prodi-list">
-              <li><i class="bi bi-check-circle-fill"></i> Analisis Higiene Industri, Ergonomi & Toksikologi Kerja</li>
-              <li><i class="bi bi-check-circle-fill"></i> Audit Sistem Manajemen K3 (SMK3 PP 50/2012 & ISO 45001)</li>
-              <li><i class="bi bi-check-circle-fill"></i> Investigasi Kecelakaan, Fire Safety & Tanggap Darurat</li>
-            </ul>
-
-            <div class="prodi-subhead"><i class="bi bi-briefcase-fill me-1"></i> Prospek Karir:</div>
-            <p class="text-muted small mb-0">HSE Officer/Manager, Safety Inspector, Auditor K3 Industri, Konsultan K3 Migas/Konstruksi.</p>
-          </div>
-
-          <div class="mt-4 pt-3 border-top">
-            <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:10px 16px;">
-              Detail S1 K3 <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prodi 3: S1 Kesling -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="prodi-card">
-          <div>
-            <span class="prodi-badge">Sarjana (S1) • Terakreditasi</span>
-            <h3 class="prodi-title" style="font-size:20px;">S1 Kesehatan Lingkungan</h3>
-            <p class="text-muted small mb-3" style="line-height: 1.65; text-align: justify;">
-              Fokus pada analisis dampak lingkungan (AMDAL), pengelolaan limbah B3 industri, pengolahan air bersih dan limbah cair, serta sanitasi rumah sakit dan kawasan perkotaan.
-            </p>
-
-            <div class="prodi-subhead"><i class="bi bi-award-fill me-1"></i> Kompetensi Utama:</div>
-            <ul class="prodi-list">
-              <li><i class="bi bi-check-circle-fill"></i> Penyusunan & Evaluasi Dokumen AMDAL & Audit Lingkungan</li>
-              <li><i class="bi bi-check-circle-fill"></i> Pengelolaan Limbah Padat, Cair, Gas & Limbah B3 Medis</li>
-              <li><i class="bi bi-check-circle-fill"></i> Pengendalian Vektor Penyakit & Sanitasi Rumah Sakit</li>
-            </ul>
-
-            <div class="prodi-subhead"><i class="bi bi-briefcase-fill me-1"></i> Prospek Karir:</div>
-            <p class="text-muted small mb-0">Sanitarian RS/Puskesmas, Environmental Specialist Industri, Konsultan AMDAL, Pegawai KLHK/Dinkes.</p>
-          </div>
-
-          <div class="mt-4 pt-3 border-top">
-            <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:10px 16px;">
-              Detail S1 Kesling <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+        @endforeach
+      @endif
     </div>
   </div>
 </section>

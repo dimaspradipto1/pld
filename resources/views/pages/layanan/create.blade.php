@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="pagetitle">
-    <h1>Tambah Layanan</h1>
+    <h1>Tambah Program Studi</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('layanan.index') }}">Layanan</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('layanan.index') }}">Program Studi</a></li>
             <li class="breadcrumb-item active">Tambah</li>
         </ol>
     </nav>
@@ -17,7 +17,7 @@
         <div class="card shadow-sm">
             <div class="card-header py-3">
                 <h5 class="mb-0 fw-semibold">
-                    <i class="bi bi-plus-circle-fill me-2 text-primary"></i>Form Tambah Layanan
+                    <i class="bi bi-plus-circle-fill me-2 text-primary"></i>Form Tambah Program Studi
                 </h5>
             </div>
             <div class="card-body pt-4">
@@ -43,19 +43,19 @@
                             <label for="icon" class="form-label fw-semibold">Icon <span class="text-danger">*</span></label>
                             <input type="text" id="icon" name="icon"
                                    class="form-control @error('icon') is-invalid @enderror"
-                                   value="{{ old('icon') }}"
-                                   placeholder="bi-clipboard2-check">
-                            <div class="form-text">Nama class <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a>.</div>
+                                   value="{{ old('icon', 'bi-mortarboard-fill') }}"
+                                   placeholder="bi-mortarboard-fill">
+                            <div class="form-text">Nama class <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a> (contoh: <code>bi-mortarboard-fill</code>, <code>bi-shield-plus</code>, <code>bi-tree-fill</code>).</div>
                             @error('icon')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-sm-8">
-                            <label for="judul" class="form-label fw-semibold">Judul Layanan <span class="text-danger">*</span></label>
+                            <label for="judul" class="form-label fw-semibold">Nama Program Studi <span class="text-danger">*</span></label>
                             <input type="text" id="judul" name="judul"
                                    class="form-control @error('judul') is-invalid @enderror"
                                    value="{{ old('judul') }}"
-                                   placeholder="Contoh: Riksa Uji Pesawat Angkat dan Angkut">
+                                   placeholder="Contoh: S2 Kesehatan Masyarakat">
                             @error('judul')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -63,14 +63,29 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="link" class="form-label fw-semibold">
+                            <i class="bi bi-link-45deg text-primary me-1"></i>Link / URL Website Program Studi
+                            <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
+                        </label>
+                        <input type="url" id="link" name="link"
+                               class="form-control @error('link') is-invalid @enderror"
+                               value="{{ old('link') }}"
+                               placeholder="Contoh: https://kesmas.uis.ac.id atau https://...">
+                        <div class="form-text">Jika diisi, klik pada menu dropdown Program Studi di navbar akan langsung membuka tautan ini. Jika dikosongkan, akan membuka halaman detail prodi di website FIKES.</div>
+                        @error('link')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label for="dasar_hukum" class="form-label fw-semibold">
-                            Dasar Hukum
+                            SK / Akreditasi
                             <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
                         </label>
                         <input type="text" id="dasar_hukum" name="dasar_hukum"
                                class="form-control @error('dasar_hukum') is-invalid @enderror"
                                value="{{ old('dasar_hukum') }}"
-                               placeholder="Contoh: Permenaker No. 8 Tahun 2020">
+                               placeholder="Contoh: SK LAM-PTKes & Kemendikbudristek / Unggul / B">
                         @error('dasar_hukum')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -80,24 +95,50 @@
                         <label for="deskripsi" class="form-label fw-semibold">Deskripsi Singkat <span class="text-danger">*</span></label>
                         <textarea id="deskripsi" name="deskripsi" rows="3"
                                   class="form-control @error('deskripsi') is-invalid @enderror"
-                                  placeholder="Ringkasan singkat untuk ditampilkan di kartu layanan...">{{ old('deskripsi') }}</textarea>
+                                  placeholder="Ringkasan singkat tentang program studi...">{{ old('deskripsi') }}</textarea>
                         @error('deskripsi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-4">
-                        <label for="rincian" class="form-label fw-semibold">
-                            Rincian
-                            <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
-                        </label>
-                        <textarea id="rincian" name="rincian" rows="5"
-                                  class="form-control @error('rincian') is-invalid @enderror"
-                                  placeholder="Satu poin per baris, contoh:&#10;Pesawat Angkat: Lier, Takel, Gondola&#10;Pita Transport: Escalator, Ban Berjalan">{{ old('rincian') }}</textarea>
-                        <div class="form-text">Satu poin per baris — akan ditampilkan sebagai daftar rincian di halaman Layanan.</div>
-                        @error('rincian')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <label class="form-label fw-semibold mb-0">
+                                <i class="bi bi-list-check text-primary me-1"></i>Kompetensi / Poin Keunggulan
+                                <span class="badge bg-secondary fw-normal ms-1" style="font-size:10px">Opsional</span>
+                            </label>
+                            <button type="button" class="btn btn-sm btn-outline-primary" id="btn-add-rincian">
+                                <i class="bi bi-plus-circle-fill me-1"></i> Tambah Poin
+                            </button>
+                        </div>
+
+                        <div id="rincian-container" class="d-flex flex-column gap-2">
+                            @php
+                                $rincianOld = old('rincian_list', [
+                                    'Kurikulum terakreditasi berbasis riset terapan & kebijakan publik',
+                                    'Praktik lapangan di sektor industri & rumah sakit',
+                                    'Bimbingan oleh dosen berpengalaman nasional & internasional'
+                                ]);
+                            @endphp
+
+                            @foreach($rincianOld as $index => $itemVal)
+                                <div class="input-group rincian-item shadow-sm">
+                                    <span class="input-group-text bg-light text-primary fw-bold rincian-num" style="min-width:42px; justify-content:center;">
+                                        {{ $loop->iteration }}
+                                    </span>
+                                    <input type="text" name="rincian_list[]"
+                                           class="form-control"
+                                           value="{{ $itemVal }}"
+                                           placeholder="Contoh: Kurikulum terakreditasi berbasis riset terapan...">
+                                    <button type="button" class="btn btn-outline-danger btn-remove-rincian" title="Hapus poin ini">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="form-text mt-2">
+                            <i class="bi bi-info-circle me-1"></i>Setiap field merupakan 1 poin keunggulan prodi. Klik <strong>+ Tambah Poin</strong> untuk menambah field baru.
+                        </div>
                     </div>
 
                     <div class="row g-3 mb-4">
@@ -106,6 +147,7 @@
                             <input type="number" id="urutan" name="urutan"
                                    class="form-control @error('urutan') is-invalid @enderror"
                                    value="{{ old('urutan', 0) }}" min="0">
+                            <div class="form-text">Urutan posisi di menu dropdown navbar.</div>
                             @error('urutan')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -115,7 +157,7 @@
                                 <input class="form-check-input" type="checkbox" id="aktif" name="aktif" value="1"
                                        {{ old('aktif', true) ? 'checked' : '' }}>
                                 <label class="form-check-label fw-semibold" for="aktif">
-                                    Aktifkan layanan (tampil di frontend)
+                                    Aktifkan Program Studi (tampil di navbar & beranda)
                                 </label>
                             </div>
                         </div>
@@ -135,3 +177,53 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('rincian-container');
+    const btnAdd = document.getElementById('btn-add-rincian');
+
+    function updateRincianNumbers() {
+        const items = container.querySelectorAll('.rincian-item');
+        items.forEach((item, index) => {
+            const numBadge = item.querySelector('.rincian-num');
+            if (numBadge) {
+                numBadge.textContent = index + 1;
+            }
+        });
+    }
+
+    if (btnAdd) {
+        btnAdd.addEventListener('click', function () {
+            const total = container.querySelectorAll('.rincian-item').length + 1;
+            const newRow = document.createElement('div');
+            newRow.className = 'input-group rincian-item shadow-sm';
+            newRow.innerHTML = `
+                <span class="input-group-text bg-light text-primary fw-bold rincian-num" style="min-width:42px; justify-content:center;">
+                    ${total}
+                </span>
+                <input type="text" name="rincian_list[]" class="form-control" placeholder="Masukkan poin keunggulan / kompetensi...">
+                <button type="button" class="btn btn-outline-danger btn-remove-rincian" title="Hapus poin ini">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+            `;
+            container.appendChild(newRow);
+            const input = newRow.querySelector('input');
+            if (input) input.focus();
+        });
+    }
+
+    container.addEventListener('click', function (e) {
+        const removeBtn = e.target.closest('.btn-remove-rincian');
+        if (removeBtn) {
+            const row = removeBtn.closest('.rincian-item');
+            if (row) {
+                row.remove();
+                updateRincianNumbers();
+            }
+        }
+    });
+});
+</script>
+@endpush

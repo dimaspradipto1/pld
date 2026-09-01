@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
-use App\Models\Gallery;
-use App\Models\Testimonial;
-use App\Models\Faq;
 use App\Models\Banner;
+use App\Models\Faq;
+use App\Models\Gallery;
 use App\Models\Layanan;
+use App\Models\News;
 use App\Models\Partner;
+use App\Models\Testimonial;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $totalNews         = News::count();
+        $user = Auth::user();
+        $isPenulis = $user && $user->roles === 'penulis';
+
+        $totalNews         = $isPenulis ? News::where('user_id', $user->id)->count() : News::count();
         $totalGalleries    = Gallery::count();
         $totalTestimonials = Testimonial::count();
         $totalFaqs         = Faq::count();
@@ -33,8 +37,9 @@ class DashboardController extends Controller
             ->get();
 
         // Data berita & ulasan terbaru
-        $latestNews        = News::latest()->take(5)->get();
-        $latestTestimonials = Testimonial::latest()->take(5)->get();
+        $latestNewsQuery   = $isPenulis ? News::where('user_id', $user->id) : News::query();
+        $latestNews        = $latestNewsQuery->latest('id')->take(5)->get();
+        $latestTestimonials = Testimonial::latest('id')->take(5)->get();
 
         return view('layouts.dashboard.index', compact(
             'totalNews',

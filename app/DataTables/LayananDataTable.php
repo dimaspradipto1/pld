@@ -26,6 +26,14 @@ class LayananDataTable extends DataTable
             ->addColumn('dasar_hukum', fn ($l) => $l->dasar_hukum
                 ? '<span class="badge bg-secondary">' . e($l->dasar_hukum) . '</span>'
                 : '<span class="text-muted">—</span>')
+            ->addColumn('link', function ($l) {
+                if (empty($l->link)) {
+                    return '<span class="text-muted">—</span>';
+                }
+                return '<a href="' . e($l->link) . '" target="_blank" class="btn btn-xs btn-outline-primary" style="font-size:11px; padding: 2px 6px;" title="' . e($l->link) . '">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Buka Link
+                        </a>';
+            })
             ->addColumn('urutan', fn ($l) => '<span class="badge bg-secondary">' . $l->urutan . '</span>')
             ->addColumn('aktif', function ($l) {
                 return $l->aktif
@@ -42,7 +50,7 @@ class LayananDataTable extends DataTable
                          </a>';
                 $btn .= '<form action="' . route('layanan.destroy', $layanan->id) . '"
                               method="POST" class="m-0"
-                              onsubmit="return confirm(\'Yakin ingin menghapus layanan ini?\')">'
+                              onsubmit="return confirm(\'Yakin ingin menghapus program studi ini?\')">'
                         . csrf_field() . method_field('DELETE')
                         . '<button type="submit"
                                    class="btn btn-sm btn-danger"
@@ -55,7 +63,7 @@ class LayananDataTable extends DataTable
                 return $btn;
             })
             ->setRowId('DT_RowIndex')
-            ->rawColumns(['icon', 'judul', 'dasar_hukum', 'urutan', 'aktif', 'action']);
+            ->rawColumns(['icon', 'judul', 'dasar_hukum', 'link', 'urutan', 'aktif', 'action']);
     }
 
     /**
@@ -64,7 +72,7 @@ class LayananDataTable extends DataTable
     public function query(Layanan $model): QueryBuilder
     {
         return $model->newQuery()
-            ->select(['id', 'icon', 'judul', 'dasar_hukum', 'urutan', 'aktif'])
+            ->select(['id', 'icon', 'judul', 'dasar_hukum', 'link', 'urutan', 'aktif'])
             ->orderBy('urutan');
     }
 
@@ -74,7 +82,7 @@ class LayananDataTable extends DataTable
             ->setTableId('layanan-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(4)
+            ->orderBy(5)
             ->selectStyleSingle()
             ->buttons([
                 Button::make('excel'),
@@ -90,8 +98,9 @@ class LayananDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->title('No')->width('5%')->addClass('text-center')->searchable(false)->orderable(false),
             Column::computed('icon')->title('Icon')->width('8%')->addClass('text-center')->exportable(false)->printable(false),
-            Column::make('judul')->title('Judul Layanan'),
-            Column::make('dasar_hukum')->title('Dasar Hukum')->width('20%'),
+            Column::make('judul')->title('Program Studi'),
+            Column::make('dasar_hukum')->title('SK / Akreditasi')->width('18%'),
+            Column::computed('link')->title('Link Prodi')->width('12%')->addClass('text-center'),
             Column::make('urutan')->title('Urutan')->width('8%')->addClass('text-center'),
             Column::make('aktif')->title('Status')->width('10%')->addClass('text-center'),
             Column::computed('action')->title('Aksi')->exportable(false)->printable(false)->width('10%')->addClass('text-center'),

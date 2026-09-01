@@ -840,9 +840,42 @@
             Program Studi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
+            @if(isset($navProdis) && $navProdis->count() > 0)
+              @foreach($navProdis as $navProdi)
+                @php
+                  $rawLink = trim($navProdi->link ?? '');
+                  if (!empty($rawLink) && !str_starts_with($rawLink, 'http://') && !str_starts_with($rawLink, 'https://') && !str_starts_with($rawLink, '/') && !str_starts_with($rawLink, '#')) {
+                      $rawLink = 'https://' . $rawLink;
+                  }
+                  $hasLink = !empty($rawLink);
+                  $prodiHref = $hasLink ? $rawLink : route('homepage.layanan.detail', $navProdi->id);
+                  $isExternal = $hasLink && (str_starts_with($rawLink, 'http://') || str_starts_with($rawLink, 'https://'));
+                @endphp
+                <li>
+                  <a class="dropdown-item dropdown-item-custom"
+                     href="{{ $prodiHref }}"
+                     @if($isExternal) target="_blank" rel="noopener noreferrer" @endif>
+                    <i class="bi {{ $navProdi->icon ?: 'bi-mortarboard-fill' }}"></i>
+                    <span>{{ $navProdi->judul }}</span>
+                    @if($isExternal)
+                      <i class="bi bi-box-arrow-up-right ms-auto text-muted" style="font-size: 10px;" title="Buka website prodi"></i>
+                    @endif
+                  </a>
+                </li>
+              @endforeach
+              <li><hr class="dropdown-divider my-1"></li>
+              <li>
+                <a class="dropdown-item dropdown-item-custom fw-semibold" href="{{ route('homepage.layanan') }}" style="color: var(--fikes-purple);">
+                  <i class="bi bi-grid-fill" style="color: var(--fikes-purple);"></i>
+                  <span>Semua Program & Fasilitas</span>
+                  <i class="bi bi-arrow-right ms-auto" style="font-size: 11px;"></i>
+                </a>
+              </li>
+            @else
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
+            @endif
           </ul>
         </li>
 

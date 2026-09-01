@@ -179,9 +179,14 @@
                 </ul>
               @endif
             </div>
-            <div>
+            <div class="d-flex gap-2 flex-wrap">
+              @if($layanan->link)
+                <a href="{{ $layanan->link }}" target="_blank" rel="noopener noreferrer" class="layanan-detail-btn" style="background:var(--fikes-purple); color:#fff; border-color:var(--fikes-purple);">
+                  Website Prodi <i class="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
+              @endif
               <a href="{{ route('homepage.layanan.detail', $layanan->id) }}" class="layanan-detail-btn">
-                Lihat Detail Lengkap <i class="bi bi-arrow-right"></i>
+                Lihat Detail <i class="bi bi-arrow-right"></i>
               </a>
             </div>
           </div>

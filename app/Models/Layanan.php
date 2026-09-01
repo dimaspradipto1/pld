@@ -12,6 +12,7 @@ class Layanan extends Model
         'icon',
         'judul',
         'dasar_hukum',
+        'link',
         'deskripsi',
         'rincian',
         'urutan',

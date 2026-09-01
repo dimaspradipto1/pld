@@ -81,7 +81,16 @@ class NewsDataTable extends DataTable
      */
     public function query(News $model): QueryBuilder
     {
-        return $model->newQuery()->with('user')->select(['id', 'user_id', 'thumbnail', 'title', 'status']);
+        $query = $model->newQuery()
+            ->with('user')
+            ->select(['id', 'user_id', 'thumbnail', 'title', 'status', 'created_at']);
+
+        // Jika role penulis, hanya tampilkan berita miliknya sendiri. Admin & Superadmin menampilkan semua.
+        if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->roles === 'penulis') {
+            $query->where('user_id', \Illuminate\Support\Facades\Auth::id());
+        }
+
+        return $query->latest('id');
     }
 
     /**

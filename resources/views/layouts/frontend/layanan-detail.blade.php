@@ -157,6 +157,11 @@
             <h5 class="fw-bold text-white mb-2">Tertarik dengan Program Ini?</h5>
             <p class="text-white-50 small mb-3">Dapatkan informasi pendaftaran, kurikulum, dan jadwal seleksi dengan menghubungi tim layanan FIKES.</p>
             <div class="d-flex flex-wrap gap-2">
+              @if($layanan->link)
+                <a href="{{ $layanan->link }}" target="_blank" rel="noopener noreferrer" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 20px; background: linear-gradient(135deg, #10b981, #059669); border:none;">
+                  <i class="bi bi-box-arrow-up-right"></i> Website Resmi Prodi
+                </a>
+              @endif
               <a href="{{ route('homepage.kontak') }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 20px;">
                 <i class="bi bi-envelope"></i> Hubungi Kami
               </a>

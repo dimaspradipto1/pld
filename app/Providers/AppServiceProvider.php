@@ -27,8 +27,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
         \Illuminate\Support\Facades\View::composer('*', function ($view) {
-            $contact    = \App\Models\Contact::latest()->first();
+            $contact    = \App\Models\Contact::latest('id')->first();
             $pmbSetting = \App\Models\PmbSetting::first();
+            $navProdis  = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
             $cleanWa    = '';
             if ($contact && !empty($contact->no_wa)) {
                 $cleanWa = preg_replace('/[^0-9]/', '', $contact->no_wa);
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
                 'contact'    => $contact,
                 'cleanWa'    => $cleanWa,
                 'pmbSetting' => $pmbSetting,
+                'navProdis'  => $navProdis,
             ]);
         });
     }

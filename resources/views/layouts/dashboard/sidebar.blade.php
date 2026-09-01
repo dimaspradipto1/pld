@@ -77,21 +77,9 @@
 
           <!-- 4. Program Studi (Sesuai Urutan Header) -->
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('layanan.*') ? '' : 'collapsed' }}" data-bs-target="#prodi-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-mortarboard"></i><span>Program Studi</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link {{ Route::is('layanan.*') ? '' : 'collapsed' }}" href="{{ route('layanan.index') }}">
+              <i class="bi bi-mortarboard"></i><span>Program Studi</span>
             </a>
-            <ul id="prodi-nav" class="nav-content collapse {{ Route::is('layanan.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-              <li>
-                <a href="{{ route('layanan.index') }}" class="{{ Route::is('layanan.index') ? 'active' : '' }}">
-                  <i class="bi bi-circle"></i><span>Daftar Program Studi</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('layanan.create') }}" class="{{ Route::is('layanan.create') ? 'active' : '' }}">
-                  <i class="bi bi-circle"></i><span>Tambah Program Studi</span>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- 5. Kemahasiswaan (Sesuai Urutan Header) -->

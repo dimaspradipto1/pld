@@ -108,9 +108,8 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('testimonial', TestimonialController::class);
-    Route::resource('admin-layanan', LayananController::class)
-        ->parameters(['admin-layanan' => 'layanan'])
-        ->names('layanan');
+    Route::get('admin-program-studi', [LayananController::class, 'index'])->name('layanan.index');
+    Route::post('admin-program-studi', [LayananController::class, 'updateAll'])->name('layanan.update-all');
     Route::resource('struktur-organisasi', StrukturOrganisasiController::class);
     Route::resource('partner', PartnerController::class);
     Route::resource('visimisi', VisiMisiController::class);

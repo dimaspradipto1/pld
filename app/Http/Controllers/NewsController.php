@@ -55,11 +55,19 @@ class NewsController extends Controller
 
     public function edit(News $news): View
     {
+        if (Auth::user()->roles === 'penulis' && $news->user_id !== Auth::id()) {
+            abort(403, 'Akses ditolak. Anda hanya dapat mengedit berita yang Anda buat sendiri.');
+        }
+
         return view('pages.news.edit', compact('news'));
     }
 
     public function update(NewsRequest $request, News $news): RedirectResponse
     {
+        if (Auth::user()->roles === 'penulis' && $news->user_id !== Auth::id()) {
+            abort(403, 'Akses ditolak. Anda hanya dapat memperbarui berita yang Anda buat sendiri.');
+        }
+
         $thumbnailPath = $news->thumbnail;
 
         if ($request->hasFile('thumbnail')) {
@@ -107,6 +115,10 @@ class NewsController extends Controller
 
     public function destroy(News $news): RedirectResponse
     {
+        if (Auth::user()->roles === 'penulis' && $news->user_id !== Auth::id()) {
+            abort(403, 'Akses ditolak. Anda hanya dapat menghapus berita yang Anda buat sendiri.');
+        }
+
         if ($news->thumbnail && Storage::disk('public')->exists($news->thumbnail)) {
             Storage::disk('public')->delete($news->thumbnail);
         }
