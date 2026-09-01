@@ -99,34 +99,16 @@
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-white">
   <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
-        <div class="visual-card-frame">
-          <div class="visual-badge-pill">
-            <i class="bi bi-person-badge-fill"></i>
-            {{ $about->jabatan_dekan ?? 'Dekan Fakultas' }}
-          </div>
-          @if(!empty($about?->foto_dekan))
-            <div class="text-center mb-3">
-              <img src="{{ asset('storage/' . $about->foto_dekan) }}" alt="{{ $about->nama_dekan ?? 'Dekan FIKES UIS' }}" class="rounded-4 shadow-sm" style="max-height: 240px; width: auto; object-fit: cover; border: 3px solid var(--fikes-purple-light);">
-            </div>
-          @else
-            <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES" style="max-height: 110px; width: auto; margin-bottom: 18px;">
-          @endif
-          <h4 class="fw-bold mb-1 text-dark">{{ $about->nama_dekan ?? 'Unggul & Berintegritas' }}</h4>
-          <p class="text-muted small mb-0">{{ $about->jabatan_dekan ?? 'Mewujudkan lulusan profesional kesehatan yang berkarakter humanis dan siap menghadapi era global.' }}</p>
-        </div>
-      </div>
-
-      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="800">
+    <div class="row justify-content-center">
+      <div class="col-lg-11 col-xl-10" data-aos="fade-up" data-aos-duration="800">
         <div class="section-label">Profil Fakultas</div>
         <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>' !!}</h2>
         <div class="divider-line"></div>
-        <div class="section-desc mb-4" style="text-align: justify;">
+        <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
           {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
         </div>
         @if($about?->deskripsi_profil_2)
-        <div class="section-desc mb-4" style="text-align: justify;">
+        <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
           {!! $about->deskripsi_profil_2 !!}
         </div>
         @endif
@@ -230,34 +212,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     MITRA RUMAH SAKIT & INSTANSI
-═══════════════════════════════════════════════ -->
-@if(isset($partners) && $partners->count() > 0)
-<section class="section-bg-sand py-5">
-  <div class="container">
-    <div class="text-center mb-4" data-aos="fade-up">
-      <div class="section-label mx-auto">Kemitraan Strategis</div>
-      <h2 class="section-title">Mitra Rumah Sakit & <em>Instansi Kesehatan</em></h2>
-      <div class="divider-line centered"></div>
-    </div>
-
-    <div class="row g-3 justify-content-center align-items-center" data-aos="fade-up">
-      @foreach($partners as $p)
-        <div class="col-6 col-md-4 col-lg-2">
-          <div class="partner-logo-box text-center">
-            @if($p->logo)
-              <img src="{{ asset('storage/' . $p->logo) }}" alt="{{ $p->nama }}" class="partner-logo-img" title="{{ $p->nama }}">
-            @else
-              <span class="fw-bold small text-muted">{{ $p->nama }}</span>
-            @endif
-          </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
-</section>
-@endif
 
 <!-- ═══════════════════════════════════════════════
      CTA KONTAK

@@ -24,9 +24,11 @@
         <h5 class="mb-0 fw-semibold">
             <i class="bi bi-telephone-fill me-2 text-primary"></i>Daftar Kontak
         </h5>
+        @if(!\App\Models\Contact::exists())
         <a href="{{ route('contact.create') }}" class="btn btn-primary btn-sm">
             <i class="bi bi-plus-lg me-1"></i> Tambah Kontak
         </a>
+        @endif
     </div>
     <div class="card-body pt-3">
         <div class="table-responsive">

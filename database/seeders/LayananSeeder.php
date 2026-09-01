@@ -45,16 +45,6 @@ class LayananSeeder extends Seeder
                 'urutan'      => 3,
                 'aktif'       => true,
             ],
-            [
-                'icon'        => 'bi-hospital',
-                'judul'       => 'Laboratorium Terpadu & Layanan Pengujian',
-                'dasar_hukum' => 'Standar Sarpras Dikti',
-                'link'        => null,
-                'deskripsi'   => 'Fasilitas laboratorium terpadu untuk menunjang praktikum mahasiswa, riset dosen, serta layanan konsultasi & pengujian parameter lingkungan kerja bagi industri mitra.',
-                'rincian'     => "Pengujian intensitas penerangan (Lux Meter) & kebisingan (Sound Level Meter)\nPengujian kualitas air bersih, air limbah, dan mikrobiologi sanitasi\nPemeriksaan spirometri dan evaluasi ergonomi kerja industri\nPelatihan tanggap darurat dan simulasi evakuasi gawat darurat",
-                'urutan'      => 4,
-                'aktif'       => true,
-            ],
         ];
 
         foreach ($layanans as $l) {

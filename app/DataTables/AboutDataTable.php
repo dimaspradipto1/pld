@@ -27,13 +27,13 @@ class AboutDataTable extends DataTable
                 return e($about->judul_profil);
             })
             ->addColumn('deskripsi_profil_1', function ($about) {
-                return e(Str::limit($about->deskripsi_profil_1, 80));
+                return Str::limit(strip_tags(html_entity_decode($about->deskripsi_profil_1 ?? '')), 80);
             })
             ->addColumn('visi', function ($about) {
-                return e(Str::limit($about->visi, 80));
+                return Str::limit(strip_tags(html_entity_decode($about->visi ?? '')), 80);
             })
             ->addColumn('misi', function ($about) {
-                return e(Str::limit($about->misi, 80));
+                return Str::limit(strip_tags(html_entity_decode($about->misi ?? '')), 80);
             })
             ->addColumn('action', function ($about) {
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:5px">';

@@ -52,17 +52,31 @@ class FrontendController extends Controller
         ));
     }
 
-    public function kurikulum()
+    public function kurikulum(\Illuminate\Http\Request $request)
     {
-        $item = \App\Models\Akademik::firstOrCreate(['tipe' => 'kurikulum'], [
-            'judul'     => 'Kurikulum & Capaian Pembelajaran',
-            'subjudul'  => 'Struktur kurikulum berbasis kompetensi dan Outcome-Based Education (OBE) FIKES UIS.',
-            'deskripsi' => '<p>Kurikulum Fakultas Ilmu Kesehatan dirancang untuk menghasilkan lulusan yang kompeten, berdaya saing global, dan berintegritas tinggi. Mengacu pada Kerangka Kualifikasi Nasional Indonesia (KKNI) serta standar profesi kesehatan.</p>',
-            'link_url'  => '',
-            'is_active' => true,
-        ]);
-        $pageTitle = 'Kurikulum';
-        return view('layouts.frontend.akademik', compact('item', 'pageTitle'));
+        $prodis = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
+
+        $selectedProdiId = $request->query('prodi');
+        if ($selectedProdiId) {
+            $currentProdi = $prodis->firstWhere('id', $selectedProdiId) ?? $prodis->first();
+        } else {
+            $currentProdi = $prodis->first();
+        }
+
+        $query = \App\Models\Kurikulum::where('is_active', true);
+        if ($currentProdi) {
+            $query->where('layanan_id', $currentProdi->id);
+        }
+
+        $courses = $query->orderBy('semester')->orderBy('urutan')->orderBy('id')->get();
+        $coursesBySemester = $courses->groupBy('semester');
+
+        $totalSks = $courses->sum('sks');
+        $totalMatakuliah = $courses->count();
+
+        $pageTitle = 'Kurikulum ' . ($currentProdi?->judul ?? 'Program Studi FIKES');
+
+        return view('layouts.frontend.kurikulum', compact('prodis', 'currentProdi', 'coursesBySemester', 'totalSks', 'totalMatakuliah', 'pageTitle'));
     }
 
     public function kalenderAkademik()

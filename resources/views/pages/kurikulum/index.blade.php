@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="pagetitle">
-    <h1>Tentang Kami</h1>
+    <h1>Kelola Kurikulum Program Studi</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item active">Tentang Kami</li>
+            <li class="breadcrumb-item">Akademik</li>
+            <li class="breadcrumb-item active">Kurikulum</li>
         </ol>
     </nav>
 </div>
@@ -19,18 +20,22 @@
     </div>
 @endif
 
-<div class="card shadow-sm">
+<div class="card shadow-sm mb-4">
     <div class="card-header d-flex align-items-center justify-content-between py-3">
-        <h5 class="mb-0 fw-semibold">
-            <i class="bi bi-info-circle-fill me-2 text-primary"></i>Profil Tentang Kami
+        <h5 class="mb-0 fw-semibold text-dark">
+            <i class="bi bi-journal-text me-2 text-primary"></i>Daftar Kurikulum & Matakuliah FIKES
         </h5>
-        @if(!\App\Models\About::exists())
-        <a href="{{ route('about.create') }}" class="btn btn-primary btn-sm">
-            <i class="bi bi-plus-lg me-1"></i> Tambah Profil
+        <a href="{{ route('kurikulum.create') }}" class="btn btn-primary btn-sm">
+            <i class="bi bi-plus-lg me-1"></i> Tambah Matakuliah
         </a>
-        @endif
     </div>
     <div class="card-body pt-3">
+        <div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            Kelola daftar matakuliah kurikulum per program studi dan per semester. Anda dapat mengunggah file RPS (Rencana Pembelajaran Semester) dalam format PDF untuk diunduh mahasiswa.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
         <div class="table-responsive">
             {{ $dataTable->table([
                 'class' => 'table table-striped table-bordered align-middle',

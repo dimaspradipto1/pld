@@ -123,64 +123,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     NILAI BUDAYA CIVITAS
-═══════════════════════════════════════════════ -->
-<section class="section-bg-white py-5">
-  <div class="container py-3">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label">Karakter & Etika</div>
-      <h2 class="section-title">Nilai Budaya <em>Civitas FIKES</em></h2>
-      <p class="section-desc mx-auto" style="max-width: 600px;">
-        Prinsip utama yang membentuk kepribadian lulusan tenaga kesehatan yang unggul dan humanis.
-      </p>
-    </div>
 
-    <div class="row g-4">
-      @if(isset($nilaiPerusahaans) && $nilaiPerusahaans->count())
-        @foreach($nilaiPerusahaans as $nilai)
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 80 }}">
-            <div class="value-card text-center h-100 p-4">
-              <div class="value-icon-wrap mx-auto mb-3">
-                <i class="bi {{ $nilai->icon ?? 'bi-patch-check-fill' }}"></i>
-              </div>
-              <h5 class="fw-bold mb-2 text-dark">{{ $nilai->judul }}</h5>
-              <p class="text-muted small mb-0" style="line-height: 1.7;">{{ $nilai->deskripsi }}</p>
-            </div>
-          </div>
-        @endforeach
-      @else
-        <div class="col-md-6 col-lg-3" data-aos="fade-up">
-          <div class="value-card text-center h-100 p-4">
-            <div class="value-icon-wrap mx-auto mb-3"><i class="bi bi-shield-fill-check"></i></div>
-            <h5 class="fw-bold mb-2 text-dark">Integritas</h5>
-            <p class="text-muted small mb-0" style="line-height: 1.7;">Menjunjung tinggi etika profesi, moralitas luhur, dan kejujuran akademik.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="value-card text-center h-100 p-4">
-            <div class="value-icon-wrap mx-auto mb-3"><i class="bi bi-award-fill"></i></div>
-            <h5 class="fw-bold mb-2 text-dark">Keunggulan</h5>
-            <p class="text-muted small mb-0" style="line-height: 1.7;">Senantiasa meningkatkan standar mutu akademik demi mencetak lulusan terbaik.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="value-card text-center h-100 p-4">
-            <div class="value-icon-wrap mx-auto mb-3"><i class="bi bi-heart-fill"></i></div>
-            <h5 class="fw-bold mb-2 text-dark">Humanis</h5>
-            <p class="text-muted small mb-0" style="line-height: 1.7;">Mengedepankan rasa empati, kasih sayang, dan kepedulian tulus terhadap sesama.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="value-card text-center h-100 p-4">
-            <div class="value-icon-wrap mx-auto mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-            <h5 class="fw-bold mb-2 text-dark">Inovatif</h5>
-            <p class="text-muted small mb-0" style="line-height: 1.7;">Adaptif terhadap perkembangan sains dan teknologi kesehatan terkini.</p>
-          </div>
-        </div>
-      @endif
-    </div>
-  </div>
-</section>
 
 @endsection

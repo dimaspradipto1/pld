@@ -217,6 +217,32 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Submenu Dropdown Support */
+    .dropdown-submenu {
+      position: relative;
+    }
+    .dropdown-submenu > .dropdown-menu-custom {
+      top: 0;
+      left: 100%;
+      margin-top: -6px;
+      margin-left: 2px;
+      display: none;
+    }
+    .dropdown-submenu:hover > .dropdown-menu-custom {
+      display: block;
+    }
+    @media (max-width: 1199.98px) {
+      .dropdown-submenu > .dropdown-menu-custom {
+        position: static;
+        display: block;
+        margin-left: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        box-shadow: none;
+        padding: 4px;
+      }
+    }
+
     .dropdown-item-custom {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 13px;
@@ -823,11 +849,31 @@
 
         <!-- Akademik Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.kurikulum') || request()->routeIs('homepage.kalender-akademik') || request()->routeIs('homepage.pedoman-akademik') || request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.kurikulum*') || request()->routeIs('homepage.kalender-akademik') || request()->routeIs('homepage.pedoman-akademik') || request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Akademik <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.kurikulum') ? 'active' : '' }}" href="{{ route('homepage.kurikulum') }}"><i class="bi bi-journal-text"></i> Kurikulum</a></li>
+            <!-- Kurikulum FIKES with Submenu -->
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-item-custom d-flex justify-content-between align-items-center {{ request()->routeIs('homepage.kurikulum*') ? 'active' : '' }}" href="{{ route('homepage.kurikulum') }}">
+                <span><i class="bi bi-journal-text me-1"></i> Kurikulum FIKES</span>
+                <i class="bi bi-chevron-right ms-2 d-none d-xl-inline" style="font-size: 10px;"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 270px;">
+                @if(isset($navProdis) && $navProdis->count() > 0)
+                  @foreach($navProdis as $np)
+                    <li>
+                      <a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.kurikulum', ['prodi' => $np->id]) }}">
+                        <i class="bi bi-mortarboard-fill text-warning"></i> {{ $np->judul }}
+                      </a>
+                    </li>
+                  @endforeach
+                @else
+                  <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.kurikulum') }}"><i class="bi bi-mortarboard"></i> Semua Kurikulum Prodi</a></li>
+                @endif
+              </ul>
+            </li>
+
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.kalender-akademik') ? 'active' : '' }}" href="{{ route('homepage.kalender-akademik') }}"><i class="bi bi-calendar-check"></i> Kalender Akademik</a></li>
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.pedoman-akademik') ? 'active' : '' }}" href="{{ route('homepage.pedoman-akademik') }}"><i class="bi bi-book"></i> Pedoman Akademik</a></li>
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="{{ route('homepage.sistem-akademik') }}"><i class="bi bi-laptop"></i> Sistem Akademik</a></li>
@@ -936,7 +982,7 @@
         @endphp
         <a href="{{ $pmbNavUrl }}" target="{{ $pmbNavTarget }}" class="btn-pmb-nav" title="Penerimaan Mahasiswa Baru">
           <i class="bi bi-pencil-square"></i>
-          <span>PMB / Daftar</span>
+          <span>PMB</span>
         </a>
         <a href="{{ route('login') }}" class="btn-portal-nav" title="Login">
           <i class="bi bi-box-arrow-in-right"></i>

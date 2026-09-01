@@ -24,6 +24,7 @@ use App\Http\Controllers\SambutanDekanController;
 use App\Http\Controllers\PmbSettingController;
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\KurikulumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,9 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     });
 
     Route::resource('milestone', MilestoneController::class);
+    Route::resource('admin-kurikulum', KurikulumController::class)
+        ->parameters(['admin-kurikulum' => 'kurikulum'])
+        ->names('kurikulum');
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('testimonial', TestimonialController::class);

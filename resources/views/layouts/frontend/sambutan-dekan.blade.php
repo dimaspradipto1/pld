@@ -171,13 +171,13 @@
         {{-- Kutipan Singkat --}}
         <div class="dekan-quote-callout">
           <i class="bi bi-quote fs-3 d-block mb-1" style="color: var(--fikes-purple);"></i>
-          "{{ $sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Fakultas Ilmu Kesehatan Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.') }}"
+          "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Fakultas Ilmu Kesehatan Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
         </div>
 
         {{-- Isi Lengkap Sambutan --}}
-        <div class="sambutan-content-body">
+        <div class="sambutan-content-body" style="line-height: 1.85; font-size: 15.5px; color: #334155;">
           @if(!empty($sambutanDekan?->sambutan_dekan))
-            {!! nl2br(e($sambutanDekan->sambutan_dekan)) !!}
+            {!! $sambutanDekan->sambutan_dekan !!}
           @else
             <p>
               <em>Assalamu’alaikum Warahmatullahi Wabarakatuh,</em><br>
