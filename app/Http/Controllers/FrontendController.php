@@ -32,6 +32,7 @@ class FrontendController extends Controller
         $sambutanDekan    = \App\Models\SambutanDekan::first();
         $struktur         = \App\Models\StrukturOrganisasi::first();
         $pmbSetting       = \App\Models\PmbSetting::first();
+        $facultyStat      = \App\Models\FacultyStat::where('is_active', true)->latest('id')->first();
 
         return view('layouts.frontend.homepage', compact(
             'banners',
@@ -50,7 +51,8 @@ class FrontendController extends Controller
             'about',
             'sambutanDekan',
             'struktur',
-            'pmbSetting'
+            'pmbSetting',
+            'facultyStat'
         ));
     }
 

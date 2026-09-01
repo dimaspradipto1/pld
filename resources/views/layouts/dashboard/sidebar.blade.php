@@ -191,13 +191,18 @@
 
           <!-- Pengaturan Konten Beranda / Landing Page -->
           <li class="nav-item">
-              <a class="nav-link {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
+              <a class="nav-link {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
                   <i class="bi bi-layout-text-window-reverse"></i><span>Konten Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
-              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('feature.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                   <li>
                       <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>Banner Hero</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('faculty-stat.index') }}" class="{{ Route::is('faculty-stat.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Statistik Fakultas</span>
                       </a>
                   </li>
                   <li>
@@ -213,6 +218,7 @@
               </ul>
           </li>
           @endif
+
 
           <li class="nav-heading">Pengaturan & Administrator</li>
 

@@ -28,6 +28,7 @@ use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\TopbarController;
 use App\Http\Controllers\OrganisasiMahasiswaController;
+use App\Http\Controllers\FacultyStatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,4 +146,5 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('partner', PartnerController::class);
     Route::resource('visimisi', VisiMisiController::class);
     Route::resource('nilaiperusahaan', NilaiPerusahaanController::class);
+    Route::resource('faculty-stat', FacultyStatController::class);
 });

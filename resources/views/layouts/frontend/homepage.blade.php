@@ -937,6 +937,150 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     3b. STATISTIK FAKULTAS — "FIKES DALAM ANGKA"
+═══════════════════════════════════════════════ -->
+@if(isset($facultyStat) && $facultyStat)
+<section id="statistik-fakultas" style="background: linear-gradient(135deg, #7b1a1a 0%, #9b2335 40%, #6d1515 100%); padding: 48px 0; overflow: hidden; position: relative;">
+
+  {{-- Decorative blur shapes --}}
+  <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-80px;right:5%;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row align-items-center g-4">
+
+      {{-- Kiri: Teks + Angka --}}
+      <div class="col-lg-7" data-aos="fade-right">
+        <h2 style="color:#fff;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:28px;line-height:1.25;text-shadow:0 2px 6px rgba(0,0,0,0.3);">
+          {{ $facultyStat->title }}
+        </h2>
+
+        <div class="row g-3">
+          {{-- Program Studi --}}
+          <div class="col-6 col-sm-3">
+            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+              <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                0
+              </div>
+              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+                Program Studi
+              </div>
+            </div>
+          </div>
+
+          {{-- Total Mahasiswa --}}
+          <div class="col-6 col-sm-3">
+            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+              <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                0
+              </div>
+              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+                Total Mahasiswa
+              </div>
+            </div>
+          </div>
+
+          {{-- Dosen --}}
+          <div class="col-6 col-sm-3">
+            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+              <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                0
+              </div>
+              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+                Dosen
+              </div>
+            </div>
+          </div>
+
+          {{-- Alumni --}}
+          <div class="col-6 col-sm-3">
+            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+              <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                0
+              </div>
+              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+                Alumni
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Kanan: Gambar --}}
+      @if($facultyStat->image)
+      <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end" data-aos="fade-left">
+        <div style="position:relative;max-width:400px;width:100%;">
+          <img src="{{ asset('storage/' . $facultyStat->image) }}"
+               alt="{{ $facultyStat->title }}"
+               loading="lazy"
+               style="width:100%;height:220px;object-fit:cover;border-radius:18px;border:3px solid rgba(255,255,255,0.25);box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+          {{-- Overlay label --}}
+          <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.55);color:#fff;padding:5px 12px;border-radius:8px;font-size:0.72rem;font-weight:600;backdrop-filter:blur(4px);letter-spacing:0.5px;">
+            📍 FIKES — Universitas Ibnu Sina
+          </div>
+        </div>
+      </div>
+      @endif
+
+    </div>
+  </div>
+</section>
+
+{{-- Counter animation script --}}
+@push('scripts')
+<script>
+(function () {
+  function formatNum(n) {
+    return n.toLocaleString('id-ID'); // ribuan: 1.814
+  }
+
+  function animateCounters() {
+    document.querySelectorAll('.stat-count').forEach(function (el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      if (!target || el.dataset.animated) return;
+      el.dataset.animated = '1';
+      const duration = 1800;
+      const step = 16;
+      const steps = Math.floor(duration / step);
+      let current = 0;
+      const increment = target / steps;
+      const timer = setInterval(function () {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = formatNum(Math.floor(current));
+      }, step);
+    });
+  }
+
+  // Trigger on scroll into view
+  const section = document.getElementById('statistik-fakultas');
+  if (section && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          animateCounters();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(section);
+  } else if (section) {
+    animateCounters();
+  }
+})();
+</script>
+@endpush
+
+@endif
+
+<!-- ═══════════════════════════════════════════════
      4. PROGRAM STUDI UNGGULAN
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-sand" id="prodi">
