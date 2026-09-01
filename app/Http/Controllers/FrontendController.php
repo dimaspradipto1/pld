@@ -14,13 +14,6 @@ class FrontendController extends Controller
         return view('layouts.frontend.homepage', compact('banners', 'features', 'testimonials'));
     }
 
-    public function produk()
-    {
-        $categories = \App\Models\Category::all();
-        $products = \App\Models\Product::with(['category', 'galleries'])->get();
-        return view('layouts.frontend.product', compact('products', 'categories'));
-    }
-
     public function galeri()
     {
         return view('layouts.frontend.homepage');

@@ -50,9 +50,9 @@ class BookingDataTable extends DataTable
                 } else {
                     $phone = '62' . $phone;
                 }
-                $prodName = $booking->product ? $booking->product->nama_produk : 'Produk Roster';
+                $prodName = $booking->product ? $booking->product->nama_produk : 'Produk';
                 $prodCode = $booking->product ? $booking->product->kode_produk : '-';
-                $message = urlencode("Halo Kak " . $booking->nama . ", kami dari admin Roster. Terkait booking Anda untuk produk *" . $prodName . "* (Kode: " . $prodCode . "), ada yang bisa kami bantu?");
+                $message = urlencode("Halo Kak " . $booking->nama . ", kami dari admin Fikes. Terkait booking Anda untuk produk *" . $prodName . "* (Kode: " . $prodCode . "), ada yang bisa kami bantu?");
                 $waUrl = "https://wa.me/" . $phone . "?text=" . $message;
 
                 // Tombol Hubungi via WA

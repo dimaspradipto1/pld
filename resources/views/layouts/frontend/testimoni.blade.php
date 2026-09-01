@@ -329,8 +329,8 @@
   }
 
   .btn-submit-testi {
-    background: var(--terracotta);
-    border: 1px solid var(--terracotta);
+    background: var(--fikes-purple, #823ca2);
+    border: 1px solid var(--fikes-purple, #823ca2);
     color: white;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
@@ -339,11 +339,12 @@
     padding: 14px 20px;
     transition: all 0.25s ease;
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(130, 60, 162, 0.25);
   }
   .btn-submit-testi:hover {
-    background: var(--terracotta-lt);
-    border-color: var(--terracotta-lt);
-    box-shadow: 0 6px 20px rgba(193, 68, 14, 0.3);
+    background: var(--fikes-purple-dark, #682985);
+    border-color: var(--fikes-purple-dark, #682985);
+    box-shadow: 0 8px 22px rgba(130, 60, 162, 0.35);
     transform: translateY(-2px);
   }
   .btn-submit-testi:active {

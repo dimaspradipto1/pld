@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('pekerjaan');  // e.g. Kontraktor, Bandung
-            $table->string('kategori');   // kontraktor, arsitek, pemilik
-            $table->integer('bintang')->default(5); // 1-5
+            $table->string('pekerjaan');
+            $table->string('kategori');
+            $table->integer('bintang')->default(5);
             $table->text('pesan');
-            $table->boolean('aktif')->default(false); // Moderasi admin
+            $table->boolean('aktif')->default(false);
             $table->timestamps();
         });
     }

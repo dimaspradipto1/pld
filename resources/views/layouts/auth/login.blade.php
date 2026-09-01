@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — Roster Diding Minimalis</title>
-  <meta name="description" content="Portal login distributor roster dinding dan bata ventilasi dekoratif">
+  <title>Login — FIKES (Fakultas Ilmu Kesehatan)</title>
+  <meta name="description" content="Portal Login Resmi FIKES - Fakultas Ilmu Kesehatan">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap Icons -->
   <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -19,32 +19,47 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --terracotta:     #c1440e;
-      --terracotta-dk:  #9a3309;
-      --terracotta-lt:  #e8622a;
-      --clay:           #d4845a;
-      --sand:           #f5ede3;
-      --concrete:       #8c7b6e;
-      --concrete-lt:    #b5a090;
-      --white:          #ffffff;
-      --cream:          #fdf8f4;
-      --charcoal:       #2c2118;
-      --dark-brown:     #3d2b1f;
-      --muted:          #7c6b5e;
-      --border:         #e8d5c4;
-      --shadow:         rgba(60, 30, 10, 0.12);
+      /* FIKES Official Primary Solid Palette */
+      --fikes-purple:       #823ca2;
+      --fikes-purple-dark:  #682985;
+      --fikes-purple-deep:  #47175d;
+      --fikes-purple-light: #f5eefb;
+      --fikes-purple-subtle:#ecdcf7;
+      
+      --fikes-orange:       #ff9c00;
+      --fikes-orange-hover: #e88d00;
+      --fikes-orange-dark:  #cc7c00;
+      --fikes-orange-light: #fff8eb;
+      --fikes-orange-subtle:#ffeecd;
+      
+      --obsidian-dark:      #190a24;
+      --obsidian-card:      #241033;
+      
+      --white:              #ffffff;
+      --page-bg:            #fcfaff;
+      --surface-light:      #f6effb;
+      --text-main:          #190a24;
+      --text-muted:         #655672;
+      --text-light:         #9586a2;
+      --border-light:       #ebdff2;
+      
+      --shadow-sm:          0 4px 12px rgba(130, 60, 162, 0.08);
+      --shadow-md:          0 8px 24px rgba(130, 60, 162, 0.12);
+      --shadow-lg:          0 16px 36px rgba(130, 60, 162, 0.15);
+      --shadow-purple:      0 8px 24px rgba(130, 60, 162, 0.28);
     }
 
     html, body { height: 100%; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--sand);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--surface-light);
+      color: var(--text-main);
       overflow: hidden;
     }
 
     /* ═══════════════════════════════════════════════
-       LAYOUT — Full split screen
+       LAYOUT — Full Split Screen
     ═══════════════════════════════════════════════ */
     .login-wrapper {
       display: flex;
@@ -52,43 +67,35 @@
       width: 100vw;
     }
 
-    /* ── LEFT PANEL — Foto Produk & Branding ─── */
+    /* ── LEFT PANEL — Branding & Visuals ──────── */
     .panel-left {
       flex: 1.15;
       position: relative;
+      background: var(--obsidian-dark);
       overflow: hidden;
     }
 
-    /* Foto produk sebagai background */
     .panel-left .bg-photo {
       position: absolute;
       inset: 0;
       background: url('{{ asset("assets/img/login-bg.png") }}') center/cover no-repeat;
       z-index: 0;
+      opacity: 0.2;
     }
 
-    /* Overlay gradasi agar teks terbaca */
     .panel-left .overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(44, 22, 8, 0.82) 0%,
-        rgba(60, 30, 10, 0.65) 50%,
-        rgba(193, 68, 14, 0.45) 100%
-      );
+      background: rgba(25, 10, 36, 0.9);
       z-index: 1;
     }
 
-    /* Pattern roster dinding sebagai overlay dekoratif */
     .panel-left .pattern-overlay {
       position: absolute;
       inset: 0;
       z-index: 2;
-      opacity: 0.06;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 30px),
-        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,0.4) 28px, rgba(255,255,255,0.4) 30px);
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff'%3E%3Crect x='5' y='5' width='22' height='22' rx='3'/%3E%3Crect x='33' y='5' width='22' height='22' rx='3'/%3E%3Crect x='5' y='33' width='22' height='22' rx='3'/%3E%3Crect x='33' y='33' width='22' height='22' rx='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .panel-left-content {
@@ -101,70 +108,52 @@
       padding: 52px 56px;
     }
 
-    /* Logo area atas */
     .brand-top {
       display: flex;
       align-items: center;
       gap: 14px;
     }
 
-    /* SVG Roster Dinding Icon — pola kisi geometris */
-    .brand-icon-wrap {
-      width: 54px; height: 54px;
-      background: var(--terracotta);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(193,68,14,0.5);
-      flex-shrink: 0;
-    }
-
-    /* Roster pattern SVG inline */
-    .roster-svg { width: 30px; height: 30px; }
-
-    .brand-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
     .brand-title .name {
-      font-size: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
       font-weight: 800;
       color: var(--white);
-      letter-spacing: -0.3px;
-      line-height: 1;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
     }
     .brand-title .sub {
-      font-size: 11px;
-      color: rgba(255,255,255,0.55);
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      margin-top: 3px;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.4px;
+      margin-top: 2px;
     }
 
     /* Konten tengah */
-    .brand-middle { max-width: 460px; }
+    .brand-middle { max-width: 480px; }
 
     .badge-kategori {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(193,68,14,0.35);
-      border: 1px solid rgba(255,160,100,0.3);
+      gap: 8px;
+      background: rgba(130, 60, 162, 0.3);
+      border: 1px solid rgba(255, 156, 0, 0.4);
       border-radius: 50px;
-      padding: 5px 14px;
+      padding: 6px 16px;
       margin-bottom: 24px;
       backdrop-filter: blur(8px);
     }
     .badge-kategori span {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      color: #ffc4a0;
+      color: var(--fikes-orange);
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .badge-dot {
-      width: 6px; height: 6px;
-      background: var(--terracotta-lt);
+      width: 7px; height: 7px;
+      background: var(--fikes-orange);
       border-radius: 50%;
       animation: blink 2s infinite;
     }
@@ -175,49 +164,49 @@
 
     .brand-middle h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--white);
       line-height: 1.15;
-      letter-spacing: -1.5px;
+      letter-spacing: -1.2px;
       margin-bottom: 18px;
     }
     .brand-middle h1 em {
       font-style: normal;
-      color: var(--terracotta-lt);
+      color: var(--fikes-orange);
     }
 
     .brand-middle p {
       font-size: 15px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.7);
       line-height: 1.75;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
-    /* Produk chips */
+    /* Chips */
     .product-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
     .chip {
       display: flex;
       align-items: center;
       gap: 7px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50px;
-      padding: 7px 14px;
+      padding: 7px 16px;
       backdrop-filter: blur(8px);
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
     .chip:hover {
-      background: rgba(193,68,14,0.3);
-      border-color: rgba(255,160,100,0.3);
+      background: var(--fikes-purple);
+      border-color: var(--fikes-purple);
     }
-    .chip i { font-size: 14px; color: var(--clay); }
-    .chip span { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .chip i { font-size: 14px; color: var(--fikes-orange); }
+    .chip span { font-size: 12.5px; color: rgba(255, 255, 255, 0.9); font-weight: 500; }
 
     /* Stats baris bawah */
     .stats-row {
@@ -233,32 +222,30 @@
       color: var(--white);
       line-height: 1;
     }
-    .stat-num sup { font-size: 14px; color: var(--clay); vertical-align: super; }
+    .stat-num sup { font-size: 14px; color: var(--fikes-orange); vertical-align: super; }
     .stat-txt {
-      font-size: 11px;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.3px;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.5);
       margin-top: 4px;
     }
     .stat-sep {
       width: 1px;
       height: 36px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
     }
 
-    /* Divider kanan */
     .panel-divider {
       position: absolute;
       right: 0; top: 0; bottom: 0;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(193,68,14,0.4), transparent);
+      background: rgba(255, 255, 255, 0.1);
       z-index: 4;
     }
 
     /* ── RIGHT PANEL — Form Login ──────────────── */
     .panel-right {
       flex: 0.85;
-      background: var(--cream);
+      background: var(--page-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -267,60 +254,38 @@
       position: relative;
     }
 
-    /* Motif roster dinding di background form */
-    .panel-right::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c1440e' fill-opacity='0.04'%3E%3Crect x='5' y='5' width='22' height='22' rx='2'/%3E%3Crect x='33' y='5' width='22' height='22' rx='2'/%3E%3Crect x='5' y='33' width='22' height='22' rx='2'/%3E%3Crect x='33' y='33' width='22' height='22' rx='2'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='41' y='13' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='13' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3Crect x='41' y='41' width='6' height='6' fill='%23c1440e' fill-opacity='0.08'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .form-container {
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       position: relative;
       z-index: 1;
-      animation: slideIn 0.6s ease;
+      animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from { opacity: 0; transform: translateY(15px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Card form */
     .form-card {
       background: var(--white);
       border-radius: 24px;
-      padding: 40px 36px;
-      box-shadow:
-        0 4px 6px rgba(60,30,10,0.04),
-        0 20px 48px rgba(60,30,10,0.10),
-        0 0 0 1px rgba(193,68,14,0.08);
+      padding: 42px 38px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-lg);
     }
 
     .form-logo-sm {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 26px;
     }
-    .form-logo-sm .icon-sm {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-lt));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .form-logo-sm .icon-sm svg { width: 20px; height: 20px; }
     .form-logo-sm .txt {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--charcoal);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--fikes-purple);
     }
 
     .form-heading { margin-bottom: 28px; }
@@ -328,13 +293,13 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 24px;
       font-weight: 800;
-      color: var(--charcoal);
+      color: var(--text-main);
       letter-spacing: -0.5px;
       margin-bottom: 6px;
     }
     .form-heading p {
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 13.5px;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
@@ -363,14 +328,13 @@
 
     /* Input fields */
     .field { margin-bottom: 18px; }
-
     .field-label {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--text-main);
       margin-bottom: 8px;
     }
 
@@ -378,10 +342,10 @@
 
     .input-icon {
       position: absolute;
-      left: 14px;
+      left: 15px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--concrete);
+      color: var(--text-light);
       font-size: 16px;
       pointer-events: none;
       transition: color 0.2s;
@@ -389,25 +353,25 @@
 
     .form-input {
       width: 100%;
-      background: var(--sand);
-      border: 1.5px solid var(--border);
+      background: var(--surface-light);
+      border: 1.5px solid var(--border-light);
       border-radius: 12px;
-      padding: 13px 44px 13px 42px;
+      padding: 13px 44px 13px 44px;
       font-size: 14px;
-      color: var(--charcoal);
+      color: var(--text-main);
       font-family: 'Inter', sans-serif;
       outline: none;
-      transition: all 0.25s;
+      transition: all 0.25s ease;
       -webkit-appearance: none;
     }
-    .form-input::placeholder { color: var(--concrete-lt); }
+    .form-input::placeholder { color: var(--text-light); }
 
     .form-input:focus {
-      border-color: var(--terracotta);
+      border-color: var(--fikes-purple);
       background: var(--white);
-      box-shadow: 0 0 0 3px rgba(193,68,14,0.1);
+      box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.12);
     }
-    .form-input:focus ~ .input-icon { color: var(--terracotta); }
+    .form-input:focus ~ .input-icon { color: var(--fikes-purple); }
     .form-input.err {
       border-color: #e53e3e;
       background: #fff5f5;
@@ -430,15 +394,15 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: var(--concrete);
+      color: var(--text-light);
       font-size: 16px;
       padding: 4px 6px;
       border-radius: 6px;
       transition: all 0.2s;
     }
     .btn-show-pw:hover {
-      color: var(--terracotta);
-      background: rgba(193,68,14,0.08);
+      color: var(--fikes-purple);
+      background: var(--fikes-purple-light);
     }
 
     /* Remember row */
@@ -451,43 +415,37 @@
     .remember-row input[type=checkbox] {
       width: 16px;
       height: 16px;
-      accent-color: var(--terracotta);
+      accent-color: var(--fikes-purple);
       cursor: pointer;
     }
     .remember-row label {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--text-muted);
       cursor: pointer;
     }
 
-    /* Tombol login */
+    /* Tombol login (Solid Purple + Hover Deep) */
     .btn-masuk {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-lt) 100%);
+      background: var(--fikes-purple);
       border: none;
       border-radius: 12px;
       color: var(--white);
       font-size: 15px;
       font-weight: 700;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
-      transition: all 0.25s;
-      box-shadow: 0 4px 16px rgba(193,68,14,0.35);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-purple);
       position: relative;
       overflow: hidden;
       letter-spacing: 0.2px;
     }
-    .btn-masuk::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 50%);
-    }
     .btn-masuk:hover {
-      background: linear-gradient(135deg, var(--terracotta-dk) 0%, var(--terracotta) 100%);
+      background: var(--fikes-purple-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(193,68,14,0.45);
+      box-shadow: 0 10px 28px rgba(130, 60, 162, 0.4);
     }
     .btn-masuk:active { transform: translateY(0); }
     .btn-masuk:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
@@ -515,16 +473,16 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 20px 0;
+      margin: 22px 0;
     }
     .divider::before, .divider::after {
       content: ''; flex: 1;
       height: 1px;
-      background: var(--border);
+      background: var(--border-light);
     }
     .divider span {
-      font-size: 11px;
-      color: var(--concrete-lt);
+      font-size: 11.5px;
+      color: var(--text-light);
       white-space: nowrap;
       letter-spacing: 0.5px;
     }
@@ -532,40 +490,38 @@
     /* Footer info */
     .form-footer {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 14px;
     }
     .form-footer p {
-      font-size: 12.5px;
-      color: var(--muted);
+      font-size: 13px;
+      color: var(--text-muted);
     }
     .form-footer a {
-      color: var(--terracotta);
+      color: var(--fikes-purple);
       font-weight: 600;
       text-decoration: none;
     }
     .form-footer a:hover { text-decoration: underline; }
     .back-to-home-link {
-      color: var(--muted) !important;
+      color: var(--text-muted) !important;
       font-weight: 500 !important;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 6px;
+      margin-top: 8px;
       transition: color 0.2s;
     }
     .back-to-home-link:hover {
-      color: var(--terracotta) !important;
+      color: var(--fikes-purple) !important;
       text-decoration: none !important;
     }
 
-    /* Copyright bawah */
     .copyright {
       text-align: center;
-      margin-top: 20px;
-      font-size: 11px;
-      color: var(--concrete-lt);
+      margin-top: 22px;
+      font-size: 11.5px;
+      color: var(--text-light);
     }
-    .copyright i { font-size: 10px; }
 
     /* ── Responsive ───────────────────────── */
     @media (max-width: 900px) {
@@ -584,7 +540,7 @@
 <div class="login-wrapper">
 
   {{-- ══════════════════════════════════════════
-       LEFT — Foto Produk + Branding
+       LEFT — Branding & Visuals (FIKES)
   ══════════════════════════════════════════ --}}
   <div class="panel-left">
     <div class="bg-photo"></div>
@@ -596,22 +552,10 @@
 
       {{-- Logo Atas --}}
       <div class="brand-top">
-        <div class="brand-icon-wrap">
-          {{-- Icon SVG pola roster dinding --}}
-          <svg class="roster-svg" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="17" y="1" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="1" y="17" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="17" y="17" width="12" height="12" rx="2" fill="white" fill-opacity="0.9"/>
-            <rect x="5" y="5" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="21" y="5" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="5" y="21" width="4" height="4" rx="1" fill="#c1440e"/>
-            <rect x="21" y="21" width="4" height="4" rx="1" fill="#c1440e"/>
-          </svg>
-        </div>
+        <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo Fikes" style="height: 50px; width: auto; object-fit: contain;">
         <div class="brand-title">
-          <div class="name">Roster Diding Minimalis</div>
-          <div class="sub">Portal Manajemen & Distribusi</div>
+          <div class="name">FIKES</div>
+          <div class="sub">Fakultas Ilmu Kesehatan</div>
         </div>
       </div>
 
@@ -619,21 +563,19 @@
       <div class="brand-middle">
         <div class="badge-kategori">
           <div class="badge-dot"></div>
-          <span>Produk Unggulan</span>
+          <span>Portal Resmi Akademik & Fasilitas</span>
         </div>
 
-        <h1>Roster Dinding<br><em>Berkualitas Tinggi</em></h1>
+        <h1>Fakultas Ilmu Kesehatan<br><em>Unggul & Berintegritas</em></h1>
 
         <p>
-          Distributor bata ventilasi & roster dinding dekoratif pilihan —
-          dari pola minimalis hingga premium, cocok untuk hunian dan
-          bangunan komersial modern.
+          Sistem informasi terpadu pengelolaan katalog fasilitas, produk roster ventilasi, dan administrasi akademik FIKES.
         </p>
 
         {{-- Chips kategori produk --}}
         <div class="product-chips">
           <div class="chip">
-            <i class="bi bi-grid-3x3"></i>
+            <i class="bi bi-grid-3x3-gap"></i>
             <span>Roster Beton</span>
           </div>
           <div class="chip">
@@ -645,8 +587,8 @@
             <span>Roster Minimalis</span>
           </div>
           <div class="chip">
-            <i class="bi bi-circle-square"></i>
-            <span>Roster Motif</span>
+            <i class="bi bi-shield-check"></i>
+            <span>Standar Mutu SNI</span>
           </div>
         </div>
       </div>
@@ -660,12 +602,12 @@
         <div class="stat-sep"></div>
         <div class="stat">
           <div class="stat-num">10<sup>rb+</sup></div>
-          <div class="stat-txt">Produk Terjual</div>
+          <div class="stat-txt">Produk Terdistribusi</div>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <div class="stat-num">5<sup>★</sup></div>
-          <div class="stat-txt">Rating Pelanggan</div>
+          <div class="stat-num">100<sup>%</sup></div>
+          <div class="stat-txt">Kualitas Terjamin</div>
         </div>
       </div>
 
@@ -682,20 +624,13 @@
 
         {{-- Logo kecil di dalam card --}}
         <div class="form-logo-sm">
-          <div class="icon-sm">
-            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="11" y="1" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="1" y="11" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-              <rect x="11" y="11" width="8" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-            </svg>
-          </div>
-          <div class="txt">Roster Diding Minimalis</div>
+          <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo Fikes" style="height: 38px; width: auto; object-fit: contain;">
+          <div class="txt">Portal FIKES</div>
         </div>
 
         <div class="form-heading">
           <h2>Masuk ke Akun Anda</h2>
-          <p>Kelola produk, stok, dan distribusi roster dinding Anda</p>
+          <p>Silakan masukkan kredensial untuk mengakses dashboard</p>
         </div>
 
         {{-- Alert sukses --}}
@@ -714,11 +649,6 @@
           </div>
         @endif
 
-        {{-- ════════════════════════════════
-             FORM LOGIN
-             POST → route('loginproses')
-             Validasi: UserRequest
-        ════════════════════════════════ --}}
         <form id="formLogin"
               action="{{ route('loginproses') }}"
               method="POST"
@@ -735,7 +665,7 @@
                      id="email"
                      name="email"
                      class="form-input {{ $errors->has('email') && !str_contains($errors->first('email'), 'salah') ? 'err' : '' }}"
-                     placeholder="nama@perusahaan.com"
+                     placeholder="admin@fikes.ac.id"
                      value="{{ old('email') }}"
                      autocomplete="email"
                      required>
@@ -761,7 +691,7 @@
                      id="password"
                      name="password"
                      class="form-input {{ $errors->has('password') ? 'err' : '' }}"
-                     placeholder="Masukkan password"
+                     placeholder="Masukkan password Anda"
                      autocomplete="current-password"
                      required>
               <i class="bi bi-lock input-icon"></i>
@@ -791,7 +721,7 @@
           <button type="submit" class="btn-masuk" id="btnMasuk">
             <div class="btn-inner-flex" id="btnText">
               <i class="bi bi-box-arrow-in-right"></i>
-              Masuk
+              Masuk Portal
             </div>
             <div class="btn-inner-flex" id="btnLoading" style="display:none">
               <div class="spinner-ring" style="display:block"></div>
@@ -808,15 +738,15 @@
 
         {{-- Footer --}}
         <div class="form-footer">
-          <p style="margin-bottom: 10px;">Belum punya akses? <a href="#">Hubungi Admin</a></p>
-          <p><a href="{{ route('homepage') }}" class="back-to-home-link"><i class="bi bi-arrow-left"></i> Kembali ke Halaman Utama</a></p>
+          <p style="margin-bottom: 10px;">Butuh bantuan akses? <a href="https://wa.me/6281234567890" target="_blank">Hubungi Administrator</a></p>
+          <p><a href="{{ route('homepage') }}" class="back-to-home-link"><i class="bi bi-arrow-left"></i> Kembali ke Beranda</a></p>
         </div>
 
       </div>{{-- .form-card --}}
 
       <div class="copyright">
-        <i class="bi bi-shield-check"></i>
-        &copy; {{ date('Y') }} Roster Diding Minimalis — Semua Hak Dilindungi
+        <i class="bi bi-shield-check me-1"></i>
+        &copy; {{ date('Y') }} FIKES — Fakultas Ilmu Kesehatan. Hak Cipta Dilindungi.
       </div>
 
     </div>
@@ -838,10 +768,10 @@
   document.querySelectorAll('.form-input').forEach(function (inp) {
     const wrap = inp.closest('.input-wrap');
     inp.addEventListener('focus', function () {
-      if (wrap) wrap.querySelector('.input-icon').style.color = '#c1440e';
+      if (wrap) wrap.querySelector('.input-icon').style.color = '#823ca2';
     });
     inp.addEventListener('blur', function () {
-      if (wrap) wrap.querySelector('.input-icon').style.color = '#8c7b6e';
+      if (wrap) wrap.querySelector('.input-icon').style.color = '#9586a2';
     });
   });
 

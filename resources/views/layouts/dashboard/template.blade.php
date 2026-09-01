@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HOME - roster</title>
+    <title>Dashboard - Fikes</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -34,6 +34,81 @@
     {{--  datatables CSS  --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
 
+    <style>
+        :root {
+            --fikes-purple: #823ca2;
+            --fikes-purple-dark: #672985;
+            --fikes-orange: #ff9c00;
+            --fikes-orange-dark: #e08800;
+        }
+        .header .logo span {
+            color: #823ca2;
+            font-weight: 800;
+        }
+        .sidebar-nav .nav-link {
+            background: #fdfaff;
+            color: #823ca2;
+        }
+        .sidebar-nav .nav-link:not(.collapsed) {
+            background: #f3e8f8;
+            color: #823ca2;
+        }
+        .sidebar-nav .nav-link:not(.collapsed) i {
+            color: #823ca2;
+        }
+        .sidebar-nav .nav-content a.active {
+            color: #823ca2;
+            font-weight: 700;
+        }
+        .sidebar-nav .nav-content a.active i {
+            background-color: #ff9c00;
+        }
+        .sidebar-nav .nav-link:hover {
+            color: #ff9c00;
+            background: #fcf6ff;
+        }
+        .sidebar-nav .nav-link:hover i {
+            color: #ff9c00;
+        }
+        .btn-primary {
+            background-color: #823ca2 !important;
+            border-color: #823ca2 !important;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #672985 !important;
+            border-color: #672985 !important;
+        }
+        .btn-outline-primary {
+            color: #823ca2 !important;
+            border-color: #823ca2 !important;
+        }
+        .btn-outline-primary:hover {
+            background-color: #823ca2 !important;
+            color: #fff !important;
+        }
+        .btn-warning {
+            background-color: #ff9c00 !important;
+            border-color: #ff9c00 !important;
+            color: #fff !important;
+        }
+        .btn-warning:hover {
+            background-color: #e08800 !important;
+            border-color: #e08800 !important;
+            color: #fff !important;
+        }
+        .pagetitle h1 {
+            color: #823ca2;
+        }
+        .card-title {
+            color: #823ca2;
+        }
+        .back-to-top {
+            background: #823ca2;
+        }
+        .back-to-top:hover {
+            background: #ff9c00;
+        }
+    </style>
 </head>
 
 <body>

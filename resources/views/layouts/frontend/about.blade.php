@@ -64,7 +64,7 @@
             </div>
             <!-- Label overlay -->
             <div style="position:absolute; bottom:24px; left:50%; transform:translateX(-50%); text-align:center;">
-              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:rgba(193,68,14,0.7); letter-spacing:1px; text-transform:uppercase;">Pola Estetis Roster</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:var(--fikes-purple); letter-spacing:1px; text-transform:uppercase;">Pola Estetis Roster</div>
             </div>
           </div>
         </div>
@@ -248,7 +248,7 @@
       <div class="col-xl-5" data-aos="fade-left">
         <div class="d-flex flex-column gap-3">
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-geo-alt-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
@@ -257,7 +257,7 @@
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-envelope-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
@@ -266,7 +266,7 @@
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-clock-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>

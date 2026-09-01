@@ -204,7 +204,7 @@ document.getElementById('btnSubmit').addEventListener('click', function () {
 
     // Susun pesan WhatsApp
     const message = encodeURIComponent(
-        'Halo Admin Roster, saya ingin melakukan booking untuk produk *' + prodNama +
+        'Halo Admin Fikes, saya ingin melakukan booking untuk produk *' + prodNama +
         '* (Kode: ' + prodKode + ') atas nama *' + nama + '*. Nomor WhatsApp saya: ' + noWa
     );
 

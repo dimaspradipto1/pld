@@ -130,8 +130,8 @@
   outline: none;
 }
 .bs-arrow:hover {
-  background: rgba(193,68,14,0.7);
-  border-color: rgba(193,68,14,0.8);
+  background: rgba(130,60,162,0.85);
+  border-color: #ff9c00;
   transform: translateY(-50%) scale(1.1);
 }
 .bs-prev { left: 24px; }
@@ -162,7 +162,7 @@
 .bs-dot.bs-dot-active {
   width: 28px;
   border-radius: 5px;
-  background: #e8622a;
+  background: #ff9c00;
 }
 
 /* Progress bar */
@@ -178,7 +178,7 @@
 .bs-progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #c1440e, #e8622a);
+  background: var(--fikes-orange, #ff9c00);
   border-radius: 2px;
   transition: width 0.08s linear;
 }
@@ -285,35 +285,35 @@
 @endpush
 
 <!-- ═══════════════════════════════════════════════
-     PRODUCT STRIP
+     FACULTY HIGHLIGHTS STRIP
 ═══════════════════════════════════════════════ -->
 <div class="hero-product-strip">
   <div class="container">
     <div class="row g-0">
       <div class="col-sm-6 col-lg-3">
         <div class="product-strip-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="strip-icon"><i class="bi bi-shield-check"></i></div>
+          <div class="strip-icon"><i class="bi bi-patch-check-fill"></i></div>
           <div>
-            <div class="strip-title">Kualitas Terjamin</div>
-            <div class="strip-sub">SNI bersertifikat</div>
+            <div class="strip-title">Akreditasi Unggul</div>
+            <div class="strip-sub">Standar Nasional & Mutu</div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="product-strip-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="strip-icon"><i class="bi bi-truck"></i></div>
+          <div class="strip-icon"><i class="bi bi-hospital"></i></div>
           <div>
-            <div class="strip-title">Pengiriman Cepat</div>
-            <div class="strip-sub">Seluruh Indonesia</div>
+            <div class="strip-title">Laboratorium Modern</div>
+            <div class="strip-sub">Fasilitas Praktikum Lengkap</div>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-lg-3">
         <div class="product-strip-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="strip-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+          <div class="strip-icon"><i class="bi bi-mortarboard-fill"></i></div>
           <div>
-            <div class="strip-title">50+ Motif Pilihan</div>
-            <div class="strip-sub">Minimalis & premium</div>
+            <div class="strip-title">Dosen Berpengalaman</div>
+            <div class="strip-sub">Praktisi & Akademisi Ahli</div>
           </div>
         </div>
       </div>
@@ -321,220 +321,14 @@
         <div class="product-strip-item" data-aos="fade-up" data-aos-delay="400">
           <div class="strip-icon"><i class="bi bi-headset"></i></div>
           <div>
-            <div class="strip-title">Support 24/7</div>
-            <div class="strip-sub">Konsultasi gratis</div>
+            <div class="strip-title">Layanan Informasi</div>
+            <div class="strip-sub">Konsultasi Akademik Cepat</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ═══════════════════════════════════════════════
-     FITUR UNGGULAN
-═══════════════════════════════════════════════ -->
-<section class="section-bg-cream roster-pattern" id="fitur">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Keunggulan Kami</div>
-      <h2 class="section-title">Mengapa Memilih <em>Roster Dinding</em> Kami?</h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto">
-        Kami menyediakan roster dinding dan bata ventilasi terbaik dengan kualitas premium,
-        pilihan motif terlengkap, dan layanan yang memuaskan.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      @if(isset($features) && $features->count() > 0)
-        @foreach($features as $index => $feature)
-          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
-            <div class="feature-card">
-              <div class="feature-icon-wrap">
-                <i class="bi {{ $feature->icon }}"></i>
-              </div>
-              <div class="feature-title">{{ $feature->judul }}</div>
-              <p class="feature-desc">{{ $feature->deskripsi }}</p>
-            </div>
-          </div>
-        @endforeach
-      @else
-        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="feature-card">
-            <div class="feature-icon-wrap">
-              <i class="bi bi-grid-3x3-gap-fill"></i>
-            </div>
-            <div class="feature-title">Motif Terlengkap</div>
-            <p class="feature-desc">Tersedia 50+ pilihan motif roster dari minimalis modern hingga premium klasik, cocok untuk berbagai konsep arsitektur.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-card">
-            <div class="feature-icon-wrap">
-              <i class="bi bi-award"></i>
-            </div>
-            <div class="feature-title">Bersertifikat SNI</div>
-            <p class="feature-desc">Seluruh produk kami telah memenuhi standar SNI and teruji kekuatan serta ketahanan materialnya untuk jangka panjang.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-card">
-            <div class="feature-icon-wrap">
-              <i class="bi bi-currency-dollar"></i>
-            </div>
-            <div class="feature-title">Harga Kompetitif</div>
-            <p class="feature-desc">Harga grosir langsung dari distributor resmi. Dapatkan penawaran terbaik untuk pembelian partai besar dengan diskon menarik.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-card">
-            <div class="feature-icon-wrap">
-              <i class="bi bi-headset"></i>
-            </div>
-            <div class="feature-title">Konsultasi Gratis</div>
-            <p class="feature-desc">Tim ahli kami siap membantu Anda memilih jenis dan motif roster yang tepat sesuai desain and kebutuhan bangunan Anda.</p>
-          </div>
-        </div>
-      @endif
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     COUNTER SECTION
-═══════════════════════════════════════════════ -->
-<div class="counter-section">
-  <div class="container position-relative" style="z-index:1;">
-    <div class="row g-4">
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="counter-item">
-          <div class="counter-icon"><i class="bi bi-grid-3x3-gap"></i></div>
-          <div class="counter-num">50<sup>+</sup></div>
-          <div class="counter-label">Motif Roster Tersedia</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-        <div class="counter-item">
-          <div class="counter-icon"><i class="bi bi-people"></i></div>
-          <div class="counter-num">500<sup>+</sup></div>
-          <div class="counter-label">Pelanggan Puas</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="counter-item">
-          <div class="counter-icon"><i class="bi bi-box-seam"></i></div>
-          <div class="counter-num">10<sup>rb+</sup></div>
-          <div class="counter-label">Produk Terkirim</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-        <div class="counter-item">
-          <div class="counter-icon"><i class="bi bi-calendar-check"></i></div>
-          <div class="counter-num">8<sup>th+</sup></div>
-          <div class="counter-label">Tahun Pengalaman</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════
-     PRODUK KATEGORI
-═══════════════════════════════════════════════ -->
-<section class="section-bg-white" id="produk">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Katalog Produk</div>
-      <h2 class="section-title">Pilih <em>Roster</em> Sesuai Kebutuhan Anda</h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto">
-        Berbagai jenis roster dinding dengan material, ukuran, dan motif beragam
-        untuk memperindah fasad and ventilasi bangunan Anda.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="product-card">
-          <div class="product-card-img">
-            <div class="pattern-bg"></div>
-            <div class="product-icon"><i class="bi bi-grid-3x3-gap-fill"></i></div>
-            <span class="product-badge">TERLARIS</span>
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-title">Roster Beton</div>
-            <p class="product-card-desc">Roster berbahan beton kuat dan tahan lama. Ideal untuk pagar, dinding luar, dan ventilasi bangunan komersial.</p>
-            <div class="product-card-footer">
-              <span class="product-tag"><i class="bi bi-check-circle-fill"></i> Stok Tersedia</span>
-              <a href="#kontak" class="btn-card">Tanya Harga <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
-        <div class="product-card">
-          <div class="product-card-img">
-            <div class="pattern-bg"></div>
-            <div class="product-icon"><i class="bi bi-square-half"></i></div>
-            <span class="product-badge">NATURAL</span>
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-title">Roster Tanah Liat</div>
-            <p class="product-card-desc">Warna alami dari tanah liat yang estetik. Memberikan sirkulasi udara optimal dengan tampilan artistik yang hangat.</p>
-            <div class="product-card-footer">
-              <span class="product-tag"><i class="bi bi-check-circle-fill"></i> Stok Tersedia</span>
-              <a href="#kontak" class="btn-card">Tanya Harga <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="product-card">
-          <div class="product-card-img">
-            <div class="pattern-bg"></div>
-            <div class="product-icon"><i class="bi bi-diamond-fill"></i></div>
-            <span class="product-badge">PREMIUM</span>
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-title">Roster Minimalis</div>
-            <p class="product-card-desc">Desain clean dan modern dengan garis bersih. Cocok untuk hunian bergaya minimalis Skandinavia dan industrial.</p>
-            <div class="product-card-footer">
-              <span class="product-tag"><i class="bi bi-check-circle-fill"></i> Stok Tersedia</span>
-              <a href="#kontak" class="btn-card">Tanya Harga <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="400">
-        <div class="product-card">
-          <div class="product-card-img">
-            <div class="pattern-bg"></div>
-            <div class="product-icon"><i class="bi bi-circle-square"></i></div>
-            <span class="product-badge">EKSKLUSIF</span>
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-title">Roster Motif Custom</div>
-            <p class="product-card-desc">Tersedia berbagai motif dekoratif seperti bunga, geometrik, dan etnik. Dapat dipesan custom sesuai desain Anda.</p>
-            <div class="product-card-footer">
-              <span class="product-tag"><i class="bi bi-check-circle-fill"></i> Pre-order</span>
-              <a href="#kontak" class="btn-card">Tanya Harga <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-5" data-aos="fade-up">
-      <a href="{{ route('homepage.produk') }}" class="btn-primary-hero" style="display:inline-flex;">
-        <i class="bi bi-collection"></i>
-        Lihat Semua Katalog
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════════
      TENTANG KAMI
@@ -563,7 +357,7 @@
             </div>
             <!-- Label overlay -->
             <div style="position:absolute; bottom:24px; left:50%; transform:translateX(-50%); text-align:center;">
-              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:rgba(193,68,14,0.7); letter-spacing:1px; text-transform:uppercase;">Pola Roster Dinding</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:var(--fikes-purple); letter-spacing:1px; text-transform:uppercase;">Pola Roster Dinding</div>
             </div>
           </div>
 
@@ -576,7 +370,7 @@
           <!-- Stat Card 2 -->
           <div class="about-stat-card card-2" data-aos="fade-up" data-aos-delay="400">
             <div class="d-flex align-items-center gap-3">
-              <div style="font-size:28px; color:#f59e0b;">★★★★★</div>
+              <div style="font-size:28px; color:var(--fikes-orange);">★★★★★</div>
               <div>
                 <div class="stat-num-big" style="font-size:24px;">4.9</div>
                 <div class="stat-label-sm">Rating Pelanggan</div>
@@ -619,17 +413,17 @@
 
         <!-- Stats mini bar -->
         <div class="d-flex flex-wrap gap-3 mb-4">
-          <div style="background:rgba(193,68,14,0.08); border:1px solid rgba(193,68,14,0.2); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--terracotta); line-height:1;">500<sup style="font-size:12px;">+</sup></div>
-            <div style="font-size:11px; color:var(--muted); margin-top:2px; font-weight:500;">Proyek Selesai</div>
+          <div style="background:var(--fikes-purple-light); border:1px solid var(--fikes-purple-subtle); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--fikes-purple); line-height:1;">500<sup style="font-size:12px;">+</sup></div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px; font-weight:500;">Proyek Selesai</div>
           </div>
-          <div style="background:rgba(193,68,14,0.08); border:1px solid rgba(193,68,14,0.2); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--terracotta); line-height:1;">50<sup style="font-size:12px;">+</sup></div>
-            <div style="font-size:11px; color:var(--muted); margin-top:2px; font-weight:500;">Motif Tersedia</div>
+          <div style="background:var(--fikes-purple-light); border:1px solid var(--fikes-purple-subtle); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--fikes-purple); line-height:1;">50<sup style="font-size:12px;">+</sup></div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px; font-weight:500;">Motif Tersedia</div>
           </div>
-          <div style="background:rgba(193,68,14,0.08); border:1px solid rgba(193,68,14,0.2); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--terracotta); line-height:1;">SNI</div>
-            <div style="font-size:11px; color:var(--muted); margin-top:2px; font-weight:500;">Bersertifikat</div>
+          <div style="background:var(--fikes-purple-light); border:1px solid var(--fikes-purple-subtle); border-radius:12px; padding:12px 20px; text-align:center; min-width:100px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; font-weight:900; color:var(--fikes-purple); line-height:1;">SNI</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px; font-weight:500;">Bersertifikat</div>
           </div>
         </div>
 
@@ -638,7 +432,7 @@
             <i class="bi bi-chat-dots"></i>
             Konsultasi Gratis Sekarang
           </a>
-          <a href="{{ route('homepage.tentang') }}" class="btn-outline-hero" style="display:inline-flex; background:rgba(193,68,14,0.1); border-color:rgba(193,68,14,0.3); color:var(--terracotta);">
+          <a href="{{ route('homepage.tentang') }}" class="btn-outline-hero" style="display:inline-flex; background:var(--fikes-purple-light); border-color:var(--fikes-purple-subtle); color:var(--fikes-purple);">
             <i class="bi bi-arrow-right-circle"></i>
             Profil Perusahaan
           </a>
@@ -862,7 +656,7 @@
         <!-- Contact Info Cards -->
         <div class="d-flex flex-column gap-3">
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-geo-alt-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
@@ -871,7 +665,7 @@
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-envelope-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>
@@ -880,7 +674,7 @@
             </div>
           </div>
           <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:20px 24px; display:flex; align-items:center; gap:16px;">
-            <div style="width:48px; height:48px; background:rgba(193,68,14,0.3); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:48px; height:48px; background:rgba(130,60,162,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <i class="bi bi-clock-fill" style="font-size:20px; color:var(--clay);"></i>
             </div>
             <div>

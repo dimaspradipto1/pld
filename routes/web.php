@@ -28,7 +28,6 @@ use App\Http\Controllers\TestimonialController;
 */
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'homepage')->name('homepage');
-    Route::get('/produk', 'produk')->name('homepage.produk');
     Route::get('/galeri', 'galeri')->name('homepage.galeri');
     Route::get('/tentang', 'tentang')->name('homepage.tentang');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
@@ -65,10 +64,6 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('gallery', GalleryController::class);
     Route::resource('profil', ProfilController::class);
     Route::resource('contact', ContactController::class);
-    Route::resource('kategori', CategoryController::class);
-    Route::resource('product', ProductController::class);
-    Route::resource('product-image', ProductImageController::class);
-    Route::resource('booking', BookingController::class);
     Route::resource('news', NewsController::class);
     Route::resource('nomoradmin', NomorAdminController::class);
     Route::resource('admin-faq', FaqController::class)
