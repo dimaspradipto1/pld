@@ -107,8 +107,8 @@
                         <label for="sambutan_dekan" class="form-label fw-semibold text-dark">
                             Naskah Lengkap Sambutan Dekan <span class="badge bg-primary ms-1">Tampil di Halaman /sambutan-dekan</span>
                         </label>
-                        <textarea id="sambutan_dekan" name="sambutan_dekan" rows="8" class="form-control @error('sambutan_dekan') is-invalid @enderror" placeholder="Tuliskan amanat, visi pimpinan, dan sambutan lengkap Dekan kepada mahasiswa dan masyarakat...">{{ old('sambutan_dekan', $sambutanDekan->sambutan_dekan) }}</textarea>
-                        <div class="form-text small text-muted">Mendukung paragraf baris baru untuk struktur teks yang rapi.</div>
+                        <textarea id="sambutan_dekan" name="sambutan_dekan" rows="8" class="form-control tinymce-editor @error('sambutan_dekan') is-invalid @enderror" placeholder="Tuliskan amanat, visi pimpinan, dan sambutan lengkap Dekan kepada mahasiswa dan masyarakat...">{{ old('sambutan_dekan', $sambutanDekan->sambutan_dekan) }}</textarea>
+                        <div class="form-text small text-muted">Mendukung format teks tebal, miring, list, tabel, dan gambar.</div>
                         @error('sambutan_dekan')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

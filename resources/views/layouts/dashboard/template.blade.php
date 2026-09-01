@@ -263,6 +263,104 @@
         });
     </script>
 
+    <!-- TinyMCE CDN & Global Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6.8.3/tinymce.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof tinymce !== 'undefined') {
+                const selector = 'textarea.tinymce-editor, textarea.tinymce, textarea#content, textarea#deskripsi, textarea#sambutan_dekan, textarea#answer, textarea#jawaban, textarea#sejarah, textarea#visi, textarea#misi, textarea#deskripsi_profil_1, textarea#deskripsi_profil_2';
+                
+                document.querySelectorAll(selector).forEach(function (el) {
+                    if (!tinymce.get(el.id || el)) {
+                        tinymce.init({
+                            target: el,
+                            height: 380,
+                            menubar: false,
+                            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table wordcount',
+                            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table link image | removeformat | code fullscreen',
+                            content_style: 'body { font-family: Plus Jakarta Sans, Arial, sans-serif; font-size: 14px; line-height: 1.6; } img { max-width: 100%; height: auto; }',
+                            image_title: true,
+                            automatic_uploads: true,
+                            file_picker_types: 'image',
+                            images_upload_handler: function (blobInfo, progress) {
+                                return new Promise((resolve, reject) => {
+                                    const xhr = new XMLHttpRequest();
+                                    xhr.withCredentials = false;
+                                    xhr.open('POST', '{{ route("news.upload-image") }}');
+                                    xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+
+                                    xhr.upload.onprogress = (e) => {
+                                        progress(e.loaded / e.total * 100);
+                                    };
+
+                                    xhr.onload = () => {
+                                        if (xhr.status === 403 || xhr.status === 419) {
+                                            reject({ message: 'Sesi berakhir atau CSRF token invalid.', remove: true });
+                                            return;
+                                        }
+                                        if (xhr.status < 200 || xhr.status >= 300) {
+                                            reject('Gagal upload gambar. HTTP Error: ' + xhr.status);
+                                            return;
+                                        }
+                                        try {
+                                            const json = JSON.parse(xhr.responseText);
+                                            if (!json || typeof json.location !== 'string') {
+                                                reject('Respon server tidak valid.');
+                                                return;
+                                            }
+                                            resolve(json.location);
+                                        } catch (e) {
+                                            reject('Respon server error: ' + e.message);
+                                        }
+                                    };
+
+                                    xhr.onerror = () => {
+                                        reject('Gagal koneksi ke server saat mengunggah gambar.');
+                                    };
+
+                                    const formData = new FormData();
+                                    formData.append('file', blobInfo.blob(), blobInfo.filename());
+                                    xhr.send(formData);
+                                });
+                            },
+                            file_picker_callback: function (cb, value, meta) {
+                                const input = document.createElement('input');
+                                input.setAttribute('type', 'file');
+                                input.setAttribute('accept', 'image/*');
+
+                                input.addEventListener('change', (e) => {
+                                    const file = e.target.files[0];
+                                    if (!file) return;
+
+                                    const reader = new FileReader();
+                                    reader.addEventListener('load', () => {
+                                        const id = 'blobid' + (new Date()).getTime();
+                                        const blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                                        const base64 = reader.result.split(',')[1];
+                                        const blobInfo = blobCache.create(id, file, base64);
+                                        blobCache.add(blobInfo);
+
+                                        cb(blobInfo.blobUri(), { title: file.name, alt: file.name });
+                                    });
+                                    reader.readAsDataURL(file);
+                                });
+
+                                input.click();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
+        // Trigger TinyMCE save on form submit so data is always synchronized
+        $(document).on('submit', 'form', function () {
+            if (typeof tinymce !== 'undefined') {
+                tinymce.triggerSave();
+            }
+        });
+    </script>
+
     @stack('scripts')
     @stack('style')
 
