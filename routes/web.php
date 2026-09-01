@@ -23,6 +23,7 @@ use App\Http\Controllers\NilaiPerusahaanController;
 use App\Http\Controllers\SambutanDekanController;
 use App\Http\Controllers\PmbSettingController;
 use App\Http\Controllers\AkademikController;
+use App\Http\Controllers\PrestasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/layanan', 'layanan')->name('homepage.layanan');
     Route::get('/layanan/{id}', 'layananDetail')->name('homepage.layanan.detail');
     Route::get('/galeri', 'galeri')->name('homepage.galeri');
+    Route::get('/prestasi-mahasiswa', 'prestasi')->name('homepage.prestasi');
+    Route::get('/prestasi-mahasiswa/{id}', 'prestasiDetail')->name('homepage.prestasi.detail');
     Route::get('/testimoni', 'testimoni')->name('homepage.testimoni');
     Route::post('/testimoni/kirim', 'storeTestimonial')->name('homepage.testimoni.store');
     Route::get('/berita', 'news')->name('homepage.news');
@@ -108,6 +111,7 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('testimonial', TestimonialController::class);
+    Route::resource('prestasi', PrestasiController::class);
     Route::get('admin-program-studi', [LayananController::class, 'index'])->name('layanan.index');
     Route::post('admin-program-studi', [LayananController::class, 'updateAll'])->name('layanan.update-all');
     Route::resource('struktur-organisasi', StrukturOrganisasiController::class);

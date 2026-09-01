@@ -122,13 +122,13 @@
         <div class="section-label">Profil Fakultas</div>
         <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>' !!}</h2>
         <div class="divider-line"></div>
-        <p class="section-desc mb-4" style="text-align: justify;">
-          {{ $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' }}
-        </p>
+        <div class="section-desc mb-4" style="text-align: justify;">
+          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
+        </div>
         @if($about?->deskripsi_profil_2)
-        <p class="section-desc mb-4" style="text-align: justify;">
-          {{ $about->deskripsi_profil_2 }}
-        </p>
+        <div class="section-desc mb-4" style="text-align: justify;">
+          {!! $about->deskripsi_profil_2 !!}
+        </div>
         @endif
       </div>
     </div>

@@ -170,13 +170,21 @@
                   @endif
                 </div>
               </div>
-              <p class="layanan-card-desc">{{ $layanan->deskripsi }}</p>
-              @if(count($rincianItems))
-                <ul class="layanan-card-list">
-                  @foreach(array_slice($rincianItems, 0, 4) as $item)
-                    <li><i class="bi bi-check-circle-fill"></i> {{ $item }}</li>
-                  @endforeach
-                </ul>
+              <div class="layanan-card-desc mb-3" style="line-height: 1.65; text-align: justify;">
+                {!! $layanan->deskripsi !!}
+              </div>
+              @if(!empty($layanan->rincian))
+                @if(str_contains($layanan->rincian, '<') && str_contains($layanan->rincian, '>'))
+                  <div class="layanan-rich-rincian small mb-3">
+                    {!! $layanan->rincian !!}
+                  </div>
+                @else
+                  <ul class="layanan-card-list">
+                    @foreach(array_slice($rincianItems, 0, 4) as $item)
+                      <li><i class="bi bi-check-circle-fill"></i> {!! strip_tags($item) !!}</li>
+                    @endforeach
+                  </ul>
+                @endif
               @endif
             </div>
             <div class="d-flex gap-2 flex-wrap">

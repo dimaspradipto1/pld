@@ -506,13 +506,15 @@
 
   /* PMB Banner Box */
   .pmb-cta-box {
-    background: var(--obsidian-dark);
+    background: #823ca2;
+    background: linear-gradient(135deg, #823ca2 0%, #60237c 100%);
     border-radius: 28px;
     padding: 56px 44px;
     color: var(--white);
     position: relative;
     overflow: hidden;
-    border: 2px solid var(--fikes-purple);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 20px 45px -12px rgba(130, 60, 162, 0.5);
   }
 
   /* Partner Logo Box */
@@ -536,6 +538,201 @@
     max-height: 44px;
     max-width: 120px;
     object-fit: contain;
+  }
+
+  /* Prestasi Cards */
+  .prestasi-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .prestasi-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(130, 60, 162, 0.15);
+    border-color: rgba(130, 60, 162, 0.3);
+  }
+  .prestasi-img-wrap {
+    width: 100%;
+    height: 260px;
+    position: relative;
+    background: #190a24;
+    overflow: hidden;
+    display: block;
+  }
+  .prestasi-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .prestasi-card:hover .prestasi-img {
+    transform: scale(1.05);
+  }
+  .prestasi-tingkat-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(6px);
+  }
+  .prestasi-rank-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: #e5a823;
+    color: #190a24;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Gallery Showcase Cards */
+  .gallery-card-item {
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    height: 100%;
+  }
+  .gallery-card-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(130, 60, 162, 0.25);
+    border-color: rgba(130, 60, 162, 0.35);
+  }
+  .gallery-img-container {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: #190a24;
+  }
+  .gallery-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gallery-card-item:hover .gallery-card-img {
+    transform: scale(1.08);
+  }
+  .gallery-fallback-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);
+  }
+  .gallery-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 20px 18px;
+    background: linear-gradient(180deg, rgba(19, 10, 36, 0) 0%, rgba(19, 10, 36, 0.92) 55%, #130a24 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .gallery-tag {
+    align-self: flex-start;
+    background: rgba(229, 168, 35, 0.95);
+    color: #190a24;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .gallery-card-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .gallery-card-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+
+  /* Custom Pagination */
+  .pagination {
+    gap: 5px;
+    margin-bottom: 0;
+  }
+  .page-item .page-link {
+    border-radius: 10px !important;
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    transition: all 0.2s ease;
+  }
+  .page-item.active .page-link {
+    background-color: var(--fikes-purple, #823ca2) !important;
+    border-color: var(--fikes-purple, #823ca2) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
+  }
+  .page-item .page-link:hover {
+    background-color: #f3e8f8;
+    color: var(--fikes-purple, #823ca2);
+    border-color: var(--fikes-purple, #823ca2);
+  }
+
+  /* PMB WhatsApp Outline Button */
+  .btn-pmb-wa {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-pmb-wa i {
+    color: #25D366; /* WhatsApp Green */
+    font-size: 18px;
+    transition: transform 0.25s ease;
+  }
+  .btn-pmb-wa:hover {
+    background: #ffffff !important;
+    color: #823ca2 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  .btn-pmb-wa:hover i {
+    color: #25D366 !important;
+    transform: scale(1.15);
   }
 </style>
 @endpush
@@ -622,14 +819,14 @@
           {{ $about->judul_profil ?? 'Dedikasi Mencetak Pemimpin di Bidang Kesehatan' }}
         </h2>
         <div class="divider-line"></div>
-        <p class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
-          {{ $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' }}
-        </p>
+        <div class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
+          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
+        </div>
 
         @if(!empty($about?->deskripsi_profil_2))
-          <p class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
-            {{ $about->deskripsi_profil_2 }}
-          </p>
+          <div class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
+            {!! $about->deskripsi_profil_2 !!}
+          </div>
         @endif
 
         <ul class="check-list mb-4">
@@ -997,51 +1194,186 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     9. STUDENT LIFE & PRESTASI
+     9. PRESTASI MAHASISWA & STUDENT LIFE
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white">
+<section class="section-bg-white" id="prestasi">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Aktivitas Mahasiswa</div>
-      <h2 class="section-title">Student Life & <em>Prestasi Civitas</em></h2>
+      <div class="section-label mx-auto">Kebanggaan Kampus</div>
+      <h2 class="section-title">Prestasi Gemilang <em>Mahasiswa FIKES</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Wadah pengembangan bakat, kepemimpinan, dan kreativitas mahasiswa melalui beragam organisasi dan kompetisi.
+        Bukti dedikasi, keunggulan riset, dan daya saing mahasiswa Fakultas Ilmu Kesehatan di berbagai kompetisi ilmiah dan kejuaraan.
       </p>
     </div>
 
-    <div class="row g-4">
+    @if(isset($prestasis) && $prestasis->count() > 0)
+      <div class="row g-4 mb-5">
+        @foreach($prestasis as $index => $prestasi)
+          @php
+            $tingkatBadge = match($prestasi->tingkat) {
+                'Internasional' => 'bg-danger text-white',
+                'Nasional'      => 'bg-success text-white',
+                'Provinsi / Wilayah' => 'bg-primary text-white',
+                default         => 'bg-secondary text-white',
+            };
+          @endphp
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+            <div class="prestasi-card">
+              <div class="prestasi-img-wrap">
+                @if(!empty($prestasi->foto))
+                  <img src="{{ asset('storage/' . $prestasi->foto) }}" alt="{{ $prestasi->judul_prestasi }}" class="prestasi-img">
+                @else
+                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
+                    <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
+                    <span class="small fw-semibold text-white-50">FIKES UIS Achievement</span>
+                  </div>
+                @endif
+                <span class="prestasi-tingkat-badge badge {{ $tingkatBadge }}">
+                  <i class="bi bi-globe me-1"></i>{{ $prestasi->tingkat }}
+                </span>
+                @if(!empty($prestasi->peringkat))
+                  <span class="prestasi-rank-badge">
+                    <i class="bi bi-award-fill me-1"></i>{{ $prestasi->peringkat }}
+                  </span>
+                @endif
+              </div>
+
+              <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+                <div>
+                  <h4 class="fw-bold mb-2 text-dark" style="font-size: 16.5px; line-height: 1.45;">
+                    {{ $prestasi->judul_prestasi }}
+                  </h4>
+
+                  <div class="d-flex align-items-center gap-2 mb-3 mt-3">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #823ca2; font-size: 13px;">
+                      <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div>
+                      <div class="fw-semibold text-dark small" style="font-size: 13px;">{{ $prestasi->nama_mahasiswa }}</div>
+                      @if($prestasi->prodi)
+                        <div class="text-muted" style="font-size: 11px;">{{ $prestasi->prodi }}</div>
+                      @endif
+                    </div>
+                  </div>
+
+                  @if(!empty($prestasi->penyelenggara) || !empty($prestasi->tahun))
+                    <div class="d-flex align-items-center justify-content-between text-muted small py-2 px-3 rounded-3 mb-3" style="background: #f8f9fa; font-size: 11.5px;">
+                      <span class="text-truncate me-2"><i class="bi bi-building me-1 text-primary"></i>{{ $prestasi->penyelenggara ?? 'Penyelenggara Nasional' }}</span>
+                      <span class="fw-bold text-dark flex-shrink-0">{{ $prestasi->tahun ?? '' }}</span>
+                    </div>
+                  @endif
+
+                  @if(!empty($prestasi->deskripsi))
+                    <div class="text-muted small" style="font-size: 12.5px; line-height: 1.6;">
+                      {!! Str::limit(strip_tags($prestasi->deskripsi), 110) !!}
+                    </div>
+                  @endif
+                </div>
+
+                <div class="pt-3 border-top mt-3">
+                  <a href="{{ route('homepage.prestasi.detail', $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--fikes-purple); font-size: 13px;">
+                    <span>Lihat Selengkapnya</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+
+      {{-- Tombol Lihat Semua Prestasi --}}
+      <div class="text-center mt-2 mb-5">
+        <a href="{{ route('homepage.prestasi') }}" class="btn-fikes-pill">
+          <i class="bi bi-trophy-fill me-1 text-warning"></i> Lihat Semua Prestasi Mahasiswa
+        </a>
+      </div>
+    @endif
+
+    {{-- 3 Kartu Ekosistem Mahasiswa --}}
+    <div class="row g-4 pt-3 border-top">
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="p-4 rounded-4 bg-light border text-center h-100">
           <div class="feature-icon-wrap mx-auto"><i class="bi bi-diagram-3-fill"></i></div>
-          <h4 class="fw-bold mb-2">Organisasi Mahasiswa</h4>
-          <p class="text-muted small">Badan Eksekutif Mahasiswa (BEM) FIKES, HIMA K3, HIMA Kesling, dan berbagai Unit Kegiatan Mahasiswa (UKM).</p>
+          <h4 class="fw-bold mb-2" style="font-size: 18px;">Organisasi Mahasiswa</h4>
+          <p class="text-muted small mb-0">Badan Eksekutif Mahasiswa (BEM) FIKES, HIMA K3, HIMA Kesling, dan berbagai Unit Kegiatan Mahasiswa (UKM).</p>
         </div>
       </div>
 
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="p-4 rounded-4 bg-light border text-center h-100">
           <div class="feature-icon-wrap mx-auto"><i class="bi bi-trophy-fill"></i></div>
-          <h4 class="fw-bold mb-2">Prestasi & Kompetisi</h4>
-          <p class="text-muted small">Juara lomba karya tulis ilmiah nasional bidang keselamatan kerja, poster kesehatan, dan debat mahasiswa.</p>
+          <h4 class="fw-bold mb-2" style="font-size: 18px;">Kompetisi & Riset Ilmiah</h4>
+          <p class="text-muted small mb-0">Pembinaan intensif dosen pembimbing dalam ajang LKTI, Program Kreativitas Mahasiswa (PKM), dan poster kesehatan.</p>
         </div>
       </div>
 
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
         <div class="p-4 rounded-4 bg-light border text-center h-100">
           <div class="feature-icon-wrap mx-auto"><i class="bi bi-calendar-check-fill"></i></div>
-          <h4 class="fw-bold mb-2">Field Trip & Kunjungan Industri</h4>
-          <p class="text-muted small">Kunjungan studi langsung ke fasilitas kilang migas, pelabuhan internasional, dan instalasi pengolahan limbah.</p>
+          <h4 class="fw-bold mb-2" style="font-size: 18px;">Kunjungan & Sertifikasi</h4>
+          <p class="text-muted small mb-0">Praktik lapangan di sektor industri manufaktur/galangan migas, serta pembekalan sertifikasi Ahli K3 Umum.</p>
         </div>
       </div>
     </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     9.5 GALERI DOKUMENTASI & KEGIATAN KAMPUS
+═══════════════════════════════════════════════ -->
+<section class="section-bg-sand py-5" id="galeri">
+  <div class="container py-3">
+    <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3" data-aos="fade-up">
+      <div>
+        <div class="section-label mb-2">Dokumentasi Visual</div>
+        <h2 class="section-title mb-0">Galeri & <em>Kegiatan FIKES UIS</em></h2>
+      </div>
+      <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple); font-size: 13.5px; padding: 10px 22px;">
+        <i class="bi bi-images me-1"></i> Lihat Semua Galeri
+      </a>
+    </div>
+
+    @if(isset($galleries) && $galleries->count() > 0)
+      <div class="row g-4">
+        @foreach($galleries->take(6) as $index => $gal)
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+            <div class="gallery-card-item">
+              <div class="gallery-img-container">
+                @if(!empty($gal->url))
+                  <img src="{{ asset('storage/' . $gal->url) }}" alt="{{ $gal->judul }}" class="gallery-card-img" loading="lazy">
+                @else
+                  <div class="gallery-fallback-box">
+                    <i class="bi bi-camera-fill fs-1 text-white-50"></i>
+                  </div>
+                @endif
+                <div class="gallery-card-overlay">
+                  <span class="gallery-tag"><i class="bi bi-tag-fill me-1"></i>Dokumentasi</span>
+                  <h5 class="gallery-card-title">{{ $gal->judul }}</h5>
+                  @if(!empty($gal->deskripsi))
+                    <p class="gallery-card-desc mb-0">{!! Str::limit(strip_tags($gal->deskripsi), 90) !!}</p>
+                  @endif
+                </div>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @else
+      <div class="text-center py-5 bg-white rounded-4 border">
+        <i class="bi bi-images fs-1 text-muted d-block mb-2"></i>
+        <p class="text-muted mb-0">Belum ada dokumentasi foto yang diunggah.</p>
+      </div>
+    @endif
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
      10. ALUMNI & KARIER
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-sand" id="alumni">
+<section class="section-bg-white" id="alumni">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Kisah Sukses Alumni</div>
@@ -1140,8 +1472,15 @@
           @endif
         </div>
 
+        {{-- Pagination Berita --}}
+        @if(isset($latestNews) && method_exists($latestNews, 'hasPages') && $latestNews->hasPages())
+          <div class="d-flex justify-content-center mt-4 pt-2">
+            {{ $latestNews->fragment('berita')->links('pagination::bootstrap-5') }}
+          </div>
+        @endif
+
         {{-- Tombol Lihat Berita Lainnya --}}
-        <div class="text-center mt-4 pt-2">
+        <div class="text-center mt-3 pt-2">
           <a href="{{ route('homepage.news') }}" class="btn-fikes-pill">
             Lihat Berita Lainnya
           </a>
@@ -1238,7 +1577,7 @@
           <h2 class="text-white fw-bold mb-3" style="font-size: 34px;">
             {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Cerah Bersama FIKES UIS!' }}
           </h2>
-          <p class="text-white-50 mb-4" style="line-height: 1.7; max-width: 620px;">
+          <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92;">
             {{ $pmbSetting->deskripsi ?? 'Tersedia berbagai jalur seleksi: Jalur Bebas Tes / Prestasi, Jalur Reguler, Jalur KIP-Kuliah, dan Jalur Alih Jenjang Karyawan.' }}
           </p>
           <div class="d-flex flex-wrap gap-3">
@@ -1259,7 +1598,7 @@
               }
             @endphp
             @if(!empty($link2))
-              <a href="{{ $link2 }}" target="_blank" class="btn-outline-hero">
+              <a href="{{ $link2 }}" target="_blank" class="btn-pmb-wa">
                 <i class="bi bi-whatsapp"></i> {{ $pmbSetting->tombol_text_2 ?? 'Konsultasi WhatsApp PMB' }}
               </a>
             @endif
@@ -1267,9 +1606,9 @@
         </div>
 
         <div class="col-lg-4">
-          <div class="p-4 rounded-4" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">
+          <div class="p-4 rounded-4" style="background: rgba(0, 0, 0, 0.22); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(8px);">
             <h5 class="text-white fw-bold mb-3"><i class="bi bi-calendar-event text-warning me-2"></i>Jadwal Gelombang:</h5>
-            <ul class="text-white-50 small list-unstyled mb-0" style="line-height: 2;">
+            <ul class="text-white small list-unstyled mb-0" style="line-height: 2; opacity: 0.95;">
               @php
                 $waveList = $pmbSetting->waves ?? ['Gelombang 1: Jan - Apr', 'Gelombang 2: Mei - Jul', 'Gelombang 3: Agu - Sep'];
               @endphp

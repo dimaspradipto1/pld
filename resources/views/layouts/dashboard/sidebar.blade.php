@@ -84,10 +84,15 @@
 
           <!-- 5. Kemahasiswaan (Sesuai Urutan Header) -->
           <li class="nav-item">
-            <a class="nav-link {{ Route::is('gallery.*') || Route::is('testimonial.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Route::is('prestasi.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-people"></i><span>Kemahasiswaan</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="kemahasiswaan-nav" class="nav-content collapse {{ Route::is('gallery.*') || Route::is('testimonial.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+            <ul id="kemahasiswaan-nav" class="nav-content collapse {{ Route::is('prestasi.*') || Route::is('gallery.*') || Route::is('testimonial.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+              <li>
+                <a href="{{ route('prestasi.index') }}" class="{{ Route::is('prestasi.*') ? 'active' : '' }}">
+                  <i class="bi bi-circle"></i><span>Prestasi Mahasiswa</span>
+                </a>
+              </li>
               <li>
                 <a href="{{ route('gallery.index') }}" class="{{ Route::is('gallery.index') ? 'active' : '' }}">
                   <i class="bi bi-circle"></i><span>Galeri & Kegiatan</span>

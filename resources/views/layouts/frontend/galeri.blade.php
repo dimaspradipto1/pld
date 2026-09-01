@@ -97,10 +97,19 @@
         @foreach($galleries as $item)
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="galeri-item-card">
-              <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title ?? 'Dokumentasi FIKES' }}" class="galeri-img-wrap">
-              @if(!empty($item->title))
+              @if(!empty($item->url))
+                <img src="{{ asset('storage/' . $item->url) }}" alt="{{ $item->judul ?? 'Dokumentasi FIKES' }}" class="galeri-img-wrap">
+              @else
+                <div class="d-flex align-items-center justify-content-center text-white" style="height: 240px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);">
+                  <i class="bi bi-camera-fill fs-1 text-white-50"></i>
+                </div>
+              @endif
+              @if(!empty($item->judul))
                 <div class="galeri-caption">
-                  {{ $item->title }}
+                  <h6 class="text-white mb-1 fw-bold">{{ $item->judul }}</h6>
+                  @if(!empty($item->deskripsi))
+                    <small class="text-white-50 d-block">{!! Str::limit(strip_tags($item->deskripsi), 80) !!}</small>
+                  @endif
                 </div>
               @endif
             </div>

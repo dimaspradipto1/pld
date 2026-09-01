@@ -136,21 +136,27 @@
           <div class="divider-line"></div>
 
           <div class="fs-6 text-muted mb-4" style="line-height: 1.8; text-align: justify;">
-            {{ $layanan->deskripsi }}
+            {!! $layanan->deskripsi !!}
           </div>
 
-          @if(count($rincianItems))
+          @if(!empty($layanan->rincian))
             <h4 class="fw-bold mb-3 mt-4">Keunggulan & Cakupan Kurikulum / Layanan</h4>
-            <div class="row g-3 mb-4">
-              @foreach($rincianItems as $item)
-                <div class="col-12">
-                  <div class="p-3 rounded-3" style="background: var(--surface-light); border: 1px solid var(--border-light); display: flex; align-items: flex-start; gap: 12px;">
-                    <i class="bi bi-check2-circle fs-5" style="color: var(--fikes-purple); margin-top: -2px;"></i>
-                    <span class="fw-medium text-dark">{{ $item }}</span>
+            @if(str_contains($layanan->rincian, '<') && str_contains($layanan->rincian, '>'))
+              <div class="p-3 rounded-3 mb-4" style="background: var(--surface-light); border: 1px solid var(--border-light);">
+                {!! $layanan->rincian !!}
+              </div>
+            @else
+              <div class="row g-3 mb-4">
+                @foreach($rincianItems as $item)
+                  <div class="col-12">
+                    <div class="p-3 rounded-3" style="background: var(--surface-light); border: 1px solid var(--border-light); display: flex; align-items: flex-start; gap: 12px;">
+                      <i class="bi bi-check2-circle fs-5" style="color: var(--fikes-purple); margin-top: -2px;"></i>
+                      <span class="fw-medium text-dark">{!! strip_tags($item) !!}</span>
+                    </div>
                   </div>
-                </div>
-              @endforeach
-            </div>
+                @endforeach
+              </div>
+            @endif
           @endif
 
           <div class="p-4 rounded-4 mt-5" style="background: var(--obsidian-dark); color: white;">

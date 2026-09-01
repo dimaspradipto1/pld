@@ -15,7 +15,7 @@ class FrontendController extends Controller
         $visiMisis        = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
         $nilaiPerusahaans = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
         $testimonials     = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->take(6)->get();
-        $latestNews       = \App\Models\News::where('status', 'published')->latest()->take(10)->get();
+        $latestNews       = \App\Models\News::where('status', 'published')->latest()->paginate(10, ['*'], 'page_berita')->withQueryString();
         $announcements    = \App\Models\News::where('status', 'published')
                                 ->where(function ($q) {
                                     $q->where('category', 'like', '%Pengumuman%')
@@ -26,6 +26,7 @@ class FrontendController extends Controller
                                 ->get();
         $faqs             = \App\Models\Faq::take(6)->get();
         $galleries        = \App\Models\Gallery::latest()->take(6)->get();
+        $prestasis        = \App\Models\Prestasi::where('is_active', true)->orderBy('urutan')->latest('id')->take(6)->get();
         $about            = \App\Models\About::first();
         $sambutanDekan    = \App\Models\SambutanDekan::first();
         $struktur         = \App\Models\StrukturOrganisasi::first();
@@ -43,6 +44,7 @@ class FrontendController extends Controller
             'announcements',
             'faqs',
             'galleries',
+            'prestasis',
             'about',
             'sambutanDekan',
             'struktur',
@@ -231,7 +233,7 @@ class FrontendController extends Controller
         $newsList = $query
                         ->when($featured, fn($q) => $q->where('id', '!=', $featured->id))
                         ->latest()
-                        ->paginate(9)
+                        ->paginate(10)
                         ->withQueryString();
 
         $categories = \App\Models\News::where('status', 'published')
@@ -263,5 +265,51 @@ class FrontendController extends Controller
                         ->get();
 
         return view('layouts.frontend.news-detail', compact('news', 'relatedNews', 'categories'));
+    }
+
+    public function prestasi(\Illuminate\Http\Request $request)
+    {
+        $search          = $request->query('q');
+        $selectedTingkat = $request->query('tingkat');
+        $selectedProdi   = $request->query('prodi');
+
+        $query = \App\Models\Prestasi::where('is_active', true);
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('judul_prestasi', 'like', "%{$search}%")
+                  ->orWhere('nama_mahasiswa', 'like', "%{$search}%")
+                  ->orWhere('penyelenggara', 'like', "%{$search}%")
+                  ->orWhere('peringkat', 'like', "%{$search}%")
+                  ->orWhere('deskripsi', 'like', "%{$search}%");
+            });
+        }
+
+        if (!empty($selectedTingkat)) {
+            $query->where('tingkat', $selectedTingkat);
+        }
+
+        if (!empty($selectedProdi)) {
+            $query->where('prodi', $selectedProdi);
+        }
+
+        $prestasiList = $query->orderBy('urutan')->latest('id')->paginate(9)->withQueryString();
+
+        $tingkatList = ['Internasional', 'Nasional', 'Provinsi / Wilayah', 'Universitas'];
+
+        return view('layouts.frontend.prestasi', compact('prestasiList', 'search', 'selectedTingkat', 'selectedProdi', 'tingkatList'));
+    }
+
+    public function prestasiDetail($id)
+    {
+        $prestasi = \App\Models\Prestasi::where('is_active', true)->findOrFail($id);
+        $otherPrestasis = \App\Models\Prestasi::where('is_active', true)
+                            ->where('id', '!=', $id)
+                            ->orderBy('urutan')
+                            ->latest('id')
+                            ->take(5)
+                            ->get();
+
+        return view('layouts.frontend.prestasi-detail', compact('prestasi', 'otherPrestasis'));
     }
 }

@@ -885,10 +885,10 @@
             Kemahasiswaan <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-people"></i> Organisasi Mahasiswa</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-trophy"></i> Prestasi Mahasiswa</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Kegiatan Mahasiswa</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.prestasi') }}"><i class="bi bi-trophy-fill text-warning"></i> Prestasi Mahasiswa</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-people"></i> Organisasi & Kegiatan</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Galeri Dokumentasi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni & Testimoni</a></li>
           </ul>
         </li>
 
