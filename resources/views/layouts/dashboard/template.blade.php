@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.css">
 
+    @stack('styles')
+
     <style>
         :root {
             --fikes-purple: #823ca2;
@@ -362,7 +364,7 @@
     </script>
 
     @stack('scripts')
-    @stack('style')
+    @stack('styles')
 
 </body>
 

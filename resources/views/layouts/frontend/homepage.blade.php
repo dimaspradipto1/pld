@@ -940,7 +940,7 @@
      3b. STATISTIK FAKULTAS — "FIKES DALAM ANGKA"
 ═══════════════════════════════════════════════ -->
 @if(isset($facultyStat) && $facultyStat)
-<section id="statistik-fakultas" style="background: linear-gradient(135deg, #7b1a1a 0%, #9b2335 40%, #6d1515 100%); padding: 48px 0; overflow: hidden; position: relative;">
+<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #823ca2 40%, #47175d 100%); padding: 48px 0; overflow: hidden; position: relative;">
 
   {{-- Decorative blur shapes --}}
   <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
@@ -960,7 +960,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
               <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
                 0
               </div>
               <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
@@ -973,7 +973,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
               <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
                 0
               </div>
               <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
@@ -986,7 +986,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
               <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
                 0
               </div>
               <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
@@ -999,7 +999,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
               <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ffd700;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
+                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
                 0
               </div>
               <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1223,53 +1223,21 @@
     </div>
 
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-shield-check"></i></div>
-          <h4 class="fw-bold mb-2">Lab K3 & Higiene Industri</h4>
-          <p class="text-muted small mb-0">Alat uji intensitas cahaya (Lux meter), kebisingan (Sound Level Meter), gas detektor, dan pengukuran getaran kerja.</p>
+      @if(isset($saranas) && $saranas->count())
+        @foreach($saranas as $index => $sarana)
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ 100 + ($index * 100) }}">
+            <div class="fasilitas-box">
+              <div class="fasilitas-icon"><i class="bi {{ $sarana->icon ?? 'bi-building' }}"></i></div>
+              <h4 class="fw-bold mb-2">{{ $sarana->nama }}</h4>
+              <p class="text-muted small mb-0">{{ $sarana->deskripsi ?: 'Fasilitas yang mendukung kegiatan akademik dan riset mahasiswa.' }}</p>
+            </div>
+          </div>
+        @endforeach
+      @else
+        <div class="col-12 text-center text-muted py-4">
+          Belum ada data sarana yang dipublikasikan.
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-droplet-half"></i></div>
-          <h4 class="fw-bold mb-2">Lab Kesehatan Lingkungan</h4>
-          <p class="text-muted small mb-0">Uji parameter kualitas air bersih, spektrofotometer, inkubator BOD/COD, dan pengujian mikrobiologi bakteri E. coli.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-heart-pulse"></i></div>
-          <h4 class="fw-bold mb-2">Ruang Simulasi & Praktikum</h4>
-          <p class="text-muted small mb-0">Fasilitas simulasi tanggap darurat pertolongan pertama (P3K), penanganan kecelakaan kerja, dan evakuasi.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
-          <h4 class="fw-bold mb-2">Perpustakaan & Ruang Riset</h4>
-          <p class="text-muted small mb-0">Ribuan koleksi buku teks kesehatan, jurnal internasional terindeks Scopus/SINTA, dan akses e-library 24 jam.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-display"></i></div>
-          <h4 class="fw-bold mb-2">Smart Classroom</h4>
-          <p class="text-muted small mb-0">Ruang kuliah ber-AC dilengkapi multimedia proyektor interaktif dan koneksi internet serat optik kecepatan tinggi.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
-        <div class="fasilitas-box">
-          <div class="fasilitas-icon"><i class="bi bi-people-fill"></i></div>
-          <h4 class="fw-bold mb-2">Auditorium & Ruang Seminar</h4>
-          <p class="text-muted small mb-0">Gedung pertemuan representatif untuk penyelenggaraan seminar nasional, kuliah umum pakar, dan wisuda.</p>
-        </div>
-      </div>
+      @endif
     </div>
   </div>
 </section>

@@ -11,6 +11,7 @@ use Database\Seeders\ContactSeeder;
 use Database\Seeders\FeatureSeeder;
 use Database\Seeders\LayananSeeder;
 use Database\Seeders\MilestoneSeeder;
+use Database\Seeders\SaranaSeeder;
 use Database\Seeders\NilaiPerusahaanSeeder;
 use Database\Seeders\PartnerSeeder;
 use Database\Seeders\StrukturOrganisasiSeeder;
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             BannerSeeder::class,
             FeatureSeeder::class,
+            SaranaSeeder::class,
             LayananSeeder::class,
             StrukturOrganisasiSeeder::class,
             PartnerSeeder::class,

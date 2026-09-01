@@ -14,6 +14,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MilestoneController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\StrukturOrganisasiController;
@@ -123,6 +124,7 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
         ->names('kurikulum');
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
+    Route::resource('sarana', SaranaController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('prestasi', PrestasiController::class);
     Route::resource('admin-organisasi-mahasiswa', OrganisasiMahasiswaController::class)
