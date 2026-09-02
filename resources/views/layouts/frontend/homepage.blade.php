@@ -584,30 +584,27 @@
   }
   .prestasi-img-wrap {
     width: 100%;
-    height: 230px;
+    height: 240px;
     position: relative;
     background: #190a24;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
   }
   @media (max-width: 575.98px) {
     .prestasi-img-wrap {
-      height: 200px;
+      height: 210px;
     }
   }
   .prestasi-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
-    background: #190a24;
+    object-fit: cover;
+    object-position: top center;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
   }
   .prestasi-card:hover .prestasi-img {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
   .prestasi-tingkat-badge {
     position: absolute;
@@ -770,12 +767,16 @@
 
   /* Mobile Fullwidth Buttons & Overflow Fix */
   @media (max-width: 767.98px) {
-    .pmb-btn-group {
+    .pmb-btn-group,
+    .cta-btn-group {
       flex-direction: column !important;
       width: 100% !important;
     }
     .pmb-btn-group .btn-primary-hero,
-    .pmb-btn-group .btn-pmb-wa {
+    .pmb-btn-group .btn-pmb-wa,
+    .cta-btn-group .btn-primary-hero,
+    .cta-btn-group .btn-outline-hero,
+    .cta-btn-group a {
       width: 100% !important;
       justify-content: center !important;
       text-align: center !important;
@@ -1180,7 +1181,7 @@
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-microscope"></i></div>
+          <div class="value-icon-wrap"><i class="bi bi-clipboard2-pulse-fill"></i></div>
           <div class="value-title">Laboratorium Terpadu</div>
           <p class="value-desc">Peralatan pengujian kualitas udara, kebisingan, ergonomi, mikrobiologi air, dan sanitasi yang lengkap.</p>
         </div>
@@ -1308,11 +1309,11 @@
           <p class="text-white-50 small mb-4" style="line-height: 1.7;">
             FIKES UIS secara berkala menyelenggarakan Konferensi Nasional K3 dan Lingkungan Hidup, mengundang narasumber pakar dari Kemnaker, Kementerian Kesehatan, dan praktisi industri global.
           </p>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="{{ route('homepage.news') }}" class="btn-primary-hero" style="font-size: 13px; padding: 10px 20px;">
+          <div class="d-flex flex-wrap gap-2 cta-btn-group">
+            <a href="{{ route('homepage.news') }}" class="btn-primary-hero btn-mobile-full" style="font-size: 13px; padding: 10px 20px;">
               <i class="bi bi-newspaper"></i> Lihat Publikasi & Berita
             </a>
-            <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero" style="font-size: 13px; padding: 10px 20px;">
+            <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero btn-mobile-full" style="font-size: 13px; padding: 10px 20px;">
               <i class="bi bi-images"></i> Galeri Kegiatan
             </a>
           </div>
