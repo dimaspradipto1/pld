@@ -98,6 +98,18 @@
 
     .text-terracotta, .text-fikes-purple { color: var(--fikes-purple) !important; }
     .text-fikes-orange { color: var(--fikes-orange) !important; }
+
+    /* ═══════════════════════════════════════════════
+       MOBILE SMOOTH PERFORMANCE & INSTANT CONTENT RENDER
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        visibility: visible !important;
+      }
+    }
     .bg-fikes-purple { background-color: var(--fikes-purple) !important; }
     .bg-fikes-orange { background-color: var(--fikes-orange) !important; }
 
@@ -827,7 +839,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-  AOS.init({ once: true, offset: 60 });
+  AOS.init({
+    once: true,
+    duration: 400,
+    offset: 20,
+    delay: 0,
+    disable: function() {
+      return window.innerWidth < 768;
+    }
+  });
 
   const btn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {

@@ -6,40 +6,27 @@
 @push('styles')
 <style>
   /* ═══════════════════════════════════════════════
-     HERO BANNER (FULLWIDTH & FULLHEIGHT)
+     HERO BANNER (FULLWIDTH & NATURAL ASPECT RATIO)
   ═══════════════════════════════════════════════ */
   .hero-slider-section {
     position: relative;
-    background: #190a24;
+    background: transparent;
     overflow: hidden;
     width: 100%;
-    height: calc(100vh - 90px);
-    min-height: 560px;
+    margin: 0;
+    padding: 0;
   }
   #heroCarousel,
   #heroCarousel .carousel-inner,
   #heroCarousel .carousel-item {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
   .hero-banner-img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
-    object-position: center;
-  }
-  @media (max-width: 991.98px) {
-    .hero-slider-section {
-      height: calc(100vh - 80px);
-      min-height: 420px;
-    }
-  }
-  @media (max-width: 575.98px) {
-    .hero-slider-section {
-      height: calc(100vh - 70px);
-      min-height: 340px;
-    }
+    object-fit: contain;
   }
   .hero-slider-section .carousel-control-prev,
   .hero-slider-section .carousel-control-next {
@@ -597,11 +584,16 @@
   }
   .prestasi-img-wrap {
     width: 100%;
-    height: 260px;
+    height: 250px;
     position: relative;
     background: #190a24;
     overflow: hidden;
     display: block;
+  }
+  @media (max-width: 575.98px) {
+    .prestasi-img-wrap {
+      height: 200px;
+    }
   }
   .prestasi-img {
     width: 100%;
@@ -925,7 +917,7 @@
      3b. STATISTIK FAKULTAS — "FIKES DALAM ANGKA"
 ═══════════════════════════════════════════════ -->
 @if(isset($facultyStat) && $facultyStat)
-<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #823ca2 40%, #47175d 100%); padding: 48px 0; overflow: hidden; position: relative;">
+<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #823ca2 40%, #47175d 100%); padding: 40px 0; overflow: hidden; position: relative;">
 
   {{-- Decorative blur shapes --}}
   <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
@@ -936,19 +928,19 @@
 
       {{-- Kiri: Teks + Angka --}}
       <div class="col-lg-7" data-aos="fade-right">
-        <h2 style="color:#fff;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:28px;line-height:1.25;text-shadow:0 2px 6px rgba(0,0,0,0.3);">
+        <h2 style="color:#fff;font-size:clamp(1.35rem,3vw,1.95rem);font-weight:700;margin-bottom:22px;line-height:1.25;text-shadow:0 2px 6px rgba(0,0,0,0.3);">
           {{ $facultyStat->title }}
         </h2>
 
-        <div class="row g-3">
+        <div class="row g-2 g-sm-3">
           {{-- Program Studi --}}
           <div class="col-6 col-sm-3">
-            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+            <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
-                0
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                {{ $facultyStat->jumlah_prodi }}
               </div>
-              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+              <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
                 Program Studi
               </div>
             </div>
@@ -956,12 +948,12 @@
 
           {{-- Total Mahasiswa --}}
           <div class="col-6 col-sm-3">
-            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+            <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
-                0
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                {{ number_format($facultyStat->total_mahasiswa, 0, ',', '.') }}
               </div>
-              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+              <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
                 Total Mahasiswa
               </div>
             </div>
@@ -969,12 +961,12 @@
 
           {{-- Dosen --}}
           <div class="col-6 col-sm-3">
-            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+            <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
-                0
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                {{ $facultyStat->total_dosen }}
               </div>
-              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+              <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
                 Dosen
               </div>
             </div>
@@ -982,12 +974,12 @@
 
           {{-- Alumni --}}
           <div class="col-6 col-sm-3">
-            <div style="text-align:center;padding:12px 8px;background:rgba(255,255,255,0.08);border-radius:14px;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(6px);">
+            <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
-                   style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Outfit',sans-serif;letter-spacing:-1px;">
-                0
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                {{ number_format($facultyStat->total_alumni, 0, ',', '.') }}
               </div>
-              <div style="color:rgba(255,255,255,0.88);font-size:0.78rem;margin-top:6px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;">
+              <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
                 Alumni
               </div>
             </div>
@@ -998,13 +990,13 @@
       {{-- Kanan: Gambar --}}
       @if($facultyStat->image)
       <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end" data-aos="fade-left">
-        <div style="position:relative;max-width:400px;width:100%;">
+        <div class="w-100 position-relative" style="max-width:440px;border-radius:18px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,0.35);border:2.5px solid rgba(255,255,255,0.25);">
           <img src="{{ asset('storage/' . $facultyStat->image) }}"
                alt="{{ $facultyStat->title }}"
                loading="lazy"
-               style="width:100%;height:220px;object-fit:cover;border-radius:18px;border:3px solid rgba(255,255,255,0.25);box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+               style="width:100%;height:210px;object-fit:cover;display:block;">
           {{-- Overlay label --}}
-          <div style="position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,0.55);color:#fff;padding:5px 12px;border-radius:8px;font-size:0.72rem;font-weight:600;backdrop-filter:blur(4px);letter-spacing:0.5px;">
+          <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.65);color:#fff;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;backdrop-filter:blur(6px);letter-spacing:0.3px;">
             📍 FIKES — Universitas Ibnu Sina
           </div>
         </div>
