@@ -24,12 +24,12 @@ class LayananTerkaitDataTable extends DataTable
             ->addColumn('DT_RowIndex', '')
             ->addColumn('logo', function ($item) {
                 if ($item->logo_url) {
-                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#1e1e1e; width:48px; height:48px; box-shadow:0 2px 6px rgba(0,0,0,0.15)">
+                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#823ca2; width:48px; height:48px; box-shadow:0 2px 6px rgba(130,60,162,0.25)">
                                 <img src="' . e($item->logo_url) . '" alt="' . e($item->nama) . '" style="max-width:100%; max-height:100%; object-fit:contain;">
                             </div>';
                 }
                 $icon = $item->icon ?: 'bi-link-45deg';
-                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#1e1e1e; width:48px; height:48px; font-size:20px; color:#ff9c00 !important; box-shadow:0 2px 6px rgba(0,0,0,0.15)">
+                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#823ca2; width:48px; height:48px; font-size:20px; color:#ff9c00 !important; box-shadow:0 2px 6px rgba(130,60,162,0.25)">
                             <i class="bi ' . e($icon) . '"></i>
                         </div>';
             })

@@ -101,11 +101,11 @@
                         </label>
 
                         @if($layananTerkait->logo_url)
-                            <div class="mb-2 p-3 rounded-3 d-inline-flex align-items-center gap-3" style="background: #1e1e1e; border: 1px solid #444;">
+                            <div class="mb-2 p-3 rounded-3 d-inline-flex align-items-center gap-3" style="background: #823ca2; border: 1.5px solid rgba(255,255,255,0.25); box-shadow: 0 4px 12px rgba(130, 60, 162, 0.25);">
                                 <img src="{{ $layananTerkait->logo_url }}" alt="Logo Saat Ini" style="max-height: 50px; max-width: 80px; object-fit: contain;">
                                 <div class="text-white small">
                                     <span class="text-warning fw-bold d-block">Logo Saat Ini Aktif</span>
-                                    <span class="text-muted" style="font-size: 11px;">Unggah file baru di bawah jika ingin mengganti</span>
+                                    <span class="text-white-50" style="font-size: 11px;">Unggah file baru di bawah jika ingin mengganti</span>
                                 </div>
                             </div>
                         @endif
@@ -125,8 +125,8 @@
 
                         {{-- Preview Box Baru --}}
                         <div id="previewContainer" class="mt-3 d-none">
-                            <label class="form-label text-muted small d-block">Preview Logo Baru:</label>
-                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #1e1e1e; min-width: 90px; min-height: 90px; border: 1px dashed #ff9c00;">
+                            <label class="form-label text-muted small d-block">Preview Logo Baru pada Kartu Ungu:</label>
+                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #823ca2; min-width: 90px; min-height: 90px; border: 1.5px dashed #ff9c00; box-shadow: 0 4px 12px rgba(130, 60, 162, 0.3);">
                                 <img id="previewImg" src="#" alt="Preview Logo Baru" style="max-height: 60px; max-width: 90px; object-fit: contain;">
                             </div>
                         </div>

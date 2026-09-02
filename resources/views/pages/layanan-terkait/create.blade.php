@@ -113,8 +113,8 @@
 
                         {{-- Preview Box --}}
                         <div id="previewContainer" class="mt-3 d-none">
-                            <label class="form-label text-muted small d-block">Preview Tampilan pada Kartu Gelap:</label>
-                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #1e1e1e; min-width: 90px; min-height: 90px; border: 1px dashed #ff9c00;">
+                            <label class="form-label text-muted small d-block">Preview Tampilan pada Kartu Ungu:</label>
+                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #823ca2; min-width: 90px; min-height: 90px; border: 1.5px dashed #ff9c00; box-shadow: 0 4px 12px rgba(130, 60, 162, 0.3);">
                                 <img id="previewImg" src="#" alt="Preview Logo" style="max-height: 60px; max-width: 90px; object-fit: contain;">
                             </div>
                         </div>

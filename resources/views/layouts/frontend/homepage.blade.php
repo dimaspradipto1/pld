@@ -99,8 +99,8 @@
     margin: 0 auto;
   }
   .layanan-terkait-card {
-    background: #1e1e1e;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #823ca2;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
     border-radius: 14px;
     padding: 18px 20px;
     min-height: 110px;
@@ -108,7 +108,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(130, 60, 162, 0.35);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -126,9 +126,9 @@
   }
   .layanan-terkait-card:hover {
     transform: translateY(-5px);
-    background: #242424;
-    border-color: rgba(255, 156, 0, 0.5);
-    box-shadow: 0 12px 28px -4px rgba(130, 60, 162, 0.3), 0 0 0 1px rgba(255, 156, 0, 0.3);
+    background: #682985;
+    border-color: #ff9c00;
+    box-shadow: 0 14px 30px -4px rgba(130, 60, 162, 0.5), 0 0 0 2px #ff9c00;
   }
   .layanan-terkait-card:hover::before {
     height: 100%;
