@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- BIMA Ganesha / Elephant stylized symbol -->
+  <circle cx="50" cy="40" r="28" stroke="#ffffff" stroke-width="3" fill="none"/>
+  <path d="M42 32 C38 32 36 38 40 44 C44 50 48 56 46 62 C44 64 42 63 40 60" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="44" cy="36" r="2" fill="#ff9c00"/>
+  <circle cx="58" cy="36" r="2" fill="#ff9c00"/>
+  <path d="M52 30 C58 30 64 34 62 42 C60 48 56 52 50 56" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="50" y="86" text-anchor="middle" fill="#ffffff" font-size="16" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" letter-spacing="1">BIMA</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- SINTA Tree/Circle -->
+  <circle cx="50" cy="38" r="24" fill="#ffffff"/>
+  <!-- Tree silhouette inside -->
+  <path d="M50 20 C42 20 36 26 36 34 C36 42 42 46 48 48 L48 54 L52 54 L52 48 C58 46 64 42 64 34 C64 26 58 20 50 20 Z" fill="#1e1e1e"/>
+  <circle cx="45" cy="30" r="3" fill="#ffffff"/>
+  <circle cx="55" cy="28" r="3.5" fill="#ffffff"/>
+  <circle cx="52" cy="36" r="2.5" fill="#ffffff"/>
+  <!-- Text -->
+  <text x="50" y="80" text-anchor="middle" fill="#ffffff" font-size="20" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" letter-spacing="1">sinta</text>
+</svg>

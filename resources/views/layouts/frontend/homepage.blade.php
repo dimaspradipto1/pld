@@ -75,6 +75,104 @@
   }
 
   /* ═══════════════════════════════════════════════
+     LAYANAN TERKAIT (DIGITAL SERVICES CARDS)
+  ═══════════════════════════════════════════════ */
+  .layanan-terkait-section {
+    background-color: #ffffff;
+    position: relative;
+    padding: 50px 0 35px 0;
+  }
+  .layanan-terkait-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--fikes-purple, #823ca2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .layanan-terkait-desc {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.65;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .layanan-terkait-card {
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+  .layanan-terkait-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0%;
+    background: var(--fikes-orange, #ff9c00);
+    transition: height 0.3s ease;
+  }
+  .layanan-terkait-card:hover {
+    transform: translateY(-5px);
+    background: #242424;
+    border-color: rgba(255, 156, 0, 0.5);
+    box-shadow: 0 12px 28px -4px rgba(130, 60, 162, 0.3), 0 0 0 1px rgba(255, 156, 0, 0.3);
+  }
+  .layanan-terkait-card:hover::before {
+    height: 100%;
+  }
+  .layanan-terkait-logo-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 38px;
+    margin-bottom: 14px;
+  }
+  .layanan-terkait-logo {
+    max-height: 36px;
+    max-width: 65px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .layanan-terkait-card:hover .layanan-terkait-logo {
+    transform: scale(1.1);
+  }
+  .layanan-terkait-icon {
+    font-size: 26px;
+    color: var(--fikes-orange, #ff9c00);
+    transition: transform 0.3s ease;
+  }
+  .layanan-terkait-card:hover .layanan-terkait-icon {
+    transform: scale(1.15);
+  }
+  .layanan-terkait-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.35;
+    transition: color 0.25s ease;
+  }
+  .layanan-terkait-card:hover .layanan-terkait-name {
+    color: var(--fikes-orange, #ff9c00);
+  }
+
+  /* ═══════════════════════════════════════════════
      2. STATISTIK STRIP
   ═══════════════════════════════════════════════ */
   .stats-strip {
@@ -863,6 +961,50 @@
 
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════
+     2. LAYANAN TERKAIT (PORTAL & DIGITAL SERVICES)
+═══════════════════════════════════════════════ -->
+@if(isset($layananTerkaits) && $layananTerkaits->count() > 0)
+<section class="layanan-terkait-section" id="layanan-terkait">
+  <div class="container">
+    {{-- Header Title & Subtitle --}}
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="layanan-terkait-title">
+        {{ $layananTerkaitSetting->judul_seksi ?? 'LAYANAN TERKAIT' }}
+      </h2>
+      @if(!empty($layananTerkaitSetting?->subjudul_seksi))
+        <p class="layanan-terkait-desc">
+          “{{ $layananTerkaitSetting->subjudul_seksi }}”
+        </p>
+      @endif
+    </div>
+
+    {{-- Grid 4 Columns of Dark Cards --}}
+    <div class="row g-3 g-lg-4 justify-content-center">
+      @foreach($layananTerkaits as $item)
+        <div class="col-xl-3 col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="{{ min(400, 50 * ($loop->index + 1)) }}">
+          <a href="{{ $item->url }}" target="_blank" rel="noopener noreferrer" class="layanan-terkait-card" title="{{ $item->deskripsi ?? $item->nama }}">
+            {{-- Top Right Logo / Icon --}}
+            <div class="layanan-terkait-logo-wrap">
+              @if($item->logo_url)
+                <img src="{{ $item->logo_url }}" alt="{{ $item->nama }}" class="layanan-terkait-logo">
+              @else
+                <i class="bi {{ $item->icon ?: 'bi-box-arrow-up-right' }} layanan-terkait-icon"></i>
+              @endif
+            </div>
+
+            {{-- Bottom Left Service Name --}}
+            <h3 class="layanan-terkait-name">
+              {{ $item->nama }}
+            </h3>
+          </a>
+        </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+@endif
 
 
 

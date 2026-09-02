@@ -32,6 +32,7 @@ use App\Http\Controllers\OrganisasiMahasiswaController;
 use App\Http\Controllers\FacultyStatController;
 use App\Http\Controllers\TriDharmaController;
 use App\Http\Controllers\TenagaPendidikController;
+use App\Http\Controllers\LayananTerkaitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,6 +127,8 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
         ->parameters(['admin-kurikulum' => 'kurikulum'])
         ->names('kurikulum');
     Route::resource('banner', BannerController::class);
+    Route::post('layanan-terkait/setting', [LayananTerkaitController::class, 'updateSetting'])->name('layanan-terkait.update-setting');
+    Route::resource('layanan-terkait', LayananTerkaitController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('sarana', SaranaController::class);
     Route::resource('tridharma', TriDharmaController::class);

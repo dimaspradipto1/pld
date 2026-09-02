@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
             StrukturOrganisasiSeeder::class,
             PartnerSeeder::class,
             TestimonialSeeder::class,
+            LayananTerkaitSeeder::class,
         ]);
     }
 }

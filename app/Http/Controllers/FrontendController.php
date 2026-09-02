@@ -36,6 +36,8 @@ class FrontendController extends Controller
         $struktur         = \App\Models\StrukturOrganisasi::first();
         $pmbSetting       = \App\Models\PmbSetting::first();
         $facultyStat      = \App\Models\FacultyStat::where('is_active', true)->latest('id')->first();
+        $layananTerkaits  = \App\Models\LayananTerkait::where('is_active', true)->orderBy('urutan')->get();
+        $layananTerkaitSetting = \App\Models\LayananTerkaitSetting::first();
 
         if (!$facultyStat) {
             $facultyStat = (object) [
@@ -69,7 +71,9 @@ class FrontendController extends Controller
             'sambutanDekan',
             'struktur',
             'pmbSetting',
-            'facultyStat'
+            'facultyStat',
+            'layananTerkaits',
+            'layananTerkaitSetting'
         ));
     }
 
