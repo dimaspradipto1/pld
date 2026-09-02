@@ -308,11 +308,17 @@ class FrontendController extends Controller
         return view('layouts.frontend.news', compact('featured', 'newsList', 'search', 'categories', 'selectedCat'));
     }
 
-    public function newsDetail($id)
+    public function newsDetail($slug)
     {
-        $news        = \App\Models\News::where('status', 'published')->findOrFail($id);
+        $news = \App\Models\News::where('status', 'published')
+            ->where(function ($q) use ($slug) {
+                $q->where('slug', $slug)
+                  ->orWhere('id', $slug);
+            })
+            ->firstOrFail();
+
         $relatedNews = \App\Models\News::where('status', 'published')
-                        ->where('id', '!=', $id)
+                        ->where('id', '!=', $news->id)
                         ->latest()
                         ->take(4)
                         ->get();

@@ -413,7 +413,7 @@
             <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-newspaper me-2" style="color:var(--fikes-orange);"></i>Berita Lainnya</h5>
             <div class="d-flex flex-column gap-3">
               @foreach($relatedNews as $related)
-                <a href="{{ route('homepage.news.detail', $related->id) }}" class="d-flex gap-3 text-decoration-none text-dark group-hover">
+                <a href="{{ route('homepage.news.detail', $related->slug ?? $related->id) }}" class="d-flex gap-3 text-decoration-none text-dark group-hover">
                   @if($related->thumbnail)
                     <img src="{{ asset('storage/' . $related->thumbnail) }}" alt="{{ $related->title }}" class="related-thumb">
                   @else

@@ -233,7 +233,7 @@
               </p>
             </div>
             <div>
-              <a href="{{ route('homepage.news.detail', $featured->id) }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
+              <a href="{{ route('homepage.news.detail', $featured->slug ?? $featured->id) }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
                 Baca Berita Lengkap <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -335,7 +335,7 @@
                   </p>
                 </div>
                 <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                  <a href="{{ route('homepage.news.detail', $article->id) }}" class="fw-bold text-decoration-none" style="color: var(--fikes-purple); font-size: 13.5px;">
+                  <a href="{{ route('homepage.news.detail', $article->slug ?? $article->id) }}" class="fw-bold text-decoration-none" style="color: var(--fikes-purple); font-size: 13.5px;">
                     Selengkapnya <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>

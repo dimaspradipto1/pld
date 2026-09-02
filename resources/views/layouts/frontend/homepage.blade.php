@@ -1741,7 +1741,7 @@
           @if(isset($latestNews) && $latestNews->count() > 0)
             @foreach($latestNews as $news)
               <div class="col-sm-6">
-                <a href="{{ route('homepage.news.detail', $news->id) }}" class="news-mini-item">
+                <a href="{{ route('homepage.news.detail', $news->slug ?? $news->id) }}" class="news-mini-item">
                   <div class="news-mini-img-wrap">
                     @if(!empty($news->thumbnail))
                       <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->title }}" class="news-mini-img">
@@ -1795,7 +1795,7 @@
           <div class="announcement-list">
             @if(isset($announcements) && $announcements->count() > 0)
               @foreach($announcements as $ann)
-                <a href="{{ route('homepage.news.detail', $ann->id) }}" class="announcement-card-box">
+                <a href="{{ route('homepage.news.detail', $ann->slug ?? $ann->id) }}" class="announcement-card-box">
                   <div class="announcement-card-title">{{ $ann->title }}</div>
                   <div class="announcement-card-date">{{ $ann->created_at ? $ann->created_at->format('d F Y') : '-' }}</div>
                 </a>

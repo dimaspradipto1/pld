@@ -63,7 +63,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/alumni/kirim-testimoni', 'alumniCreateTestimoni')->name('homepage.alumni.create');
     Route::post('/alumni/kirim-testimoni', 'storeTestimonial')->name('homepage.alumni.store');
     Route::get('/berita', 'news')->name('homepage.news');
-    Route::get('/berita/{id}', 'newsDetail')->name('homepage.news.detail');
+    Route::get('/berita/{slug}', 'newsDetail')->name('homepage.news.detail');
     Route::get('/faq', 'faq')->name('homepage.faq');
     Route::get('/kontak', 'kontak')->name('homepage.kontak');
 });
