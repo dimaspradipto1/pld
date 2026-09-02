@@ -6,54 +6,39 @@
 @push('styles')
 <style>
   /* ═══════════════════════════════════════════════
-     HERO BANNER
+     HERO BANNER (FULLWIDTH & FULLHEIGHT)
   ═══════════════════════════════════════════════ */
   .hero-slider-section {
     position: relative;
     background: #190a24;
     overflow: hidden;
     width: 100%;
+    height: calc(100vh - 90px);
+    min-height: 560px;
+  }
+  #heroCarousel,
+  #heroCarousel .carousel-inner,
+  #heroCarousel .carousel-item {
+    width: 100%;
+    height: 100%;
   }
   .hero-banner-img {
     width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
     object-position: center;
   }
-  @media (min-width: 992px) {
-    .hero-banner-img {
-      height: 480px;
-      max-height: 520px;
-      object-fit: cover;
+  @media (max-width: 991.98px) {
+    .hero-slider-section {
+      height: calc(100vh - 80px);
+      min-height: 420px;
     }
   }
-  @media (min-width: 768px) and (max-width: 991.98px) {
+  @media (max-width: 575.98px) {
     .hero-slider-section {
-      background: #190a24;
-    }
-    .hero-banner-img {
-      height: 320px;
-      object-fit: contain;
-      background: #190a24;
-    }
-  }
-  @media (max-width: 767.98px) {
-    .hero-slider-section {
-      background: #190a24;
-      min-height: 250px;
-    }
-    .hero-slider-section .carousel-item {
-      min-height: 250px;
-      background: #190a24;
-    }
-    .hero-banner-img {
-      width: 100% !important;
-      height: 250px !important;
-      min-height: 250px !important;
-      object-fit: contain !important;
-      object-position: center !important;
-      background: #190a24 !important;
-      margin: 0 auto;
+      height: calc(100vh - 70px);
+      min-height: 340px;
     }
   }
   .hero-slider-section .carousel-control-prev,
@@ -1518,32 +1503,6 @@
       </div>
     @endif
 
-    {{-- 3 Kartu Ekosistem Mahasiswa --}}
-    <div class="row g-4 pt-3 border-top">
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-4 rounded-4 bg-light border text-center h-100">
-          <div class="feature-icon-wrap mx-auto"><i class="bi bi-diagram-3-fill"></i></div>
-          <h4 class="fw-bold mb-2" style="font-size: 18px;">Organisasi Mahasiswa</h4>
-          <p class="text-muted small mb-0">Badan Eksekutif Mahasiswa (BEM) FIKES, HIMA K3, HIMA Kesling, dan berbagai Unit Kegiatan Mahasiswa (UKM).</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="p-4 rounded-4 bg-light border text-center h-100">
-          <div class="feature-icon-wrap mx-auto"><i class="bi bi-trophy-fill"></i></div>
-          <h4 class="fw-bold mb-2" style="font-size: 18px;">Kompetisi & Riset Ilmiah</h4>
-          <p class="text-muted small mb-0">Pembinaan intensif dosen pembimbing dalam ajang LKTI, Program Kreativitas Mahasiswa (PKM), dan poster kesehatan.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="p-4 rounded-4 bg-light border text-center h-100">
-          <div class="feature-icon-wrap mx-auto"><i class="bi bi-calendar-check-fill"></i></div>
-          <h4 class="fw-bold mb-2" style="font-size: 18px;">Kunjungan & Sertifikasi</h4>
-          <p class="text-muted small mb-0">Praktik lapangan di sektor industri manufaktur/galangan migas, serta pembekalan sertifikasi Ahli K3 Umum.</p>
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -1630,7 +1589,7 @@
       <div class="row g-4">
         @foreach($galleries->take(6) as $index => $gal)
           <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
-            <div class="gallery-card-item">
+            <a href="{{ route('homepage.galeri.detail', $gal->slug ?? $gal->id) }}" class="gallery-card-item d-block text-decoration-none">
               <div class="gallery-img-container">
                 @if(!empty($gal->url))
                   <img src="{{ asset('storage/' . $gal->url) }}" alt="{{ $gal->judul }}" class="gallery-card-img" loading="lazy">
@@ -1647,7 +1606,7 @@
                   @endif
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         @endforeach
       </div>

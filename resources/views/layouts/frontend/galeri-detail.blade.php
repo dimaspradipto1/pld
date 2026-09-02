@@ -1,0 +1,238 @@
+@extends('layouts.frontend.template')
+
+@section('title', ($gallery->judul ?? 'Dokumentasi Visual') . ' — Galeri FIKES UIS')
+@section('meta_description', Str::limit(strip_tags($gallery->deskripsi ?? $gallery->judul), 160))
+
+@push('styles')
+<style>
+  .detail-hero {
+    background: var(--obsidian-dark);
+    padding: 60px 0 40px;
+    border-bottom: 2px solid var(--fikes-purple);
+  }
+  .galeri-img-main {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+  }
+  .info-badge-card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .info-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-light);
+    font-size: 14px;
+  }
+  .info-meta-row:last-child {
+    border-bottom: none;
+  }
+  .info-meta-label {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .info-meta-val {
+    font-weight: 700;
+    color: var(--obsidian-dark);
+    text-align: right;
+  }
+  .other-galeri-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-light);
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+  }
+  .other-galeri-item:hover {
+    transform: translateX(4px);
+  }
+  .other-galeri-item:last-child {
+    border-bottom: none;
+  }
+  .other-galeri-img {
+    width: 85px;
+    height: 65px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .other-galeri-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--obsidian-dark);
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+  .other-galeri-item:hover .other-galeri-title {
+    color: var(--fikes-purple);
+  }
+</style>
+@endpush
+
+@section('content')
+<!-- Header Hero -->
+<div class="detail-hero text-white">
+  <div class="container">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('homepage.galeri') }}" class="text-white-50 text-decoration-none">Galeri & Dokumentasi</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{ Str::limit($gallery->judul ?? 'Detail Dokumentasi', 35) }}</li>
+      </ol>
+    </nav>
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <span class="badge px-3 py-2 rounded-pill font-weight-bold" style="background: var(--fikes-purple); color: white; font-size: 12px;">
+        <i class="bi bi-camera-fill me-1"></i>Dokumentasi Visual
+      </span>
+      <span class="badge bg-light text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 12px;">
+        <i class="bi bi-calendar3 me-1"></i>{{ $gallery->created_at->translatedFormat('d F Y') }}
+      </span>
+    </div>
+    <h1 class="fw-bold mb-0 text-white" style="font-size: 32px; line-height: 1.4;">
+      {{ $gallery->judul ?? 'Dokumentasi Kegiatan FIKES UIS' }}
+    </h1>
+  </div>
+</div>
+
+<section class="section-bg-sand py-5">
+  <div class="container py-3">
+    <div class="row g-4 g-lg-5">
+
+      <!-- Kolom Kiri: Foto Utama & Deskripsi Rinci -->
+      <div class="col-lg-8" data-aos="fade-up">
+        
+        <!-- Foto Dokumentasi Utama -->
+        @if(!empty($gallery->url))
+          <div class="mb-4 text-center position-relative">
+            <img src="{{ asset('storage/' . $gallery->url) }}" alt="{{ $gallery->judul ?? 'Dokumentasi FIKES' }}" class="galeri-img-main img-fluid">
+            <a href="{{ asset('storage/' . $gallery->url) }}" target="_blank" class="btn btn-sm btn-dark position-absolute bottom-0 end-0 m-3 opacity-75 hover-opacity-100 rounded-pill px-3 shadow" style="font-size: 12px;">
+              <i class="bi bi-arrows-fullscreen me-1"></i> Buka Ukuran Penuh
+            </a>
+          </div>
+        @else
+          <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
+            <i class="bi bi-camera-fill" style="font-size: 64px; color: #ffd166;"></i>
+            <h4 class="fw-bold mt-2 mb-0">Dokumentasi FIKES UIS</h4>
+          </div>
+        @endif
+
+        <!-- Card Deskripsi Lengkap -->
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border mb-4">
+          <h3 class="fw-bold mb-3 text-dark" style="font-size: 22px;">
+            <i class="bi bi-info-circle-fill text-primary me-2" style="color: var(--fikes-purple) !important;"></i>Keterangan & Informasi Kegiatan
+          </h3>
+          <div class="divider-line mb-4"></div>
+
+          @if(!empty($gallery->deskripsi))
+            <div class="article-content" style="line-height: 1.85; font-size: 15.5px; color: #334155;">
+              {!! nl2br(e($gallery->deskripsi)) !!}
+            </div>
+          @else
+            <p class="text-muted">
+              Dokumentasi visual kegiatan dan aktivitas sivitas akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS).
+            </p>
+          @endif
+
+          <div class="mt-4 pt-3 border-top d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <a href="{{ route('homepage.galeri') }}" class="btn btn-outline-secondary rounded-pill px-4" style="font-size: 13.5px;">
+              <i class="bi bi-arrow-left me-1"></i> Kembali ke Semua Galeri
+            </a>
+
+            @php
+              $shareUrl  = urlencode(url()->current());
+              $shareText = urlencode('Dokumentasi FIKES UIS: ' . ($gallery->judul ?? 'Dokumentasi Visual'));
+            @endphp
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-muted small fw-semibold">Bagikan:</span>
+              <a href="https://wa.me/?text={{ $shareText }}%20{{ $shareUrl }}" target="_blank" class="btn btn-sm btn-success rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Bagikan ke WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}" target="_blank" class="btn btn-sm btn-primary rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Bagikan ke Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <button type="button" onclick="navigator.clipboard.writeText(window.location.href); alert('Tautan dokumentasi berhasil disalin!');" class="btn btn-sm btn-secondary rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Salin Tautan">
+                <i class="bi bi-link-45deg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Kolom Kanan: Info Metadata & Galeri Lainnya -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Card Informasi Metadata -->
+        <div class="info-badge-card mb-4">
+          <h5 class="fw-bold mb-3 text-dark d-flex align-items-center gap-2" style="font-size: 17px;">
+            <i class="bi bi-camera-reels text-warning"></i>
+            <span>Informasi Dokumentasi</span>
+          </h5>
+
+          <div class="info-meta-row">
+            <span class="info-meta-label">Kategori</span>
+            <span class="info-meta-val text-primary" style="color: var(--fikes-purple) !important;">Dokumentasi Visual</span>
+          </div>
+
+          <div class="info-meta-row">
+            <span class="info-meta-label">Fakultas</span>
+            <span class="info-meta-val">FIKES UIS</span>
+          </div>
+
+          <div class="info-meta-row">
+            <span class="info-meta-label">Tanggal Terbit</span>
+            <span class="info-meta-val">{{ $gallery->created_at->translatedFormat('d F Y') }}</span>
+          </div>
+        </div>
+
+        <!-- Card Galeri Lainnya -->
+        @if(isset($otherGalleries) && $otherGalleries->count() > 0)
+          <div class="info-badge-card">
+            <h5 class="fw-bold mb-3 text-dark d-flex align-items-center justify-content-between" style="font-size: 17px;">
+              <span class="d-flex align-items-center gap-2">
+                <i class="bi bi-images text-primary" style="color: var(--fikes-purple) !important;"></i>
+                Dokumentasi Lainnya
+              </span>
+              <a href="{{ route('homepage.galeri') }}" class="small fw-semibold text-decoration-none" style="font-size: 12.5px; color: var(--fikes-purple);">Lihat Semua</a>
+            </h5>
+
+            <div>
+              @foreach($otherGalleries as $other)
+                <a href="{{ route('homepage.galeri.detail', $other->slug ?? $other->id) }}" class="other-galeri-item">
+                  @if(!empty($other->url))
+                    <img src="{{ asset('storage/' . $other->url) }}" alt="{{ $other->judul }}" class="other-galeri-img">
+                  @else
+                    <div class="other-galeri-img d-flex align-items-center justify-content-center text-white" style="background: linear-gradient(135deg, #823ca2, #4a1563);">
+                      <i class="bi bi-camera-fill small"></i>
+                    </div>
+                  @endif
+                  <div class="d-flex flex-column justify-content-center">
+                    <span class="other-galeri-title text-truncate-2">{{ Str::limit($other->judul, 50) }}</span>
+                    <span class="text-muted small mt-1" style="font-size: 11.5px;">
+                      <i class="bi bi-calendar3 me-1"></i>{{ $other->created_at->translatedFormat('d M Y') }}
+                    </span>
+                  </div>
+                </a>
+              @endforeach
+            </div>
+          </div>
+        @endif
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+@endsection

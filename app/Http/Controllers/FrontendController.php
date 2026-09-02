@@ -189,8 +189,24 @@ class FrontendController extends Controller
 
     public function galeri()
     {
-        $galleries = \App\Models\Gallery::latest()->get();
+        $galleries = \App\Models\Gallery::latest()->paginate(12);
         return view('layouts.frontend.galeri', compact('galleries'));
+    }
+
+    public function galeriDetail($slug)
+    {
+        $gallery = \App\Models\Gallery::where(function ($q) use ($slug) {
+                $q->where('slug', $slug)
+                  ->orWhere('id', $slug);
+            })
+            ->firstOrFail();
+
+        $otherGalleries = \App\Models\Gallery::where('id', '!=', $gallery->id)
+                            ->latest('id')
+                            ->take(6)
+                            ->get();
+
+        return view('layouts.frontend.galeri-detail', compact('gallery', 'otherGalleries'));
     }
 
     public function tentang()

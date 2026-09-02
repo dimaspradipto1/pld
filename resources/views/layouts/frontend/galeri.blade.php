@@ -96,26 +96,38 @@
       <div class="row g-4">
         @foreach($galleries as $item)
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <div class="galeri-item-card">
-              @if(!empty($item->url))
-                <img src="{{ asset('storage/' . $item->url) }}" alt="{{ $item->judul ?? 'Dokumentasi FIKES' }}" class="galeri-img-wrap">
-              @else
-                <div class="d-flex align-items-center justify-content-center text-white" style="height: 240px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);">
-                  <i class="bi bi-camera-fill fs-1 text-white-50"></i>
-                </div>
-              @endif
-              @if(!empty($item->judul))
-                <div class="galeri-caption">
-                  <h6 class="text-dark mb-1 fw-bold" style="font-size: 15px; color: #1e293b !important;">{{ $item->judul }}</h6>
-                  @if(!empty($item->deskripsi))
-                    <small class="text-muted d-block" style="font-size: 13px; line-height: 1.5; color: #64748b !important;">{!! Str::limit(strip_tags($item->deskripsi), 90) !!}</small>
-                  @endif
-                </div>
-              @endif
-            </div>
+            <a href="{{ route('homepage.galeri.detail', $item->slug ?? $item->id) }}" class="text-decoration-none d-block">
+              <div class="galeri-item-card">
+                @if(!empty($item->url))
+                  <img src="{{ asset('storage/' . $item->url) }}" alt="{{ $item->judul ?? 'Dokumentasi FIKES' }}" class="galeri-img-wrap">
+                @else
+                  <div class="d-flex align-items-center justify-content-center text-white" style="height: 220px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);">
+                    <i class="bi bi-camera-fill fs-1 text-white-50"></i>
+                  </div>
+                @endif
+                @if(!empty($item->judul))
+                  <div class="galeri-caption">
+                    <h6 class="text-dark mb-1 fw-bold" style="font-size: 15px; color: #1e293b !important;">{{ $item->judul }}</h6>
+                    @if(!empty($item->deskripsi))
+                      <small class="text-muted d-block" style="font-size: 13px; line-height: 1.5; color: #64748b !important;">{!! Str::limit(strip_tags($item->deskripsi), 90) !!}</small>
+                    @endif
+                    <div class="mt-2 text-primary fw-bold small d-flex align-items-center gap-1" style="font-size: 12.5px; color: var(--fikes-purple) !important;">
+                      <span>Lihat Detail</span>
+                      <i class="bi bi-arrow-right"></i>
+                    </div>
+                  </div>
+                @endif
+              </div>
+            </a>
           </div>
         @endforeach
       </div>
+
+      @if(method_exists($galleries, 'links'))
+        <div class="d-flex justify-content-center mt-5">
+          {{ $galleries->links() }}
+        </div>
+      @endif
     @endif
   </div>
 </section>
