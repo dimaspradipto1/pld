@@ -109,18 +109,59 @@
         transition: none !important;
         visibility: visible !important;
       }
+      .btn-mobile-full {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
     }
     .bg-fikes-purple { background-color: var(--fikes-purple) !important; }
     .bg-fikes-orange { background-color: var(--fikes-orange) !important; }
 
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--page-bg);
       color: var(--text-main);
       overflow-x: hidden;
+      max-width: 100vw;
       line-height: 1.65;
+    }
+
+    /* Swiper Navigation Controls */
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 44px !important;
+      height: 44px !important;
+      background: #ffffff !important;
+      border-radius: 50% !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      border: 1px solid var(--border-light) !important;
+      color: var(--fikes-purple) !important;
+      transition: all 0.25s ease !important;
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 15px !important;
+      font-weight: 800 !important;
+    }
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      background: var(--fikes-purple) !important;
+      color: #ffffff !important;
+      transform: scale(1.08);
+    }
+    @media (max-width: 768px) {
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none !important;
+      }
     }
 
     h1, h2, h3, h4, h5, h6 {

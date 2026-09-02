@@ -584,11 +584,13 @@
   }
   .prestasi-img-wrap {
     width: 100%;
-    height: 250px;
+    height: 230px;
     position: relative;
     background: #190a24;
     overflow: hidden;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   @media (max-width: 575.98px) {
     .prestasi-img-wrap {
@@ -598,13 +600,14 @@
   .prestasi-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: center;
+    background: #190a24;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
   }
   .prestasi-card:hover .prestasi-img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   .prestasi-tingkat-badge {
     position: absolute;
@@ -763,6 +766,31 @@
   .btn-pmb-wa:hover i {
     color: #25D366 !important;
     transform: scale(1.15);
+  }
+
+  /* Mobile Fullwidth Buttons & Overflow Fix */
+  @media (max-width: 767.98px) {
+    .pmb-btn-group {
+      flex-direction: column !important;
+      width: 100% !important;
+    }
+    .pmb-btn-group .btn-primary-hero,
+    .pmb-btn-group .btn-pmb-wa {
+      width: 100% !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    .pmb-cta-box {
+      padding: 30px 18px !important;
+      border-radius: 20px !important;
+    }
+    .pmb-badge-wrap {
+      white-space: normal !important;
+      word-break: break-word !important;
+      line-height: 1.4 !important;
+      display: inline-block !important;
+      max-width: 100% !important;
+    }
   }
 </style>
 @endpush
@@ -1837,16 +1865,16 @@
     <div class="pmb-cta-box">
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
-          <div class="badge px-3 py-2 rounded-pill mb-3" style="background: var(--fikes-orange); color: #190a24; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
+          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--fikes-orange); color: #190a24; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
             {{ $pmbSetting->badge_text ?? 'PENERIMAAN MAHASISWA BARU (PMB) T.A. 2026/2027' }}
           </div>
-          <h2 class="text-white fw-bold mb-3" style="font-size: 34px;">
+          <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">
             {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Cerah Bersama FIKES UIS!' }}
           </h2>
-          <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92;">
+          <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92; font-size: 14.5px;">
             {{ $pmbSetting->deskripsi ?? 'Tersedia berbagai jalur seleksi: Jalur Bebas Tes / Prestasi, Jalur Reguler, Jalur KIP-Kuliah, dan Jalur Alih Jenjang Karyawan.' }}
           </p>
-          <div class="d-flex flex-wrap gap-3">
+          <div class="d-flex flex-wrap gap-3 pmb-btn-group">
             @php
               $link1 = $pmbSetting->tombol_link_1 ?? route('homepage.kontak');
               if (!str_starts_with($link1, 'http') && !str_starts_with($link1, '/')) {
