@@ -16,7 +16,7 @@ class AboutSeeder extends Seeder
 
         About::create([
             // Profil Fakultas
-            'judul_profil'       => 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>',
+            'judul_profil'       => 'Pusat Keunggulan Pendidikan & Pelayanan Kesehatan',
             'deskripsi_profil_1' => 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.',
             'deskripsi_profil_2' => 'FIKES didukung oleh tenaga pendidik berkualifikasi magister dan doktor, sarana laboratorium terpadu berstandar nasional, serta jejaring kemitraan rumah sakit pendidikan terkemuka.',
 
