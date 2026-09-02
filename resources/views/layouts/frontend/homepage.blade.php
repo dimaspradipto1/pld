@@ -1331,42 +1331,89 @@
       </p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="dosen-card">
-          <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-          <div class="dosen-name">Dosen Bidang K3</div>
-          <div class="dosen-bidang">Spesialis Ergonomi & SMK3</div>
-          <p class="dosen-pub">Ahli K3 Umum & Auditor ISO 45001 Kemnaker RI.</p>
+    <div class="row g-4 justify-content-center">
+      @forelse($tenagaPendidiks as $tp)
+        @php
+          $prodiUrl = $tp->link ?: ($tp->layanan_id ? route('homepage.dosen', ['prodi' => $tp->layanan_id]) : route('homepage.dosen'));
+          $btnText  = $tp->tombol_teks ?: ($tp->layanan ? 'Lihat Dosen ' . Str::limit($tp->layanan->judul, 20) : 'Lihat Dosen');
+        @endphp
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+          <div class="dosen-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="dosen-avatar">
+                @if($tp->foto)
+                  <img src="{{ asset('storage/' . $tp->foto) }}" alt="{{ $tp->nama }}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                @else
+                  <i class="bi {{ $tp->icon ?: 'bi-person-fill' }}"></i>
+                @endif
+              </div>
+              <div class="dosen-name">{{ $tp->nama }}</div>
+              @if($tp->bidang)
+                <div class="dosen-bidang">{{ $tp->bidang }}</div>
+              @endif
+              @if($tp->keterangan)
+                <p class="dosen-pub mb-3">{{ $tp->keterangan }}</p>
+              @endif
+            </div>
+            <div class="pt-3 mt-auto border-top">
+              <a href="{{ $prodiUrl }}" class="btn btn-sm w-100 rounded-pill fw-bold text-decoration-none d-inline-flex align-items-center justify-content-center gap-1"
+                 style="background: var(--fikes-purple-light, #f3ebf8); color: var(--fikes-purple, #823ca2); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
+                 onmouseover="this.style.background='var(--fikes-purple, #823ca2)'; this.style.color='#ffffff';"
+                 onmouseout="this.style.background='var(--fikes-purple-light, #f3ebf8)'; this.style.color='var(--fikes-purple, #823ca2)';">
+                <i class="bi bi-people-fill"></i> {{ $btnText }}
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      @empty
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="dosen-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
+              <div class="dosen-name">Dosen Bidang K3</div>
+              <div class="dosen-bidang">Spesialis Ergonomi & SMK3</div>
+              <p class="dosen-pub mb-3">Ahli K3 Umum & Auditor ISO 45001 Kemnaker RI.</p>
+            </div>
+            <div class="pt-3 mt-auto border-top">
+              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
+                <i class="bi bi-people-fill me-1"></i> Lihat Dosen K3
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-        <div class="dosen-card">
-          <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-          <div class="dosen-name">Dosen Higiene Industri</div>
-          <div class="dosen-bidang">Toksikologi & Bahaya Fisik</div>
-          <p class="dosen-pub">Pengalaman 15+ tahun di industri manufaktur & galangan.</p>
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="dosen-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
+              <div class="dosen-name">Dosen Higiene Industri</div>
+              <div class="dosen-bidang">Toksikologi & Bahaya Fisik</div>
+              <p class="dosen-pub mb-3">Pengalaman 15+ tahun di industri manufaktur & galangan.</p>
+            </div>
+            <div class="pt-3 mt-auto border-top">
+              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
+                <i class="bi bi-people-fill me-1"></i> Lihat Dosen Kesmas
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="dosen-card">
-          <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-          <div class="dosen-name">Dosen Kesehatan Lingkungan</div>
-          <div class="dosen-bidang">AMDAL & Pengolahan Limbah B3</div>
-          <p class="dosen-pub">Konsultan AMDAL bersertifikasi & Penilai KLHK.</p>
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="dosen-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
+              <div class="dosen-name">Dosen Kesehatan Lingkungan</div>
+              <div class="dosen-bidang">AMDAL & Pengolahan Limbah B3</div>
+              <p class="dosen-pub mb-3">Konsultan AMDAL bersertifikasi & Penilai KLHK.</p>
+            </div>
+            <div class="pt-3 mt-auto border-top">
+              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
+                <i class="bi bi-people-fill me-1"></i> Lihat Dosen Kesling
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-        <div class="dosen-card">
-          <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-          <div class="dosen-name">Dosen Sanitasi Industri</div>
-          <div class="dosen-bidang">Kualitas Air & Vektor Penyakit</div>
-          <p class="dosen-pub">Peneliti mikrobiologi lingkungan & epidemiologi terapan.</p>
-        </div>
-      </div>
+      @endforelse
     </div>
   </div>
 </section>

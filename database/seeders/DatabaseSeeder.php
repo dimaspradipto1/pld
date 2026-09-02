@@ -20,6 +20,7 @@ use Database\Seeders\TestimonialSeeder;
 use Database\Seeders\VisiMisiSeeder;
 use Database\Seeders\FacultyStatSeeder;
 use Database\Seeders\TriDharmaSeeder;
+use Database\Seeders\TenagaPendidikSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
@@ -43,6 +44,7 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             SaranaSeeder::class,
             TriDharmaSeeder::class,
+            TenagaPendidikSeeder::class,
             GallerySeeder::class,
             FacultyStatSeeder::class,
             LayananSeeder::class,
