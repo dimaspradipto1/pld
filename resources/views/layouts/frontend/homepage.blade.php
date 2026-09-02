@@ -1257,30 +1257,43 @@
         </p>
 
         <div class="row g-3">
-          <div class="col-sm-6">
-            <div class="p-3 rounded-3 bg-light border">
-              <div class="fw-bold text-dark mb-1"><i class="bi bi-journal-check text-primary me-2" style="color:var(--fikes-purple) !important;"></i>Riset Terapan</div>
-              <p class="text-muted small mb-0">Fokus riset ergonomi industri maritim dan sanitasi pesisir.</p>
+          @forelse($triDharmas as $td)
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3 bg-light border h-100">
+                <div class="fw-bold text-dark mb-1">
+                  <i class="bi {{ $td->icon }} me-2" style="color: {{ $td->warna ?: 'var(--fikes-purple)' }} !important;"></i>{{ $td->judul }}
+                </div>
+                @if($td->deskripsi)
+                  <p class="text-muted small mb-0">{{ $td->deskripsi }}</p>
+                @endif
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="p-3 rounded-3 bg-light border">
-              <div class="fw-bold text-dark mb-1"><i class="bi bi-globe-americas text-warning me-2" style="color:var(--fikes-orange) !important;"></i>Publikasi SINTA</div>
-              <p class="text-muted small mb-0">Publikasi rutin di jurnal nasional terakreditasi dan prosiding.</p>
+          @empty
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3 bg-light border">
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-journal-check text-primary me-2" style="color:var(--fikes-purple) !important;"></i>Riset Terapan</div>
+                <p class="text-muted small mb-0">Fokus riset ergonomi industri maritim dan sanitasi pesisir.</p>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="p-3 rounded-3 bg-light border">
-              <div class="fw-bold text-dark mb-1"><i class="bi bi-heart-pulse-fill text-danger me-2"></i>Pengmas Berkelanjutan</div>
-              <p class="text-muted small mb-0">Edukasi K3 bagi pekerja UMKM dan pemeriksaan sanitasi warga.</p>
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3 bg-light border">
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-globe-americas text-warning me-2" style="color:var(--fikes-orange) !important;"></i>Publikasi SINTA</div>
+                <p class="text-muted small mb-0">Publikasi rutin di jurnal nasional terakreditasi dan prosiding.</p>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="p-3 rounded-3 bg-light border">
-              <div class="fw-bold text-dark mb-1"><i class="bi bi-briefcase-fill text-success me-2"></i>Kerja Sama Riset</div>
-              <p class="text-muted small mb-0">Kolaborasi penelitian bersama instansi pemerintah & swasta.</p>
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3 bg-light border">
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-heart-pulse-fill text-danger me-2"></i>Pengmas Berkelanjutan</div>
+                <p class="text-muted small mb-0">Edukasi K3 bagi pekerja UMKM dan pemeriksaan sanitasi warga.</p>
+              </div>
             </div>
-          </div>
+            <div class="col-sm-6">
+              <div class="p-3 rounded-3 bg-light border">
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-briefcase-fill text-success me-2"></i>Kerja Sama Riset</div>
+                <p class="text-muted small mb-0">Kolaborasi penelitian bersama instansi pemerintah & swasta.</p>
+              </div>
+            </div>
+          @endforelse
         </div>
       </div>
 

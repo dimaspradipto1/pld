@@ -11,6 +11,7 @@ class FrontendController extends Controller
         $banners          = \App\Models\Banner::where('aktif', true)->orderBy('urutan')->get();
         $features         = \App\Models\Feature::orderBy('urutan')->get();
         $saranas          = \App\Models\Sarana::where('is_active', true)->orderBy('urutan')->get();
+        $triDharmas       = \App\Models\TriDharma::where('is_active', true)->orderBy('urutan')->get();
         $layanans         = \App\Models\Layanan::where('aktif', true)->orderBy('urutan')->get();
         $partners         = \App\Models\Partner::where('aktif', true)->orderBy('urutan')->get();
         $visiMisis        = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
@@ -50,6 +51,7 @@ class FrontendController extends Controller
             'banners',
             'features',
             'saranas',
+            'triDharmas',
             'layanans',
             'partners',
             'visiMisis',

@@ -30,6 +30,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\TopbarController;
 use App\Http\Controllers\OrganisasiMahasiswaController;
 use App\Http\Controllers\FacultyStatController;
+use App\Http\Controllers\TriDharmaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +126,7 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('banner', BannerController::class);
     Route::resource('feature', FeatureController::class);
     Route::resource('sarana', SaranaController::class);
+    Route::resource('tridharma', TriDharmaController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('prestasi', PrestasiController::class);
     Route::resource('admin-organisasi-mahasiswa', OrganisasiMahasiswaController::class)
