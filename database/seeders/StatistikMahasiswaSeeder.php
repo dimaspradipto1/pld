@@ -25,7 +25,8 @@ class StatistikMahasiswaSeeder extends Seeder
 
         $fakultasProdi = StatistikMahasiswa::listFakultasProdi();
 
-        $angkatanList = [2021, 2022, 2023, 2024, 2025];
+        $currentYear = (int) date('Y');
+        $angkatanList = [$currentYear - 4, $currentYear - 3, $currentYear - 2, $currentYear - 1, $currentYear];
         $namaDepanL = ['Ahmad', 'Budi', 'Dimas', 'Fajar', 'Hendra', 'Iqbal', 'Rizky', 'Wahyu', 'Bayu', 'Fikri', 'Satria', 'Bambang', 'Danang', 'Eko', 'Gilang', 'Ilham'];
         $namaDepanP = ['Anisa', 'Citra', 'Dian', 'Fatimah', 'Gita', 'Indah', 'Lestari', 'Maya', 'Nabila', 'Putri', 'Rani', 'Siti', 'Tri', 'Wulandari', 'Yuliana', 'Zahra'];
         $namaBelakang = ['Pratama', 'Saputra', 'Hidayat', 'Kurniawan', 'Ramadhan', 'Wijaya', 'Nugroho', 'Pangestu', 'Kusuma', 'Santoso', 'Utama', 'Siregar', 'Wibowo', 'Firmansyah'];

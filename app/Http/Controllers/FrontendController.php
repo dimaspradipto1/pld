@@ -609,8 +609,17 @@ class FrontendController extends Controller
         // 3. Rekapitulasi per Prodi (for Chart.js)
         $prodiCounts = $allData->groupBy('prodi')->map->count()->sortDesc();
 
-        // Available Angkatan list for filter
-        $angkatanList = \App\Models\StatistikMahasiswa::select('angkatan')->distinct()->orderBy('angkatan', 'desc')->pluck('angkatan');
+        // Available Angkatan list for filter - selalu update otomatis dengan tahun sekarang
+        $currentYear = (int) date('Y');
+        $dbYears = \App\Models\StatistikMahasiswa::select('angkatan')
+            ->distinct()
+            ->pluck('angkatan')
+            ->map(fn($y) => (int)$y)
+            ->toArray();
+
+        $mergedYears = array_unique(array_merge([$currentYear], $dbYears));
+        rsort($mergedYears);
+        $angkatanList = collect($mergedYears);
 
         // Daftar mahasiswa untuk tabel direktori frontend (10 per halaman)
         $mahasiswaList = $query->orderBy('angkatan', 'desc')->orderBy('nama', 'asc')->paginate(10)->withQueryString();
