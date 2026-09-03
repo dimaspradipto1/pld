@@ -133,7 +133,8 @@
 
     html { 
       scroll-behavior: smooth;
-      overflow-x: hidden;
+      scroll-padding-top: 120px;
+      overflow-x: clip;
       max-width: 100vw;
     }
 
@@ -141,7 +142,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--page-bg);
       color: var(--text-main);
-      overflow-x: hidden;
+      overflow-x: clip;
       max-width: 100vw;
       line-height: 1.65;
     }
@@ -185,15 +186,32 @@
     a { text-decoration: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 
     /* ═══════════════════════════════════════════════
-       STICKY HEADER WRAPPER (TOPBAR + HEADER TETAP SAAT SCROLL)
+       FIXED HEADER WRAPPER (TOPBAR + HEADER TETAP SAAT SCROLL)
     ═══════════════════════════════════════════════ */
     .header-sticky-wrapper {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 1050;
+      left: 0;
+      right: 0;
       width: 100%;
+      z-index: 1050;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Spacer agar konten tidak tertutup header fixed */
+    .header-spacer {
+      display: block;
+      width: 100%;
+      height: 110px;
+    }
+    @media (max-width: 991.98px) {
+      .header-spacer {
+        height: 68px;
+      }
+      html {
+        scroll-padding-top: 80px;
+      }
     }
 
     /* ═══════════════════════════════════════════════
@@ -878,7 +896,7 @@
 
 <body>
 
-<header class="header-sticky-wrapper">
+<header class="header-sticky-wrapper" id="headerStickyWrapper">
   <!-- ═══════════════════════════════════════════════
        TOPBAR BILAH ATAS
   ═══════════════════════════════════════════════ -->
@@ -889,6 +907,7 @@
   ═══════════════════════════════════════════════ -->
   @include('layouts.frontend.header')
 </header>
+<div class="header-spacer" id="headerSpacer"></div>
 
 <!-- ═══════════════════════════════════════════════
      MAIN CONTENT
@@ -938,6 +957,19 @@
     document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // Sinkronisasi tinggi spacer dengan fixed header secara dinamis
+  function syncHeaderSpacer() {
+    const header = document.getElementById('headerStickyWrapper');
+    const spacer = document.getElementById('headerSpacer');
+    if (header && spacer) {
+      spacer.style.height = header.offsetHeight + 'px';
+    }
+  }
+  window.addEventListener('resize', syncHeaderSpacer);
+  window.addEventListener('load', syncHeaderSpacer);
+  document.addEventListener('DOMContentLoaded', syncHeaderSpacer);
+  syncHeaderSpacer();
 </script>
 
 @stack('scripts')
