@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Visi & Misi — Pelayanan Disabilitas (PLD UIS)')
-@section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Pelayanan Disabilitas Universitas Ibnu Sina.')
-@section('meta_keywords', 'visi misi pld, visi pld uis, misi pelayanan disabilitas batam')
+@section('title', 'Visi & Misi — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Pusat Layanan Disabilitas Universitas Ibnu Sina.')
+@section('meta_keywords', 'visi misi pld, visi pld uis, misi pusat layanan disabilitas batam')
 
 @push('styles')
 <style>
@@ -64,9 +64,9 @@
   <div class="container py-3">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label">Arah & Landasan Institusi</div>
-      <h2 class="section-title">Visi & Misi <em>PLD UIS</em></h2>
+      <h2 class="section-title">Visi &amp; Misi <em>PLD UIS</em></h2>
       <p class="section-desc mx-auto" style="max-width: 650px;">
-        Komitmen fundamental yang mengarahkan setiap langkah Tri Dharma Perguruan Tinggi di Pelayanan Disabilitas.
+        Komitmen fundamental yang mengarahkan setiap langkah layanan, pendampingan, dan advokasi di Pusat Layanan Disabilitas Universitas Ibnu Sina.
       </p>
     </div>
 
@@ -88,7 +88,7 @@
             @endforeach
           @else
             <p class="value-desc" style="font-size:15.5px; line-height:1.9; text-align: justify;">
-              {{ $about->visi ?? 'Menjadi Pelayanan Disabilitas yang unggul, terkemuka, dan berdaya saing internasional dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.' }}
+              {{ $about->visi ?? 'Menjadi Pusat Layanan Disabilitas yang unggul, adaptif, dan berdaya saing nasional dalam mewujudkan ekosistem pendidikan tinggi inklusif berlandaskan nilai kemanusiaan, kesetaraan, dan integritas moral.' }}
             </p>
           @endif
         </div>
@@ -105,10 +105,10 @@
             $misiPoin = ($visiMisis['misi'] ?? collect())->pluck('isi');
             if ($misiPoin->isEmpty()) {
               $misiPoin = collect([
-                'Menyelenggarakan pendidikan akademik dan profesi kesehatan yang berkualitas dan berstandar nasional/internasional.',
-                'Mengembangkan penelitian terapan dan inovatif di bidang ilmu kesehatan yang bermanfaat bagi masyarakat.',
-                'Melaksanakan pengabdian kepada masyarakat secara berkelanjutan demi meningkatkan derajat kesehatan publik.',
-                'Menjalin kerjasama strategis dengan institusi pelayanan kesehatan, rumah sakit, dan mitra global.',
+                'Menyelenggarakan layanan pendampingan akademik, advokasi hak belajar, serta konseling psikososial yang profesional bagi mahasiswa disabilitas.',
+                'Mengembangkan sarana aksesibilitas fisik, teknologi asistif digital, dan akomodasi kurikulum ramah disabilitas.',
+                'Membangun budaya kampus inklusif melalui pelatihan Bahasa Isyarat Indonesia (BISINDO) dan penguatan relawan mahasiswa.',
+                'Menjalin kemitraan kolaboratif dengan komunitas disabilitas, pegiat Intelek Tuli, dunia usaha, dan instansi pemerintah guna memperluas kesempatan karier alumni.',
               ]);
             }
           @endphp

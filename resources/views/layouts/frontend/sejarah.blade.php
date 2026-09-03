@@ -163,15 +163,15 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6" data-aos="fade-right">
-        <div class="section-label">Jejak Langkah Fakultas</div>
-        <h2 class="section-title">Perjalanan Berkelanjutan <em>Membangun Insan Kesehatan</em></h2>
+        <div class="section-label">Jejak Langkah PLD UIS</div>
+        <h2 class="section-title">Perjalanan Berkelanjutan <em>Mewujudkan Kampus Inklusif</em></h2>
         <div class="divider-line"></div>
         <div class="section-desc" style="text-align: justify; line-height: 1.8; color: #4a5568;">
           <p>
-            Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina didirikan sebagai bentuk komitmen nyata dalam menjawab tingginya kebutuhan tenaga kesehatan profesional di wilayah Kepulauan Riau dan kawasan industri nasional.
+            Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina didirikan sebagai unit kelembagaan strategis yang berfokus memberikan pendampingan akademik, advokasi, fasilitasi akomodasi yang layak, serta layanan psikologis bagi sivitas akademika berkebutuhan khusus.
           </p>
           <p>
-            Berawal dari program studi unggulan di bidang Keselamatan dan Kesehatan Kerja (K3) serta Kesehatan Lingkungan, PLD UIS terus bertransformasi menjadi pusat rujukan pendidikan kesehatan terdepan dengan fasilitas laboratorium modern dan kemitraan rumah sakit terpercaya.
+            Berlandaskan amanat Undang-Undang No. 8 Tahun 2016 tentang Penyandang Disabilitas dan Permenristekdikti No. 46 Tahun 2017 tentang Pendidikan Khusus dan Pendidikan Layanan Khusus di Perguruan Tinggi, PLD UIS berkomitmen menghadirkan iklim kampus yang ramah, aksesibel, dan berkesetaraan tanpa diskriminasi.
           </p>
         </div>
       </div>
@@ -183,12 +183,12 @@
               <i class="bi bi-hourglass-split fs-2"></i>
             </div>
             <div>
-              <h5 class="fw-bold text-white mb-0">Komitmen Tri Dharma Perguruan Tinggi</h5>
-              <div class="text-white-50 small">Pendidikan, Penelitian & Pengabdian Masyarakat</div>
+              <h5 class="fw-bold text-white mb-0">Komitmen Pendidikan Inklusif Terpadu</h5>
+              <div class="text-white-50 small">Aksesibilitas, Kesetaraan &amp; Kemandirian</div>
             </div>
           </div>
           <p class="text-white-50 small mb-0" style="line-height: 1.8;">
-            Setiap fase perkembangan fakultas diarahkan untuk memperkuat mutu pembelajaran, meningkatkan riset berbasis masalah kesehatan tropis & industri perbatasan, serta mewujudkan lulusan yang beretika luhur.
+            Setiap fase perkembangan PLD UIS diarahkan untuk memperkuat mutu pendampingan belajar, penyediaan teknologi asistif, pelatihan juru bahasa isyarat, serta membangun budaya empati civitas akademika UIS.
           </p>
         </div>
       </div>
@@ -203,10 +203,10 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Linimasa Perkembangan</div>
-      <h2 class="section-title">Milestone & <em>Tonggak Sejarah</em></h2>
+      <h2 class="section-title">Milestone &amp; <em>Tonggak Sejarah</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Catatan pencapaian dan peristiwa penting dalam perjalanan Pelayanan Disabilitas UIS.
+        Catatan pencapaian dan peristiwa penting dalam perjalanan Pusat Layanan Disabilitas UIS.
       </p>
     </div>
 

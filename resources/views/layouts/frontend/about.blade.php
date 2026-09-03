@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tentang Kami — Pelayanan Disabilitas (PLD)')
-@section('meta_description', 'Kenali lebih dekat Pusat Layanan Disabilitas (PLD) — profil, visi misi, nilai karakter akademik, dan fasilitas unggulan kami.')
-@section('meta_keywords', 'tentang pld, profil pelayanan disabilitas, visi misi pld, struktur organisasi pld, pendidikan kesehatan')
+@section('title', 'Tentang Kami — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Kenali lebih dekat Pusat Layanan Disabilitas (PLD UIS) — profil kelembagaan, visi misi, nilai inklusivitas, dan layanan pendampingan kami.')
+@section('meta_keywords', 'tentang pld, profil pusat layanan disabilitas, visi misi pld, struktur organisasi pld, kampus inklusif uis')
 
 @push('styles')
 <style>
@@ -101,11 +101,11 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-11 col-xl-10" data-aos="fade-up" data-aos-duration="800">
-        <div class="section-label">Profil Fakultas</div>
-        <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>' !!}</h2>
+        <div class="section-label">Profil PLD UIS</div>
+        <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Layanan &amp; Kampus Inklusif</em>' !!}</h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
-          {!! $about->deskripsi_profil_1 ?? 'Pusat Layanan Disabilitas (PLD) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Pusat Layanan Disabilitas (PLD) berdedikasi menyelenggarakan pendampingan akademik, advokasi kesetaraan, dan penyediaan fasilitas aksesibel bagi mahasiswa berkebutuhan khusus di Universitas Ibnu Sina.' !!}
         </div>
         @if($about?->deskripsi_profil_2)
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
@@ -128,7 +128,7 @@
       <h2 class="section-title">Mengapa Memilih <em>PLD UIS?</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Kombinasi kurikulum berstandar industri, tenaga pendidik berkompeten, dan sarana pembelajaran mutakhir.
+        Kombinasi layanan pendampingan akademik, teknologi asistif modern, dan budaya kampus inklusif berlandaskan kemanusiaan.
       </p>
     </div>
 
@@ -156,7 +156,7 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Eksplorasi Profil</div>
-      <h2 class="section-title">Informasi Lengkap <em>Fakultas</em></h2>
+      <h2 class="section-title">Informasi Lengkap <em>PLD UIS</em></h2>
       <div class="divider-line centered"></div>
     </div>
 
@@ -179,8 +179,8 @@
             <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--pld-orange-light); color: var(--pld-orange); width: 60px; height: 60px; font-size: 24px;">
               <i class="bi bi-person-badge"></i>
             </div>
-            <h5 class="fw-bold text-dark mb-2">Sambutan Dekan</h5>
-            <p class="text-muted small mb-0">Pesan resmi dan komitmen pimpinan dekanat.</p>
+            <h5 class="fw-bold text-dark mb-2">Sambutan Kepala PLD</h5>
+            <p class="text-muted small mb-0">Pesan resmi dan komitmen pimpinan PLD UIS.</p>
           </div>
         </a>
       </div>
@@ -192,7 +192,7 @@
               <i class="bi bi-diagram-3"></i>
             </div>
             <h5 class="fw-bold text-dark mb-2">Struktur Organisasi</h5>
-            <p class="text-muted small mb-0">Bagan tata kelola dan susunan pejabat fakultas.</p>
+            <p class="text-muted small mb-0">Bagan tata kelola dan susunan divisi PLD UIS.</p>
           </div>
         </a>
       </div>
@@ -204,7 +204,7 @@
               <i class="bi bi-hourglass-split"></i>
             </div>
             <h5 class="fw-bold text-dark mb-2">Sejarah & Milestone</h5>
-            <p class="text-muted small mb-0">Linimasa perjalanan dan pencapaian fakultas.</p>
+            <p class="text-muted small mb-0">Linimasa perjalanan dan pencapaian PLD UIS.</p>
           </div>
         </a>
       </div>
@@ -222,7 +222,7 @@
       Ingin Mengetahui Lebih Jauh Tentang PLD?
     </h2>
     <p class="text-white-50 mx-auto mb-4" style="max-width: 600px; font-size:15px;">
-      Hubungi kami untuk konsultasi program akademik, fasilitas laboratorium, serta kemitraan riset.
+      Hubungi kami untuk konsultasi layanan pendampingan, akomodasi belajar, pelatihan bahasa isyarat (BISINDO), serta pendaftaran relawan inklusif.
     </p>
     <div class="d-flex justify-content-center flex-wrap gap-3">
       @if(!empty($contact->no_wa))

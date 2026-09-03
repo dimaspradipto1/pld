@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tanya Jawab (FAQ) — Pelayanan Disabilitas (PLD)')
-@section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar program studi, penerimaan mahasiswa baru, fasilitas laboratorium, dan akreditasi PLD.')
-@section('meta_keywords', 'faq pld, tanya jawab pelayanan disabilitas, pendaftaran mahasiswa kesehatan, akreditasi pld')
+@section('title', 'Tanya Jawab (FAQ) — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar layanan pendampingan disabilitas, akomodasi ujian, juru bahasa isyarat, konseling, dan relawan PLD UIS.')
+@section('meta_keywords', 'faq pld, tanya jawab disabilitas, akomodasi disabilitas uis, jbi batam, relawan inklusif')
 
 @push('styles')
 <style>
@@ -91,7 +91,7 @@
       <h2 class="section-title">Pertanyaan yang Sering <em>Diajukan</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Kumpulan jawaban informatif seputar proses akademik, persyaratan seleksi masuk, fasilitas, dan kemitraan di PLD.
+        Kumpulan jawaban informatif seputar layanan pendampingan, akomodasi belajar, juru bahasa isyarat, konseling, dan relawan di PLD UIS.
       </p>
     </div>
 
@@ -121,7 +121,7 @@
 
         <div class="card border-0 shadow-sm p-4 text-center mt-5" style="border-radius: 20px; background: var(--obsidian-dark); color: white;">
           <h4 class="fw-bold mb-2">Masih Memiliki Pertanyaan Lain?</h4>
-          <p class="text-white-50 small mb-3">Tim layanan informasi akademik kami siap membantu menjawab segala pertanyaan Anda.</p>
+          <p class="text-white-50 small mb-3">Tim Pusat Layanan Disabilitas UIS siap membantu menjawab segala pertanyaan Anda.</p>
           <div class="d-flex justify-content-center gap-3">
             @if(!empty($cleanWa))
               <a href="https://wa.me/{{ $cleanWa }}" target="_blank" class="btn-primary-hero">

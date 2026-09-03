@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sambutan Dekan — Pelayanan Disabilitas (PLD UIS)')
-@section('meta_description', 'Sambutan resmi Dekan Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
-@section('meta_keywords', 'sambutan dekan pld, dekan pld uis, pimpinan pelayanan disabilitas')
+@section('title', 'Sambutan Kepala — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Sambutan resmi Kepala Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
+@section('meta_keywords', 'sambutan pld, kepala pld uis, pimpinan pusat layanan disabilitas')
 
 @push('styles')
 <style>
@@ -117,14 +117,14 @@
   <div class="container">
     <div data-aos="fade-up">
       <h1 class="dekan-hero-title">
-        Sambutan <em>Dekan</em>
+        Sambutan <em>Kepala PLD</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span>/</span>
-        <a href="{{ route('homepage.tentang') }}">Profil</a>
+        <a href="{{ route('homepage.sejarah') }}">Profil</a>
         <span>/</span>
-        <span class="active">Sambutan Dekan</span>
+        <span class="active">Sambutan Kepala PLD</span>
       </div>
     </div>
   </div>
@@ -141,37 +141,37 @@
       <div class="col-lg-4" data-aos="fade-right">
         <div class="dekan-portrait-box">
           @if(!empty($sambutanDekan?->foto_dekan))
-            <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan PLD UIS' }}" class="dekan-portrait-img">
+            <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Kepala PLD UIS' }}" class="dekan-portrait-img">
           @else
             <div class="dekan-avatar-fallback">
               <i class="bi bi-person-circle"></i>
-              <span style="font-size: 14px; font-weight: 600; margin-top: 10px;">Foto Dekan</span>
+              <span style="font-size: 14px; font-weight: 600; margin-top: 10px;">Foto Pimpinan</span>
             </div>
           @endif
 
-          <h3 class="dekan-name-title">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan Dekanat PLD UIS' }}</h3>
+          <h3 class="dekan-name-title">{{ $sambutanDekan->nama_dekan ?? 'Dr. H. Ahmad Syafi\'i, M.Ed.' }}</h3>
           <span class="dekan-role-badge">
-            <i class="bi bi-award-fill me-1"></i> {{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas' }}
+            <i class="bi bi-award-fill me-1"></i> {{ $sambutanDekan->jabatan_dekan ?? 'Kepala Pusat Layanan Disabilitas' }}
           </span>
 
           <div class="pt-3 border-top mt-3 text-muted small text-start">
             <div class="mb-2"><i class="bi bi-mortarboard me-2 text-primary"></i> Universitas Ibnu Sina (UIS) Batam</div>
-            <div><i class="bi bi-geo-alt me-2 text-danger"></i> Kampus Utama PLD UIS</div>
+            <div><i class="bi bi-geo-alt me-2 text-danger"></i> Gedung Rektorat Lt. 2, PLD UIS</div>
           </div>
         </div>
       </div>
 
       {{-- Right Column: Full Message --}}
       <div class="col-lg-8" data-aos="fade-left">
-        <div class="section-label">Amanat & Sambutan Resmi</div>
+        <div class="section-label">Amanat &amp; Sambutan Resmi</div>
         <h2 class="section-title mb-4">
-          Membangun Generasi Kesehatan <em>Profesional, Humanis & Berintegritas</em>
+          Mewujudkan Kampus Ramah Disabilitas, <em>Inklusif &amp; Berkeadilan</em>
         </h2>
 
         {{-- Kutipan Singkat --}}
         <div class="dekan-quote-callout">
           <i class="bi bi-quote fs-3 d-block mb-1" style="color: var(--pld-purple);"></i>
-          "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pelayanan Disabilitas Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
+          "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pusat Layanan Disabilitas Universitas Ibnu Sina. Kami percaya bahwa setiap insan berhak mendapatkan akses pendidikan tinggi yang bermutu, adil, dan berkesetaraan. Bersama-sama, mari kita ciptakan kampus ramah disabilitas yang menginspirasi.')) }}"
         </div>
 
         {{-- Isi Lengkap Sambutan --}}
@@ -180,24 +180,20 @@
             {!! $sambutanDekan->sambutan_dekan !!}
           @else
             <p>
-              <em>Assalamu’alaikum Warahmatullahi Wabarakatuh,</em><br>
-              Salam sejahtera untuk kita semua.
+              <em>Assalamu’alaikum Warahmatullahi Wabarakatuh, Salam Sejahtera untuk kita semua.</em>
             </p>
             <p>
-              Puji dan syukur senantiasa kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, atas limpahan rahmat dan karunia-Nya sehingga Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina terus tumbuh dan berkembang menjadi salah satu pusat pendidikan tinggi kesehatan terkemuka di kawasan Kepulauan Riau dan Indonesia.
+              Selamat datang di portal resmi <strong>Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina</strong>. Keberadaan unit ini merupakan perwujudan nyata dari komitmen universitas dalam menjamin hak pendidikan inklusif sebagaimana diamanatkan oleh regulasi nasional dan nilai kemanusiaan.
             </p>
             <p>
-              Tantangan dunia kesehatan saat ini menuntut kesiapan tenaga profesional yang tidak hanya menguasai teori, namun juga adaptif terhadap kemajuan teknologi kesehatan industri, keselamatan kerja (K3), kesehatan lingkungan, dan epidemiologi terapan. Oleh karena itu, kurikulum PLD UIS dirancang secara komprehensif dengan memadukan penguasaan sains, praktikum laboratorium modern, serta magang di rumah sakit dan sektor industri terkemuka.
-            </p>
-            <p>
-              Kepada seluruh civitas akademika, para mahasiswa, alumni, dan calon mahasiswa baru, mari bersama-sama kita wujudkan komitmen Tri Dharma Perguruan Tinggi dengan dedikasi terbaik demi kesehatan dan kesejahteraan masyarakat.
+              Di PLD UIS, kami menyediakan layanan terpadu mulai dari pendampingan notetaker, juru bahasa isyarat (BISINDO), akomodasi ujian, hingga konseling psikososial bagi mahasiswa berkebutuhan khusus agar memiliki kesempatan yang setara untuk meraih prestasi dan kemandirian masa depan.
             </p>
             <p class="fw-bold mt-4 mb-1">
               <em>Wassalamu’alaikum Warahmatullahi Wabarakatuh.</em>
             </p>
             <p class="text-muted">
-              <strong>{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</strong><br>
-              <small>{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas Universitas Ibnu Sina' }}</small>
+              <strong>{{ $sambutanDekan->nama_dekan ?? 'Dr. H. Ahmad Syafi\'i, M.Ed.' }}</strong><br>
+              <small>{{ $sambutanDekan->jabatan_dekan ?? 'Kepala Pusat Layanan Disabilitas Universitas Ibnu Sina' }}</small>
             </p>
           @endif
         </div>
@@ -205,15 +201,14 @@
         {{-- Link Navigasi Cepat --}}
         <div class="d-flex flex-wrap gap-3 mt-5 pt-4 border-top">
           <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
-            <i class="bi bi-grid-fill me-1"></i> Program Studi Kami
+            <i class="bi bi-grid-fill me-1"></i> Pelajari Layanan PLD
           </a>
           <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero" style="font-size: 13.5px; padding: 10px 22px; color: var(--pld-purple); border-color: var(--pld-purple);">
-            <i class="bi bi-envelope me-1"></i> Hubungi Dekanat
+            <i class="bi bi-envelope me-1"></i> Hubungi Sekretariat PLD
           </a>
         </div>
 
       </div>
-
     </div>
   </div>
 </section>

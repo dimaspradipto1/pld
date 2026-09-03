@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Hubungi Kami — Pelayanan Disabilitas (PLD)')
-@section('meta_description', 'Hubungi Pusat Layanan Disabilitas (PLD) untuk informasi program studi, layanan akademik, praktikum laboratorium, dan penerimaan mahasiswa baru.')
-@section('meta_keywords', 'kontak pld, alamat pelayanan disabilitas, nomor wa pld, lokasi kampus pld')
+@section('title', 'Hubungi Kami — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Hubungi Pusat Layanan Disabilitas (PLD UIS) untuk informasi layanan pendampingan, konseling psikologis, akomodasi ujian, dan pendaftaran relawan.')
+@section('meta_keywords', 'kontak pld, alamat pusat layanan disabilitas, nomor wa pld uis, lokasi pld uis batam')
 
 @push('styles')
 <style>
@@ -119,7 +119,7 @@
           <div class="contact-card-icon"><i class="bi bi-geo-alt-fill"></i></div>
           <h4 class="contact-card-title">Alamat Kampus</h4>
           <p class="contact-card-text">
-            {{ $contact->alamat ?? 'Gedung Pusat Layanan Disabilitas (PLD), Kampus Terpadu' }}
+            {{ $contact->alamat ?? 'Gedung Rektorat Lt. 2, Pusat Layanan Disabilitas, Universitas Ibnu Sina, Batam' }}
           </p>
         </div>
       </div>
@@ -129,8 +129,8 @@
           <div class="contact-card-icon"><i class="bi bi-envelope-open-fill"></i></div>
           <h4 class="contact-card-title">Email Resmi</h4>
           <p class="contact-card-text">
-            <a href="mailto:{{ $contact->email ?? 'info@pld.ac.id' }}" class="text-decoration-none fw-bold" style="color: var(--pld-purple);">
-              {{ $contact->email ?? 'info@pld.ac.id' }}
+            <a href="mailto:{{ $contact->email ?? 'pld@uis.ac.id' }}" class="text-decoration-none fw-bold" style="color: var(--pld-purple);">
+              {{ $contact->email ?? 'pld@uis.ac.id' }}
             </a>
           </p>
         </div>
@@ -170,7 +170,7 @@
         <div class="p-3 bg-light border-bottom fw-bold text-dark d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center">
             <i class="bi bi-pin-map-fill text-danger me-2 fs-5"></i>
-            <span>Lokasi Kampus PLD di Google Maps</span>
+            <span>Lokasi Sekretariat PLD UIS di Google Maps</span>
           </div>
           @if(!empty($contact->latitude) && !empty($contact->longitude))
             <a href="https://www.google.com/maps/search/?api=1&query={{ $contact->latitude }},{{ $contact->longitude }}" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-semibold" style="font-size: 12.5px;">

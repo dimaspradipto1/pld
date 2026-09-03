@@ -67,6 +67,10 @@ Route::controller(FrontendController::class)->group(function () {
     Route::post('/alumni/kirim-testimoni', 'storeTestimonial')->name('homepage.alumni.store');
     Route::get('/berita', 'news')->name('homepage.news');
     Route::get('/berita/{slug}', 'newsDetail')->name('homepage.news.detail');
+    Route::get('/pengumuman', fn() => redirect()->route('homepage.news', ['category' => 'Pengumuman']));
+    Route::get('/agenda', fn() => redirect()->route('homepage.news', ['category' => 'Agenda']));
+    Route::get('/artikel', fn() => redirect()->route('homepage.news', ['category' => 'Artikel']));
+    Route::get('/intelek-tuli', fn() => redirect()->route('homepage.news', ['category' => 'Intelek Tuli']));
     Route::get('/program-kerja', 'programKerja')->name('homepage.program-kerja');
     Route::get('/volunteer', 'volunteer')->name('homepage.volunteer');
     Route::post('/volunteer/daftar', 'storeVolunteer')->name('homepage.volunteer.store');

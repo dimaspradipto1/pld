@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'PLD UIS — Pelayanan Disabilitas Universitas Ibnu Sina | Unggul, Profesional & Berkarakter')
-@section('meta_description', 'Portal Resmi Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Program Studi Unggulan S1 Kesehatan & Keselamatan Kerja (K3) dan S1 Kesehatan Lingkungan.')
+@section('title', 'Pusat Layanan Disabilitas (PLD UIS) — Kampus Inklusif, Ramah & Berkeadilan | Universitas Ibnu Sina')
+@section('meta_description', 'Portal Resmi Pusat Layanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Pendampingan Akademik, Konseling Psikologis, Akomodasi Ujian, Bahasa Isyarat BISINDO, dan Relawan Inklusif.')
 
 @push('styles')
 <style>
@@ -938,9 +938,9 @@
               <div class="mb-3">
                 <i class="bi bi-megaphone fs-1" style="color: var(--pld-orange);"></i>
               </div>
-              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">PELAYANAN DISABILITAS — PLD UIS</h2>
+              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">PUSAT LAYANAN DISABILITAS — PLD UIS</h2>
               <p class="text-white-50 small mb-0" style="max-width: 540px; margin: 0 auto;">
-                Banner Promosi & Iklan Fakultas dapat diunggah melalui menu Admin (<strong>Profil & Konten PLD ➔ Banner Hero</strong>).
+                Mewujudkan ekosistem pendidikan tinggi yang setara, aksesibel, dan berkeadilan bagi seluruh mahasiswa berkebutuhan khusus di Universitas Ibnu Sina.
               </p>
             </div>
           </div>
@@ -971,7 +971,7 @@
     {{-- Header Title & Subtitle --}}
     <div class="text-center mb-4" data-aos="fade-up">
       <h2 class="layanan-terkait-title">
-        {{ $layananTerkaitSetting->judul_seksi ?? 'LAYANAN TERKAIT' }}
+        {{ $layananTerkaitSetting->judul_seksi ?? 'SISTEM & LAYANAN AKSESIBILITAS' }}
       </h2>
       @if(!empty($layananTerkaitSetting?->subjudul_seksi))
         <p class="layanan-terkait-desc">
@@ -1015,13 +1015,13 @@
   <div class="container py-2">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6" data-aos="fade-right">
-        <div class="section-label">Profil Fakultas</div>
+        <div class="section-label">Profil PLD UIS</div>
         <h2 class="section-title">
-          {{ $about->judul_profil ?? 'Dedikasi Mencetak Pemimpin di Bidang Kesehatan' }}
+          {{ $about->judul_profil ?? 'Mewujudkan Kampus Inklusif, Ramah & Berkeadilan' }}
         </h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
-          {!! $about->deskripsi_profil_1 ?? 'Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina adalah unit kerja yang berkomitmen mewujudkan lingkungan perguruan tinggi yang inklusif, adaptif, ramah, dan setara bagi seluruh mahasiswa berkebutuhan khusus.' !!}
         </div>
 
         @if(!empty($about?->deskripsi_profil_2))
@@ -1033,19 +1033,19 @@
         <ul class="check-list mb-4">
           <li>
             <div class="check-icon"><i class="bi bi-check2"></i></div>
-            <span>Kurikulum terintegrasi dengan standar sertifikasi kompetensi industri dan Kemnaker</span>
+            <span>Pendampingan akademik, notetaker, dan juru bahasa isyarat (BISINDO) bersertifikasi</span>
           </li>
           <li>
             <div class="check-icon"><i class="bi bi-check2"></i></div>
-            <span>Fasilitas laboratorium pengujian lingkungan & higiene industri terakreditasi</span>
+            <span>Resource Center inklusif & fasilitas teknologi asistif mutakhir bagi mahasiswa</span>
           </li>
           <li>
             <div class="check-icon"><i class="bi bi-check2"></i></div>
-            <span>Dosen bergelar Magister dan Doktor dengan pengalaman praktisi industri & rumah sakit</span>
+            <span>Konseling psikologis terpadu & pembinaan relawan mahasiswa berkepedulian tinggi</span>
           </li>
         </ul>
 
-        <a href="{{ route('homepage.tentang') }}" class="btn-primary-hero">
+        <a href="{{ route('homepage.sejarah') }}" class="btn-primary-hero">
           <i class="bi bi-info-circle"></i>
           Profil Lengkap PLD UIS
         </a>
@@ -1063,17 +1063,17 @@
               </div>
             @endif
             <div>
-              <h5 class="fw-bold mb-1 text-dark">{{ $sambutanDekan->nama_dekan ?? 'Sambutan Dekan' }}</h5>
-              <span class="text-muted small fw-semibold">{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas UIS' }}</span>
+              <h5 class="fw-bold mb-1 text-dark">{{ $sambutanDekan->nama_dekan ?? 'Dr. H. Ahmad Syafi\'i, M.Ed.' }}</h5>
+              <span class="text-muted small fw-semibold">{{ $sambutanDekan->jabatan_dekan ?? 'Kepala Pusat Layanan Disabilitas UIS' }}</span>
             </div>
           </div>
 
           <blockquote class="text-muted mb-4" style="font-style: italic; line-height: 1.8; text-align: justify; font-size: 14.5px;">
-            "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pelayanan Disabilitas Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
+            "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pusat Layanan Disabilitas Universitas Ibnu Sina. Kami percaya bahwa setiap insan berhak mendapatkan akses pendidikan tinggi yang bermutu, adil, dan berkesetaraan. Bersama-sama, mari kita ciptakan kampus ramah disabilitas yang menginspirasi.')) }}"
           </blockquote>
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-            <span class="fw-bold" style="color: var(--pld-purple);">{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</span>
+            <span class="fw-bold" style="color: var(--pld-purple);">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan PLD UIS' }}</span>
             <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #141b39; font-weight: 800; padding: 6px 12px;">
               Baca Sambutan <i class="bi bi-arrow-right ms-1"></i>
             </a>
@@ -1104,7 +1104,7 @@
         </h2>
 
         <div class="row g-2 g-sm-3">
-          {{-- Program Studi --}}
+          {{-- Layanan Utama --}}
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
@@ -1112,12 +1112,12 @@
                 {{ $facultyStat->jumlah_prodi }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
-                Program Studi
+                Layanan Utama
               </div>
             </div>
           </div>
 
-          {{-- Total Mahasiswa --}}
+          {{-- Total Mahasiswa Didampingi --}}
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
@@ -1125,12 +1125,12 @@
                 {{ number_format($facultyStat->total_mahasiswa, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
-                Total Mahasiswa
+                Mahasiswa Didampingi
               </div>
             </div>
           </div>
 
-          {{-- Dosen --}}
+          {{-- Relawan Inklusif --}}
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
@@ -1138,12 +1138,12 @@
                 {{ $facultyStat->total_dosen }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
-                Dosen
+                Relawan Inklusif
               </div>
             </div>
           </div>
 
-          {{-- Alumni --}}
+          {{-- Sesi Pendampingan --}}
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
@@ -1151,7 +1151,7 @@
                 {{ number_format($facultyStat->total_alumni, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
-                Alumni
+                Sesi Pendampingan
               </div>
             </div>
           </div>
@@ -1229,16 +1229,16 @@
 @endif
 
 <!-- ═══════════════════════════════════════════════
-     4. PROGRAM STUDI UNGGULAN
+     4. LAYANAN PENDAMPINGAN & KONSELING
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-sand" id="prodi">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Program Studi</div>
-      <h2 class="section-title">Program Studi <em>Unggulan</em> PLD UIS</h2>
+      <div class="section-label mx-auto">Layanan Unggulan</div>
+      <h2 class="section-title">Layanan Pendampingan &amp; <em>Konseling</em> PLD UIS</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Program pascasarjana dan sarjana yang dirancang khusus untuk menjawab kebutuhan dunia industri modern, perminyakan, manufaktur, dan sistem pelayanan kesehatan publik.
+        Layanan terpadu yang dirancang untuk menjamin hak belajar, akomodasi ujian, kesehatan mental, serta aksesibilitas penuh bagi seluruh mahasiswa disabilitas.
       </p>
     </div>
 
@@ -1291,65 +1291,65 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     5. MENGAPA MEMILIH PLD UIS
+     5. KEUNGGULAN LAYANAN INKLUSIF PLD UIS
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-white">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Keunggulan Kami</div>
-      <h2 class="section-title">Mengapa Memilih <em>PLD UIS</em>?</h2>
+      <h2 class="section-title">Mengapa Memilih Layanan <em>PLD UIS</em>?</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Kami memberikan ekosistem belajar yang menyeluruh antara pemahaman teoritis berstandar mutakhir dan pelatihan praktikal di lapangan.
+        Kami menghadirkan ekosistem pendampingan yang adaptif, manusiawi, dan berorientasi pada pencapaian prestasi akademik serta kemandirian mahasiswa.
       </p>
     </div>
 
     <div class="row g-4">
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-book-half"></i></div>
-          <div class="value-title">Kurikulum Berbasis Industri</div>
-          <p class="value-desc">Materi kuliah diselaraskan dengan kebutuhan kompetensi industri modern, Permenaker, dan standar sertifikasi internasional.</p>
+          <div class="value-icon-wrap"><i class="bi bi-universal-access"></i></div>
+          <div class="value-title">Akomodasi Ujian &amp; Kelas</div>
+          <p class="value-desc">Penyesuaian durasi waktu ujian, pendamping pembaca soal, serta ruang ujian adaptif sesuai kebutuhan khusus mahasiswa.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-person-video3"></i></div>
-          <div class="value-title">Dosen Ahli & Praktisi</div>
-          <p class="value-desc">Diajar langsung oleh akademisi bergelar doktor dan praktisi berpengalaman di industri migas, manufaktur, dan RS.</p>
+          <div class="value-icon-wrap"><i class="bi bi-translate"></i></div>
+          <div class="value-title">Juru Bahasa Isyarat (BISINDO)</div>
+          <p class="value-desc">Penerjemah isyarat profesional yang siap mendampingi perkuliahan tatap muka, seminar daring, dan proses wisuda.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-clipboard2-pulse-fill"></i></div>
-          <div class="value-title">Laboratorium Terpadu</div>
-          <p class="value-desc">Peralatan pengujian kualitas udara, kebisingan, ergonomi, mikrobiologi air, dan sanitasi yang lengkap.</p>
+          <div class="value-icon-wrap"><i class="bi bi-pencil-square"></i></div>
+          <div class="value-title">Relawan Notetaker Sebaya</div>
+          <p class="value-desc">Pendampingan pencatatan materi perkuliahan secara sistematis untuk memastikan tidak ada materi ajar yang terlewat.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-buildings-fill"></i></div>
-          <div class="value-title">50+ Mitra Industri & RS</div>
-          <p class="value-desc">Kerjasama magang dan penempatan kerja luas di galangan kapal, kawasan industri Batam, RSUD, dan dinas pemerintah.</p>
+          <div class="value-icon-wrap"><i class="bi bi-heart-pulse-fill"></i></div>
+          <div class="value-title">Konseling Psikologis Ramah</div>
+          <p class="value-desc">Dukungan kesehatan mental, motivasi akademik, dan pemulihan psikologis bersama psikolog berlisensi dengan kerahasiaan penuh.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-stars"></i></div>
-          <div class="value-title">Karakter Islami & Humanis</div>
-          <p class="value-desc">Pembinaan karakter tenaga kesehatan yang jujur, amanah, beretika profesional, dan berdedikasi tinggi bagi masyarakat.</p>
+          <div class="value-icon-wrap"><i class="bi bi-laptop"></i></div>
+          <div class="value-title">Resource Center &amp; Asistif</div>
+          <p class="value-desc">Akses komputer ber-screen reader (NVDA/JAWS), scanner konversi teks ke audio, serta materi literatur berhuruf Braille.</p>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
         <div class="value-card">
-          <div class="value-icon-wrap"><i class="bi bi-award-fill"></i></div>
-          <div class="value-title">Sertifikasi Pendamping</div>
-          <p class="value-desc">Kesempatan memperoleh Surat Keterangan Pendamping Ijazah (SKPI) dan sertifikasi kompetensi K3 BNSP/Kemnaker.</p>
+          <div class="value-icon-wrap"><i class="bi bi-stars"></i></div>
+          <div class="value-title">Budaya Kampus Inklusif</div>
+          <p class="value-desc">Sosialisasi etika interaksi disabilitas berkelanjutan guna membangun lingkungan kampus UIS yang saling menghargai tanpa stigma.</p>
         </div>
       </div>
     </div>
@@ -1357,16 +1357,16 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     6. FASILITAS & LABORATORIUM
+     6. FASILITAS & RESOURCE CENTER INKLUSIF
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-sand" id="fasilitas">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Sarana Kampus</div>
-      <h2 class="section-title">Fasilitas & <em>Laboratorium Modern</em></h2>
+      <div class="section-label mx-auto">Sarana Aksesibel</div>
+      <h2 class="section-title">Fasilitas &amp; <em>Resource Center Ramah Disabilitas</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Menunjang proses riset dan praktikum mahasiswa dengan sarana pengujian berteknologi mutakhir.
+        Menunjang kemandirian proses belajar dan mobilitas sivitas akademika dengan fasilitas aksesibilitas dan teknologi asistif berstandar nasional.
       </p>
     </div>
 
@@ -1375,9 +1375,9 @@
         @foreach($saranas as $index => $sarana)
           <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ 100 + ($index * 100) }}">
             <div class="fasilitas-box">
-              <div class="fasilitas-icon"><i class="bi {{ $sarana->icon ?? 'bi-building' }}"></i></div>
+              <div class="fasilitas-icon"><i class="bi {{ $sarana->icon ?? 'bi-universal-access-circle' }}"></i></div>
               <h4 class="fw-bold mb-2">{{ $sarana->nama }}</h4>
-              <p class="text-muted small mb-0">{{ $sarana->deskripsi ?: 'Fasilitas yang mendukung kegiatan akademik dan riset mahasiswa.' }}</p>
+              <p class="text-muted small mb-0">{{ $sarana->deskripsi ?: 'Fasilitas ramah disabilitas yang mendukung kenyamanan dan proses belajar mahasiswa.' }}</p>
             </div>
           </div>
         @endforeach
@@ -1391,177 +1391,83 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     7. AKADEMIK, PENELITIAN & PENGABDIAN
+     7. PROGRAM KERJA STRATEGIS PLD UIS
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-white">
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6" data-aos="fade-right">
-        <div class="section-label">Tri Dharma Perguruan Tinggi</div>
-        <h2 class="section-title">Inovasi Riset & <em>Pengabdian Masyarakat</em></h2>
-        <div class="divider-line"></div>
-        <p class="section-desc mb-4" style="text-align: justify;">
-          Dosen dan mahasiswa PLD UIS aktif menghasilkan riset terapan yang dipublikasikan pada jurnal ilmiah bereputasi, serta melaksanakan program pengabdian masyarakat untuk memecahkan persoalan sanitasi dan keselamatan kerja.
-        </p>
+<section class="section-bg-white py-5" id="program-kerja">
+  <div class="container py-2">
+    <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3" data-aos="fade-up">
+      <div>
+        <div class="section-label mb-2">Agenda Aksi</div>
+        <h2 class="section-title mb-0">Program Kerja <em>PLD UIS</em></h2>
+      </div>
+      <a href="{{ route('homepage.program-kerja') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
+        <i class="bi bi-grid-fill me-1"></i> Lihat Semua Program
+      </a>
+    </div>
 
-        <div class="row g-3">
-          @forelse($triDharmas as $td)
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 bg-light border h-100">
-                <div class="fw-bold text-dark mb-1">
-                  <i class="bi {{ $td->icon }} me-2" style="color: {{ $td->warna ?: 'var(--pld-purple)' }} !important;"></i>{{ $td->judul }}
+    <div class="row g-4">
+      @if(isset($homeProgramKerjas) && $homeProgramKerjas->count() > 0)
+        @foreach($homeProgramKerjas as $pk)
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+            <div class="p-4 rounded-4 bg-white h-100 d-flex flex-column justify-content-between shadow-sm" style="border: 1px solid var(--border-light, #e2e8f0); transition: all 0.3s ease;">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge px-3 py-1" style="background: var(--pld-purple-light, #eef2ff); color: var(--pld-purple, #283759); font-size: 11px; font-weight: 700; border-radius: 6px;">{{ $pk->kategori }}</span>
+                  <span class="badge bg-light text-dark border small" style="font-size: 11px;">{{ $pk->status }}</span>
                 </div>
-                @if($td->deskripsi)
-                  <p class="text-muted small mb-0">{{ $td->deskripsi }}</p>
+                <h4 class="fw-bold text-dark fs-6 mb-2">{{ $pk->judul }}</h4>
+                <p class="text-secondary small mb-3" style="line-height: 1.6;">{{ Str::limit($pk->deskripsi, 120) }}</p>
+              </div>
+              <div class="pt-3 border-top mt-auto small text-muted">
+                @if($pk->target_waktu)
+                  <div><i class="bi bi-calendar3 me-1 text-primary"></i> {{ $pk->target_waktu }}</div>
+                @endif
+                @if($pk->sasaran)
+                  <div><i class="bi bi-people-fill me-1 text-success"></i> {{ $pk->sasaran }}</div>
                 @endif
               </div>
             </div>
-          @empty
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-journal-check text-primary me-2" style="color:var(--pld-purple) !important;"></i>Riset Terapan</div>
-                <p class="text-muted small mb-0">Fokus riset ergonomi industri maritim dan sanitasi pesisir.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-globe-americas text-warning me-2" style="color:var(--pld-orange) !important;"></i>Publikasi SINTA</div>
-                <p class="text-muted small mb-0">Publikasi rutin di jurnal nasional terakreditasi dan prosiding.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-heart-pulse-fill text-danger me-2"></i>Pengmas Berkelanjutan</div>
-                <p class="text-muted small mb-0">Edukasi K3 bagi pekerja UMKM dan pemeriksaan sanitasi warga.</p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-briefcase-fill text-success me-2"></i>Kerja Sama Riset</div>
-                <p class="text-muted small mb-0">Kolaborasi penelitian bersama instansi pemerintah & swasta.</p>
-              </div>
-            </div>
-          @endforelse
-        </div>
-      </div>
-
-      <div class="col-lg-6" data-aos="fade-left">
-        <div class="p-4 p-md-5 rounded-4 shadow-sm" style="background: var(--obsidian-dark); color: white;">
-          <h4 class="fw-bold text-white mb-3"><i class="bi bi-lightbulb-fill text-warning me-2"></i>Agenda Ilmiah & Seminar</h4>
-          <p class="text-white-50 small mb-4" style="line-height: 1.7;">
-            PLD UIS secara berkala menyelenggarakan Konferensi Nasional K3 dan Lingkungan Hidup, mengundang narasumber pakar dari Kemnaker, Kementerian Kesehatan, dan praktisi industri global.
-          </p>
-          <div class="d-flex flex-wrap gap-2 cta-btn-group">
-            <a href="{{ route('homepage.news') }}" class="btn-primary-hero btn-mobile-full" style="font-size: 13px; padding: 10px 20px;">
-              <i class="bi bi-newspaper"></i> Lihat Publikasi & Berita
-            </a>
-            <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero btn-mobile-full" style="font-size: 13px; padding: 10px 20px;">
-              <i class="bi bi-images"></i> Galeri Kegiatan
-            </a>
           </div>
-        </div>
-      </div>
+        @endforeach
+      @endif
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     8. DOSEN & TENAGA PENGAJAR
+     8. PROGRAM VOLUNTEER & RELAWAN INKLUSIF
 ═══════════════════════════════════════════════ -->
-<section class="section-bg-sand" id="dosen">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Tenaga Pendidik</div>
-      <h2 class="section-title">Dosen & <em>Pakar Akademik</em> PLD UIS</h2>
-      <div class="divider-line centered"></div>
-      <p class="section-desc mx-auto">
-        Dibimbing langsung oleh para pakar berpengalaman yang memiliki sertifikasi keahlian nasional dan publikasi ilmiah terkemuka.
-      </p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      @forelse($tenagaPendidiks as $tp)
-        @php
-          $prodiUrl = $tp->link ?: ($tp->layanan_id ? route('homepage.dosen', ['prodi' => $tp->layanan_id]) : route('homepage.dosen'));
-          $btnText  = $tp->tombol_teks ?: ($tp->layanan ? 'Lihat Dosen ' . Str::limit($tp->layanan->judul, 20) : 'Lihat Dosen');
-        @endphp
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-          <div class="dosen-card d-flex flex-column justify-content-between">
-            <div>
-              <div class="dosen-avatar">
-                @if($tp->foto)
-                  <img src="{{ asset('storage/' . $tp->foto) }}" alt="{{ $tp->nama }}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-                @else
-                  <i class="bi {{ $tp->icon ?: 'bi-person-fill' }}"></i>
-                @endif
-              </div>
-              <div class="dosen-name">{{ $tp->nama }}</div>
-              @if($tp->bidang)
-                <div class="dosen-bidang">{{ $tp->bidang }}</div>
-              @endif
-              @if($tp->keterangan)
-                <p class="dosen-pub mb-3">{{ $tp->keterangan }}</p>
-              @endif
-            </div>
-            <div class="pt-3 mt-auto border-top">
-              <a href="{{ $prodiUrl }}" class="btn btn-sm w-100 rounded-pill fw-bold text-decoration-none d-inline-flex align-items-center justify-content-center gap-1"
-                 style="background: var(--pld-purple-light, #f3ebf8); color: var(--pld-purple, #283759); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
-                 onmouseover="this.style.background='var(--pld-purple, #283759)'; this.style.color='#ffffff';"
-                 onmouseout="this.style.background='var(--pld-purple-light, #f3ebf8)'; this.style.color='var(--pld-purple, #283759)';">
-                <i class="bi bi-people-fill"></i> {{ $btnText }}
-              </a>
-            </div>
-          </div>
+<section class="py-5" style="background: linear-gradient(135deg, #141b39 0%, #283759 100%); color: #ffffff;" id="volunteer-cta">
+  <div class="container py-3">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7" data-aos="fade-right">
+        <span class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(121, 168, 226, 0.25); color: #79a8e2; font-weight: 800; font-size: 12px; letter-spacing: 0.5px;">
+          <i class="bi bi-heart-fill text-danger me-1"></i> OPEN RECRUITMENT VOLUNTEER
+        </span>
+        <h2 class="display-6 fw-bold text-white mb-3">Jadilah Sahabat Belajar &amp; <em>Relawan Inklusif</em></h2>
+        <p class="text-white-50 mb-4" style="line-height: 1.8; font-size: 15px;">
+          Bergabunglah bersama keluarga besar Pusat Layanan Disabilitas Universitas Ibnu Sina sebagai relawan pendamping akademik (notetaker, reader, mobilitas) dan juru bahasa isyarat. Raih pengalaman sosial nyata, pelatihan BISINDO bersertifikat, dan poin SKPI resmi Rektorat.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{{ route('homepage.volunteer') }}" class="btn btn-warning px-4 py-3 fw-bold rounded-pill shadow" style="background: #ffd166; color: #141b39; border: none;">
+            <i class="bi bi-send-fill me-1"></i> Daftar Relawan Sekarang
+          </a>
+          <a href="{{ route('homepage.layanan') }}" class="btn btn-outline-light px-4 py-3 rounded-pill fw-semibold">
+            <i class="bi bi-info-circle me-1"></i> Pelajari Layanan PLD
+          </a>
         </div>
-      @empty
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="dosen-card d-flex flex-column justify-content-between">
-            <div>
-              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-              <div class="dosen-name">Dosen Bidang K3</div>
-              <div class="dosen-bidang">Spesialis Ergonomi & SMK3</div>
-              <p class="dosen-pub mb-3">Ahli K3 Umum & Auditor ISO 45001 Kemnaker RI.</p>
-            </div>
-            <div class="pt-3 mt-auto border-top">
-              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
-                <i class="bi bi-people-fill me-1"></i> Lihat Dosen K3
-              </a>
-            </div>
-          </div>
+      </div>
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="p-4 rounded-4" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px);">
+          <h5 class="fw-bold text-white mb-3"><i class="bi bi-stars text-warning me-2"></i>Manfaat Menjadi Relawan:</h5>
+          <ul class="text-white-50 small list-unstyled mb-0 d-flex flex-column gap-2" style="line-height: 1.7;">
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Pelatihan Intensif Bahasa Isyarat (BISINDO) &amp; Etika Disabilitas</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Sertifikat Resmi Rektorat &amp; Konversi Poin SKPI</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Penyesuaian Jadwal Fleksibel Mengikuti Jam Kuliah</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Jejaring Sosial Lintas Fakultas &amp; Portofolio Pengabdian</li>
+          </ul>
         </div>
-
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="dosen-card d-flex flex-column justify-content-between">
-            <div>
-              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-              <div class="dosen-name">Dosen Higiene Industri</div>
-              <div class="dosen-bidang">Toksikologi & Bahaya Fisik</div>
-              <p class="dosen-pub mb-3">Pengalaman 15+ tahun di industri manufaktur & galangan.</p>
-            </div>
-            <div class="pt-3 mt-auto border-top">
-              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
-                <i class="bi bi-people-fill me-1"></i> Lihat Dosen Kesmas
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="dosen-card d-flex flex-column justify-content-between">
-            <div>
-              <div class="dosen-avatar"><i class="bi bi-person-fill"></i></div>
-              <div class="dosen-name">Dosen Kesehatan Lingkungan</div>
-              <div class="dosen-bidang">AMDAL & Pengolahan Limbah B3</div>
-              <p class="dosen-pub mb-3">Konsultan AMDAL bersertifikasi & Penilai KLHK.</p>
-            </div>
-            <div class="pt-3 mt-auto border-top">
-              <a href="{{ route('homepage.dosen') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill fw-bold" style="font-size: 13px;">
-                <i class="bi bi-people-fill me-1"></i> Lihat Dosen Kesling
-              </a>
-            </div>
-          </div>
-        </div>
-      @endforelse
+      </div>
     </div>
   </div>
 </section>
@@ -1783,16 +1689,16 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     10. ALUMNI & KARIER
+     10. TESTIMONI MAHASISWA & RELAWAN
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-white py-5" id="alumni">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Kisah Sukses Alumni</div>
-      <h2 class="section-title">Jejak Karir <em>Alumni PLD UIS</em></h2>
+      <div class="section-label mx-auto">Suara Civitas Inklusif</div>
+      <h2 class="section-title">Pengalaman &amp; <em>Testimoni</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Lulusan PLD UIS telah berkarier di berbagai rumah sakit ternama, industri farmasi, laboratorium klinis, BUMN, dan institusi kesehatan terkemuka.
+        Cerita nyata dari mahasiswa disabilitas, relawan inklusif, dosen, dan mitra yang merasakan dampak positif layanan Pusat Layanan Disabilitas UIS.
       </p>
     </div>
 
@@ -1849,7 +1755,7 @@
 
     <div class="text-center mt-3" data-aos="fade-up">
       <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero px-4 py-2" style="color: var(--pld-purple); border-color: var(--pld-purple); border-radius: 25px; font-weight: 600;">
-        <i class="bi bi-chat-heart me-1"></i> Lihat Semua Ulasan Alumni
+        <i class="bi bi-chat-heart me-1"></i> Lihat Semua Testimoni
       </a>
     </div>
   </div>
@@ -1943,13 +1849,13 @@
                 </a>
               @endforeach
             @else
-              {{-- Default Item Pengumuman Fakultas --}}
+              {{-- Default Item Pengumuman PLD --}}
               <div class="announcement-card-box">
-                <div class="announcement-card-title">Pengumuman Pengisian KRS dan validasi KRS Tahun Akademik 2026/2027 Gasal</div>
+                <div class="announcement-card-title">Pendaftaran Relawan Mahasiswa Inklusif & Notetaker Semester Ganjil</div>
                 <div class="announcement-card-date">15 August 2026</div>
               </div>
               <div class="announcement-card-box">
-                <div class="announcement-card-title">Pengumuman Semester Antara TA. 2025-2026</div>
+                <div class="announcement-card-title">Sosialisasi Pengajuan Akomodasi Ujian & Pendampingan Perkuliahan</div>
                 <div class="announcement-card-date">1 August 2026</div>
               </div>
             @endif
@@ -1965,23 +1871,23 @@
 
           <div class="agenda-list">
             <div class="agenda-row mb-3">
-              <div class="agenda-time-text">20 - 31 Juli 2026:</div>
+              <div class="agenda-time-text">15 - 20 September 2026:</div>
               <div class="agenda-badge-card">
-                Pendaftaran Semester Antara
+                Workshop Bahasa Isyarat (BISINDO) Tingkat Dasar
               </div>
             </div>
 
             <div class="agenda-row mb-3">
-              <div class="agenda-time-text">03 - 28 Agustus 2026:</div>
+              <div class="agenda-time-text">25 September 2026:</div>
               <div class="agenda-badge-card">
-                Perkuliahan Semester Antara
+                Pelatihan Etika Interaksi & Pendampingan Mahasiswa Inklusif
               </div>
             </div>
 
             <div class="agenda-row mb-3">
-              <div class="agenda-time-text">31 Agustus - 05 September 2026:</div>
+              <div class="agenda-time-text">05 Oktober 2026:</div>
               <div class="agenda-badge-card">
-                Penyerahan Nilai Semester Antara
+                FGD Aksesibilitas Fasilitas Kampus Bersama Rektorat
               </div>
             </div>
 
@@ -2009,34 +1915,34 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
           <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
-            {{ $pmbSetting->badge_text ?? 'PENERIMAAN MAHASISWA BARU (PMB) T.A. 2026/2027' }}
+            {{ $pmbSetting->badge_text ?? 'LAYANAN & PENDAMPINGAN MAHASISWA INKLUSIF' }}
           </div>
           <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">
-            {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Cerah Bersama PLD UIS!' }}
+            {{ $pmbSetting->judul ?? 'Konsultasikan Kebutuhan Belajar & Dapatkan Pendampingan Penuh di PLD UIS!' }}
           </h2>
           <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92; font-size: 14.5px;">
-            {{ $pmbSetting->deskripsi ?? 'Tersedia berbagai jalur seleksi: Jalur Bebas Tes / Prestasi, Jalur Reguler, Jalur KIP-Kuliah, dan Jalur Alih Jenjang Karyawan.' }}
+            {{ $pmbSetting->deskripsi ?? 'Pusat Layanan Disabilitas Universitas Ibnu Sina siap mendampingi kebutuhan akademik, akomodasi ujian, notetaker, juru bahasa isyarat, dan konseling psikologis.' }}
           </p>
           <div class="d-flex flex-wrap gap-3 pmb-btn-group">
             @php
-              $link1 = $pmbSetting->tombol_link_1 ?? route('homepage.kontak');
+              $link1 = $pmbSetting->tombol_link_1 ?? route('homepage.layanan');
               if (!str_starts_with($link1, 'http') && !str_starts_with($link1, '/')) {
                   $link1 = '/' . $link1;
               }
             @endphp
             <a href="{{ $link1 }}" target="{{ str_starts_with($link1, 'http') ? '_blank' : '_self' }}" class="btn-primary-hero">
-              <i class="bi bi-pencil-square"></i> {{ $pmbSetting->tombol_text_1 ?? 'Daftar PMB Sekarang' }}
+              <i class="bi bi-info-circle"></i> {{ $pmbSetting->tombol_text_1 ?? 'Pelajari Layanan PLD' }}
             </a>
 
             @php
               $link2 = $pmbSetting->tombol_link_2 ?? '';
               if (empty($link2) && !empty($cleanWa)) {
-                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Admin PMB PLD UIS, saya ingin konsultasi pendaftaran mahasiswa baru");
+                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Pusat Layanan Disabilitas UIS, saya ingin konsultasi mengenai layanan pendampingan.");
               }
             @endphp
             @if(!empty($link2))
               <a href="{{ $link2 }}" target="_blank" class="btn-pmb-wa">
-                <i class="bi bi-whatsapp"></i> {{ $pmbSetting->tombol_text_2 ?? 'Konsultasi WhatsApp PMB' }}
+                <i class="bi bi-whatsapp"></i> {{ $pmbSetting->tombol_text_2 ?? 'Konsultasi WhatsApp PLD' }}
               </a>
             @endif
           </div>
@@ -2069,10 +1975,10 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Jejaring Mitra</div>
-      <h2 class="section-title">Mitra Kerjasama <em>Industri & Rumah Sakit</em></h2>
+      <h2 class="section-title">Mitra Kerjasama <em>Inklusi, Industri &amp; Komunitas</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        PLD UIS bermitra dengan berbagai sektor industri terkemuka dalam penempatan magang klinis, riset, dan rekrutmen lulusan.
+        Kolaborasi aktif bersama organisasi disabilitas, komunitas Intelek Tuli, instansi pemerintah, dan dunia usaha untuk memperluas kesempatan karier serta inklusi.
       </p>
     </div>
   </div>
