@@ -40,5 +40,9 @@
 @endsection
 
 @push('scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+    @if(app()->environment('production'))
+        {!! str_replace('http:', 'https:', $dataTable->scripts()) !!}
+    @else
+        {!! $dataTable->scripts() !!}
+    @endif
 @endpush
