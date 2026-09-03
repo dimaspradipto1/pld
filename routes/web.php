@@ -35,6 +35,7 @@ use App\Http\Controllers\TenagaPendidikController;
 use App\Http\Controllers\LayananTerkaitController;
 use App\Http\Controllers\ProgramKerjaController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\StatistikMahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/artikel', fn() => redirect()->route('homepage.news', ['category' => 'Artikel']));
     Route::get('/intelek-tuli', fn() => redirect()->route('homepage.news', ['category' => 'Intelek Tuli']));
     Route::get('/program-kerja', 'programKerja')->name('homepage.program-kerja');
+    Route::get('/statistik-mahasiswa', 'statistikMahasiswa')->name('homepage.statistik-mahasiswa');
     Route::get('/volunteer', 'volunteer')->name('homepage.volunteer');
     Route::post('/volunteer/daftar', 'storeVolunteer')->name('homepage.volunteer.store');
     Route::get('/faq', 'faq')->name('homepage.faq');
@@ -175,4 +177,7 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('visimisi', VisiMisiController::class);
     Route::resource('nilaiperusahaan', NilaiPerusahaanController::class);
     Route::resource('faculty-stat', FacultyStatController::class);
+    Route::resource('admin-statistik-mahasiswa', StatistikMahasiswaController::class)
+        ->parameters(['admin-statistik-mahasiswa' => 'admin_statistik_mahasiswa'])
+        ->names('admin-statistik-mahasiswa');
 });

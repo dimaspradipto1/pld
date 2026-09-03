@@ -76,6 +76,20 @@
               </li>
             </ul>
           </li>
+
+          <!-- Kemahasiswaan PLD -->
+          <li class="nav-item">
+            <a class="nav-link {{ Route::is('admin-statistik-mahasiswa.*') ? '' : 'collapsed' }}" data-bs-target="#kemahasiswaan-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-mortarboard"></i><span>Kemahasiswaan</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="kemahasiswaan-nav" class="nav-content collapse {{ Route::is('admin-statistik-mahasiswa.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+              <li>
+                <a href="{{ route('admin-statistik-mahasiswa.index') }}" class="{{ Route::is('admin-statistik-mahasiswa.*') ? 'active' : '' }}">
+                  <i class="bi bi-circle"></i><span>Statistik Mahasiswa</span>
+                </a>
+              </li>
+            </ul>
+          </li>
           @elseif($isOrganisasi)
           <!-- Menu Khusus Role Organisasi Mahasiswa -->
           <li class="nav-item">

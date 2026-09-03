@@ -567,4 +567,60 @@ class FrontendController extends Controller
             ->route('homepage.alumni.create')
             ->with('success', 'Terima kasih atas kontribusi Anda! Testimoni & kisah sukses Anda telah berhasil kami terima dan akan segera ditinjau oleh admin.');
     }
+
+    /**
+     * Halaman Publik Data & Statistik Mahasiswa Disabilitas PLD UIS
+     */
+    public function statistikMahasiswa(\Illuminate\Http\Request $request)
+    {
+        $query = \App\Models\StatistikMahasiswa::query();
+
+        $selectedAngkatan = $request->get('angkatan');
+        $selectedStatus = $request->get('status', 'Semua');
+
+        if (!empty($selectedAngkatan)) {
+            $query->where('angkatan', $selectedAngkatan);
+        }
+        if (!empty($selectedStatus) && $selectedStatus !== 'Semua') {
+            $query->where('status', $selectedStatus);
+        }
+
+        $allData = $query->get();
+        $totalMahasiswa = $allData->count();
+
+        // 1. Rekapitulasi per Jenis Disabilitas
+        $disabilitasCounts = $allData->groupBy('jenis_disabilitas')->map->count()->sortDesc();
+
+        // Standard icons & colors for each disabilitas
+        $disabilitasMeta = [
+            'Tunanetra'         => ['icon' => 'bi-eye-slash-fill', 'color' => '#283759', 'bg' => '#eef4fc'],
+            'Tunadaksa'         => ['icon' => 'bi-person-wheelchair', 'color' => '#141b39', 'bg' => '#dbe7f7'],
+            'Tunarungu'         => ['icon' => 'bi-ear-fill', 'color' => '#50697d', 'bg' => '#f0f5fc'],
+            'Tunagrahita'       => ['icon' => 'bi-puzzle-fill', 'color' => '#79a8e2', 'bg' => '#e0ecf9'],
+            'Kesulitan Belajar' => ['icon' => 'bi-book-half', 'color' => '#283759', 'bg' => '#eef4fc'],
+            'Tunawicara'        => ['icon' => 'bi-chat-dots-fill', 'color' => '#6396d8', 'bg' => '#dbe8f8'],
+            'Autisme'           => ['icon' => 'bi-heart-pulse-fill', 'color' => '#50697d', 'bg' => '#eef4fc'],
+            'Lainnya'           => ['icon' => 'bi-asterisk', 'color' => '#141b39', 'bg' => '#f8fafd'],
+        ];
+
+        // 2. Rekapitulasi per Fakultas (for Chart.js)
+        $fakultasCounts = $allData->groupBy('fakultas')->map->count()->sortDesc();
+
+        // 3. Rekapitulasi per Prodi (for Chart.js)
+        $prodiCounts = $allData->groupBy('prodi')->map->count()->sortDesc();
+
+        // Available Angkatan list for filter
+        $angkatanList = \App\Models\StatistikMahasiswa::select('angkatan')->distinct()->orderBy('angkatan', 'desc')->pluck('angkatan');
+
+        return view('layouts.frontend.statistik-mahasiswa', compact(
+            'totalMahasiswa',
+            'disabilitasCounts',
+            'disabilitasMeta',
+            'fakultasCounts',
+            'prodiCounts',
+            'angkatanList',
+            'selectedAngkatan',
+            'selectedStatus'
+        ));
+    }
 }

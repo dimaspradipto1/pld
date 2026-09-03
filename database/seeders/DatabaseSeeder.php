@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
             ProgramKerjaSeeder::class,
             VolunteerSeeder::class,
             PldNewsSeeder::class,
+            StatistikMahasiswaSeeder::class,
         ]);
     }
 }
