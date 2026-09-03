@@ -621,8 +621,28 @@ class FrontendController extends Controller
         rsort($mergedYears);
         $angkatanList = collect($mergedYears);
 
-        // Daftar mahasiswa untuk tabel direktori frontend (10 per halaman)
-        $mahasiswaList = $query->orderBy('angkatan', 'desc')->orderBy('nama', 'asc')->paginate(10)->withQueryString();
+        $search = trim($request->get('search', ''));
+
+        // Query khusus untuk tabel direktori mahasiswa
+        $tableQuery = (clone $query);
+        if (!empty($search)) {
+            $tableQuery->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%{$search}%")
+                  ->orWhere('nim', 'like', "%{$search}%")
+                  ->orWhere('prodi', 'like', "%{$search}%")
+                  ->orWhere('fakultas', 'like', "%{$search}%")
+                  ->orWhere('jenis_disabilitas', 'like', "%{$search}%")
+                  ->orWhere('keterangan', 'like', "%{$search}%");
+            });
+        }
+
+        // Daftar mahasiswa untuk tabel direktori frontend (10 per halaman dengan anchor direktori-mahasiswa)
+        $mahasiswaList = $tableQuery->orderBy('angkatan', 'desc')
+            ->orderBy('nama', 'asc')
+            ->paginate(10)
+            ->onEachSide(1)
+            ->fragment('direktori-mahasiswa')
+            ->withQueryString();
 
         return view('layouts.frontend.statistik-mahasiswa', compact(
             'totalMahasiswa',
@@ -633,7 +653,8 @@ class FrontendController extends Controller
             'angkatanList',
             'selectedAngkatan',
             'selectedStatus',
-            'mahasiswaList'
+            'mahasiswaList',
+            'search'
         ));
     }
 }

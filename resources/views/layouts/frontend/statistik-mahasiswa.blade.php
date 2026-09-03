@@ -144,6 +144,66 @@
     position: relative;
     z-index: 10;
   }
+
+  /* Search Mahasiswa Box */
+  .search-mhs-box {
+    border: 1.5px solid #dce4ec;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  .search-mhs-box:focus-within {
+    border-color: #79a8e2;
+    box-shadow: 0 0 0 3px rgba(121, 168, 226, 0.2);
+  }
+  .search-mhs-box .form-control {
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 14px;
+    background: transparent;
+  }
+
+  /* Pagination Styling */
+  .custom-pagination-container .pagination {
+    margin-bottom: 0;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .custom-pagination-container .page-item:first-child .page-link,
+  .custom-pagination-container .page-item:last-child .page-link {
+    border-radius: 8px !important;
+  }
+  .custom-pagination-container .page-link {
+    border-radius: 8px !important;
+    border: 1px solid #e2ebf2;
+    color: #141b39;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 6px 12px;
+    transition: all 0.2s ease;
+    box-shadow: none !important;
+  }
+  .custom-pagination-container .page-link:hover {
+    background: #eef4fc;
+    color: #141b39;
+    border-color: #79a8e2;
+  }
+  .custom-pagination-container .page-item.active .page-link {
+    background: #141b39 !important;
+    border-color: #141b39 !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 8px rgba(20, 27, 57, 0.2) !important;
+  }
+  .custom-pagination-container .page-item.disabled .page-link {
+    background: #f8fafc;
+    color: #94a3b8;
+    border-color: #edf2f7;
+  }
+  .custom-pagination-container nav > div:first-child {
+    display: none !important;
+  }
 </style>
 @endpush
 
@@ -306,12 +366,53 @@
     <!-- ═══════════════════════════════════════════════
          SECTION 4: DIREKTORI MAHASISWA & PENDAMPINGAN
     ═══════════════════════════════════════════════ -->
-    <div class="chart-section-card" data-aos="fade-up">
+    <div class="chart-section-card" id="direktori-mahasiswa" data-aos="fade-up">
       <div class="chart-header">
         <h3 class="chart-title">Direktori Mahasiswa &amp; <em>Akomodasi Pendampingan</em></h3>
         <p class="chart-subtitle">
           Daftar mahasiswa berkebutuhan khusus yang tercatat dalam layanan pendampingan PLD UIS beserta catatan kebutuhan asistif
         </p>
+      </div>
+
+      <!-- ── Search & Filter Info Bar ── -->
+      <div class="row g-3 align-items-center justify-content-between mb-4 pb-2">
+        <div class="col-md-7 col-lg-6">
+          <form method="GET" action="{{ route('homepage.statistik-mahasiswa') }}#direktori-mahasiswa" class="d-flex align-items-center">
+            @if(!empty($selectedAngkatan))
+              <input type="hidden" name="angkatan" value="{{ $selectedAngkatan }}">
+            @endif
+            @if(!empty($selectedStatus) && $selectedStatus !== 'Semua')
+              <input type="hidden" name="status" value="{{ $selectedStatus }}">
+            @endif
+            
+            <div class="input-group search-mhs-box w-100">
+              <span class="input-group-text bg-transparent border-0 pe-1 text-muted">
+                <i class="bi bi-search"></i>
+              </span>
+              <input type="text" name="search" class="form-control ps-1" placeholder="Cari nama mahasiswa, NIM, prodi, disabilitas..." value="{{ $search ?? '' }}">
+              @if(!empty($search))
+                <a href="{{ route('homepage.statistik-mahasiswa', array_filter(['angkatan' => $selectedAngkatan, 'status' => $selectedStatus !== 'Semua' ? $selectedStatus : null])) }}#direktori-mahasiswa" class="btn btn-link text-secondary text-decoration-none px-2" title="Hapus Pencarian">
+                  <i class="bi bi-x-circle-fill"></i>
+                </a>
+              @endif
+              <button class="btn btn-primary px-3 fw-semibold text-white" type="submit" style="background: #141b39; border-color: #141b39; border-radius: 0 10px 10px 0;">
+                Cari
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-5 col-lg-6 text-md-end">
+          @if(!empty($search))
+            <span class="badge bg-light text-dark border py-2 px-3">
+              <i class="bi bi-filter me-1 text-primary"></i>Hasil pencarian: "<strong>{{ $search }}</strong>"
+            </span>
+          @else
+            <span class="text-muted small">
+              <i class="bi bi-people-fill me-1 text-primary"></i>Total: <strong>{{ $mahasiswaList->total() }}</strong> mahasiswa terdata
+            </span>
+          @endif
+        </div>
       </div>
 
       <div class="table-responsive">
@@ -367,9 +468,10 @@
               </tr>
             @empty
               <tr>
-                <td colspan="6" class="text-center py-4 text-muted">
-                  <i class="bi bi-inbox fs-2 d-block mb-1"></i>
-                  Tidak ada data mahasiswa pada filter ini.
+                <td colspan="6" class="text-center py-5 text-muted">
+                  <i class="bi bi-inbox fs-1 d-block mb-2 text-secondary opacity-50"></i>
+                  <div class="fw-semibold">Tidak ada data mahasiswa yang cocok.</div>
+                  <small>Silakan coba kata kunci pencarian atau kombinasi filter yang lain.</small>
                 </td>
               </tr>
             @endforelse
@@ -377,9 +479,15 @@
         </table>
       </div>
 
+      <!-- ── Custom Clean Pagination ── -->
       @if($mahasiswaList->hasPages())
-        <div class="d-flex justify-content-center mt-4">
-          {{ $mahasiswaList->links('pagination::bootstrap-5') }}
+        <div class="custom-pagination-container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 mt-4 pt-3 border-top">
+          <div class="text-muted small">
+            Menampilkan <strong>{{ $mahasiswaList->firstItem() ?? 0 }}</strong> sampai <strong>{{ $mahasiswaList->lastItem() ?? 0 }}</strong> dari total <strong>{{ $mahasiswaList->total() }}</strong> mahasiswa
+          </div>
+          <div>
+            {{ $mahasiswaList->links('pagination::bootstrap-5') }}
+          </div>
         </div>
       @endif
     </div>
