@@ -897,32 +897,24 @@
 <body>
 
 <header class="header-sticky-wrapper" id="headerStickyWrapper">
-  <!-- ═══════════════════════════════════════════════
-       TOPBAR BILAH ATAS
-  ═══════════════════════════════════════════════ -->
+
   @include('layouts.frontend.topbar')
 
-  <!-- ═══════════════════════════════════════════════
-       NAVBAR HEADER UTAMA
-  ═══════════════════════════════════════════════ -->
   @include('layouts.frontend.header')
 </header>
 <div class="header-spacer" id="headerSpacer"></div>
 
-<!-- ═══════════════════════════════════════════════
-     MAIN CONTENT
-═══════════════════════════════════════════════ -->
 @yield('content')
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════ -->
 @include('layouts.frontend.footer')
 
 <!-- Back to Top -->
 <a href="#" class="back-to-top" id="backToTop">
   <i class="bi bi-chevron-up"></i>
 </a>
+
+<!-- Accessibility Voice Assistant (Hover, Select & Focus Reader) -->
+@include('layouts.frontend.voice-assistant')
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
