@@ -30,7 +30,7 @@ class StatistikMahasiswaRequest extends FormRequest
             'prodi'             => ['required', 'string', 'max:150'],
             'angkatan'          => ['required', 'digits:4', 'integer', 'min:2010', 'max:2030'],
             'status'            => ['required', 'in:Aktif,Lulus,Cuti'],
-            'keterangan'        => ['nullable', 'string', 'max:500'],
+            'keterangan'        => ['nullable', 'string', 'max:50000'],
         ];
     }
 

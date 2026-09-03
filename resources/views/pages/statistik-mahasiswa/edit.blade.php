@@ -116,9 +116,12 @@
                     @enderror
                 </div>
 
-                <div class="col-md-6">
-                    <label for="keterangan" class="form-label fw-bold">Keterangan / Catatan Pendampingan</label>
-                    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" value="{{ old('keterangan', $mahasiswa->keterangan) }}" placeholder="Catatan khusus, akomodasi atau kebutuhan asistif">
+                <div class="col-12">
+                    <label for="keterangan" class="form-label fw-bold d-flex align-items-center justify-content-between">
+                        <span>Keterangan / Catatan Pendampingan</span>
+                        <span class="badge bg-light text-primary border" style="font-size: 11px;"><i class="bi bi-pen me-1"></i>TinyMCE Editor</span>
+                    </label>
+                    <textarea class="form-control tinymce-editor @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" rows="6" placeholder="Tuliskan catatan khusus pendampingan, riwayat asesmen, kebutuhan alat bantu atau akomodasi belajar mahasiswa...">{{ old('keterangan', $mahasiswa->keterangan) }}</textarea>
                     @error('keterangan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
