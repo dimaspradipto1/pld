@@ -10,7 +10,7 @@
           <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" style="height: 48px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-desc">
-          Pusat keunggulan pendidikan, riset, serta pelayanan kesehatan terintegrasi yang berdedikasi melahirkan lulusan profesional, beretika, dan berkompeten.
+          Pusat Layanan Disabilitas Universitas Ibnu Sina berdedikasi mewujudkan ekosistem pendidikan tinggi yang inklusif, ramah, aksesibel, dan berkeadilan bagi seluruh mahasiswa disabilitas.
         </p>
         <div class="footer-social">
           <a href="#"><i class="bi bi-instagram"></i></a>

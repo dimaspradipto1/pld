@@ -416,20 +416,20 @@
 
       <div class="brand-middle">
         <div class="badge-kategori">
-          <span>Portal Resmi Akademik</span>
+          <span>Pusat Layanan Disabilitas</span>
         </div>
 
-        <h1>Fakultas Ilmu Kesehatan<br><em>Unggul & Berintegritas</em></h1>
+        <h1>Pusat Layanan Disabilitas<br><em>Inklusif &amp; Berkeadilan</em></h1>
 
         <p>
-          Sistem informasi terpadu pengelolaan akademik, publikasi berita, dokumentasi fasilitas, dan data informasi PLD.
+          Sistem informasi terpadu pengelolaan layanan disabilitas, pendampingan akademik, program kerja, relawan inklusif, dan publikasi informasi PLD UIS.
         </p>
 
         <div class="faculty-chips">
-          <div class="f-chip"><i class="bi bi-hospital"></i> <span>Laboratorium Modern</span></div>
-          <div class="f-chip"><i class="bi bi-patch-check-fill"></i> <span>Akreditasi Unggul</span></div>
-          <div class="f-chip"><i class="bi bi-mortarboard-fill"></i> <span>Dosen Profesional</span></div>
-          <div class="f-chip"><i class="bi bi-shield-check"></i> <span>Standar Nasional</span></div>
+          <div class="f-chip"><i class="bi bi-universal-access"></i> <span>Kampus Inklusif</span></div>
+          <div class="f-chip"><i class="bi bi-person-raised-hand"></i> <span>Pendampingan</span></div>
+          <div class="f-chip"><i class="bi bi-heart-pulse"></i> <span>Konseling Psikologis</span></div>
+          <div class="f-chip"><i class="bi bi-translate"></i> <span>Bahasa Isyarat BISINDO</span></div>
         </div>
       </div>
     </div>
