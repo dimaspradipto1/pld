@@ -114,14 +114,11 @@
                                     name="category"
                                     class="form-select @error('category') is-invalid @enderror"
                                     required>
-                                <option value="Berita Fakultas"         {{ $cat == 'Berita Fakultas' ? 'selected' : '' }}>Berita Fakultas</option>
-                                <option value="Akademik & Mahasiswa"   {{ $cat == 'Akademik & Mahasiswa' ? 'selected' : '' }}>Akademik & Mahasiswa</option>
-                                <option value="K3 & Keselamatan Kerja"  {{ $cat == 'K3 & Keselamatan Kerja' ? 'selected' : '' }}>K3 & Keselamatan Kerja</option>
-                                <option value="Kesehatan Lingkungan"    {{ $cat == 'Kesehatan Lingkungan' ? 'selected' : '' }}>Kesehatan Lingkungan</option>
-                                <option value="Penelitian & Riset"      {{ $cat == 'Penelitian & Riset' ? 'selected' : '' }}>Penelitian & Riset</option>
-                                <option value="Pengabdian Masyarakat"   {{ $cat == 'Pengabdian Masyarakat' ? 'selected' : '' }}>Pengabdian Masyarakat</option>
-                                <option value="Tips & Edukasi Kesehatan"{{ $cat == 'Tips & Edukasi Kesehatan' ? 'selected' : '' }}>Tips & Edukasi Kesehatan</option>
-                                <option value="Pengumuman & Agenda"     {{ $cat == 'Pengumuman & Agenda' ? 'selected' : '' }}>Pengumuman & Agenda</option>
+                                <option value="Berita"       {{ $cat == 'Berita' ? 'selected' : '' }}>Berita</option>
+                                <option value="Pengumuman"   {{ $cat == 'Pengumuman' ? 'selected' : '' }}>Pengumuman</option>
+                                <option value="Agenda"       {{ $cat == 'Agenda' ? 'selected' : '' }}>Agenda</option>
+                                <option value="Artikel"      {{ $cat == 'Artikel' ? 'selected' : '' }}>Artikel</option>
+                                <option value="Intelek Tuli" {{ $cat == 'Intelek Tuli' ? 'selected' : '' }}>Intelek Tuli</option>
                             </select>
                             @error('category')
                                 <div class="invalid-feedback">{{ $message }}</div>

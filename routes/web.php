@@ -33,6 +33,8 @@ use App\Http\Controllers\FacultyStatController;
 use App\Http\Controllers\TriDharmaController;
 use App\Http\Controllers\TenagaPendidikController;
 use App\Http\Controllers\LayananTerkaitController;
+use App\Http\Controllers\ProgramKerjaController;
+use App\Http\Controllers\VolunteerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +67,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::post('/alumni/kirim-testimoni', 'storeTestimonial')->name('homepage.alumni.store');
     Route::get('/berita', 'news')->name('homepage.news');
     Route::get('/berita/{slug}', 'newsDetail')->name('homepage.news.detail');
+    Route::get('/program-kerja', 'programKerja')->name('homepage.program-kerja');
+    Route::get('/volunteer', 'volunteer')->name('homepage.volunteer');
+    Route::post('/volunteer/daftar', 'storeVolunteer')->name('homepage.volunteer.store');
     Route::get('/faq', 'faq')->name('homepage.faq');
     Route::get('/kontak', 'kontak')->name('homepage.kontak');
 });
@@ -152,7 +157,13 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('admin-topbar', TopbarController::class)
         ->parameters(['admin-topbar' => 'topbar'])
         ->names('topbar');
-    Route::resource('struktur-organisasi', StrukturOrganisasiController::class);
+    Route::resource('admin-program-kerja', ProgramKerjaController::class)
+        ->parameters(['admin-program-kerja' => 'program_kerja'])
+        ->names('program-kerja');
+    Route::get('admin-volunteer', [VolunteerController::class, 'index'])->name('volunteer.index');
+    Route::get('admin-volunteer/{volunteer}', [VolunteerController::class, 'show'])->name('volunteer.show');
+    Route::patch('admin-volunteer/{volunteer}/status', [VolunteerController::class, 'updateStatus'])->name('volunteer.update-status');
+    Route::delete('admin-volunteer/{volunteer}', [VolunteerController::class, 'destroy'])->name('volunteer.destroy');
     Route::resource('partner', PartnerController::class);
     Route::resource('visimisi', VisiMisiController::class);
     Route::resource('nilaiperusahaan', NilaiPerusahaanController::class);

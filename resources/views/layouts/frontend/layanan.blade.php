@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Program Studi & Fasilitas — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Jelajahi program studi unggulan dan fasilitas laboratorium terpadu di Fakultas Ilmu Kesehatan (PLD).')
-@section('meta_keywords', 'program studi pld, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium pld')
+@section('title', 'Layanan Pendamping dan Konseling — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Layanan pendampingan akademik, konseling psikologis, akomodasi ujian, dan juru bahasa isyarat Pusat Layanan Disabilitas Universitas Ibnu Sina.')
+@section('meta_keywords', 'layanan pendamping pld, konseling disabilitas uis, juru bahasa isyarat batam, kampus inklusif')
 
 @push('styles')
 <style>
@@ -126,12 +126,14 @@
   <div class="container">
     <div class="layanan-hero-content" data-aos="fade-up" data-aos-duration="800">
       <h1 class="layanan-hero-title">
-        Program Studi & <em>Fasilitas</em>
+        Layanan Pendamping &amp; <em>Konseling</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight:600;">Layanan & Fasilitas</span>
+        <span class="text-white-50">Layanan</span>
+        <span class="mx-2 text-white-50">/</span>
+        <span style="color: var(--pld-orange); font-weight:600;">Layanan Pendamping &amp; Konseling</span>
       </div>
     </div>
   </div>
@@ -143,11 +145,11 @@
 <section class="section-bg-white">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Akademik & Fasilitas</div>
-      <h2 class="section-title">Pendidikan Berkualitas & <em>Fasilitas Modern</em></h2>
+      <div class="section-label mx-auto">Pusat Layanan Disabilitas</div>
+      <h2 class="section-title">Akomodasi &amp; <em>Dukungan Inklusif</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Menghasilkan lulusan tenaga kesehatan yang unggul, beretika, dan siap berkontribusi nyata dalam sistem pelayanan kesehatan.
+        Menyediakan ekosistem pendampingan terpadu untuk memastikan seluruh mahasiswa disabilitas mendapatkan hak pendidikan tinggi secara optimal, nyaman, dan berkeadilan.
       </p>
     </div>
 

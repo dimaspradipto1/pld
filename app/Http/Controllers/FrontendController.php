@@ -257,6 +257,47 @@ class FrontendController extends Controller
         return view('layouts.frontend.struktur-organisasi', compact('struktur'));
     }
 
+    public function programKerja(\Illuminate\Http\Request $request)
+    {
+        $selectedCat = $request->query('kategori');
+        $query = \App\Models\ProgramKerja::where('is_active', true);
+
+        if (!empty($selectedCat)) {
+            $query->where('kategori', $selectedCat);
+        }
+
+        $programKerjas = $query->orderBy('urutan')->orderBy('id')->paginate(9)->withQueryString();
+        $totalPrograms = \App\Models\ProgramKerja::where('is_active', true)->count();
+        $categories = \App\Models\ProgramKerja::where('is_active', true)
+            ->whereNotNull('kategori')
+            ->distinct()
+            ->pluck('kategori');
+
+        return view('layouts.frontend.program-kerja', compact('programKerjas', 'totalPrograms', 'categories', 'selectedCat'));
+    }
+
+    public function volunteer()
+    {
+        return view('layouts.frontend.volunteer');
+    }
+
+    public function storeVolunteer(\Illuminate\Http\Request $request)
+    {
+        $validated = $request->validate([
+            'nama_lengkap'     => 'required|string|max:255',
+            'nim'              => 'nullable|string|max:50',
+            'jurusan_prodi'    => 'nullable|string|max:150',
+            'no_hp_wa'         => 'required|string|max:30',
+            'email'            => 'required|email|max:150',
+            'keahlian'         => 'nullable|string|max:255',
+            'alasan_bergabung' => 'nullable|string|max:2000',
+        ]);
+
+        \App\Models\Volunteer::create($validated);
+
+        return redirect()->route('homepage.volunteer')->with('success', 'Terima kasih atas antusiasme Anda! Pendaftaran Anda telah kami terima dan tim PLD UIS akan segera menghubungi Anda.');
+    }
+
     public function kontak()
     {
         return view('layouts.frontend.contact');

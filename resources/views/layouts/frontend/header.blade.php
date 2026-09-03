@@ -21,138 +21,25 @@
 
         <!-- Profil Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.tentang') || request()->routeIs('homepage.sambutan-dekan') || request()->routeIs('homepage.visi-misi') || request()->routeIs('homepage.struktur-organisasi') || request()->routeIs('homepage.sejarah') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.sejarah') || request()->routeIs('homepage.visi-misi') || request()->routeIs('homepage.struktur-organisasi') || request()->routeIs('homepage.program-kerja') || request()->routeIs('homepage.tentang') || request()->routeIs('homepage.sambutan-dekan') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Profil <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.tentang') ? 'active' : '' }}" href="{{ route('homepage.tentang') }}"><i class="bi bi-building"></i> Tentang PLD</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.visi-misi') ? 'active' : '' }}" href="{{ route('homepage.visi-misi') }}"><i class="bi bi-bullseye"></i> Visi & Misi</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sambutan-dekan') ? 'active' : '' }}" href="{{ route('homepage.sambutan-dekan') }}"><i class="bi bi-person-badge"></i> Sambutan Dekan</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.struktur-organisasi') ? 'active' : '' }}" href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-diagram-3"></i> Struktur Organisasi</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sejarah') ? 'active' : '' }}" href="{{ route('homepage.sejarah') }}"><i class="bi bi-hourglass-split"></i> Sejarah Fakultas</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sejarah') ? 'active' : '' }}" href="{{ route('homepage.sejarah') }}"><i class="bi bi-hourglass-split"></i> 1. Sejarah</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.visi-misi') ? 'active' : '' }}" href="{{ route('homepage.visi-misi') }}"><i class="bi bi-bullseye"></i> 2. Visi Misi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.struktur-organisasi') ? 'active' : '' }}" href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-diagram-3"></i> 3. Struktur Organisasi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.program-kerja') ? 'active' : '' }}" href="{{ route('homepage.program-kerja') }}"><i class="bi bi-briefcase"></i> 4. Program Kerja</a></li>
           </ul>
         </li>
 
-        <!-- Akademik Dropdown -->
+        <!-- Layanan Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.kurikulum*') || request()->routeIs('homepage.kalender-akademik') || request()->routeIs('homepage.pedoman-akademik') || request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Akademik <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.layanan*') || request()->routeIs('homepage.volunteer*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Layanan <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <!-- Kurikulum PLD with Submenu -->
-            <li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-item-custom d-flex justify-content-between align-items-center {{ request()->routeIs('homepage.kurikulum*') ? 'active' : '' }}" href="{{ route('homepage.kurikulum') }}">
-                <span><i class="bi bi-journal-text me-1"></i> Kurikulum PLD</span>
-                <i class="bi bi-chevron-right ms-2 d-none d-xl-inline" style="font-size: 10px;"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 270px;">
-                @if(isset($navProdis) && $navProdis->count() > 0)
-                  @foreach($navProdis as $np)
-                    <li>
-                      <a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.kurikulum', ['prodi' => $np->id]) }}">
-                        <i class="bi bi-mortarboard-fill text-warning"></i> {{ $np->judul }}
-                      </a>
-                    </li>
-                  @endforeach
-                @else
-                  <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.kurikulum') }}"><i class="bi bi-mortarboard"></i> Semua Kurikulum Prodi</a></li>
-                @endif
-              </ul>
-            </li>
-
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.kalender-akademik') ? 'active' : '' }}" href="{{ route('homepage.kalender-akademik') }}"><i class="bi bi-calendar-check"></i> Kalender Akademik</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.pedoman-akademik') ? 'active' : '' }}" href="{{ route('homepage.pedoman-akademik') }}"><i class="bi bi-book"></i> Pedoman Akademik</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sistem-akademik') ? 'active' : '' }}" href="{{ route('homepage.sistem-akademik') }}"><i class="bi bi-laptop"></i> Sistem Akademik</a></li>
-          </ul>
-        </li>
-
-        <!-- Program Studi Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.layanan*') || request()->routeIs('homepage.dosen*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Program Studi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-custom">
-            @if(isset($navProdis) && $navProdis->count() > 0)
-              @foreach($navProdis as $navProdi)
-                @php
-                  $rawLink = trim($navProdi->link ?? '');
-                  if (!empty($rawLink) && !str_starts_with($rawLink, 'http://') && !str_starts_with($rawLink, 'https://') && !str_starts_with($rawLink, '/') && !str_starts_with($rawLink, '#')) {
-                      $rawLink = 'https://' . $rawLink;
-                  }
-                  $hasLink = !empty($rawLink);
-                  $prodiHref = $hasLink ? $rawLink : route('homepage.layanan.detail', $navProdi->id);
-                  $isExternal = $hasLink && (str_starts_with($rawLink, 'http://') || str_starts_with($rawLink, 'https://'));
-                @endphp
-                <li>
-                  <a class="dropdown-item dropdown-item-custom"
-                     href="{{ $prodiHref }}"
-                     @if($isExternal) target="_blank" rel="noopener noreferrer" @endif>
-                    <i class="bi {{ $navProdi->icon ?: 'bi-mortarboard-fill' }}"></i>
-                    <span>{{ $navProdi->judul }}</span>
-                    @if($isExternal)
-                      <i class="bi bi-box-arrow-up-right ms-auto text-muted" style="font-size: 10px;" title="Buka website prodi"></i>
-                    @endif
-                  </a>
-                </li>
-              @endforeach
-
-              {{-- Dosen Submenu --}}
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-item-custom d-flex justify-content-between align-items-center {{ request()->routeIs('homepage.dosen*') ? 'active' : '' }}" href="{{ route('homepage.dosen') }}">
-                  <span><i class="bi bi-person-workspace me-1"></i> Dosen</span>
-                  <i class="bi bi-chevron-right ms-2 d-none d-xl-inline" style="font-size: 10px;"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 280px;">
-                  @foreach($navProdis as $np)
-                    <li>
-                      <a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen', ['prodi' => $np->id]) }}">
-                        <i class="bi bi-person-badge-fill text-warning"></i> Dosen {{ $np->judul }}
-                      </a>
-                    </li>
-                  @endforeach
-                </ul>
-              </li>
-
-              <li><hr class="dropdown-divider my-1"></li>
-              <li>
-                <a class="dropdown-item dropdown-item-custom fw-semibold" href="{{ route('homepage.layanan') }}" style="color: var(--pld-purple);">
-                  <i class="bi bi-grid-fill" style="color: var(--pld-purple);"></i>
-                  <span>Semua Program & Fasilitas</span>
-                  <i class="bi bi-arrow-right ms-auto" style="font-size: 11px;"></i>
-                </a>
-              </li>
-            @else
-              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
-              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
-              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
-              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen') }}"><i class="bi bi-person-workspace"></i> Dosen PLD</a></li>
-            @endif
-          </ul>
-        </li>
-
-        <!-- Kemahasiswaan Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle {{ request()->routeIs('homepage.prestasi*') || request()->routeIs('homepage.organisasi*') || request()->routeIs('homepage.galeri*') || request()->routeIs('homepage.testimoni*') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Kemahasiswaan <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.prestasi*') ? 'active' : '' }}" href="{{ route('homepage.prestasi') }}"><i class="bi bi-trophy-fill text-warning"></i> Prestasi Mahasiswa</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.organisasi*') ? 'active' : '' }}" href="{{ route('homepage.organisasi') }}"><i class="bi bi-people-fill text-primary"></i> Organisasi & Kegiatan</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.galeri*') ? 'active' : '' }}" href="{{ route('homepage.galeri') }}"><i class="bi bi-camera"></i> Galeri Dokumentasi</a></li>
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.testimoni*') ? 'active' : '' }}" href="{{ route('homepage.testimoni') }}"><i class="bi bi-mortarboard"></i> Alumni & Testimoni</a></li>
-          </ul>
-        </li>
-
-        <!-- Penelitian & Pengabdian Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Penelitian & Pengabdian <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-file-earmark-medical"></i> Penelitian Dosen</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-journal-richtext"></i> Publikasi Ilmiah</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.galeri') }}"><i class="bi bi-heart-pulse"></i> Pengabdian Masyarakat</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-briefcase"></i> Kerja Sama Riset</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.layanan*') ? 'active' : '' }}" href="{{ route('homepage.layanan') }}"><i class="bi bi-person-raised-hand"></i> Layanan Pendamping dan Konseling</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.volunteer*') ? 'active' : '' }}" href="{{ route('homepage.volunteer') }}"><i class="bi bi-people-fill"></i> Volunteer</a></li>
           </ul>
         </li>
 
@@ -162,11 +49,12 @@
             Informasi <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Berita Fakultas']) }}"><i class="bi bi-newspaper"></i> Berita</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman & Agenda']) }}"><i class="bi bi-megaphone"></i> Pengumuman</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman & Agenda']) }}"><i class="bi bi-calendar-event"></i> Agenda</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news') }}"><i class="bi bi-card-text"></i> Artikel</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Berita']) }}"><i class="bi bi-newspaper"></i> Berita</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman']) }}"><i class="bi bi-megaphone"></i> Pengumuman</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Agenda']) }}"><i class="bi bi-calendar-event"></i> Agenda</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Artikel']) }}"><i class="bi bi-card-text"></i> Artikel</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.faq') }}"><i class="bi bi-question-circle"></i> FAQ Informasi</a></li>
+            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Intelek Tuli']) }}"><i class="bi bi-lightbulb-fill" style="color: var(--pld-orange);"></i> Intelek Tuli</a></li>
           </ul>
         </li>
 
