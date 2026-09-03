@@ -21,6 +21,9 @@ class StatistikMahasiswaDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addIndexColumn()
+            ->addColumn('checkbox', function (StatistikMahasiswa $mhs) {
+                return '<input type="checkbox" name="mhs_ids[]" value="' . $mhs->id . '" class="form-check-input check-item-mhs" style="cursor:pointer;">';
+            })
             ->addColumn('DT_RowIndex', '')
             ->addColumn('mahasiswa', function (StatistikMahasiswa $mhs) {
                 $jkBadge = $mhs->jenis_kelamin === 'L'
@@ -72,7 +75,7 @@ class StatistikMahasiswaDataTable extends DataTable
                 $btn .= '</div>';
                 return $btn;
             })
-            ->rawColumns(['mahasiswa', 'jenis_disabilitas', 'akademik', 'status', 'action']);
+            ->rawColumns(['checkbox', 'mahasiswa', 'jenis_disabilitas', 'akademik', 'status', 'action']);
     }
 
     /**
@@ -92,7 +95,7 @@ class StatistikMahasiswaDataTable extends DataTable
                     ->setTableId('statistik-mahasiswa-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1, 'desc')
+                    ->orderBy(2, 'desc')
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
@@ -110,6 +113,12 @@ class StatistikMahasiswaDataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            Column::computed('checkbox')
+                ->title('<input type="checkbox" id="check-all-mhs" class="form-check-input" style="cursor:pointer;" title="Pilih Semua">')
+                ->exportable(false)
+                ->printable(false)
+                ->width(35)
+                ->addClass('text-center align-middle'),
             Column::make('DT_RowIndex')
                 ->title('#')
                 ->searchable(false)

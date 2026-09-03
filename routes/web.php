@@ -176,7 +176,11 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('partner', PartnerController::class);
     Route::resource('visimisi', VisiMisiController::class);
     Route::resource('nilaiperusahaan', NilaiPerusahaanController::class);
-    Route::resource('faculty-stat', FacultyStatController::class);
+    // Statistik Mahasiswa Bulk Actions & Excel Import / Template
+    Route::post('admin-statistik-mahasiswa/bulk-delete', [StatistikMahasiswaController::class, 'bulkDelete'])->name('admin-statistik-mahasiswa.bulk-delete');
+    Route::post('admin-statistik-mahasiswa/delete-all', [StatistikMahasiswaController::class, 'deleteAll'])->name('admin-statistik-mahasiswa.delete-all');
+    Route::get('admin-statistik-mahasiswa/download-template', [StatistikMahasiswaController::class, 'downloadTemplate'])->name('admin-statistik-mahasiswa.download-template');
+    Route::post('admin-statistik-mahasiswa/import-excel', [StatistikMahasiswaController::class, 'importExcel'])->name('admin-statistik-mahasiswa.import-excel');
     Route::resource('admin-statistik-mahasiswa', StatistikMahasiswaController::class)
         ->parameters(['admin-statistik-mahasiswa' => 'admin_statistik_mahasiswa'])
         ->names('admin-statistik-mahasiswa');
