@@ -16,51 +16,51 @@ class SaranaSeeder extends Seeder
 
         $saranas = [
             [
-                'icon'      => 'bi-shield-check',
-                'nama'      => 'Lab K3 & Higiene Industri',
-                'deskripsi' => 'Alat uji intensitas cahaya (Lux meter), kebisingan (Sound Level Meter), gas detektor, dan pengukuran getaran kerja.',
+                'icon'      => 'bi-laptop',
+                'nama'      => 'Resource Center & Komputer Asistif',
+                'deskripsi' => 'Perangkat komputer khusus yang dilengkapi pembaca layar (NVDA/JAWS), software pembesar teks, scanner buku otomatis, dan keyboard ramah netra.',
                 'urutan'    => 1,
                 'is_active' => true,
             ],
             [
-                'icon'      => 'bi-droplet-half',
-                'nama'      => 'Lab Kesehatan Lingkungan',
-                'deskripsi' => 'Uji parameter kualitas air bersih, spektrofotometer, inkubator BOD/COD, dan pengujian mikrobiologi bakteri E. coli.',
+                'icon'      => 'bi-shield-check',
+                'nama'      => 'Ruang Konseling & Asesmen Psikologis',
+                'deskripsi' => 'Ruang konsultasi privat dan nyaman berstandar konfidensial untuk asesmen kemampuan belajar, pemetaan kebutuhan, dan pendampingan kesehatan mental.',
                 'urutan'    => 2,
                 'is_active' => true,
             ],
             [
-                'icon'      => 'bi-heart-pulse',
-                'nama'      => 'Ruang Simulasi & Praktikum',
-                'deskripsi' => 'Fasilitas simulasi tanggap darurat pertolongan pertama (P3K), penanganan kecelakaan kerja, dan evakuasi.',
+                'icon'      => 'bi-book-half',
+                'nama'      => 'Pojok Baca Audio & Literatur Braille',
+                'deskripsi' => 'Koleksi materi ajar digital bersuara (audiobook), modul kuliah teks berhuruf Braille, serta alat perekam materi kuliah portabel.',
                 'urutan'    => 3,
                 'is_active' => true,
             ],
             [
-                'icon'      => 'bi-journal-bookmark-fill',
-                'nama'      => 'Perpustakaan & Ruang Riset',
-                'deskripsi' => 'Ribuan koleksi buku teks kesehatan, jurnal internasional terindeks Scopus/SINTA, dan akses e-library 24 jam.',
+                'icon'      => 'bi-camera-video-fill',
+                'nama'      => 'Studio Juru Bahasa Isyarat & Media',
+                'deskripsi' => 'Fasilitas rekam video materi perkuliahan dengan sisipan Juru Bahasa Isyarat (JBI) serta takarir (captioning) otomatis bagi Teman Tuli.',
                 'urutan'    => 4,
                 'is_active' => true,
             ],
             [
-                'icon'      => 'bi-display',
-                'nama'      => 'Smart Classroom',
-                'deskripsi' => 'Ruang kuliah ber-AC dilengkapi multimedia proyektor interaktif dan koneksi internet serat optik kecepatan tinggi.',
+                'icon'      => 'bi-heart-fill',
+                'nama'      => 'Ruang Tenang Sensori (Calm Room)',
+                'deskripsi' => 'Ruang deeskalasi sensori bernuansa tenang dengan pencahayaan lembut bagi mahasiswa neurodivergen atau autisme saat mengalami kejenuhan sensorik.',
                 'urutan'    => 5,
                 'is_active' => true,
             ],
             [
-                'icon'      => 'bi-people-fill',
-                'nama'      => 'Auditorium & Ruang Seminar',
-                'deskripsi' => 'Gedung pertemuan representatif untuk penyelenggaraan seminar nasional, kuliah umum pakar, dan wisuda.',
+                'icon'      => 'bi-universal-access-circle',
+                'nama'      => 'Aksesibilitas Fisik & Guiding Block',
+                'deskripsi' => 'Jalur pemandu tunanetra terpadu di area gedung, ramp landai kursi roda, toilet ramah disabilitas, dan tombol lift bersuara serta berhuruf Braille.',
                 'urutan'    => 6,
                 'is_active' => true,
             ],
         ];
 
-        foreach ($saranas as $sarana) {
-            Sarana::create($sarana);
+        foreach ($saranas as $s) {
+            Sarana::create($s);
         }
     }
 }

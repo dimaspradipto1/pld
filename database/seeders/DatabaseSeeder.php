@@ -52,6 +52,10 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             TestimonialSeeder::class,
             LayananTerkaitSeeder::class,
+            SambutanDekanSeeder::class,
+            ProgramKerjaSeeder::class,
+            VolunteerSeeder::class,
+            PldNewsSeeder::class,
         ]);
     }
 }

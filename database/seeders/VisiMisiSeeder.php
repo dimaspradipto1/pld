@@ -17,27 +17,27 @@ class VisiMisiSeeder extends Seeder
         $data = [
             [
                 'tipe'   => 'visi',
-                'isi'    => 'Menjadi Pelayanan Disabilitas yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.',
+                'isi'    => 'Menjadi Pusat Layanan Disabilitas yang unggul, adaptif, dan berdaya saing nasional dalam mewujudkan ekosistem pendidikan tinggi inklusif berlandaskan nilai kemanusiaan, kesetaraan, dan integritas moral.',
                 'urutan' => 1,
             ],
             [
                 'tipe'   => 'misi',
-                'isi'    => 'Menyelenggarakan pendidikan akademik dan profesi kesehatan yang berkualitas dan berstandar nasional/internasional.',
+                'isi'    => 'Menyelenggarakan layanan pendampingan akademik, advokasi hak belajar, serta konseling psikososial yang profesional bagi mahasiswa disabilitas.',
                 'urutan' => 1,
             ],
             [
                 'tipe'   => 'misi',
-                'isi'    => 'Mengembangkan penelitian terapan dan inovatif di bidang ilmu kesehatan yang bermanfaat bagi masyarakat.',
+                'isi'    => 'Mengembangkan sarana aksesibilitas fisik, teknologi asistif digital, dan akomodasi kurikulum ramah disabilitas.',
                 'urutan' => 2,
             ],
             [
                 'tipe'   => 'misi',
-                'isi'    => 'Melaksanakan pengabdian kepada masyarakat secara berkelanjutan demi meningkatkan derajat kesehatan publik.',
+                'isi'    => 'Membangun budaya kampus inklusif melalui pelatihan Bahasa Isyarat Indonesia (BISINDO) dan penguatan relawan mahasiswa.',
                 'urutan' => 3,
             ],
             [
                 'tipe'   => 'misi',
-                'isi'    => 'Menjalin kerjasama strategis dengan institusi pelayanan kesehatan, rumah sakit, dan mitra global.',
+                'isi'    => 'Menjalin kemitraan kolaboratif dengan komunitas disabilitas, pegiat Intelek Tuli, dunia usaha, dan instansi pemerintah guna memperluas kesempatan karier alumni.',
                 'urutan' => 4,
             ],
         ];

@@ -16,11 +16,11 @@ class FacultyStatSeeder extends Seeder
 
         FacultyStat::create([
             'title'           => 'PLD UIS Dalam Angka',
-            'image'           => 'faculty-stats/JKgC4vSssWEvmAyPdYIlazkOQ5Wch9xV8RiJxo2K.png',
-            'jumlah_prodi'    => 5,
-            'total_mahasiswa' => 3450,
-            'total_dosen'     => 80,
-            'total_alumni'    => 6120,
+            'image'           => null,
+            'jumlah_prodi'    => 4,
+            'total_mahasiswa' => 128,
+            'total_dosen'     => 65,
+            'total_alumni'    => 320,
             'is_active'       => true,
         ]);
     }

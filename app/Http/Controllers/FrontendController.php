@@ -38,6 +38,7 @@ class FrontendController extends Controller
         $facultyStat      = \App\Models\FacultyStat::where('is_active', true)->latest('id')->first();
         $layananTerkaits  = \App\Models\LayananTerkait::where('is_active', true)->orderBy('urutan')->get();
         $layananTerkaitSetting = \App\Models\LayananTerkaitSetting::first();
+        $homeProgramKerjas = \App\Models\ProgramKerja::where('is_active', true)->orderBy('urutan')->take(6)->get();
 
         if (!$facultyStat) {
             $facultyStat = (object) [
@@ -73,7 +74,8 @@ class FrontendController extends Controller
             'pmbSetting',
             'facultyStat',
             'layananTerkaits',
-            'layananTerkaitSetting'
+            'layananTerkaitSetting',
+            'homeProgramKerjas'
         ));
     }
 

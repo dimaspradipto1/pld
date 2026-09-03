@@ -9,32 +9,31 @@ class MilestoneSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * Catatan: tahun & isi di bawah masih placeholder generik karena histori resmi
-     * perusahaan belum tersedia. Silakan sesuaikan lewat menu admin Milestone.
      */
     public function run(): void
     {
+        Milestone::truncate();
+
         $milestones = [
             [
-                'tahun'     => 2016,
-                'judul'     => 'Pendirian Perusahaan',
-                'deskripsi' => 'PT Berkarya Jasa Inspeksi didirikan untuk melayani kebutuhan Riksa Uji K3, kalibrasi, dan sertifikasi teknis di wilayah Kepulauan Riau.',
-            ],
-            [
-                'tahun'     => 2019,
-                'judul'     => 'Perluasan Layanan',
-                'deskripsi' => 'Menambah cakupan layanan meliputi Riksa Uji Pesawat Angkat & Angkut, Pesawat Tenaga Produksi, hingga Bejana Tekan dan Tangki Timbun.',
+                'tahun'     => 2020,
+                'judul'     => 'Inisiasi Pokja Kampus Inklusif',
+                'deskripsi' => 'Pembentukan Kelompok Kerja (Pokja) Pendidikan Inklusif Universitas Ibnu Sina sebagai respon komitmen terhadap UU No. 8 Tahun 2016 tentang Penyandang Disabilitas.',
             ],
             [
                 'tahun'     => 2022,
-                'judul'     => 'Sertifikasi PJK3 Kemnaker',
-                'deskripsi' => 'Memperoleh pengakuan sebagai Perusahaan Jasa Keselamatan dan Kesehatan Kerja (PJK3) resmi terdaftar Kementerian Ketenagakerjaan.',
+                'judul'     => 'Peresmian Resmi PLD UIS',
+                'deskripsi' => 'Penerbitan Surat Keputusan Rektorat mengenai Pendirian Pusat Layanan Disabilitas (PLD) UIS sebagai unit penunjang utama aksesibilitas mahasiswa disabilitas.',
+            ],
+            [
+                'tahun'     => 2024,
+                'judul'     => 'Program Relawan & Divisi JBI BISINDO',
+                'deskripsi' => 'Peluncuran perdana perekrutan Relawan Mahasiswa Inklusif dan penyediaan Juru Bahasa Isyarat (JBI) resmi untuk mendampingi kegiatan belajar mengajar.',
             ],
             [
                 'tahun'     => 2026,
-                'judul'     => 'Ekspansi Klien Industri',
-                'deskripsi' => 'Melayani klien dari berbagai sektor industri — migas, manufaktur, perkebunan, kesehatan, hingga konstruksi — di seluruh Indonesia.',
+                'judul'     => 'Ekosistem Digital & Sinergi Intelek Tuli',
+                'deskripsi' => 'Pengembangan portal layanan mandiri aksesibel, fasilitas Resource Center cerdas, dan kemitraan advokasi bersama komunitas Intelek Tuli serta dunia industri.',
             ],
         ];
 

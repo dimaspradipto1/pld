@@ -16,27 +16,27 @@ class FeatureSeeder extends Seeder
 
         $features = [
             [
-                'icon'      => 'bi-patch-check-fill',
-                'judul'     => 'Akreditasi Unggul',
-                'deskripsi' => 'Program studi telah terakreditasi oleh LAM-PTKes dan BAN-PT dengan jaminan mutu pendidikan tinggi kesehatan berstandar nasional.',
+                'icon'      => 'bi-universal-access',
+                'judul'     => 'Akomodasi Pembelajaran Fleksibel',
+                'deskripsi' => 'Penyesuaian format materi ajar, perpanjangan waktu ujian, serta ruang ujian adaptif sesuai kebutuhan khusus mahasiswa.',
                 'urutan'    => 1,
             ],
             [
-                'icon'      => 'bi-hospital-fill',
-                'judul'     => 'Laboratorium Terpadu Modern',
-                'deskripsi' => 'Dilengkapi laboratorium klinik, simulasi keperawatan, kebidanan, dan farmasi dengan alat praktikum medis terkini.',
+                'icon'      => 'bi-translate',
+                'judul'     => 'Juru Bahasa Isyarat (BISINDO)',
+                'deskripsi' => 'Fasilitasi penerjemah bahasa isyarat profesional untuk perkuliahan, seminar akademik, wisuda, dan kegiatan kampus.',
                 'urutan'    => 2,
             ],
             [
-                'icon'      => 'bi-mortarboard-fill',
-                'judul'     => 'Dosen Ahli & Berpengalaman',
-                'deskripsi' => 'Tenaga pengajar berkualifikasi magister dan doktor bidang kesehatan yang aktif dalam riset, publikasi, dan praktik klinis.',
+                'icon'      => 'bi-heart-pulse-fill',
+                'judul'     => 'Konseling & Pendampingan Psikologis',
+                'deskripsi' => 'Layanan konseling privat, aman, dan konfidensial bersama psikolog profesional serta dukungan peer counselor mahasiswa.',
                 'urutan'    => 3,
             ],
             [
-                'icon'      => 'bi-diagram-3-fill',
-                'judul'     => 'Jejaring Rumah Sakit Luas',
-                'deskripsi' => 'Kemitraan strategis dengan rumah sakit umum, rumah sakit swasta, dan dinas kesehatan untuk praktik klinik dan karir alumni.',
+                'icon'      => 'bi-people-fill',
+                'judul'     => 'Komunitas Relawan Inklusif',
+                'deskripsi' => 'Jejaring relawan mahasiswa terlatih yang siap mendampingi pencatatan materi (notetaker), mobilitas fisik, dan adaptasi kampus.',
                 'urutan'    => 4,
             ],
         ];
