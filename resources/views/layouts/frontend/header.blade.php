@@ -80,14 +80,7 @@
 
       <!-- CTA Buttons -->
       <div class="d-flex align-items-center gap-2 mt-3 mt-xl-0">
-        @php
-          $pmbNavUrl = $pmbSetting->tombol_link_1 ?? route('homepage.kontak');
-          if (!str_starts_with($pmbNavUrl, 'http') && !str_starts_with($pmbNavUrl, '/')) {
-              $pmbNavUrl = '/' . $pmbNavUrl;
-          }
-          $pmbNavTarget = str_starts_with($pmbNavUrl, 'http') ? '_blank' : '_self';
-        @endphp
-        <a href="{{ $pmbNavUrl }}" target="{{ $pmbNavTarget }}" class="btn-pmb-nav" title="Penerimaan Mahasiswa Baru">
+        <a href="https://pmb.uis.ac.id/" target="_blank" rel="noopener noreferrer" class="btn-pmb-nav" title="Penerimaan Mahasiswa Baru UIS">
           <i class="bi bi-pencil-square"></i>
           <span>PMB</span>
         </a>

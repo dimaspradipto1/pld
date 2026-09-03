@@ -19,7 +19,7 @@ class PmbSettingController extends Controller
             'judul'         => 'Daftar Sekarang & Raih Masa Depan Cerah Bersama PLD UIS!',
             'deskripsi'     => 'Tersedia berbagai jalur seleksi: Jalur Bebas Tes / Prestasi, Jalur Reguler, Jalur KIP-Kuliah, dan Jalur Alih Jenjang Karyawan.',
             'tombol_text_1' => 'Daftar PMB Sekarang',
-            'tombol_link_1' => '/kontak',
+            'tombol_link_1' => 'https://pmb.uis.ac.id/',
             'tombol_text_2' => 'Konsultasi WhatsApp PMB',
             'tombol_link_2' => '',
             'gelombang_1'   => 'Gelombang 1: Jan - Apr',
