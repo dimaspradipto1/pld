@@ -1,15 +1,30 @@
 @extends('layouts.frontend.template')
+@php
+  $cleanTitle = trim(strip_tags($news->title));
+  $cleanDesc = Str::limit(trim(preg_replace('/\s+/', ' ', strip_tags(html_entity_decode($news->description ?: $news->content)))), 160);
+  $newsThumbUrl = !empty($news->thumbnail) ? asset('storage/' . $news->thumbnail) : asset('assets/img/logouis.png');
+  if (app()->environment('production') || str_starts_with(url()->current(), 'https://')) {
+      $newsThumbUrl = str_replace('http://', 'https://', $newsThumbUrl);
+  }
+@endphp
 
-@section('title', $news->title . ' — PLD UIS')
-@section('meta_description', Str::limit($news->description ?? strip_tags($news->content), 160))
-@section('meta_keywords', 'berita pld, pld uis, ' . ($news->category ?? 'artikel kesehatan'))
-@section('meta_author', $news->user?->name ?? 'Admin PLD')
+@section('title', $cleanTitle . ' — PLD UIS')
+@section('meta_description', $cleanDesc)
+@section('meta_keywords', 'berita pld, pld uis, mahasiswa disabilitas, ' . ($news->category ?? 'informasi kampus'))
+@section('meta_author', $news->user?->name ?? 'Admin PLD UIS')
 
 {{-- Open Graph & Social Share Preview Meta Data --}}
 @section('og_type', 'article')
-@section('og_title', $news->title)
-@section('og_description', Str::limit($news->description ?? strip_tags($news->content), 160))
-@section('og_image', !empty($news->thumbnail) ? asset('storage/' . $news->thumbnail) : asset('assets/img/logouis.png'))
+@section('og_title', $cleanTitle)
+@section('og_description', $cleanDesc)
+@section('og_image', $newsThumbUrl)
+
+@push('extra_meta')
+  <meta property="article:published_time" content="{{ $news->created_at->toIso8601String() }}">
+  <meta property="article:modified_time" content="{{ $news->updated_at->toIso8601String() }}">
+  <meta property="article:author" content="{{ $news->user?->name ?? 'Admin PLD UIS' }}">
+  <meta property="article:section" content="{{ $news->category ?? 'Berita' }}">
+@endpush
 
 @push('styles')
 <style>
@@ -383,9 +398,18 @@
               <i class="bi bi-arrow-left"></i> Kembali ke Daftar Berita
             </a>
             <div class="d-flex align-items-center gap-2">
-              <span class="small fw-semibold text-muted">Bagikan:</span>
-              <a href="https://wa.me/?text={{ urlencode($news->title . ' - ' . url()->current()) }}" target="_blank" class="btn btn-sm btn-success rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;">
+              <span class="small fw-semibold text-muted me-1">Bagikan:</span>
+              <a href="https://api.whatsapp.com/send?text={{ urlencode($news->title . "\n\n" . url()->current()) }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Bagikan ke WhatsApp">
                 <i class="bi bi-whatsapp"></i>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-circle text-white" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:#1877f2;border-color:#1877f2;" title="Bagikan ke Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://twitter.com/intent/tweet?text={{ urlencode($news->title) }}&url={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Bagikan ke X / Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a href="https://t.me/share/url?url={{ urlencode(url()->current()) }}&text={{ urlencode($news->title) }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm rounded-circle text-white" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:#24A1DE;border-color:#24A1DE;" title="Bagikan ke Telegram">
+                <i class="bi bi-telegram"></i>
               </a>
               <button onclick="copyCurrentUrl()" class="btn btn-sm btn-outline-secondary rounded-circle" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;" title="Salin Tautan">
                 <i class="bi bi-link-45deg"></i>

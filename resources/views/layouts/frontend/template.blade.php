@@ -13,25 +13,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas')</title>
-  <meta name="description" content="@yield('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
-  <meta name="keywords" content="@yield('meta_keywords', 'pld, pelayanan disabilitas, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
-  <meta name="author" content="@yield('meta_author', 'Pelayanan Disabilitas')">
+  <title>@yield('title', 'PLD — Pusat Layanan Disabilitas UIS | Unggul & Inklusif')</title>
+  <meta name="description" content="@yield('meta_description', 'Portal Resmi Pusat Layanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Mewujudkan Kampus Inklusif, Ramah Disabilitas, Unggul & Berintegritas.')">
+  <meta name="keywords" content="@yield('meta_keywords', 'pld uis, pusat layanan disabilitas, universitas ibnu sina, kampus inklusif, disabilitas batam, layanan disabilitas, beasiswa disabilitas')">
+  <meta name="author" content="@yield('meta_author', 'Pusat Layanan Disabilitas UIS')">
 
   <!-- Open Graph / Facebook / WhatsApp / Telegram Preview -->
   <meta property="og:type" content="@yield('og_type', 'website')">
   <meta property="og:url" content="{{ url()->current() }}">
-  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas'))">
-  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pusat Layanan Disabilitas UIS | Unggul & Inklusif'))">
+  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Mewujudkan Kampus Inklusif, Ramah Disabilitas, Unggul & Berintegritas.'))">
   <meta property="og:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
   <meta property="og:image:secure_url" content="@yield('og_image', asset('assets/img/logouis.png'))">
-  <meta property="og:site_name" content="PLD — Pelayanan Disabilitas">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="Pusat Layanan Disabilitas UIS">
+  <meta property="og:locale" content="id_ID">
+  @stack('extra_meta')
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="{{ url()->current() }}">
-  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas'))">
-  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pusat Layanan Disabilitas UIS | Unggul & Inklusif'))">
+  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Mewujudkan Kampus Inklusif, Ramah Disabilitas, Unggul & Berintegritas.'))">
   <meta name="twitter:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
 
   <!-- Favicon -->
