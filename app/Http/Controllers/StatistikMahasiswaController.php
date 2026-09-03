@@ -32,9 +32,10 @@ class StatistikMahasiswaController extends Controller
     public function create(): View
     {
         $jenisDisabilitas = StatistikMahasiswa::listJenisDisabilitas();
-        $fakultas = StatistikMahasiswa::listFakultas();
+        $fakultasProdi = StatistikMahasiswa::listFakultasProdi();
+        $fakultas = array_keys($fakultasProdi);
 
-        return view('pages.statistik-mahasiswa.create', compact('jenisDisabilitas', 'fakultas'));
+        return view('pages.statistik-mahasiswa.create', compact('jenisDisabilitas', 'fakultas', 'fakultasProdi'));
     }
 
     /**
@@ -56,9 +57,10 @@ class StatistikMahasiswaController extends Controller
     {
         $mahasiswa = $admin_statistik_mahasiswa;
         $jenisDisabilitas = StatistikMahasiswa::listJenisDisabilitas();
-        $fakultas = StatistikMahasiswa::listFakultas();
+        $fakultasProdi = StatistikMahasiswa::listFakultasProdi();
+        $fakultas = array_keys($fakultasProdi);
 
-        return view('pages.statistik-mahasiswa.edit', compact('mahasiswa', 'jenisDisabilitas', 'fakultas'));
+        return view('pages.statistik-mahasiswa.edit', compact('mahasiswa', 'jenisDisabilitas', 'fakultas', 'fakultasProdi'));
     }
 
     /**
@@ -171,13 +173,13 @@ class StatistikMahasiswaController extends Controller
         $sheet->getStyle('A1:J1')->applyFromArray($headerStyle);
         $sheet->getRowDimension(1)->setRowHeight(32);
 
-        // Sample Data Rows
+        // Sample Data Rows sesuai Fakultas & Prodi resmi UIS
         $sampleData = [
-            [1, '24011001', 'Ahmad Pratama', 'L', 'Tunanetra', 'Fakultas Ilmu Komputer', 'Teknik Informatika', 2024, 'Aktif', 'Pendampingan screen reader & modul audio'],
-            [2, '24011002', 'Siti Rahmawati', 'P', 'Tunarungu', 'Fakultas Ekonomi & Bisnis', 'Manajemen', 2024, 'Aktif', 'Fasilitas juru bahasa isyarat (BISINDO)'],
-            [3, '23011003', 'Dimas Santoso', 'L', 'Tunadaksa', 'Fakultas Teknik', 'Teknik Industri', 2023, 'Aktif', 'Akses kelas di lantai 1 & ramp kursi roda'],
-            [4, '22011004', 'Anisa Lestari', 'P', 'Tunagrahita', 'Fakultas Agama Islam', 'Pendidikan Agama Islam', 2022, 'Aktif', 'Akomodasi waktu ujian tambahan & peer tutor'],
-            [5, '21011005', 'Rizky Wijaya', 'L', 'Kesulitan Belajar', 'Fakultas Hukum', 'Ilmu Hukum', 2021, 'Lulus', 'Telah menyelesaikan skripsi dan yudisium'],
+            [1, '24011001', 'Ahmad Pratama', 'L', 'Tunanetra', 'FAKULTAS SAINS DAN TEKNOLOGI (FST)', 'S1-TEKNIK INFORMATIKA', 2024, 'Aktif', 'Pendampingan screen reader & modul audio'],
+            [2, '24011002', 'Siti Rahmawati', 'P', 'Tunarungu', 'FAKULTAS EKONOMI DAN BISNIS (FEB)', 'S1-MANAJEMEN', 2024, 'Aktif', 'Fasilitas juru bahasa isyarat (BISINDO)'],
+            [3, '23011003', 'Dimas Santoso', 'L', 'Tunadaksa', 'FAKULTAS ILMU KESEHATAN (FIKes)', 'S1-KESEHATAN DAN KESELAMATAN KERJA', 2023, 'Aktif', 'Akses kelas di lantai 1 & ramp kursi roda'],
+            [4, '22011004', 'Anisa Lestari', 'P', 'Tunagrahita', 'FAKULTAS SAINS DAN TEKNOLOGI (FST)', 'S1-SISTEM INFORMASI', 2022, 'Aktif', 'Akomodasi waktu ujian tambahan & peer tutor'],
+            [5, '21011005', 'Rizky Wijaya', 'L', 'Kesulitan Belajar', 'FAKULTAS EKONOMI DAN BISNIS (FEB)', 'S1-AKUNTANSI', 2021, 'Lulus', 'Telah menyelesaikan skripsi dan yudisium'],
         ];
 
         $rowNum = 2;
@@ -219,25 +221,32 @@ class StatistikMahasiswaController extends Controller
         $sheet->getColumnDimension('C')->setWidth(30);
         $sheet->getColumnDimension('D')->setWidth(20);
         $sheet->getColumnDimension('E')->setWidth(22);
-        $sheet->getColumnDimension('F')->setWidth(28);
-        $sheet->getColumnDimension('G')->setWidth(26);
+        $sheet->getColumnDimension('F')->setWidth(38);
+        $sheet->getColumnDimension('G')->setWidth(38);
         $sheet->getColumnDimension('H')->setWidth(18);
         $sheet->getColumnDimension('I')->setWidth(24);
-        $sheet->getColumnDimension('J')->setWidth(40);
+        $sheet->getColumnDimension('J')->setWidth(42);
 
         // Petunjuk pengisian
         $noteRow = $rowNum + 1;
-        $sheet->setCellValue("C{$noteRow}", "PETUNJUK PENGISIAN FORMAT IMPORT:");
+        $sheet->setCellValue("C{$noteRow}", "PETUNJUK PENGISIAN FORMAT IMPORT MAHASISWA UIS:");
         $sheet->getStyle("C{$noteRow}")->getFont()->setBold(true)->getColor()->setRGB('D32F2F');
 
         $notes = [
             "1. Kolom bertanda (*) Nama, Jenis Kelamin, Jenis Disabilitas, Fakultas, Program Studi, Angkatan, dan Status WAJIB diisi.",
             "2. Kolom Jenis Kelamin diisi: L (Laki-laki) atau P (Perempuan).",
             "3. Kolom Jenis Disabilitas dapat diisi: Tunanetra, Tunadaksa, Tunarungu, Tunagrahita, Kesulitan Belajar, Tunawicara, Autisme, atau Lainnya.",
-            "4. Kolom Fakultas dapat diisi: Fakultas Ilmu Komputer, Fakultas Teknik, Fakultas Ekonomi & Bisnis, Fakultas Agama Islam, Fakultas Hukum, atau nama fakultas lainnya.",
-            "5. Kolom Tahun Angkatan diisi format 4 digit angka tahun (contoh: 2024).",
-            "6. Kolom Status diisi: Aktif, Lulus, atau Cuti.",
-            "7. Anda dapat menghapus atau menimpa baris contoh di atas sebelum mengunggah file hasil inputan."
+            "4. Pilihan Resmi FAKULTAS:",
+            "   - FAKULTAS EKONOMI DAN BISNIS (FEB)",
+            "   - FAKULTAS SAINS DAN TEKNOLOGI (FST)",
+            "   - FAKULTAS ILMU KESEHATAN (FIKes)",
+            "5. Pilihan Resmi PROGRAM STUDI:",
+            "   - FEB: S2-MAGISTER MANAJEMEN, S1-AKUNTANSI, S1-MANAJEMEN",
+            "   - FST: S1-TEKNIK INDUSTRI, S1-TEKNIK INFORMATIKA, S1-TEKNIK LOGISTIK, S1-SISTEM INFORMASI, S1-TEKNIK PERKAPALAN",
+            "   - FIKes: S2-KESEHATAN MASYARAKAT, S1-KESEHATAN DAN KESELAMATAN KERJA, S1-KESEHATAN LINGKUNGAN",
+            "6. Kolom Tahun Angkatan diisi format 4 digit angka tahun (contoh: 2024).",
+            "7. Kolom Status diisi: Aktif, Lulus, atau Cuti.",
+            "8. Anda dapat menghapus atau menimpa baris contoh di atas sebelum mengunggah file hasil inputan."
         ];
 
         foreach ($notes as $idx => $note) {
@@ -316,8 +325,8 @@ class StatistikMahasiswaController extends Controller
                     'nama'              => $nama,
                     'jenis_kelamin'     => $jenisKelamin,
                     'jenis_disabilitas' => $jenisDisabilitas ?: 'Lainnya',
-                    'fakultas'          => $fakultas ?: 'Universitas Ibnu Sina',
-                    'prodi'             => $prodi ?: 'Umum',
+                    'fakultas'          => $fakultas ?: 'FAKULTAS SAINS DAN TEKNOLOGI (FST)',
+                    'prodi'             => $prodi ?: 'S1-TEKNIK INFORMATIKA',
                     'angkatan'          => $angkatan ?: (int)date('Y'),
                     'status'            => $statusValid,
                     'keterangan'        => $keterangan ?: null,

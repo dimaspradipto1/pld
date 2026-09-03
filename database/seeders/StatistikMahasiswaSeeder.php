@@ -23,27 +23,7 @@ class StatistikMahasiswaSeeder extends Seeder
             'Tunawicara'        => 4,
         ];
 
-        $fakultasProdi = [
-            'Fakultas Ilmu Komputer' => [
-                'Teknik Informatika',
-                'Sistem Informasi',
-            ],
-            'Fakultas Teknik' => [
-                'Teknik Industri',
-                'Teknik Mesin',
-            ],
-            'Fakultas Ekonomi & Bisnis' => [
-                'Manajemen',
-                'Akuntansi',
-            ],
-            'Fakultas Agama Islam' => [
-                'Pendidikan Agama Islam',
-                'Hukum Ekonomi Syariah',
-            ],
-            'Fakultas Hukum' => [
-                'Ilmu Hukum',
-            ],
-        ];
+        $fakultasProdi = StatistikMahasiswa::listFakultasProdi();
 
         $angkatanList = [2021, 2022, 2023, 2024, 2025];
         $namaDepanL = ['Ahmad', 'Budi', 'Dimas', 'Fajar', 'Hendra', 'Iqbal', 'Rizky', 'Wahyu', 'Bayu', 'Fikri', 'Satria', 'Bambang', 'Danang', 'Eko', 'Gilang', 'Ilham'];

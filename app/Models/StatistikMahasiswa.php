@@ -41,17 +41,48 @@ class StatistikMahasiswa extends Model
     }
 
     /**
-     * Opsi standar fakultas di UIS
+     * Struktur hierarki Fakultas dan Program Studi di UIS
+     */
+    public static function listFakultasProdi(): array
+    {
+        return [
+            'FAKULTAS EKONOMI DAN BISNIS (FEB)' => [
+                'S2-MAGISTER MANAJEMEN',
+                'S1-AKUNTANSI',
+                'S1-MANAJEMEN',
+            ],
+            'FAKULTAS SAINS DAN TEKNOLOGI (FST)' => [
+                'S1-TEKNIK INDUSTRI',
+                'S1-TEKNIK INFORMATIKA',
+                'S1-TEKNIK LOGISTIK',
+                'S1-SISTEM INFORMASI',
+                'S1-TEKNIK PERKAPALAN',
+            ],
+            'FAKULTAS ILMU KESEHATAN (FIKes)' => [
+                'S2-KESEHATAN MASYARAKAT',
+                'S1-KESEHATAN DAN KESELAMATAN KERJA',
+                'S1-KESEHATAN LINGKUNGAN',
+            ],
+        ];
+    }
+
+    /**
+     * Opsi standar Fakultas di UIS
      */
     public static function listFakultas(): array
     {
-        return [
-            'Fakultas Ilmu Komputer',
-            'Fakultas Teknik',
-            'Fakultas Ekonomi & Bisnis',
-            'Fakultas Agama Islam',
-            'Fakultas Hukum',
-            'Fakultas Ilmu Kesehatan',
-        ];
+        return array_keys(self::listFakultasProdi());
+    }
+
+    /**
+     * Daftar seluruh Program Studi di UIS
+     */
+    public static function listProdi(): array
+    {
+        $all = [];
+        foreach (self::listFakultasProdi() as $prodis) {
+            $all = array_merge($all, $prodis);
+        }
+        return $all;
     }
 }

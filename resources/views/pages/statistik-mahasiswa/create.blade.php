@@ -73,7 +73,7 @@
 
                 <div class="col-md-6">
                     <label for="fakultas" class="form-label fw-bold">Fakultas <span class="text-danger">*</span></label>
-                    <select class="form-select @error('fakultas') is-invalid @enderror" id="fakultas" name="fakultas" required>
+                    <select class="form-select @error('fakultas') is-invalid @enderror" id="fakultas" name="fakultas" required onchange="filterProdiByFakultas(this.value)">
                         <option value="" disabled selected>-- Pilih Fakultas --</option>
                         @foreach($fakultas as $fak)
                             <option value="{{ $fak }}" {{ old('fakultas') === $fak ? 'selected' : '' }}>{{ $fak }}</option>
@@ -86,7 +86,18 @@
 
                 <div class="col-md-6">
                     <label for="prodi" class="form-label fw-bold">Program Studi <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control @error('prodi') is-invalid @enderror" id="prodi" name="prodi" value="{{ old('prodi') }}" required placeholder="Contoh: Teknik Informatika / Sistem Informasi">
+                    <select class="form-select @error('prodi') is-invalid @enderror" id="prodi" name="prodi" required>
+                        <option value="" disabled selected>-- Pilih Program Studi --</option>
+                        @foreach($fakultasProdi as $fakName => $prodis)
+                            <optgroup label="{{ $fakName }}" data-fakultas="{{ $fakName }}">
+                                @foreach($prodis as $prd)
+                                    <option value="{{ $prd }}" data-fakultas="{{ $fakName }}" {{ old('prodi') === $prd ? 'selected' : '' }}>
+                                        {{ $prd }}
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    </select>
                     @error('prodi')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -125,3 +136,50 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    const fakultasProdiData = {!! json_encode($fakultasProdi) !!};
+
+    function filterProdiByFakultas(selectedFakultas) {
+        const prodiSelect = document.getElementById('prodi');
+        const currentProdi = prodiSelect.value;
+        prodiSelect.innerHTML = '<option value="" disabled selected>-- Pilih Program Studi --</option>';
+
+        if (selectedFakultas && fakultasProdiData[selectedFakultas]) {
+            fakultasProdiData[selectedFakultas].forEach(function (p) {
+                const opt = document.createElement('option');
+                opt.value = p;
+                opt.textContent = p;
+                if (p === currentProdi) {
+                    opt.selected = true;
+                }
+                prodiSelect.appendChild(opt);
+            });
+        } else {
+            // Tampilkan semua jika belum dipilih
+            Object.keys(fakultasProdiData).forEach(function (f) {
+                const group = document.createElement('optgroup');
+                group.label = f;
+                fakultasProdiData[f].forEach(function (p) {
+                    const opt = document.createElement('option');
+                    opt.value = p;
+                    opt.textContent = p;
+                    if (p === currentProdi) {
+                        opt.selected = true;
+                    }
+                    group.appendChild(opt);
+                });
+                prodiSelect.appendChild(group);
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const fakVal = document.getElementById('fakultas').value;
+        if (fakVal) {
+            filterProdiByFakultas(fakVal);
+        }
+    });
+</script>
+@endpush
