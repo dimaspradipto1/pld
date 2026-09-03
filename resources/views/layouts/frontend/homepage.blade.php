@@ -1915,34 +1915,34 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
           <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
-            {{ $pmbSetting->badge_text ?? 'LAYANAN & PENDAMPINGAN MAHASISWA INKLUSIF' }}
+            {{ $pmbSetting->badge_text ?? ('PENERIMAAN MAHASISWA BARU (PMB) T.A. ' . date('Y') . '/' . (date('Y') + 1)) }}
           </div>
           <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">
-            {{ $pmbSetting->judul ?? 'Konsultasikan Kebutuhan Belajar & Dapatkan Pendampingan Penuh di PLD UIS!' }}
+            {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Inklusif Bersama Universitas Ibnu Sina!' }}
           </h2>
           <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92; font-size: 14.5px;">
-            {{ $pmbSetting->deskripsi ?? 'Pusat Layanan Disabilitas Universitas Ibnu Sina siap mendampingi kebutuhan akademik, akomodasi ujian, notetaker, juru bahasa isyarat, dan konseling psikologis.' }}
+            {{ $pmbSetting->deskripsi ?? 'Penerimaan Mahasiswa Baru Universitas Ibnu Sina terbuka lebar untuk seluruh calon mahasiswa, termasuk penyandang disabilitas dengan dukungan akomodasi dan fasilitas pendampingan penuh dari PLD UIS.' }}
           </p>
           <div class="d-flex flex-wrap gap-3 pmb-btn-group">
             @php
-              $link1 = $pmbSetting->tombol_link_1 ?? route('homepage.layanan');
+              $link1 = !empty($pmbSetting->tombol_link_1) ? $pmbSetting->tombol_link_1 : 'https://pmb.uis.ac.id/';
               if (!str_starts_with($link1, 'http') && !str_starts_with($link1, '/')) {
                   $link1 = '/' . $link1;
               }
             @endphp
-            <a href="{{ $link1 }}" target="{{ str_starts_with($link1, 'http') ? '_blank' : '_self' }}" class="btn-primary-hero">
-              <i class="bi bi-info-circle"></i> {{ $pmbSetting->tombol_text_1 ?? 'Pelajari Layanan PLD' }}
+            <a href="{{ $link1 }}" target="{{ str_starts_with($link1, 'http') ? '_blank' : '_self' }}" rel="noopener noreferrer" class="btn-primary-hero">
+              <i class="bi bi-pencil-square"></i> {{ $pmbSetting->tombol_text_1 ?? 'Daftar PMB Online' }}
             </a>
 
             @php
               $link2 = $pmbSetting->tombol_link_2 ?? '';
               if (empty($link2) && !empty($cleanWa)) {
-                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Pusat Layanan Disabilitas UIS, saya ingin konsultasi mengenai layanan pendampingan.");
+                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Panitia PMB & Pusat Layanan Disabilitas UIS, saya ingin konsultasi mengenai pendaftaran mahasiswa baru.");
               }
             @endphp
             @if(!empty($link2))
-              <a href="{{ $link2 }}" target="_blank" class="btn-pmb-wa">
-                <i class="bi bi-whatsapp"></i> {{ $pmbSetting->tombol_text_2 ?? 'Konsultasi WhatsApp PLD' }}
+              <a href="{{ $link2 }}" target="_blank" rel="noopener noreferrer" class="btn-pmb-wa">
+                <i class="bi bi-whatsapp"></i> {{ $pmbSetting->tombol_text_2 ?? 'Konsultasi WhatsApp PMB' }}
               </a>
             @endif
           </div>
