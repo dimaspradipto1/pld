@@ -423,25 +423,35 @@
 
     /* CTA Buttons */
     .btn-pmb-nav {
-      background: var(--pld-orange, #79a8e2);
+      background: #79a8e2 !important;
       color: #141b39 !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 12.5px;
-      padding: 8px 15px;
+      padding: 8px 16px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(121, 168, 226, 0.35);
+      box-shadow: 0 4px 14px rgba(121, 168, 226, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid var(--pld-orange, #79a8e2);
+      border: 1px solid #79a8e2 !important;
       transition: all 0.25s ease;
       white-space: nowrap;
+      text-decoration: none !important;
+    }
+    .btn-pmb-nav i {
+      color: #141b39 !important;
+      font-size: 14px;
     }
     .btn-pmb-nav:hover {
-      background: #e68c00;
-      color: #ffffff !important;
+      background: #6396d8 !important;
+      border-color: #6396d8 !important;
+      color: #141b39 !important;
       transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(121, 168, 226, 0.45);
+    }
+    .btn-pmb-nav:hover i {
+      color: #141b39 !important;
     }
 
     .btn-portal-nav {
