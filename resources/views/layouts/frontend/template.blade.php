@@ -185,6 +185,18 @@
     a { text-decoration: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 
     /* ═══════════════════════════════════════════════
+       STICKY HEADER WRAPPER (TOPBAR + HEADER TETAP SAAT SCROLL)
+    ═══════════════════════════════════════════════ */
+    .header-sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      width: 100%;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+      transition: all 0.3s ease;
+    }
+
+    /* ═══════════════════════════════════════════════
        TOPBAR — Solid Obsidian Theme
     ═══════════════════════════════════════════════ */
     .topbar-main {
@@ -222,11 +234,8 @@
     .navbar-main {
       background: var(--pld-purple, #283759);
       padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1050;
+      position: relative;
       border-bottom: 2.5px solid var(--pld-orange, #79a8e2);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
     }
 
     .navbar-brand-custom {
@@ -869,15 +878,17 @@
 
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     TOPBAR BILAH ATAS
-═══════════════════════════════════════════════ -->
-@include('layouts.frontend.topbar')
+<header class="header-sticky-wrapper">
+  <!-- ═══════════════════════════════════════════════
+       TOPBAR BILAH ATAS
+  ═══════════════════════════════════════════════ -->
+  @include('layouts.frontend.topbar')
 
-<!-- ═══════════════════════════════════════════════
-     NAVBAR HEADER UTAMA
-═══════════════════════════════════════════════ -->
-@include('layouts.frontend.header')
+  <!-- ═══════════════════════════════════════════════
+       NAVBAR HEADER UTAMA
+  ═══════════════════════════════════════════════ -->
+  @include('layouts.frontend.header')
+</header>
 
 <!-- ═══════════════════════════════════════════════
      MAIN CONTENT
