@@ -85,4 +85,12 @@ class StatistikMahasiswa extends Model
         }
         return $all;
     }
+
+    /**
+     * Accessor untuk mendapatkan teks keterangan bersih tanpa tag HTML
+     */
+    public function getCleanKeteranganAttribute(): string
+    {
+        return trim(strip_tags(html_entity_decode($this->keterangan ?? '')));
+    }
 }

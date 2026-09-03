@@ -30,10 +30,16 @@ class StatistikMahasiswaDataTable extends DataTable
                     ? '<span class="badge bg-primary-subtle text-primary border border-primary-subtle" title="Laki-laki">L</span>'
                     : '<span class="badge bg-danger-subtle text-danger border border-danger-subtle" title="Perempuan">P</span>';
 
+                $cleanKet = trim(strip_tags(html_entity_decode($mhs->keterangan ?? '')));
+                $ketSnippet = !empty($cleanKet)
+                    ? '<div class="small text-muted mt-1 text-truncate" style="max-width: 250px; font-size: 11.5px;" title="' . e($cleanKet) . '"><i class="bi bi-info-circle me-1 text-primary"></i>' . e(\Illuminate\Support\Str::limit($cleanKet, 60)) . '</div>'
+                    : '';
+
                 return '<div>
                             <span class="fw-bold text-dark d-block">' . e($mhs->nama) . ' ' . $jkBadge . '</span>
-                            <small class="text-muted"><i class="bi bi-person-badge me-1"></i>NIM: ' . e($mhs->nim ?: '-') . '</small>
-                        </div>';
+                            <small class="text-muted"><i class="bi bi-person-badge me-1"></i>NIM: ' . e($mhs->nim ?: '-') . '</small>'
+                            . $ketSnippet .
+                        '</div>';
             })
             ->addColumn('jenis_disabilitas', function (StatistikMahasiswa $mhs) {
                 return '<span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600;">' . e($mhs->jenis_disabilitas) . '</span>';

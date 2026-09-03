@@ -612,6 +612,9 @@ class FrontendController extends Controller
         // Available Angkatan list for filter
         $angkatanList = \App\Models\StatistikMahasiswa::select('angkatan')->distinct()->orderBy('angkatan', 'desc')->pluck('angkatan');
 
+        // Daftar mahasiswa untuk tabel direktori frontend (10 per halaman)
+        $mahasiswaList = $query->orderBy('angkatan', 'desc')->orderBy('nama', 'asc')->paginate(10)->withQueryString();
+
         return view('layouts.frontend.statistik-mahasiswa', compact(
             'totalMahasiswa',
             'disabilitasCounts',
@@ -620,7 +623,8 @@ class FrontendController extends Controller
             'prodiCounts',
             'angkatanList',
             'selectedAngkatan',
-            'selectedStatus'
+            'selectedStatus',
+            'mahasiswaList'
         ));
     }
 }

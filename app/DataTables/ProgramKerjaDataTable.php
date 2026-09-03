@@ -29,7 +29,8 @@ class ProgramKerjaDataTable extends DataTable
                         </div>';
             })
             ->addColumn('deskripsi', function (ProgramKerja $pk) {
-                return '<span title="' . e($pk->deskripsi) . '">' . e(\Illuminate\Support\Str::limit($pk->deskripsi, 80)) . '</span>';
+                $cleanDesc = trim(strip_tags(html_entity_decode($pk->deskripsi ?? '')));
+                return '<span title="' . e($cleanDesc) . '">' . e(\Illuminate\Support\Str::limit($cleanDesc, 80)) . '</span>';
             })
             ->addColumn('target_waktu', function (ProgramKerja $pk) {
                 return '<span class="small text-muted"><i class="bi bi-clock me-1"></i>' . e($pk->target_waktu ?: '-') . '</span>';

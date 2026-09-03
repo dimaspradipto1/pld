@@ -162,7 +162,7 @@
             <h3 class="h5 fw-bold text-dark mb-2" style="line-height: 1.4;">{{ $pk->judul }}</h3>
             
             <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.6;">
-              {{ $pk->deskripsi }}
+              {{ trim(strip_tags(html_entity_decode($pk->deskripsi))) }}
             </p>
 
             <div class="pt-3 border-top mt-auto">
