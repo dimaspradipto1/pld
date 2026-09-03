@@ -28,7 +28,7 @@ class DosenDataTable extends DataTable
             })
             ->editColumn('jabatan_fungsional', function ($d) {
                 if (!empty($d->jabatan_fungsional)) {
-                    return '<span class="badge text-nowrap" style="background:#823ca2; color:#fff; font-size:11.5px; padding:5px 10px;">' . e($d->jabatan_fungsional) . '</span>';
+                    return '<span class="badge text-nowrap" style="background:#283759; color:#fff; font-size:11.5px; padding:5px 10px;">' . e($d->jabatan_fungsional) . '</span>';
                 }
                 return '<span class="text-muted small">-</span>';
             })

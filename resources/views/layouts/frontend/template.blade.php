@@ -57,43 +57,50 @@
 
   <style>
     /* ═══════════════════════════════════════════════
-       DESIGN TOKENS — PLD (SOLID PALETTE, ZERO GRADIENTS)
-       Purple: #823ca2 | Orange: #ff9c00
+       DESIGN TOKENS — PLD (NAVY & SKY BLUE PALETTE)
+       Deep Navy: #141b39 | Navy: #283759 | Sky Blue: #79a8e2 | Teal: #50697d
     ═══════════════════════════════════════════════ */
     :root {
-      --pld-purple:       #823ca2;
-      --pld-purple-dark:  #682985;
-      --pld-purple-deep:  #47175d;
-      --pld-purple-light: #f5eefb;
-      --pld-purple-subtle:#ecdcf7;
+      /* Primary Navy & Blues */
+      --pld-purple:       #283759;
+      --pld-purple-dark:  #1e2a45;
+      --pld-purple-deep:  #141b39;
+      --pld-purple-light: #eef4fc;
+      --pld-purple-subtle:#dbe7f7;
       
-      --pld-orange:       #ff9c00;
-      --pld-orange-hover: #e88d00;
-      --pld-orange-dark:  #cc7c00;
-      --pld-orange-light: #fff8eb;
-      --pld-orange-subtle:#ffeecd;
+      /* Accent Sky Blue & Teal */
+      --pld-orange:       #79a8e2;
+      --pld-orange-hover: #6396d8;
+      --pld-orange-dark:  #50697d;
+      --pld-orange-light: #f0f5fc;
+      --pld-orange-subtle:#dbe8f8;
       
-      --obsidian-dark:      #190a24;
-      --obsidian-card:      #241033;
+      /* Dark Theme Sections */
+      --obsidian-dark:      #141b39;
+      --obsidian-card:      #1b2347;
       
+      /* Surfaces & Backgrounds */
       --white:              #ffffff;
-      --page-bg:            #fcfaff;
-      --surface-light:      #f6effb;
-      --surface-muted:      #f0e5f7;
+      --page-bg:            #f8fafd;
+      --surface-light:      #edf3f9;
+      --surface-muted:      #e2ecf5;
       
-      --text-main:          #190a24;
-      --text-muted:         #655672;
-      --text-light:         #9586a2;
+      /* Typography */
+      --text-main:          #141b39;
+      --text-muted:         #50697d;
+      --text-light:         #7e95a8;
       
-      --border-light:       #ebdff2;
-      --border-purple:      #cfb5db;
-      --border-orange:      #ffd79a;
+      /* Borders */
+      --border-light:       #e2ebf2;
+      --border-purple:      #a8c3e0;
+      --border-orange:      #79a8e2;
       
-      --shadow-sm:          0 4px 12px rgba(130, 60, 162, 0.08);
-      --shadow-md:          0 8px 24px rgba(130, 60, 162, 0.12);
-      --shadow-lg:          0 16px 36px rgba(130, 60, 162, 0.15);
-      --shadow-orange:      0 8px 24px rgba(255, 156, 0, 0.28);
-      --shadow-purple:      0 8px 24px rgba(130, 60, 162, 0.28);
+      /* Shadows */
+      --shadow-sm:          0 4px 12px rgba(20, 27, 57, 0.08);
+      --shadow-md:          0 8px 24px rgba(20, 27, 57, 0.12);
+      --shadow-lg:          0 16px 36px rgba(20, 27, 57, 0.16);
+      --shadow-orange:      0 8px 24px rgba(121, 168, 226, 0.35);
+      --shadow-purple:      0 8px 24px rgba(40, 55, 89, 0.28);
     }
 
     .text-terracotta, .text-pld-purple { color: var(--pld-purple) !important; }
@@ -178,7 +185,7 @@
     .topbar-main {
       background: var(--obsidian-dark);
       padding: 9px 0;
-      border-bottom: 1px solid rgba(130, 60, 162, 0.3);
+      border-bottom: 1px solid rgba(40, 55, 89, 0.3);
       font-size: 13px;
       color: rgba(255, 255, 255, 0.8);
     }
@@ -205,15 +212,15 @@
     }
 
     /* ═══════════════════════════════════════════════
-       NAVBAR — Solid PLD Purple (#823ca2) with Orange (#ff9c00) Font & Dropdowns
+       NAVBAR — Solid PLD Purple (#283759) with Orange (#79a8e2) Font & Dropdowns
     ═══════════════════════════════════════════════ */
     .navbar-main {
-      background: var(--pld-purple, #823ca2);
+      background: var(--pld-purple, #283759);
       padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 1050;
-      border-bottom: 2.5px solid var(--pld-orange, #ff9c00);
+      border-bottom: 2.5px solid var(--pld-orange, #79a8e2);
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
     }
 
@@ -247,7 +254,7 @@
     .nav-link-custom:hover,
     .nav-link-custom.active,
     .show > .nav-link-custom {
-      color: var(--pld-orange, #ff9c00) !important;
+      color: var(--pld-orange, #79a8e2) !important;
       background: rgba(255, 255, 255, 0.15);
     }
 
@@ -324,7 +331,7 @@
     }
 
     .navbar-toggler {
-      border: 1.5px solid var(--pld-orange, #ff9c00) !important;
+      border: 1.5px solid var(--pld-orange, #79a8e2) !important;
       padding: 6px 10px;
       border-radius: 8px;
       outline: none !important;
@@ -371,7 +378,7 @@
       .nav-link-custom:hover,
       .nav-link-custom.active,
       .show > .nav-link-custom {
-        background: var(--pld-purple, #823ca2) !important;
+        background: var(--pld-purple, #283759) !important;
         color: #ffffff !important;
       }
       .dropdown-menu-custom {
@@ -392,8 +399,8 @@
       }
       .dropdown-item-custom:hover,
       .dropdown-item-custom.active {
-        background: rgba(255, 156, 0, 0.18) !important;
-        color: var(--pld-orange, #ff9c00) !important;
+        background: rgba(121, 168, 226, 0.18) !important;
+        color: var(--pld-orange, #79a8e2) !important;
       }
       .navbar-main .d-flex.align-items-center.gap-2.mt-3.mt-xl-0 {
         display: grid !important;
@@ -416,18 +423,18 @@
 
     /* CTA Buttons */
     .btn-pmb-nav {
-      background: var(--pld-orange, #ff9c00);
-      color: #190a24 !important;
+      background: var(--pld-orange, #79a8e2);
+      color: #141b39 !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 12.5px;
       padding: 8px 15px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(255, 156, 0, 0.35);
+      box-shadow: 0 4px 12px rgba(121, 168, 226, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid var(--pld-orange, #ff9c00);
+      border: 1px solid var(--pld-orange, #79a8e2);
       transition: all 0.25s ease;
       white-space: nowrap;
     }
@@ -601,8 +608,8 @@
       background: var(--obsidian-dark);
       padding: 60px 0;
       color: var(--white);
-      border-top: 1px solid rgba(130, 60, 162, 0.3);
-      border-bottom: 1px solid rgba(130, 60, 162, 0.3);
+      border-top: 1px solid rgba(40, 55, 89, 0.3);
+      border-bottom: 1px solid rgba(40, 55, 89, 0.3);
     }
     .counter-item { text-align: center; }
     .counter-icon { font-size: 32px; color: var(--pld-orange); margin-bottom: 10px; }
@@ -691,14 +698,14 @@
     .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--pld-purple); color: var(--white); }
 
     /* ═══════════════════════════════════════════════
-       FOOTER — Purple #823ca2
+       FOOTER — Purple #283759
     ═══════════════════════════════════════════════ */
     .footer-main {
-      background: #823ca2;
-      background: linear-gradient(180deg, #823ca2 0%, #591e73 100%);
+      background: #283759;
+      background: linear-gradient(180deg, #283759 0%, #591e73 100%);
       color: rgba(255, 255, 255, 0.88);
       padding: 70px 0 28px;
-      border-top: 3.5px solid var(--pld-orange, #ff9c00);
+      border-top: 3.5px solid var(--pld-orange, #79a8e2);
     }
     .footer-logo {
       display: flex;
@@ -735,9 +742,9 @@
       transition: all 0.25s ease;
     }
     .footer-social a:hover {
-      background: var(--pld-orange, #ff9c00);
-      border-color: var(--pld-orange, #ff9c00);
-      color: #190a24;
+      background: var(--pld-orange, #79a8e2);
+      border-color: var(--pld-orange, #79a8e2);
+      color: #141b39;
       transform: translateY(-2px);
     }
     .footer-heading {

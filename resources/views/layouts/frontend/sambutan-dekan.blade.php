@@ -59,7 +59,7 @@
     max-width: 280px;
     height: 340px;
     margin: 0 auto 20px;
-    background: linear-gradient(135deg, var(--pld-purple) 0%, #47175d 100%);
+    background: linear-gradient(135deg, var(--pld-purple) 0%, #141b39 100%);
     color: #ffffff;
     border-radius: 18px;
     display: flex;

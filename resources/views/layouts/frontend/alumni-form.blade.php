@@ -11,7 +11,7 @@
 <div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--pld-purple);">
   <div class="container">
     <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
-      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(255, 156, 0, 0.15); border: 1px solid rgba(255, 156, 0, 0.4);">
+      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(121, 168, 226, 0.15); border: 1px solid rgba(121, 168, 226, 0.4);">
         <i class="bi bi-mortarboard-fill text-warning"></i>
         <span class="text-warning small fw-bold">PORTAL KHUSUS ALUMNI & CIVITAS</span>
       </div>
@@ -122,7 +122,7 @@
                 <input type="hidden" id="kategoriValue" name="kategori" value="{{ $isCustom ? $oldKategori : ($oldKategori ?: 'Alumni') }}">
                 {{-- Custom input (shown when Lainnya selected) --}}
                 <div id="kategoriCustomWrap" style="margin-top: 8px; display: {{ $isCustom ? 'block' : 'none' }};">
-                  <input type="text" id="kategoriCustomInput" class="form-control form-control-lg" placeholder="Contoh: Puskesmas, NGO Kesehatan, Peneliti..." value="{{ $isCustom ? $oldKategori : '' }}" style="border-radius: 12px; font-size: 14px; border-color: #823ca2;" oninput="document.getElementById('kategoriValue').value = this.value">
+                  <input type="text" id="kategoriCustomInput" class="form-control form-control-lg" placeholder="Contoh: Puskesmas, NGO Kesehatan, Peneliti..." value="{{ $isCustom ? $oldKategori : '' }}" style="border-radius: 12px; font-size: 14px; border-color: #283759;" oninput="document.getElementById('kategoriValue').value = this.value">
                   <div class="small text-muted mt-1"><i class="bi bi-info-circle me-1"></i>Tuliskan kategori Anda secara spesifik.</div>
                 </div>
                 @error('kategori')

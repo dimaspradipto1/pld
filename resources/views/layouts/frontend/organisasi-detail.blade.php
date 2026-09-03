@@ -6,13 +6,13 @@
 @push('styles')
 <style>
   :root {
-    --pld-purple: #823ca2;
+    --pld-purple: #283759;
     --pld-purple-dark: #591e73;
-    --pld-orange: #ff9c00;
+    --pld-orange: #79a8e2;
   }
 
   .detail-hero {
-    background: linear-gradient(135deg, #190a24 0%, #3b1154 50%, #823ca2 100%);
+    background: linear-gradient(135deg, #141b39 0%, #3b1154 50%, #283759 100%);
     padding: 60px 0 40px;
     color: #ffffff;
     position: relative;
@@ -42,7 +42,7 @@
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #823ca2 0%, #591e73 100%);
+    background: linear-gradient(135deg, #283759 0%, #591e73 100%);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -73,7 +73,7 @@
   }
 
   .visi-misi-card {
-    background: linear-gradient(135deg, rgba(130, 60, 162, 0.04) 0%, rgba(255, 156, 0, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(40, 55, 89, 0.04) 0%, rgba(121, 168, 226, 0.04) 100%);
     border: 1px solid #eddff5;
     border-radius: 14px;
     padding: 24px;
@@ -113,7 +113,7 @@
             <li class="breadcrumb-item text-warning active fw-semibold" aria-current="page">{{ $organisasi->singkatan ?: $organisasi->nama_organisasi }}</li>
           </ol>
         </nav>
-        <span class="badge mb-2" style="background:#ff9c00; color:#1a0528; font-size:12px; font-weight:700; padding:6px 14px;">
+        <span class="badge mb-2" style="background:#79a8e2; color:#1a0528; font-size:12px; font-weight:700; padding:6px 14px;">
           {{ $organisasi->kategori }}
         </span>
         <h1 class="fw-bold text-white mb-2" style="font-size: clamp(24px, 3vw, 36px); line-height: 1.25;">
@@ -147,7 +147,7 @@
               @if(!empty($organisasi->logo))
                 <img src="{{ asset('storage/' . $organisasi->logo) }}" alt="{{ $organisasi->nama_organisasi }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 50%;">
               @else
-                <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #823ca2 0%, #190a24 100%); font-size: 24px;">
+                <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 24px;">
                   {{ strtoupper(substr($organisasi->singkatan ?: $organisasi->nama_organisasi, 0, 2)) }}
                 </div>
               @endif
@@ -186,7 +186,7 @@
             @if(!empty($organisasi->nama_wakil))
               <div class="col-sm-6">
                 <div class="info-badge-box">
-                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #ff9c00 0%, #e08500 100%);"><i class="bi bi-person-check"></i></div>
+                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #79a8e2 0%, #e08500 100%);"><i class="bi bi-person-check"></i></div>
                   <div>
                     <small class="text-muted d-block">Wakil Ketua</small>
                     <strong class="text-dark">{{ $organisasi->nama_wakil }}</strong>

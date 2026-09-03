@@ -33,7 +33,7 @@ class TriDharmaController extends Controller
     {
         TriDharma::create([
             'icon'      => $request->icon,
-            'warna'     => $request->warna ?? '#823ca2',
+            'warna'     => $request->warna ?? '#283759',
             'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
             'urutan'    => $request->urutan ?? 0,
@@ -60,7 +60,7 @@ class TriDharmaController extends Controller
     {
         $tridharma->update([
             'icon'      => $request->icon,
-            'warna'     => $request->warna ?? '#823ca2',
+            'warna'     => $request->warna ?? '#283759',
             'judul'     => $request->judul,
             'deskripsi' => $request->deskripsi,
             'urutan'    => $request->urutan ?? 0,

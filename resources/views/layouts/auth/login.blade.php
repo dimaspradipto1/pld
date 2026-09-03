@@ -23,33 +23,33 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pld-purple:       #823ca2;
-      --pld-purple-dark:  #682985;
-      --pld-purple-deep:  #47175d;
-      --pld-purple-light: #f5eefb;
-      --pld-purple-subtle:#ecdcf7;
+      --pld-purple:       #283759;
+      --pld-purple-dark:  #1e2a45;
+      --pld-purple-deep:  #141b39;
+      --pld-purple-light: #eef4fc;
+      --pld-purple-subtle:#dbe7f7;
       
-      --pld-orange:       #ff9c00;
-      --pld-orange-hover: #e88d00;
-      --pld-orange-dark:  #cc7c00;
-      --pld-orange-light: #fff8eb;
-      --pld-orange-subtle:#ffeecd;
+      --pld-orange:       #79a8e2;
+      --pld-orange-hover: #6396d8;
+      --pld-orange-dark:  #50697d;
+      --pld-orange-light: #f0f5fc;
+      --pld-orange-subtle:#dbe8f8;
       
-      --obsidian-dark:      #190a24;
-      --obsidian-card:      #241033;
+      --obsidian-dark:      #141b39;
+      --obsidian-card:      #1b2347;
       
       --white:              #ffffff;
-      --page-bg:            #fcfaff;
-      --surface-light:      #f6effb;
-      --text-main:          #190a24;
-      --text-muted:         #655672;
-      --text-light:         #9586a2;
-      --border-light:       #ebdff2;
+      --page-bg:            #f8fafd;
+      --surface-light:      #edf3f9;
+      --text-main:          #141b39;
+      --text-muted:         #50697d;
+      --text-light:         #7e95a8;
+      --border-light:       #e2ebf2;
       
-      --shadow-sm:          0 4px 12px rgba(130, 60, 162, 0.08);
-      --shadow-md:          0 8px 24px rgba(130, 60, 162, 0.12);
-      --shadow-lg:          0 16px 36px rgba(130, 60, 162, 0.15);
-      --shadow-purple:      0 8px 24px rgba(130, 60, 162, 0.28);
+      --shadow-sm:          0 4px 12px rgba(20, 27, 57, 0.08);
+      --shadow-md:          0 8px 24px rgba(20, 27, 57, 0.12);
+      --shadow-lg:          0 16px 36px rgba(20, 27, 57, 0.16);
+      --shadow-purple:      0 8px 24px rgba(40, 55, 89, 0.28);
     }
 
     html, body { height: 100%; }
@@ -112,8 +112,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(130, 60, 162, 0.3);
-      border: 1px solid rgba(255, 156, 0, 0.4);
+      background: rgba(40, 55, 89, 0.3);
+      border: 1px solid rgba(121, 168, 226, 0.4);
       border-radius: 50px;
       padding: 6px 16px;
       margin-bottom: 24px;
@@ -306,7 +306,7 @@
     .form-input:focus {
       border-color: var(--pld-purple);
       background: var(--white);
-      box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.12);
+      box-shadow: 0 0 0 3px rgba(40, 55, 89, 0.12);
     }
 
     .field-err-msg {
@@ -498,12 +498,12 @@
         </form>
 
         <!-- Link Akses Formulir Testimoni Alumni (Tanpa Login) -->
-        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(130, 60, 162, 0.12); text-align: center;">
-          <div style="background: rgba(130, 60, 162, 0.05); border: 1.5px dashed rgba(130, 60, 162, 0.25); border-radius: 14px; padding: 14px 16px; transition: all 0.25s ease;">
+        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(40, 55, 89, 0.12); text-align: center;">
+          <div style="background: rgba(40, 55, 89, 0.05); border: 1.5px dashed rgba(40, 55, 89, 0.25); border-radius: 14px; padding: 14px 16px; transition: all 0.25s ease;">
             <p style="font-size: 12.5px; color: #555555; margin-bottom: 6px; font-weight: 500;">
               🎓 <strong>Alumni atau Mitra PLD UIS?</strong>
             </p>
-            <a href="{{ route('homepage.alumni.create') }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: #823ca2; text-decoration: none; padding: 6px 12px; border-radius: 8px; background: rgba(130, 60, 162, 0.08);">
+            <a href="{{ route('homepage.alumni.create') }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: #283759; text-decoration: none; padding: 6px 12px; border-radius: 8px; background: rgba(40, 55, 89, 0.08);">
               <i class="bi bi-chat-quote-fill"></i>
               <span>Isi Ulasan & Testimoni Alumni di Sini</span>
               <i class="bi bi-arrow-right"></i>

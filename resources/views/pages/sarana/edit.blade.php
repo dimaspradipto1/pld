@@ -44,7 +44,7 @@
                             Bootstrap Icon Class <span class="text-danger">*</span>
                         </label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light" id="icon-preview-box" style="font-size:22px;color:#823ca2;min-width:52px;justify-content:center;">
+                            <span class="input-group-text bg-light" id="icon-preview-box" style="font-size:22px;color:#283759;min-width:52px;justify-content:center;">
                                 <i class="bi {{ old('icon', $sarana->icon ?? 'bi-building') }}"></i>
                             </span>
                             <input type="text"
@@ -144,8 +144,8 @@
             </div>
             <div class="card-body pt-2">
                 <div class="p-3 rounded-3 border bg-white shadow-sm">
-                    <div id="prev-icon-wrap" style="width:50px;height:50px;border-radius:12px;background:rgba(130,60,162,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <i id="prev-icon" class="bi {{ old('icon', $sarana->icon ?? 'bi-building') }}" style="font-size:24px;color:#823ca2;"></i>
+                    <div id="prev-icon-wrap" style="width:50px;height:50px;border-radius:12px;background:rgba(40,55,89,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+                        <i id="prev-icon" class="bi {{ old('icon', $sarana->icon ?? 'bi-building') }}" style="font-size:24px;color:#283759;"></i>
                     </div>
                     <div id="prev-nama" class="fw-bold mb-1" style="font-size:15px;">{{ $sarana->nama }}</div>
                     <div id="prev-deskripsi" class="text-muted small" style="line-height:1.6;">{{ $sarana->deskripsi ?: 'Deskripsi sarana akan tampil di sini.' }}</div>
@@ -166,7 +166,7 @@ function updateIconPreview(val) {
     box.innerHTML = '<i class="bi ' + cls + '"></i>';
     prevIcon.className = 'bi ' + cls;
     prevIcon.style.fontSize = '24px';
-    prevIcon.style.color = '#823ca2';
+    prevIcon.style.color = '#283759';
 }
 
 document.addEventListener('DOMContentLoaded', function () {

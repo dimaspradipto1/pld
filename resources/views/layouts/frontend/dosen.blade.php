@@ -13,7 +13,7 @@
   .prodi-header-pill {
     background: #ffc107;
     background: linear-gradient(135deg, #ffd026 0%, #e5a823 100%);
-    color: #190a24;
+    color: #141b39;
     font-size: 24px;
     font-weight: 800;
     padding: 18px 30px;
@@ -53,10 +53,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--pld-purple, #823ca2) !important;
+    background: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
-    border-color: var(--pld-purple, #823ca2);
-    box-shadow: 0 6px 18px rgba(130, 60, 162, 0.3);
+    border-color: var(--pld-purple, #283759);
+    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.3);
   }
 
   .dosen-table-card {
@@ -73,7 +73,7 @@
   }
   .table-dosen thead th {
     background: #501224;
-    background: linear-gradient(135deg, #4a1563 0%, #190a24 100%);
+    background: linear-gradient(135deg, #4a1563 0%, #141b39 100%);
     color: #ffffff;
     font-weight: 700;
     font-size: 13.5px;
@@ -94,7 +94,7 @@
   }
   .btn-lihat-dosen {
     background: #501224;
-    background: linear-gradient(135deg, #60237c 0%, #190a24 100%);
+    background: linear-gradient(135deg, #60237c 0%, #141b39 100%);
     color: #ffffff !important;
     border: none;
     font-size: 12px;
@@ -115,13 +115,13 @@
 
   /* Custom Pagination Theme */
   .pagination .page-item.active .page-link {
-    background-color: var(--pld-purple, #823ca2) !important;
-    border-color: var(--pld-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #283759) !important;
+    border-color: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
     font-weight: 700;
   }
   .pagination .page-link {
-    color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
     border-radius: 8px;
     margin: 0 3px;
     border: 1px solid var(--border-light);
@@ -181,7 +181,7 @@
         {{-- Info Total --}}
         <div class="col-lg-5 col-md-6">
           <div class="d-flex align-items-center gap-3">
-            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #823ca2;">
+            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #283759;">
               <i class="bi bi-people-fill fs-5"></i>
             </div>
             <div>
@@ -202,7 +202,7 @@
                 <i class="bi bi-search"></i>
               </span>
               <input type="text" name="q" class="form-control border-start-0 ps-0" placeholder="Cari nama dosen, NIDN, NUPTK, jabatan..." value="{{ $search ?? '' }}">
-              <button class="btn text-white px-3 fw-semibold" type="submit" style="background: #823ca2;">
+              <button class="btn text-white px-3 fw-semibold" type="submit" style="background: #283759;">
                 Cari
               </button>
             </div>
@@ -245,7 +245,7 @@
                       @if(!empty($dosen->foto))
                         <img src="{{ asset('storage/' . $dosen->foto) }}" alt="{{ $dosen->nama_dosen }}" class="rounded-circle shadow-sm" style="width: 42px; height: 42px; object-fit: cover; border: 2px solid var(--pld-purple-light);">
                       @else
-                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%); font-size: 14px;">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 14px;">
                           {{ strtoupper(substr($dosen->nama_dosen, 0, 1)) }}
                         </div>
                       @endif
@@ -257,7 +257,7 @@
                   </td>
                   <td class="text-center">
                     @if(!empty($dosen->jabatan_fungsional))
-                      <span class="badge" style="background:#823ca2; color:#fff; font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px;">
+                      <span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px;">
                         {{ $dosen->jabatan_fungsional }}
                       </span>
                     @else
@@ -309,12 +309,12 @@
     @endif
 
     <!-- Info Bantuan Box -->
-    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #190a24 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
+    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #141b39 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
       <div>
         <h5 class="fw-bold text-white mb-1"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Tertarik Menjadi Mahasiswa Bimbingan Dosen PLD UIS?</h5>
         <p class="text-white-50 small mb-0">Daftarkan diri Anda pada program sarjana & magister kesehatan melalui jalur PMB Online.</p>
       </div>
-      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #190a24;">
+      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #141b39;">
         <i class="bi bi-arrow-right-circle me-1"></i> Informasi PMB
       </a>
     </div>

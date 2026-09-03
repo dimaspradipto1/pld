@@ -58,9 +58,9 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: rgba(25, 10, 36, 0.85);
+    background: rgba(20, 27, 57, 0.85);
     color: var(--pld-orange);
-    border: 1px solid rgba(255, 156, 0, 0.4);
+    border: 1px solid rgba(121, 168, 226, 0.4);
     font-size: 11px;
     font-weight: 700;
     padding: 3px 9px;
@@ -129,7 +129,7 @@
     background: var(--pld-purple);
     border-color: var(--pld-purple);
     color: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(130, 60, 162, 0.3);
+    box-shadow: 0 2px 8px rgba(40, 55, 89, 0.3);
   }
   .news-search-input-box {
     position: relative;
@@ -145,7 +145,7 @@
   .news-search-input-box:focus-within {
     border-color: var(--pld-purple);
     background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.12);
+    box-shadow: 0 0 0 3px rgba(40, 55, 89, 0.12);
   }
   .news-search-input-box input {
     border: none;
@@ -175,7 +175,7 @@
 <div class="news-hero">
   <div class="container">
     <div data-aos="fade-up">
-      <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(130, 60, 162, 0.45); color: var(--pld-orange); border: 1px solid rgba(255, 156, 0, 0.4);">
+      <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(40, 55, 89, 0.45); color: var(--pld-orange); border: 1px solid rgba(121, 168, 226, 0.4);">
         <i class="bi bi-newspaper me-1"></i> Warta & Informasi PLD UIS
       </div>
       <h1 class="news-hero-title">Berita & <em>Artikel</em> Kesehatan</h1>
@@ -210,7 +210,7 @@
                   <i class="bi bi-image fs-1"></i>
                 </div>
               @endif
-              <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2" style="background: var(--pld-orange); color: #190a24; font-weight: 800;">
+              <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2" style="background: var(--pld-orange); color: #141b39; font-weight: 800;">
                 <i class="bi bi-star-fill me-1"></i> BERITA UTAMA
               </span>
               @if(!empty($featured->gallery) && count($featured->gallery) > 0)

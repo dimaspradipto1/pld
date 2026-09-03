@@ -22,7 +22,7 @@ class OrganisasiMahasiswaDataTable extends DataTable
                     return '<img src="' . asset('storage/' . $o->logo) . '" alt="' . e($o->nama_organisasi) . '" class="rounded shadow-sm" style="width: 44px; height: 44px; object-fit: cover;">';
                 }
                 $initial = strtoupper(substr($o->singkatan ?: $o->nama_organisasi, 0, 2));
-                return '<div class="rounded d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 44px; height: 44px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%); font-size: 13px;">' . $initial . '</div>';
+                return '<div class="rounded d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 44px; height: 44px; background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 13px;">' . $initial . '</div>';
             })
             ->editColumn('nama_organisasi', function ($o) {
                 $html = '<div class="fw-bold text-dark text-nowrap" style="min-width: 220px;">' . e($o->nama_organisasi) . '</div>';
@@ -35,7 +35,7 @@ class OrganisasiMahasiswaDataTable extends DataTable
                 return $html;
             })
             ->editColumn('kategori', function ($o) {
-                return '<span class="badge" style="background:#823ca2; color:#fff; font-size:11.5px; padding:5px 10px;">' . e($o->kategori) . '</span>';
+                return '<span class="badge" style="background:#283759; color:#fff; font-size:11.5px; padding:5px 10px;">' . e($o->kategori) . '</span>';
             })
             ->addColumn('kepengurusan', function ($o) {
                 $html = '<div class="small text-nowrap">';

@@ -168,7 +168,7 @@ class DosenController extends Controller
             $sheet->setCellValue($cell, $text);
         }
 
-        // Header Styling (Ungu PLD #823ca2 dengan teks putih)
+        // Header Styling (Navy Blue PLD #283759 dengan teks putih)
         $headerStyle = [
             'font' => [
                 'bold' => true,
@@ -177,7 +177,7 @@ class DosenController extends Controller
             ],
             'fill' => [
                 'fillType' => Fill::FILL_SOLID,
-                'startColor' => ['rgb' => '823CA2'],
+                'startColor' => ['rgb' => '283759'],
             ],
             'alignment' => [
                 'horizontal' => Alignment::HORIZONTAL_CENTER,

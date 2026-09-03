@@ -21,7 +21,7 @@ class KurikulumDataTable extends DataTable
                 return '<span class="badge bg-light text-dark border fw-bold">' . e($k->prodi?->judul ?? $k->prodi_nama ?? 'Semua Prodi') . '</span>';
             })
             ->addColumn('semester_badge', function ($k) {
-                return '<span class="badge" style="background:#823ca2; color:#fff;">Semester ' . $k->semester_romawi . '</span>';
+                return '<span class="badge" style="background:#283759; color:#fff;">Semester ' . $k->semester_romawi . '</span>';
             })
             ->addColumn('sks_badge', function ($k) {
                 return '<span class="badge bg-warning text-dark fw-bold">' . $k->sks . ' SKS</span>';

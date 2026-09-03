@@ -34,7 +34,7 @@
     height: 48px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(25, 10, 36, 0.6);
+    background: rgba(20, 27, 57, 0.6);
     border-radius: 50%;
     opacity: 0.75;
     margin: 0 20px;
@@ -86,7 +86,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 26px;
     font-weight: 800;
-    color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -99,7 +99,7 @@
     margin: 0 auto;
   }
   .layanan-terkait-card {
-    background: #823ca2;
+    background: #283759;
     border: 1.5px solid rgba(255, 255, 255, 0.18);
     border-radius: 14px;
     padding: 18px 20px;
@@ -108,7 +108,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none !important;
-    box-shadow: 0 6px 18px rgba(130, 60, 162, 0.35);
+    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.35);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -121,14 +121,14 @@
     left: 0;
     width: 4px;
     height: 0%;
-    background: var(--pld-orange, #ff9c00);
+    background: var(--pld-orange, #79a8e2);
     transition: height 0.3s ease;
   }
   .layanan-terkait-card:hover {
     transform: translateY(-5px);
-    background: #682985;
-    border-color: #ff9c00;
-    box-shadow: 0 14px 30px -4px rgba(130, 60, 162, 0.5), 0 0 0 2px #ff9c00;
+    background: #1e2a45;
+    border-color: #79a8e2;
+    box-shadow: 0 14px 30px -4px rgba(40, 55, 89, 0.5), 0 0 0 2px #79a8e2;
   }
   .layanan-terkait-card:hover::before {
     height: 100%;
@@ -151,7 +151,7 @@
   }
   .layanan-terkait-icon {
     font-size: 26px;
-    color: var(--pld-orange, #ff9c00);
+    color: var(--pld-orange, #79a8e2);
     transition: transform 0.3s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-icon {
@@ -169,7 +169,7 @@
     transition: color 0.25s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-name {
-    color: var(--pld-orange, #ff9c00);
+    color: var(--pld-orange, #79a8e2);
   }
 
   /* ═══════════════════════════════════════════════
@@ -367,7 +367,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 27px;
     font-weight: 800;
-    color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
     letter-spacing: -0.5px;
     line-height: 1.2;
   }
@@ -387,8 +387,8 @@
     transition: all 0.25s ease;
   }
   .news-search-pill:focus-within {
-    border-color: var(--pld-purple, #823ca2);
-    box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.14);
+    border-color: var(--pld-purple, #283759);
+    box-shadow: 0 0 0 3px rgba(40, 55, 89, 0.14);
   }
   .news-search-pill input {
     border: none;
@@ -405,7 +405,7 @@
   .news-search-pill button {
     border: none;
     background: transparent;
-    color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
     font-size: 15px;
     cursor: pointer;
     padding: 0;
@@ -425,11 +425,11 @@
     height: 100%;
   }
   .news-mini-item:hover {
-    background: var(--pld-purple-light, #f5eefb);
+    background: var(--pld-purple-light, #eef4fc);
     transform: translateY(-2px);
   }
   .news-mini-item:hover .news-mini-title {
-    color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
   }
   .news-mini-img-wrap {
     width: 112px;
@@ -455,8 +455,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--pld-purple-light, #f5eefb);
-    color: var(--pld-purple, #823ca2);
+    background: var(--pld-purple-light, #eef4fc);
+    color: var(--pld-purple, #283759);
     font-size: 24px;
   }
   .news-mini-content {
@@ -488,7 +488,7 @@
   /* Button PLD Pill */
   .btn-pld-pill {
     display: inline-block;
-    background: var(--pld-purple, #823ca2);
+    background: var(--pld-purple, #283759);
     color: #ffffff !important;
     font-size: 13.5px;
     font-weight: 700;
@@ -496,13 +496,13 @@
     border-radius: 50px;
     text-decoration: none !important;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(130, 60, 162, 0.25);
+    box-shadow: 0 4px 14px rgba(40, 55, 89, 0.25);
   }
   .btn-pld-pill:hover {
-    background: var(--pld-purple-dark, #682985);
-    color: var(--pld-orange, #ff9c00) !important;
+    background: var(--pld-purple-dark, #1e2a45);
+    color: var(--pld-orange, #79a8e2) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(130, 60, 162, 0.35);
+    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.35);
   }
 
   /* Announcement Card */
@@ -517,8 +517,8 @@
     border: 1px solid #eedef8;
   }
   .announcement-card-box:hover {
-    background: var(--pld-purple-light, #f5eefb);
-    border-color: var(--pld-purple, #823ca2);
+    background: var(--pld-purple-light, #eef4fc);
+    border-color: var(--pld-purple, #283759);
     transform: translateX(4px);
   }
   .announcement-card-title {
@@ -546,22 +546,22 @@
     margin-bottom: 5px;
   }
   .agenda-badge-card {
-    background: var(--pld-orange, #ff9c00);
-    color: #190a24;
+    background: var(--pld-orange, #79a8e2);
+    color: #141b39;
     font-size: 13.5px;
     font-weight: 800;
     border-radius: 10px;
     padding: 10px 16px;
-    box-shadow: 0 2px 6px rgba(255, 156, 0, 0.25);
+    box-shadow: 0 2px 6px rgba(121, 168, 226, 0.25);
     line-height: 1.35;
   }
   .btn-agenda-pill {
     display: block;
     width: 100%;
     text-align: center;
-    background: var(--pld-purple-light, #f5eefb);
-    border: 1px solid var(--pld-purple-subtle, #ecdcf7);
-    color: var(--pld-purple, #823ca2) !important;
+    background: var(--pld-purple-light, #eef4fc);
+    border: 1px solid var(--pld-purple-subtle, #dbe7f7);
+    color: var(--pld-purple, #283759) !important;
     font-size: 13px;
     font-weight: 700;
     padding: 9px 16px;
@@ -570,21 +570,21 @@
     transition: all 0.2s ease;
   }
   .btn-agenda-pill:hover {
-    background: var(--pld-purple, #823ca2);
+    background: var(--pld-purple, #283759);
     color: #ffffff !important;
   }
 
   /* PMB Banner Box */
   .pmb-cta-box {
-    background: #823ca2;
-    background: linear-gradient(135deg, #823ca2 0%, #60237c 100%);
+    background: #283759;
+    background: linear-gradient(135deg, #283759 0%, #60237c 100%);
     border-radius: 28px;
     padding: 56px 44px;
     color: var(--white);
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 20px 45px -12px rgba(130, 60, 162, 0.5);
+    box-shadow: 0 20px 45px -12px rgba(40, 55, 89, 0.5);
   }
 
   /* BuildWithAngga Style 2-Row Infinite Marquee */
@@ -641,8 +641,8 @@
   }
   .partner-marquee-card:hover {
     transform: translateY(-4px);
-    border-color: var(--pld-purple, #823ca2);
-    box-shadow: 0 12px 25px -8px rgba(130, 60, 162, 0.25);
+    border-color: var(--pld-purple, #283759);
+    box-shadow: 0 12px 25px -8px rgba(40, 55, 89, 0.25);
   }
   .partner-marquee-img {
     max-height: 48px;
@@ -657,7 +657,7 @@
   }
   .partner-marquee-text {
     font-weight: 700;
-    color: var(--obsidian-dark, #190a24);
+    color: var(--obsidian-dark, #141b39);
     font-size: 13.5px;
     text-align: center;
     line-height: 1.35;
@@ -677,14 +677,14 @@
   }
   .prestasi-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(130, 60, 162, 0.15);
-    border-color: rgba(130, 60, 162, 0.3);
+    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.15);
+    border-color: rgba(40, 55, 89, 0.3);
   }
   .prestasi-img-wrap {
     width: 100%;
     height: 240px;
     position: relative;
-    background: #190a24;
+    background: #141b39;
     overflow: hidden;
     display: block;
   }
@@ -720,7 +720,7 @@
     bottom: 12px;
     right: 12px;
     background: #e5a823;
-    color: #190a24;
+    color: #141b39;
     padding: 4px 10px;
     font-size: 11px;
     font-weight: 800;
@@ -741,14 +741,14 @@
   }
   .gallery-card-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(130, 60, 162, 0.25);
-    border-color: rgba(130, 60, 162, 0.35);
+    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.25);
+    border-color: rgba(40, 55, 89, 0.35);
   }
   .gallery-img-container {
     height: 240px;
     position: relative;
     overflow: hidden;
-    background: #190a24;
+    background: #141b39;
   }
   .gallery-card-img {
     width: 100%;
@@ -765,7 +765,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);
+    background: linear-gradient(135deg, #283759 0%, #141b39 100%);
   }
   .gallery-card-overlay {
     position: absolute;
@@ -782,7 +782,7 @@
   .gallery-tag {
     align-self: flex-start;
     background: rgba(229, 168, 35, 0.95);
-    color: #190a24;
+    color: #141b39;
     font-weight: 800;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -819,15 +819,15 @@
     transition: all 0.2s ease;
   }
   .page-item.active .page-link {
-    background-color: var(--pld-purple, #823ca2) !important;
-    border-color: var(--pld-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #283759) !important;
+    border-color: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
+    box-shadow: 0 4px 12px rgba(40, 55, 89, 0.35);
   }
   .page-item .page-link:hover {
     background-color: #f3e8f8;
-    color: var(--pld-purple, #823ca2);
-    border-color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
+    border-color: var(--pld-purple, #283759);
   }
 
   /* PMB WhatsApp Outline Button */
@@ -853,7 +853,7 @@
   }
   .btn-pmb-wa:hover {
     background: #ffffff !important;
-    color: #823ca2 !important;
+    color: #283759 !important;
     border-color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -933,7 +933,7 @@
         @endforeach
       @else
         <div class="carousel-item active">
-          <div class="hero-banner-img d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #190a24 0%, #47175d 100%); min-height: 360px; color: #ffffff;">
+          <div class="hero-banner-img d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #141b39 0%, #141b39 100%); min-height: 360px; color: #ffffff;">
             <div class="text-center p-4">
               <div class="mb-3">
                 <i class="bi bi-megaphone fs-1" style="color: var(--pld-orange);"></i>
@@ -1058,7 +1058,7 @@
             @if(!empty($sambutanDekan?->foto_dekan))
               <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan PLD UIS' }}" class="rounded-circle shadow-sm" style="width: 72px; height: 72px; object-fit: cover; border: 3px solid var(--pld-purple); flex-shrink:0;">
             @else
-              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, var(--pld-purple) 0%, #47175d 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--pld-orange);">
+              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, var(--pld-purple) 0%, #141b39 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--pld-orange);">
                 <i class="bi bi-person-badge-fill"></i>
               </div>
             @endif
@@ -1074,7 +1074,7 @@
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
             <span class="fw-bold" style="color: var(--pld-purple);">{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</span>
-            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #190a24; font-weight: 800; padding: 6px 12px;">
+            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #141b39; font-weight: 800; padding: 6px 12px;">
               Baca Sambutan <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>
@@ -1088,7 +1088,7 @@
      3b. STATISTIK FAKULTAS — "PLD DALAM ANGKA"
 ═══════════════════════════════════════════════ -->
 @if(isset($facultyStat) && $facultyStat)
-<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #823ca2 40%, #47175d 100%); padding: 40px 0; overflow: hidden; position: relative;">
+<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #283759 40%, #141b39 100%); padding: 40px 0; overflow: hidden; position: relative;">
 
   {{-- Decorative blur shapes --}}
   <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
@@ -1108,7 +1108,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ $facultyStat->jumlah_prodi }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1121,7 +1121,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ number_format($facultyStat->total_mahasiswa, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1134,7 +1134,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ $facultyStat->total_dosen }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1147,7 +1147,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#ff9c00;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ number_format($facultyStat->total_alumni, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1505,9 +1505,9 @@
             </div>
             <div class="pt-3 mt-auto border-top">
               <a href="{{ $prodiUrl }}" class="btn btn-sm w-100 rounded-pill fw-bold text-decoration-none d-inline-flex align-items-center justify-content-center gap-1"
-                 style="background: var(--pld-purple-light, #f3ebf8); color: var(--pld-purple, #823ca2); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
-                 onmouseover="this.style.background='var(--pld-purple, #823ca2)'; this.style.color='#ffffff';"
-                 onmouseout="this.style.background='var(--pld-purple-light, #f3ebf8)'; this.style.color='var(--pld-purple, #823ca2)';">
+                 style="background: var(--pld-purple-light, #f3ebf8); color: var(--pld-purple, #283759); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
+                 onmouseover="this.style.background='var(--pld-purple, #283759)'; this.style.color='#ffffff';"
+                 onmouseout="this.style.background='var(--pld-purple-light, #f3ebf8)'; this.style.color='var(--pld-purple, #283759)';">
                 <i class="bi bi-people-fill"></i> {{ $btnText }}
               </a>
             </div>
@@ -1597,7 +1597,7 @@
                 @if(!empty($prestasi->foto))
                   <img src="{{ asset('storage/' . $prestasi->foto) }}" alt="{{ $prestasi->judul_prestasi }}" class="prestasi-img">
                 @else
-                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
+                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #283759 0%, #4a1563 100%);">
                     <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
                     <span class="small fw-semibold text-white-50">PLD UIS Achievement</span>
                   </div>
@@ -1621,7 +1621,7 @@
                   </h4>
 
                   <div class="d-flex align-items-center gap-2 mb-3 mt-3">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #823ca2; font-size: 13px;">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #283759; font-size: 13px;">
                       <i class="bi bi-person-fill"></i>
                     </div>
                     <div>
@@ -1695,12 +1695,12 @@
                   @if(!empty($ormawa->logo))
                     <img src="{{ asset('storage/' . $ormawa->logo) }}" alt="{{ $ormawa->nama_organisasi }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 50%;">
                   @else
-                    <span class="fw-bold" style="color: #823ca2; font-size: 16px;">{{ strtoupper(substr($ormawa->singkatan ?: $ormawa->nama_organisasi, 0, 2)) }}</span>
+                    <span class="fw-bold" style="color: #283759; font-size: 16px;">{{ strtoupper(substr($ormawa->singkatan ?: $ormawa->nama_organisasi, 0, 2)) }}</span>
                   @endif
                 </div>
 
                 <div class="mb-2">
-                  <span class="badge" style="background: rgba(130, 60, 162, 0.1); color: #823ca2; font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 10px;">
+                  <span class="badge" style="background: rgba(40, 55, 89, 0.1); color: #283759; font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 10px;">
                     {{ $ormawa->kategori }}
                   </span>
                 </div>
@@ -1814,19 +1814,19 @@
                 <div class="testi-card h-100 shadow-sm" style="background: #ffffff; border: 1.5px solid #f0e6f5; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
                   <div>
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="testi-stars m-0" style="color: #ff9c00; font-size: 15px; display: flex; gap: 3px;">
+                      <div class="testi-stars m-0" style="color: #79a8e2; font-size: 15px; display: flex; gap: 3px;">
                         @for($s = 1; $s <= 5; $s++)
                           <i class="bi bi-star{{ $s <= $testi->bintang ? '-fill' : '' }}"></i>
                         @endfor
                       </div>
-                      <span class="badge" style="background: #f5edf8; color: #823ca2; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
+                      <span class="badge" style="background: #f5edf8; color: #283759; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
                         {{ $testi->kategori ?? 'Alumni' }}
                       </span>
                     </div>
                     <p class="testi-text mb-4" style="font-size: 14px; line-height: 1.6; color: #333333; font-style: italic;">"{{ $testi->pesan }}"</p>
                   </div>
                   <div class="testi-author pt-3 border-top d-flex align-items-center gap-3" style="border-color: #f7effa !important;">
-                    <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #823ca2; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
+                    <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #283759; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
                     <div>
                       <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
                       <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni PLD UIS' }}</div>
@@ -1843,8 +1843,8 @@
       </div>
 
       <!-- Navigation Arrows -->
-      <div class="swiper-button-prev alumni-prev" style="color: #823ca2;"></div>
-      <div class="swiper-button-next alumni-next" style="color: #823ca2;"></div>
+      <div class="swiper-button-prev alumni-prev" style="color: #283759;"></div>
+      <div class="swiper-button-next alumni-next" style="color: #283759;"></div>
     </div>
 
     <div class="text-center mt-3" data-aos="fade-up">
@@ -1867,7 +1867,7 @@
         {{-- Header Berita + Search Bar --}}
         <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
           <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #823ca2);"></i>
+            <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #283759);"></i>
             <h2 class="section-heading-pld mb-0">Berita</h2>
           </div>
           <form action="{{ route('homepage.news') }}" method="GET" class="news-search-pill">
@@ -1930,7 +1930,7 @@
         {{-- SECTION PENGUMUMAN --}}
         <div class="mb-4">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-megaphone-fill fs-3" style="color: var(--pld-purple, #823ca2);"></i>
+            <i class="bi bi-megaphone-fill fs-3" style="color: var(--pld-purple, #283759);"></i>
             <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Pengumuman</h3>
           </div>
 
@@ -1959,7 +1959,7 @@
         {{-- SECTION AGENDA --}}
         <div class="mt-4 pt-3 border-top">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-calendar4-week fs-3" style="color: var(--pld-purple, #823ca2);"></i>
+            <i class="bi bi-calendar4-week fs-3" style="color: var(--pld-purple, #283759);"></i>
             <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Agenda</h3>
           </div>
 
@@ -2008,7 +2008,7 @@
     <div class="pmb-cta-box">
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
-          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #190a24; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
+          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
             {{ $pmbSetting->badge_text ?? 'PENERIMAAN MAHASISWA BARU (PMB) T.A. 2026/2027' }}
           </div>
           <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">

@@ -6,7 +6,7 @@
 @push('styles')
 <style>
   .akademik-hero {
-    background: linear-gradient(135deg, #190a24 0%, #3b124d 100%);
+    background: linear-gradient(135deg, #141b39 0%, #3b124d 100%);
     padding: 70px 0 60px;
     color: #ffffff;
     position: relative;
@@ -85,7 +85,7 @@
         <li class="breadcrumb-item text-white active" aria-current="page">{{ $pageTitle }}</li>
       </ol>
     </nav>
-    <div class="badge px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #190a24; font-weight: 800; font-size: 11.5px; letter-spacing: 0.8px;">
+    <div class="badge px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 11.5px; letter-spacing: 0.8px;">
       LAYANAN AKADEMIK PLD UIS
     </div>
     <h1 class="display-6 fw-bold text-white mb-2">{{ $item->judul }}</h1>
@@ -135,7 +135,7 @@
 
           {{-- Portal Link Eksternal (SIAKAD dll) --}}
           @if(!empty($item->link_url))
-            <div class="p-4 rounded-4 mb-4 text-white d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3" style="background: linear-gradient(135deg, #190a24 0%, #521c6b 100%);">
+            <div class="p-4 rounded-4 mb-4 text-white d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3" style="background: linear-gradient(135deg, #141b39 0%, #521c6b 100%);">
               <div>
                 <h5 class="fw-bold text-white mb-1"><i class="bi bi-laptop text-warning me-2"></i>Akses Langsung Sistem Online</h5>
                 <p class="text-white-50 small mb-0">Klik tombol untuk masuk ke portal sistem resmi PLD UIS.</p>
@@ -179,8 +179,8 @@
         </div>
 
         {{-- Widget Kontak / PMB --}}
-        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #2d0f3d 0%, #190a24 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
-          <div class="badge px-3 py-1 rounded-pill mb-2" style="background: var(--pld-orange); color: #190a24; font-weight: 800; font-size: 11px;">
+        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #2d0f3d 0%, #141b39 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div class="badge px-3 py-1 rounded-pill mb-2" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 11px;">
             INFORMASI PMB
           </div>
           <h5 class="fw-bold text-white mb-2">Butuh Bantuan Akademik?</h5>

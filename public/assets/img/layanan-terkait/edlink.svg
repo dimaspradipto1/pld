@@ -2,12 +2,12 @@
   <!-- Owl face / glasses -->
   <path d="M40 38 C40 28 52 28 52 38 C52 48 40 48 40 38 Z" stroke="#ffffff" stroke-width="3.5" fill="none"/>
   <path d="M68 38 C68 28 80 28 80 38 C80 48 68 48 68 38 Z" stroke="#ffffff" stroke-width="3.5" fill="none"/>
-  <circle cx="46" cy="38" r="3" fill="#ff9c00"/>
-  <circle cx="74" cy="38" r="3" fill="#ff9c00"/>
+  <circle cx="46" cy="38" r="3" fill="#79a8e2"/>
+  <circle cx="74" cy="38" r="3" fill="#79a8e2"/>
   <path d="M52 38 L68 38" stroke="#ffffff" stroke-width="3"/>
   <path d="M60 41 L60 47" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
   <!-- Beak -->
-  <polygon points="56,48 64,48 60,54" fill="#ff9c00"/>
+  <polygon points="56,48 64,48 60,54" fill="#79a8e2"/>
   <!-- Text -->
   <text x="60" y="78" text-anchor="middle" fill="#ffffff" font-size="18" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="bold" letter-spacing="-0.5">Edlink</text>
   <text x="60" y="90" text-anchor="middle" fill="#aaaaaa" font-size="8" font-family="Arial, sans-serif" font-weight="600">SEVIMA</text>

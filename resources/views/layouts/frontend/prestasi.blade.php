@@ -23,14 +23,14 @@
   }
   .prestasi-card-portal:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(130, 60, 162, 0.2);
-    border-color: rgba(130, 60, 162, 0.35);
+    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.2);
+    border-color: rgba(40, 55, 89, 0.35);
   }
   .prestasi-thumb-wrap {
     width: 100%;
     height: 240px;
     position: relative;
-    background: #190a24;
+    background: #141b39;
     overflow: hidden;
   }
   .prestasi-thumb {
@@ -59,7 +59,7 @@
     bottom: 12px;
     right: 12px;
     background: #e5a823;
-    color: #190a24;
+    color: #141b39;
     padding: 4px 10px;
     font-size: 11px;
     font-weight: 800;
@@ -82,9 +82,9 @@
     white-space: nowrap;
   }
   .cat-pill-item:hover, .cat-pill-item.active {
-    background: var(--pld-purple, #823ca2) !important;
+    background: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
-    border-color: var(--pld-purple, #823ca2);
+    border-color: var(--pld-purple, #283759);
   }
 
   /* Custom Pagination */
@@ -102,15 +102,15 @@
     transition: all 0.2s ease;
   }
   .page-item.active .page-link {
-    background-color: var(--pld-purple, #823ca2) !important;
-    border-color: var(--pld-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #283759) !important;
+    border-color: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
+    box-shadow: 0 4px 12px rgba(40, 55, 89, 0.35);
   }
   .page-item .page-link:hover {
     background-color: #f3e8f8;
-    color: var(--pld-purple, #823ca2);
-    border-color: var(--pld-purple, #823ca2);
+    color: var(--pld-purple, #283759);
+    border-color: var(--pld-purple, #283759);
   }
 </style>
 @endpush
@@ -152,7 +152,7 @@
             <input type="hidden" name="tingkat" value="{{ $selectedTingkat }}">
           @endif
           <input type="text" name="q" value="{{ $search ?? '' }}" class="form-control form-control-sm rounded-pill px-3" placeholder="Cari nama / kejuaraan..." style="max-width: 240px;">
-          <button type="submit" class="btn btn-sm btn-primary rounded-pill px-3" style="background: #823ca2; border-color: #823ca2;">
+          <button type="submit" class="btn btn-sm btn-primary rounded-pill px-3" style="background: #283759; border-color: #283759;">
             <i class="bi bi-search"></i>
           </button>
         </form>
@@ -193,7 +193,7 @@
                 @if(!empty($prestasi->foto))
                   <img src="{{ asset('storage/' . $prestasi->foto) }}" alt="{{ $prestasi->judul_prestasi }}" class="prestasi-thumb">
                 @else
-                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
+                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #283759 0%, #4a1563 100%);">
                     <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
                     <span class="small fw-semibold text-white-50">PLD UIS Achievement</span>
                   </div>
@@ -217,7 +217,7 @@
                   </h4>
 
                   <div class="d-flex align-items-center gap-2 mb-3 mt-3">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #823ca2; font-size: 13px;">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #283759; font-size: 13px;">
                       <i class="bi bi-person-fill"></i>
                     </div>
                     <div>

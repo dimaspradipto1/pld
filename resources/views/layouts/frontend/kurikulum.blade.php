@@ -13,7 +13,7 @@
   .prodi-header-pill {
     background: #ffc107;
     background: linear-gradient(135deg, #ffd026 0%, #e5a823 100%);
-    color: #190a24;
+    color: #141b39;
     font-size: 24px;
     font-weight: 800;
     padding: 18px 30px;
@@ -53,10 +53,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--pld-purple, #823ca2) !important;
+    background: var(--pld-purple, #283759) !important;
     color: #ffffff !important;
-    border-color: var(--pld-purple, #823ca2);
-    box-shadow: 0 6px 18px rgba(130, 60, 162, 0.3);
+    border-color: var(--pld-purple, #283759);
+    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.3);
   }
 
   /* Table Style Matching Screenshot */
@@ -74,7 +74,7 @@
   }
   .table-kurikulum thead th {
     background: #501224; /* Maroon header like screenshot */
-    background: linear-gradient(135deg, #4a1563 0%, #190a24 100%);
+    background: linear-gradient(135deg, #4a1563 0%, #141b39 100%);
     color: #ffffff;
     font-weight: 700;
     font-size: 13.5px;
@@ -105,7 +105,7 @@
   }
   .btn-rps-download {
     background: #501224;
-    background: linear-gradient(135deg, #60237c 0%, #190a24 100%);
+    background: linear-gradient(135deg, #60237c 0%, #141b39 100%);
     color: #ffffff !important;
     border: none;
     font-size: 11.5px;
@@ -172,7 +172,7 @@
     <!-- Summary & Info -->
     <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 shadow-sm border" data-aos="fade-up">
       <div class="d-flex align-items-center gap-3">
-        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #823ca2;">
+        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #283759;">
           <i class="bi bi-book-half fs-5"></i>
         </div>
         <div>
@@ -265,12 +265,12 @@
     </div>
 
     <!-- Info Bantuan Box -->
-    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #190a24 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
+    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #141b39 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
       <div>
         <h5 class="fw-bold text-white mb-1"><i class="bi bi-question-circle-fill me-2 text-warning"></i>Butuh Informasi Kurikulum & Konversi SKS?</h5>
         <p class="text-white-50 small mb-0">Hubungi Bagian Akademik & Tata Usaha PLD UIS untuk panduan registrasi mata kuliah dan bimbingan akademik.</p>
       </div>
-      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #190a24;">
+      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #141b39;">
         <i class="bi bi-telephone-fill me-1"></i> Hubungi Kami
       </a>
     </div>

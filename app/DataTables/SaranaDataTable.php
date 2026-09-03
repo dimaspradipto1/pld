@@ -23,7 +23,7 @@ class SaranaDataTable extends DataTable
             ->addIndexColumn()
             ->addColumn('DT_RowIndex', '')
             ->addColumn('icon_preview', function (Sarana $sarana) {
-                return '<div style="font-size:26px;color:#823ca2;">'
+                return '<div style="font-size:26px;color:#283759;">'
                      . '<i class="bi ' . e($sarana->icon) . '"></i>'
                      . '</div>'
                      . '<span class="text-muted small">' . e($sarana->icon) . '</span>';

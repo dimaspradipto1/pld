@@ -15,7 +15,7 @@ class TriDharmaSeeder extends Seeder
         $items = [
             [
                 'icon'      => 'bi-journal-check',
-                'warna'     => '#823ca2',
+                'warna'     => '#283759',
                 'judul'     => 'Riset Terapan',
                 'deskripsi' => 'Fokus riset ergonomi industri maritim dan sanitasi pesisir.',
                 'urutan'    => 1,

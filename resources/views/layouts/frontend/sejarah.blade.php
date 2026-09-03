@@ -78,7 +78,7 @@
     justify-content: center;
     font-weight: 800;
     font-size: 13px;
-    box-shadow: 0 0 0 5px rgba(130, 60, 162, 0.2);
+    box-shadow: 0 0 0 5px rgba(40, 55, 89, 0.2);
     z-index: 2;
   }
   @media (max-width: 768px) {
@@ -177,9 +177,9 @@
       </div>
 
       <div class="col-lg-6" data-aos="fade-left">
-        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #190a24 0%, #47175d 100%); border: 2px solid var(--pld-purple);">
+        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #141b39 0%, #141b39 100%); border: 2px solid var(--pld-purple);">
           <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="p-3 rounded-3" style="background: var(--pld-orange); color: #190a24;">
+            <div class="p-3 rounded-3" style="background: var(--pld-orange); color: #141b39;">
               <i class="bi bi-hourglass-split fs-2"></i>
             </div>
             <div>

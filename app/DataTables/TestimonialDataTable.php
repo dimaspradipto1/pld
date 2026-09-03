@@ -45,7 +45,7 @@ class TestimonialDataTable extends DataTable
             ->addColumn('kategori', function ($testimonial) {
                 $kat = strtolower($testimonial->kategori ?? '');
                 if (str_contains($kat, 'alumni')) {
-                    return '<span class="badge text-white" style="background:#823ca2;">Alumni</span>';
+                    return '<span class="badge text-white" style="background:#283759;">Alumni</span>';
                 } elseif (str_contains($kat, 'mahasiswa')) {
                     return '<span class="badge bg-primary">Mahasiswa</span>';
                 } elseif (str_contains($kat, 'mitra') || str_contains($kat, 'rumah sakit')) {

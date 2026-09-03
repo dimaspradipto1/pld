@@ -101,7 +101,7 @@
                 @if(!empty($item->url))
                   <img src="{{ asset('storage/' . $item->url) }}" alt="{{ $item->judul ?? 'Dokumentasi PLD' }}" class="galeri-img-wrap">
                 @else
-                  <div class="d-flex align-items-center justify-content-center text-white" style="height: 220px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%);">
+                  <div class="d-flex align-items-center justify-content-center text-white" style="height: 220px; background: linear-gradient(135deg, #283759 0%, #141b39 100%);">
                     <i class="bi bi-camera-fill fs-1 text-white-50"></i>
                   </div>
                 @endif

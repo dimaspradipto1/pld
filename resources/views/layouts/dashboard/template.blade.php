@@ -39,19 +39,19 @@
 
     <style>
         :root {
-            --pld-purple: #823ca2;
-            --pld-purple-dark: #672985;
-            --pld-orange: #ff9c00;
-            --pld-orange-dark: #e08800;
+            --pld-purple: #283759;
+            --pld-purple-dark: #1e2a45;
+            --pld-orange: #79a8e2;
+            --pld-orange-dark: #50697d;
         }
-        /* Header — Solid Purple #823ca2 */
+        /* Header — Solid Navy #283759 */
         .header {
-            background-color: #823ca2 !important;
-            border-bottom: 2.5px solid #ff9c00 !important;
-            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16) !important;
+            background-color: #283759 !important;
+            border-bottom: 2.5px solid #79a8e2 !important;
+            box-shadow: 0 2px 14px rgba(20, 27, 57, 0.16) !important;
         }
         .header .logo span {
-            color: #ff9c00 !important;
+            color: #79a8e2 !important;
             font-weight: 800;
             letter-spacing: 0.5px;
         }
@@ -59,7 +59,7 @@
             color: #ffffff !important;
         }
         .header .toggle-sidebar-btn:hover {
-            color: #ff9c00 !important;
+            color: #79a8e2 !important;
         }
         .header .nav-profile {
             color: #ffffff !important;
@@ -69,76 +69,76 @@
             font-weight: 700;
         }
         .header .nav-profile:hover span {
-            color: #ff9c00 !important;
+            color: #79a8e2 !important;
         }
         .header .nav-icon {
             color: #ffffff !important;
         }
         .header .nav-icon:hover {
-            color: #ff9c00 !important;
+            color: #79a8e2 !important;
         }
         .sidebar-nav .nav-link {
-            background: #fdfaff;
-            color: #823ca2;
+            background: #f8fafd;
+            color: #283759;
         }
         .sidebar-nav .nav-link:not(.collapsed) {
-            background: #f3e8f8;
-            color: #823ca2;
+            background: #edf3f9;
+            color: #283759;
         }
         .sidebar-nav .nav-link:not(.collapsed) i {
-            color: #823ca2;
+            color: #283759;
         }
         .sidebar-nav .nav-content a.active {
-            color: #823ca2;
+            color: #283759;
             font-weight: 700;
         }
         .sidebar-nav .nav-content a.active i {
-            background-color: #ff9c00;
+            background-color: #79a8e2;
         }
         .sidebar-nav .nav-link:hover {
-            color: #ff9c00;
-            background: #fcf6ff;
+            color: #79a8e2;
+            background: #f0f5fc;
         }
         .sidebar-nav .nav-link:hover i {
-            color: #ff9c00;
+            color: #79a8e2;
         }
         .btn-primary {
-            background-color: #823ca2 !important;
-            border-color: #823ca2 !important;
+            background-color: #283759 !important;
+            border-color: #283759 !important;
         }
         .btn-primary:hover, .btn-primary:focus {
-            background-color: #672985 !important;
-            border-color: #672985 !important;
+            background-color: #1e2a45 !important;
+            border-color: #1e2a45 !important;
         }
         .btn-outline-primary {
-            color: #823ca2 !important;
-            border-color: #823ca2 !important;
+            color: #283759 !important;
+            border-color: #283759 !important;
         }
         .btn-outline-primary:hover {
-            background-color: #823ca2 !important;
+            background-color: #283759 !important;
             color: #fff !important;
         }
         .btn-warning {
-            background-color: #ff9c00 !important;
-            border-color: #ff9c00 !important;
+            background-color: #79a8e2 !important;
+            border-color: #79a8e2 !important;
             color: #fff !important;
         }
         .btn-warning:hover {
-            background-color: #e08800 !important;
-            border-color: #e08800 !important;
+            background-color: #50697d !important;
+            border-color: #50697d !important;
             color: #fff !important;
         }
         .pagetitle h1 {
-            color: #823ca2;
+            color: #283759;
         }
         .card-title {
-            color: #823ca2;
+            color: #283759;
         }
         .back-to-top {
-            background: #823ca2;
+            background: #283759;
         }
         .back-to-top:hover {
-            background: #ff9c00;
+            background: #79a8e2;
         }
     </style>
 </head>
@@ -199,7 +199,7 @@
                 text: 'Apakah Anda yakin ingin keluar dari sistem?',
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#823ca2',
+                confirmButtonColor: '#283759',
                 cancelButtonColor: '#6c757d',
                 confirmButtonText: '<i class="bi bi-box-arrow-right me-1"></i> Ya, Keluar',
                 cancelButtonText: 'Batal',

@@ -24,12 +24,12 @@ class LayananTerkaitDataTable extends DataTable
             ->addColumn('DT_RowIndex', '')
             ->addColumn('logo', function ($item) {
                 if ($item->logo_url) {
-                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#823ca2; width:48px; height:48px; box-shadow:0 2px 6px rgba(130,60,162,0.25)">
+                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#283759; width:48px; height:48px; box-shadow:0 2px 6px rgba(40,55,89,0.25)">
                                 <img src="' . e($item->logo_url) . '" alt="' . e($item->nama) . '" style="max-width:100%; max-height:100%; object-fit:contain;">
                             </div>';
                 }
                 $icon = $item->icon ?: 'bi-link-45deg';
-                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#823ca2; width:48px; height:48px; font-size:20px; color:#ff9c00 !important; box-shadow:0 2px 6px rgba(130,60,162,0.25)">
+                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#283759; width:48px; height:48px; font-size:20px; color:#79a8e2 !important; box-shadow:0 2px 6px rgba(40,55,89,0.25)">
                             <i class="bi ' . e($icon) . '"></i>
                         </div>';
             })
@@ -67,7 +67,7 @@ class LayananTerkaitDataTable extends DataTable
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:6px">';
                 $btn .= '<a href="' . route('layanan-terkait.edit', $item->id) . '"
                             class="btn btn-sm"
-                            style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background-color:#ff9c00; color:#ffffff; border:none; border-radius:6px; box-shadow:0 2px 5px rgba(255,156,0,0.35);"
+                            style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background-color:#79a8e2; color:#ffffff; border:none; border-radius:6px; box-shadow:0 2px 5px rgba(121,168,226,0.35);"
                             title="Edit">
                             <i class="bi bi-pencil-fill" style="font-size:12px"></i>
                          </a>';

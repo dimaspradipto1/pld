@@ -23,9 +23,9 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(130, 60, 162, 0.45);
+    background: rgba(40, 55, 89, 0.45);
     color: var(--pld-orange);
-    border: 1px solid rgba(255, 156, 0, 0.4);
+    border: 1px solid rgba(121, 168, 226, 0.4);
     font-size: 12px;
     font-weight: 700;
     padding: 5px 14px;
@@ -178,7 +178,7 @@
   .gallery-item-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(25, 10, 36, 0.4);
+    background: rgba(20, 27, 57, 0.4);
     opacity: 0;
     display: flex;
     align-items: center;
@@ -284,7 +284,7 @@
     transition: all 0.2s ease;
   }
   .category-widget-link:hover .cat-count-badge {
-    background: rgba(130, 60, 162, 0.15);
+    background: rgba(40, 55, 89, 0.15);
     color: var(--pld-purple);
   }
   .category-widget-link.active .cat-count-badge {
@@ -350,7 +350,7 @@
                 <h5 class="fw-bold mb-0 text-dark">
                   <i class="bi bi-images me-2" style="color:var(--pld-purple);"></i>Dokumentasi Foto Kegiatan ({{ $photoCount }} Foto)
                 </h5>
-                <span class="badge" style="background: var(--pld-orange); color:#190a24;">Galeri Foto</span>
+                <span class="badge" style="background: var(--pld-orange); color:#141b39;">Galeri Foto</span>
               </div>
               <p class="text-muted small mb-3">Klik gambar untuk melihat tampilan resolusi penuh.</p>
 
@@ -465,7 +465,7 @@
 
         {{-- Banner PMB Mini --}}
         <div class="sidebar-box text-white" style="background: var(--obsidian-dark); border: 2px solid var(--pld-purple);">
-          <span class="badge mb-2" style="background: var(--pld-orange); color:#190a24; font-weight:800;">PMB 2026/2027</span>
+          <span class="badge mb-2" style="background: var(--pld-orange); color:#141b39; font-weight:800;">PMB 2026/2027</span>
           <h5 class="fw-bold mb-2">Ingin Kuliah di PLD UIS?</h5>
           <p class="text-white-50 small mb-3">Tersedia Program Studi S2 Kesehatan Masyarakat, S1 K3, dan S1 Kesehatan Lingkungan.</p>
           <a href="{{ route('homepage.kontak') }}" class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:9px 14px;">

@@ -31,7 +31,7 @@ class UserDataTable extends DataTable
                     $badge = match ($r) {
                         'admin'      => ['label' => 'Admin',          'class' => 'bg-primary text-white', 'style' => ''],
                         'penulis'    => ['label' => 'Penulis Berita', 'class' => 'bg-warning text-dark',  'style' => ''],
-                        'organisasi' => ['label' => 'Organisasi',     'class' => 'text-white',            'style' => 'background:#823ca2;'],
+                        'organisasi' => ['label' => 'Organisasi',     'class' => 'text-white',            'style' => 'background:#283759;'],
                         default      => ['label' => ucfirst($r),      'class' => 'bg-secondary text-white','style' => ''],
                     };
                     $html .= '<span class="badge rounded-pill ' . $badge['class'] . '" style="' . $badge['style'] . '">' . $badge['label'] . '</span>';

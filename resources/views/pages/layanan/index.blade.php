@@ -49,7 +49,7 @@
                         <a href="{{ route('homepage') }}" target="_blank" class="btn btn-sm btn-outline-secondary">
                             <i class="bi bi-box-arrow-up-right me-1"></i> Lihat di Website
                         </a>
-                        <button type="button" class="btn btn-sm btn-primary" id="btn-add-prodi" style="background: #823ca2; border-color: #823ca2;">
+                        <button type="button" class="btn btn-sm btn-primary" id="btn-add-prodi" style="background: #283759; border-color: #283759;">
                             <i class="bi bi-plus-circle-fill me-1"></i> Tambah Menu Prodi
                         </button>
                     </div>
@@ -61,7 +61,7 @@
                             <div class="card border prodi-item shadow-none rounded-3" style="background: #fafafa;" data-item-index="{{ $index }}">
                                 <div class="card-header bg-white d-flex align-items-center justify-content-between py-2 border-bottom">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-primary rounded-pill prodi-index-badge px-2 py-1" style="background: #823ca2 !important;">
+                                        <span class="badge bg-primary rounded-pill prodi-index-badge px-2 py-1" style="background: #283759 !important;">
                                             Menu #{{ $loop->iteration }}
                                         </span>
                                         <span class="fw-semibold text-dark prodi-title-preview">
@@ -197,7 +197,7 @@
                     <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary px-4 rounded-3">
                         <i class="bi bi-arrow-left me-1"></i> Kembali ke Dashboard
                     </a>
-                    <button type="submit" class="btn btn-primary px-4 rounded-3 fw-bold shadow-sm" style="background: #823ca2; border-color: #823ca2;">
+                    <button type="submit" class="btn btn-primary px-4 rounded-3 fw-bold shadow-sm" style="background: #283759; border-color: #283759;">
                         <i class="bi bi-check2-circle me-1"></i> Simpan Pengaturan Program Studi
                     </button>
                 </div>
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
             card.innerHTML = `
                 <div class="card-header bg-white d-flex align-items-center justify-content-between py-2 border-bottom">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-primary rounded-pill prodi-index-badge px-2 py-1" style="background: #823ca2 !important;">
+                        <span class="badge bg-primary rounded-pill prodi-index-badge px-2 py-1" style="background: #283759 !important;">
                             Menu Baru
                         </span>
                         <span class="fw-semibold text-dark prodi-title-preview">

@@ -19,7 +19,7 @@ class TopbarDataTable extends DataTable
             ->addColumn('DT_RowIndex', '')
             ->addColumn('badge_preview', function ($t) {
                 $icon = !empty($t->badge_icon) ? $t->badge_icon : 'bi-shield-check';
-                return '<span class="badge rounded-pill text-nowrap" style="background: rgba(130, 60, 162, 0.15); color: #823ca2; border: 1px solid #823ca2; font-weight:700; padding:6px 12px;">
+                return '<span class="badge rounded-pill text-nowrap" style="background: rgba(40, 55, 89, 0.15); color: #283759; border: 1px solid #283759; font-weight:700; padding:6px 12px;">
                             <i class="bi ' . e($icon) . ' me-1"></i>' . e($t->badge_text) . '
                         </span>';
             })

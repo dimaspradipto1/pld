@@ -5,10 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg:#f0ebf7; --purple:#823ca2; --purple-dk:#5c2575;
-  --purple-lt:#c89de0; --purple-xs:#f5eefa; --orange:#ff9c00;
+  --bg:#f0ebf7; --purple:#283759; --purple-dk:#5c2575;
+  --purple-lt:#c89de0; --purple-xs:#f5eefa; --orange:#79a8e2;
   --orange-dk:#d98000; --white:#ffffff; --border:#e4d8f0;
-  --txt:#1a0a2e; --txt2:#6b6580; --card-sh:0 4px 24px rgba(130,60,162,.10);
+  --txt:#1a0a2e; --txt2:#6b6580; --card-sh:0 4px 24px rgba(40,55,89,.10);
 }
 body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans-serif!important; }
 .pagetitle h1{ color:var(--txt); font-weight:800; font-size:1.4rem; }
@@ -16,19 +16,19 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 /* HERO */
 .dh-hero{ border-radius:24px; overflow:hidden; margin-bottom:24px; box-shadow:0 20px 64px rgba(28,5,50,.28); position:relative; }
 .dh-hero-inner{
-  background:linear-gradient(135deg,#190a24 0%,#3a1260 40%,#6b1f8a 75%,#9b3bc0 100%);
+  background:linear-gradient(135deg,#141b39 0%,#3a1260 40%,#6b1f8a 75%,#9b3bc0 100%);
   padding:36px 40px; position:relative; z-index:1;
 }
 .dh-hero-inner::before{
   content:''; position:absolute; inset:0; z-index:0;
-  background: radial-gradient(circle at 90% 15%,rgba(255,156,0,.22) 0%,transparent 45%),
+  background: radial-gradient(circle at 90% 15%,rgba(121,168,226,.22) 0%,transparent 45%),
               radial-gradient(circle at 10% 80%,rgba(255,255,255,.08) 0%,transparent 40%),
               radial-gradient(circle at 55% 50%,rgba(180,95,207,.12) 0%,transparent 60%);
 }
 .dh-hero-inner>*{ position:relative; z-index:1; }
 .dh-role-tag{
   display:inline-flex; align-items:center; gap:7px;
-  background:rgba(255,156,0,.18); border:1px solid rgba(255,156,0,.45); color:#ffbe45;
+  background:rgba(121,168,226,.18); border:1px solid rgba(121,168,226,.45); color:#ffbe45;
   font-size:11.5px; font-weight:700; padding:5px 15px; border-radius:99px; letter-spacing:.5px; margin-bottom:14px;
 }
 .dh-role-tag.blue  { background:rgba(67,97,238,.2);  border-color:rgba(100,140,255,.4); color:#a8bcff; }
@@ -48,8 +48,8 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
   transition:transform .22s,box-shadow .22s; white-space:nowrap; width:fit-content;
 }
 .dh-btn:hover{ transform:translateY(-3px); }
-.dh-btn-orange{ background:linear-gradient(135deg,#ff9c00,#ff6d00); color:#fff; box-shadow:0 6px 22px rgba(255,156,0,.4); }
-.dh-btn-orange:hover{ box-shadow:0 12px 32px rgba(255,156,0,.55); color:#fff; }
+.dh-btn-orange{ background:linear-gradient(135deg,#79a8e2,#ff6d00); color:#fff; box-shadow:0 6px 22px rgba(121,168,226,.4); }
+.dh-btn-orange:hover{ box-shadow:0 12px 32px rgba(121,168,226,.55); color:#fff; }
 .dh-btn-ghost{ background:rgba(255,255,255,.14); border:1.5px solid rgba(255,255,255,.25); color:#fff; }
 .dh-btn-ghost:hover{ background:rgba(255,255,255,.22); color:#fff; }
 .dh-hero-strip{
@@ -72,7 +72,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 .kpi-sub{ font-size:11px; opacity:.65; margin-top:2px; position:relative; z-index:1; }
 .kpi-indigo  { background:linear-gradient(135deg,#2d4bd4,#5f75f8); }
 .kpi-purple  { background:linear-gradient(135deg,#6b1f8a,#a34ec8); }
-.kpi-orange  { background:linear-gradient(135deg,#c97000,#ff9c00); }
+.kpi-orange  { background:linear-gradient(135deg,#c97000,#79a8e2); }
 .kpi-emerald { background:linear-gradient(135deg,#047a56,#06d6a0); }
 .kpi-teal    { background:linear-gradient(135deg,#0e7490,#06b6d4); }
 .kpi-rose    { background:linear-gradient(135deg,#be185d,#ec4899); }
@@ -123,8 +123,8 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 /* SHORTCUTS */
 .sc-wrap{ display:grid; grid-template-columns:repeat(auto-fill,minmax(118px,1fr)); gap:14px; padding:24px; }
 .sc{ display:flex; flex-direction:column; align-items:center; padding:20px 10px; border-radius:18px; gap:10px; background:var(--purple-xs); border:1.5px solid #e3d0f2; text-decoration:none; color:var(--txt); font-size:12.5px; font-weight:700; text-align:center; transition:all .22s; }
-.sc:hover{ background:linear-gradient(135deg,var(--purple-dk),var(--purple)); border-color:var(--purple-dk); color:#fff; transform:translateY(-5px); box-shadow:0 12px 32px rgba(130,60,162,.35); }
-.sc-ic{ width:50px; height:50px; border-radius:14px; background:rgba(130,60,162,.12); color:var(--purple); display:flex; align-items:center; justify-content:center; font-size:22px; transition:all .22s; }
+.sc:hover{ background:linear-gradient(135deg,var(--purple-dk),var(--purple)); border-color:var(--purple-dk); color:#fff; transform:translateY(-5px); box-shadow:0 12px 32px rgba(40,55,89,.35); }
+.sc-ic{ width:50px; height:50px; border-radius:14px; background:rgba(40,55,89,.12); color:var(--purple); display:flex; align-items:center; justify-content:center; font-size:22px; transition:all .22s; }
 .sc:hover .sc-ic{ background:rgba(255,255,255,.2); color:#fff; }
 
 /* ACTION ITEMS */
@@ -135,10 +135,10 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 .ai.green:hover{ border-color:#06d6a0; background:#ecfdf5; color:var(--txt); }
 .ai:not(.blue):not(.green):hover{ border-color:var(--purple); background:#eedff7; color:var(--txt); }
 .ai-ic{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:19px; flex-shrink:0; }
-.aic-p{ background:rgba(130,60,162,.12); color:var(--purple); }
+.aic-p{ background:rgba(40,55,89,.12); color:var(--purple); }
 .aic-b{ background:rgba(67,97,238,.12);  color:#4361ee; }
 .aic-g{ background:rgba(6,214,160,.12);  color:#047a56; }
-.aic-o{ background:rgba(255,156,0,.12);  color:var(--orange-dk); }
+.aic-o{ background:rgba(121,168,226,.12);  color:var(--orange-dk); }
 
 /* STAT PILLS */
 .sp-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
@@ -189,7 +189,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
       <div class="col-lg-8">
         <div class="dh-role-tag {{ $rClass }}"><i class="bi {{ $rIcon }}"></i> {{ $rLabel }}</div>
         <h2 class="dh-hero-title">Selamat datang, <span>{{ $user->name }}</span>!
-          @if($isAdmin)<i class="bi bi-patch-check-fill" style="color:#ff9c00;vertical-align:middle;"></i>
+          @if($isAdmin)<i class="bi bi-patch-check-fill" style="color:#79a8e2;vertical-align:middle;"></i>
           @elseif($isOrganisasi)<i class="bi bi-building-fill" style="color:#06d6a0;vertical-align:middle;"></i>
           @elseif($isPenulis)<i class="bi bi-pencil-square" style="color:#a8bcff;vertical-align:middle;"></i>
           @else<i class="bi bi-person-fill" style="color:#fff;vertical-align:middle;"></i>@endif
@@ -268,7 +268,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
   <div class="col-lg-3">
     <div class="panel h-100">
       <div class="ch-wrap">
-        <div class="ch-title"><span class="ch-ic" style="background:rgba(130,60,162,.12);color:#823ca2;"><i class="bi bi-pie-chart-fill"></i></span> Distribusi Ormawa</div>
+        <div class="ch-title"><span class="ch-ic" style="background:rgba(40,55,89,.12);color:#283759;"><i class="bi bi-pie-chart-fill"></i></span> Distribusi Ormawa</div>
         <div class="ch-sub">Berdasarkan kategori</div>
         <div id="adminOrmawaChart" style="min-height:260px;"></div>
       </div>
@@ -357,7 +357,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 
 <div class="panel">
   <div class="panel-head">
-    <h3><span class="panel-head-ic" style="background:rgba(130,60,162,.12);color:#823ca2;"><i class="bi bi-grid-fill"></i></span> Pintasan Akses Cepat Administrator</h3>
+    <h3><span class="panel-head-ic" style="background:rgba(40,55,89,.12);color:#283759;"><i class="bi bi-grid-fill"></i></span> Pintasan Akses Cepat Administrator</h3>
     <span style="font-size:12px;color:var(--txt2);font-weight:600;">{{ now()->format('H:i') }} WIB</span>
   </div>
   <div class="sc-wrap">
@@ -530,7 +530,7 @@ function initDashboardCharts(){
   $cvals = array_values($ormawaCategories);
   $rvs   = [$testimonialRatings[1]??0,$testimonialRatings[2]??0,$testimonialRatings[3]??0,$testimonialRatings[4]??0,$testimonialRatings[5]??0];
 @endphp
-  const C={purple:'#823ca2',orange:'#ff9c00',indigo:'#4361ee',teal:'#06b6d4',emerald:'#06d6a0',coral:'#ff6b6b',amber:'#f59e0b',rose:'#ec4899',navy:'#3b82f6'};
+  const C={purple:'#283759',orange:'#79a8e2',indigo:'#4361ee',teal:'#06b6d4',emerald:'#06d6a0',coral:'#ff6b6b',amber:'#f59e0b',rose:'#ec4899',navy:'#3b82f6'};
   const bar=(data,months)=>({
     chart:{type:'bar',height:270,toolbar:{show:false},fontFamily:'Plus Jakarta Sans,sans-serif',dropShadow:{enabled:true,top:3,blur:6,opacity:.07}},
     series:[{name:'Publikasi',data}], colors:[C.indigo],
