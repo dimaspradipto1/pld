@@ -377,24 +377,25 @@
       <!-- ── Search & Filter Info Bar ── -->
       <div class="row g-3 align-items-center justify-content-between mb-4 pb-2">
         <div class="col-md-7 col-lg-6">
-          <form method="GET" action="{{ route('homepage.statistik-mahasiswa') }}#direktori-mahasiswa" class="d-flex align-items-center">
+          <form id="search-mhs-form" method="GET" action="{{ route('homepage.statistik-mahasiswa') }}#direktori-mahasiswa" class="d-flex align-items-center">
             @if(!empty($selectedAngkatan))
-              <input type="hidden" name="angkatan" value="{{ $selectedAngkatan }}">
+              <input type="hidden" name="angkatan" id="mhs-filter-angkatan" value="{{ $selectedAngkatan }}">
             @endif
             @if(!empty($selectedStatus) && $selectedStatus !== 'Semua')
-              <input type="hidden" name="status" value="{{ $selectedStatus }}">
+              <input type="hidden" name="status" id="mhs-filter-status" value="{{ $selectedStatus }}">
             @endif
             
-            <div class="input-group search-mhs-box w-100">
+            <div class="input-group search-mhs-box w-100 position-relative">
               <span class="input-group-text bg-transparent border-0 pe-1 text-muted">
-                <i class="bi bi-search"></i>
+                <i class="bi bi-search" id="search-mhs-icon"></i>
+                <div class="spinner-border spinner-border-sm text-primary d-none" id="search-mhs-spinner" role="status" style="width: 1rem; height: 1rem;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
               </span>
-              <input type="text" name="search" class="form-control ps-1" placeholder="Cari nama mahasiswa, NIM, prodi, disabilitas..." value="{{ $search ?? '' }}">
-              @if(!empty($search))
-                <a href="{{ route('homepage.statistik-mahasiswa', array_filter(['angkatan' => $selectedAngkatan, 'status' => $selectedStatus !== 'Semua' ? $selectedStatus : null])) }}#direktori-mahasiswa" class="btn btn-link text-secondary text-decoration-none px-2" title="Hapus Pencarian">
-                  <i class="bi bi-x-circle-fill"></i>
-                </a>
-              @endif
+              <input type="text" name="search" id="search-mhs-input" class="form-control ps-1" placeholder="Ketik untuk cari otomatis nama, NIM, prodi..." value="{{ $search ?? '' }}" autocomplete="off">
+              <button type="button" id="search-mhs-clear" class="btn btn-link text-secondary text-decoration-none px-2 {{ empty($search) ? 'd-none' : '' }}" title="Hapus Pencarian">
+                <i class="bi bi-x-circle-fill"></i>
+              </button>
               <button class="btn btn-primary px-3 fw-semibold text-white" type="submit" style="background: #141b39; border-color: #141b39; border-radius: 0 10px 10px 0;">
                 Cari
               </button>
@@ -402,94 +403,15 @@
           </form>
         </div>
 
-        <div class="col-md-5 col-lg-6 text-md-end">
-          @if(!empty($search))
-            <span class="badge bg-light text-dark border py-2 px-3">
-              <i class="bi bi-filter me-1 text-primary"></i>Hasil pencarian: "<strong>{{ $search }}</strong>"
-            </span>
-          @else
-            <span class="text-muted small">
-              <i class="bi bi-people-fill me-1 text-primary"></i>Total: <strong>{{ $mahasiswaList->total() }}</strong> mahasiswa terdata
-            </span>
-          @endif
+        <div class="col-md-5 col-lg-6 text-md-end d-none d-md-block">
+          <small class="text-muted"><i class="bi bi-lightning-charge-fill text-warning me-1"></i>Pencarian otomatis aktif saat mengetik</small>
         </div>
       </div>
 
-      <div class="table-responsive">
-        <table class="table table-hover align-middle mb-0" style="border-radius: 12px; overflow: hidden;">
-          <thead style="background: #141b39; color: #ffffff;">
-            <tr>
-              <th class="py-3 px-3 text-center" style="width: 50px;">#</th>
-              <th class="py-3 px-3">Mahasiswa / NIM</th>
-              <th class="py-3 px-3">Ragam Disabilitas</th>
-              <th class="py-3 px-3">Program Studi &amp; Fakultas</th>
-              <th class="py-3 px-3 text-center">Status</th>
-              <th class="py-3 px-3">Catatan Pendampingan</th>
-            </tr>
-          </thead>
-          <tbody class="border-top-0">
-            @forelse($mahasiswaList as $mhs)
-              <tr>
-                <td class="text-center fw-bold text-muted">{{ ($mahasiswaList->currentPage() - 1) * $mahasiswaList->perPage() + $loop->iteration }}</td>
-                <td>
-                  <div class="fw-bold text-dark">{{ $mhs->nama }}</div>
-                  <small class="text-muted"><i class="bi bi-person-badge me-1"></i>NIM: {{ $mhs->nim ?: '-' }}</small>
-                </td>
-                <td>
-                  <span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600;">
-                    {{ $mhs->jenis_disabilitas }}
-                  </span>
-                </td>
-                <td>
-                  <div class="fw-semibold text-dark">{{ $mhs->prodi }}</div>
-                  <small class="text-muted">{{ $mhs->fakultas }} &bull; Angkatan {{ $mhs->angkatan }}</small>
-                </td>
-                <td class="text-center">
-                  @if($mhs->status === 'Aktif')
-                    <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Aktif</span>
-                  @elseif($mhs->status === 'Lulus')
-                    <span class="badge bg-info text-dark"><i class="bi bi-mortarboard me-1"></i>Lulus</span>
-                  @else
-                    <span class="badge bg-warning text-dark"><i class="bi bi-pause-circle me-1"></i>Cuti</span>
-                  @endif
-                </td>
-                <td>
-                  @php
-                    $cleanKetFrontend = trim(strip_tags(html_entity_decode($mhs->keterangan ?? '')));
-                  @endphp
-                  @if(!empty($cleanKetFrontend))
-                    <span class="text-secondary small" style="line-height: 1.5;">
-                      <i class="bi bi-check2-circle text-primary me-1"></i>{{ $cleanKetFrontend }}
-                    </span>
-                  @else
-                    <span class="text-muted small fst-italic">-</span>
-                  @endif
-                </td>
-              </tr>
-            @empty
-              <tr>
-                <td colspan="6" class="text-center py-5 text-muted">
-                  <i class="bi bi-inbox fs-1 d-block mb-2 text-secondary opacity-50"></i>
-                  <div class="fw-semibold">Tidak ada data mahasiswa yang cocok.</div>
-                  <small>Silakan coba kata kunci pencarian atau kombinasi filter yang lain.</small>
-                </td>
-              </tr>
-            @endforelse
-          </tbody>
-        </table>
+      <!-- ── Container Tabel & Pagination (AJAX Live Replace Target) ── -->
+      <div id="mhs-table-container">
+        @include('layouts.frontend.partials.statistik-mahasiswa-table')
       </div>
-
-      <!-- ── Custom Clean Pagination ── -->
-      @if($mahasiswaList->hasPages())
-        <div class="custom-pagination-container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 mt-4 pt-3 border-top">
-          <div class="text-muted small">
-            Menampilkan <strong>{{ $mahasiswaList->firstItem() ?? 0 }}</strong> sampai <strong>{{ $mahasiswaList->lastItem() ?? 0 }}</strong> dari total <strong>{{ $mahasiswaList->total() }}</strong> mahasiswa
-          </div>
-          <div>
-            {{ $mahasiswaList->links('pagination::bootstrap-5') }}
-          </div>
-        </div>
-      @endif
     </div>
 
   </div>
@@ -645,6 +567,123 @@
         }
       }
     });
+
+    // 3. Live Auto-Search & AJAX Pagination for Direktori Mahasiswa
+    (function () {
+      const searchInput = document.getElementById('search-mhs-input');
+      const searchForm = document.getElementById('search-mhs-form');
+      const searchSpinner = document.getElementById('search-mhs-spinner');
+      const searchIcon = document.getElementById('search-mhs-icon');
+      const searchClear = document.getElementById('search-mhs-clear');
+      const tableContainer = document.getElementById('mhs-table-container');
+
+      if (!searchInput || !tableContainer) return;
+
+      let debounceTimer = null;
+
+      function setSearching(loading) {
+        if (loading) {
+          searchSpinner.classList.remove('d-none');
+          searchIcon.classList.add('d-none');
+        } else {
+          searchSpinner.classList.add('d-none');
+          searchIcon.classList.remove('d-none');
+        }
+      }
+
+      function doSearch(targetUrl = null) {
+        setSearching(true);
+
+        let url;
+        if (targetUrl) {
+          url = new URL(targetUrl, window.location.origin);
+        } else {
+          url = new URL("{{ route('homepage.statistik-mahasiswa') }}", window.location.origin);
+          const query = searchInput.value.trim();
+          const angkatanInput = document.getElementById('mhs-filter-angkatan');
+          const statusInput = document.getElementById('mhs-filter-status');
+
+          if (query) url.searchParams.set('search', query);
+          if (angkatanInput && angkatanInput.value) url.searchParams.set('angkatan', angkatanInput.value);
+          if (statusInput && statusInput.value && statusInput.value !== 'Semua') url.searchParams.set('status', statusInput.value);
+        }
+
+        url.hash = 'direktori-mahasiswa';
+
+        fetch(url.toString(), {
+          headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(html => {
+          tableContainer.innerHTML = html;
+          window.history.replaceState(null, '', url.toString());
+          bindPaginationEvents();
+        })
+        .catch(err => {
+          console.error('Error fetching mahasiswa data:', err);
+        })
+        .finally(() => {
+          setSearching(false);
+        });
+      }
+
+      // Input event dengan debounce (otomatis cari saat mengetik)
+      searchInput.addEventListener('input', function () {
+        const val = this.value.trim();
+        if (val.length > 0) {
+          searchClear.classList.remove('d-none');
+        } else {
+          searchClear.classList.add('d-none');
+        }
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          doSearch();
+        }, 300);
+      });
+
+      // Clear button event
+      if (searchClear) {
+        searchClear.addEventListener('click', function () {
+          searchInput.value = '';
+          this.classList.add('d-none');
+          searchInput.focus();
+          doSearch();
+        });
+      }
+
+      // Form submit prevention (triggers immediate live search)
+      if (searchForm) {
+        searchForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          clearTimeout(debounceTimer);
+          doSearch();
+        });
+      }
+
+      // Intercept pagination clicks for seamless AJAX navigation
+      function bindPaginationEvents() {
+        const pageLinks = tableContainer.querySelectorAll('.custom-pagination-container a.page-link');
+        pageLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetHref = this.getAttribute('href');
+            if (targetHref && targetHref !== '#') {
+              doSearch(targetHref);
+              const direktoriCard = document.getElementById('direktori-mahasiswa');
+              if (direktoriCard) {
+                direktoriCard.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+      }
+
+      bindPaginationEvents();
+    })();
   });
 </script>
 @endpush

@@ -644,6 +644,10 @@ class FrontendController extends Controller
             ->fragment('direktori-mahasiswa')
             ->withQueryString();
 
+        if ($request->ajax()) {
+            return view('layouts.frontend.partials.statistik-mahasiswa-table', compact('mahasiswaList', 'search'))->render();
+        }
+
         return view('layouts.frontend.statistik-mahasiswa', compact(
             'totalMahasiswa',
             'disabilitasCounts',
