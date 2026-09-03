@@ -119,6 +119,9 @@ Route::middleware(['auth', 'checkrole'])->group(function () {
     Route::resource('about', AboutController::class);
     Route::get('sambutan-dekan-admin', [SambutanDekanController::class, 'index'])->name('sambutan-dekan.index');
     Route::put('sambutan-dekan-admin', [SambutanDekanController::class, 'update'])->name('sambutan-dekan.update');
+    Route::get('admin-struktur-organisasi', [StrukturOrganisasiController::class, 'index'])->name('struktur-organisasi.index');
+    Route::post('admin-struktur-organisasi', [StrukturOrganisasiController::class, 'store'])->name('struktur-organisasi.store');
+    Route::delete('admin-struktur-organisasi/{strukturOrganisasi}', [StrukturOrganisasiController::class, 'destroy'])->name('struktur-organisasi.destroy');
     Route::get('pmb-setting-admin', [PmbSettingController::class, 'index'])->name('pmb-setting.index');
     Route::put('pmb-setting-admin', [PmbSettingController::class, 'update'])->name('pmb-setting.update');
 
