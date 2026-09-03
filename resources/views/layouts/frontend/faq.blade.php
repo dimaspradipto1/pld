@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tanya Jawab (FAQ) — Fakultas Ilmu Kesehatan (PLD)')
+@section('title', 'Tanya Jawab (FAQ) — Pelayanan Disabilitas (PLD)')
 @section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar program studi, penerimaan mahasiswa baru, fasilitas laboratorium, dan akreditasi PLD.')
-@section('meta_keywords', 'faq pld, tanya jawab fakultas ilmu kesehatan, pendaftaran mahasiswa kesehatan, akreditasi pld')
+@section('meta_keywords', 'faq pld, tanya jawab pelayanan disabilitas, pendaftaran mahasiswa kesehatan, akreditasi pld')
 
 @push('styles')
 <style>

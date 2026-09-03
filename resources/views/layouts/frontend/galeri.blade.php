@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Galeri & Dokumentasi — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Galeri foto kegiatan akademik, praktikum laboratorium, pengabdian masyarakat, dan wisuda Fakultas Ilmu Kesehatan (PLD).')
+@section('title', 'Galeri & Dokumentasi — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Galeri foto kegiatan akademik, praktikum laboratorium, pengabdian masyarakat, dan wisuda Pusat Layanan Disabilitas (PLD).')
 @section('meta_keywords', 'galeri pld, dokumentasi pld, foto praktikum kesehatan, kegiatan mahasiswa pld')
 
 @push('styles')

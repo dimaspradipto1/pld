@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Hubungi Kami — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Hubungi Fakultas Ilmu Kesehatan (PLD) untuk informasi program studi, layanan akademik, praktikum laboratorium, dan penerimaan mahasiswa baru.')
-@section('meta_keywords', 'kontak pld, alamat fakultas ilmu kesehatan, nomor wa pld, lokasi kampus pld')
+@section('title', 'Hubungi Kami — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Hubungi Pusat Layanan Disabilitas (PLD) untuk informasi program studi, layanan akademik, praktikum laboratorium, dan penerimaan mahasiswa baru.')
+@section('meta_keywords', 'kontak pld, alamat pelayanan disabilitas, nomor wa pld, lokasi kampus pld')
 
 @push('styles')
 <style>
@@ -119,7 +119,7 @@
           <div class="contact-card-icon"><i class="bi bi-geo-alt-fill"></i></div>
           <h4 class="contact-card-title">Alamat Kampus</h4>
           <p class="contact-card-text">
-            {{ $contact->alamat ?? 'Gedung Fakultas Ilmu Kesehatan (PLD), Kampus Terpadu' }}
+            {{ $contact->alamat ?? 'Gedung Pusat Layanan Disabilitas (PLD), Kampus Terpadu' }}
           </p>
         </div>
       </div>

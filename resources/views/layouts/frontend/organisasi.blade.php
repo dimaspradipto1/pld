@@ -1,6 +1,6 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Organisasi & Kegiatan Mahasiswa — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
+@section('title', 'Organisasi & Kegiatan Mahasiswa — Pelayanan Disabilitas Universitas Ibnu Sina')
 @section('meta_description', 'Daftar Lembaga, Organisasi Mahasiswa (BEM, HIMA, UKM, Komunitas), serta wadah kreativitas dan kegiatan mahasiswa PLD Universitas Ibnu Sina.')
 
 @push('styles')
@@ -227,7 +227,7 @@
           Organisasi & Kegiatan Mahasiswa
         </h1>
         <p class="text-white-50 mb-0" style="font-size: 16px; max-width: 650px;">
-          Wadah pengembangan potensi, kepemimpinan, riset keilmuan, kreativitas, serta kepedulian sosial mahasiswa Fakultas Ilmu Kesehatan Universitas Ibnu Sina.
+          Wadah pengembangan potensi, kepemimpinan, riset keilmuan, kreativitas, serta kepedulian sosial mahasiswa Pelayanan Disabilitas Universitas Ibnu Sina.
         </p>
       </div>
       <div class="col-lg-4 text-lg-end mt-4 mt-lg-0" data-aos="fade-left">
@@ -349,7 +349,7 @@
                 </div>
 
                 <div class="ormawa-desc">
-                  {{ strip_tags($item->deskripsi ?: ($item->visi ?: 'Lembaga kemahasiswaan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')) }}
+                  {{ strip_tags($item->deskripsi ?: ($item->visi ?: 'Lembaga kemahasiswaan Pelayanan Disabilitas Universitas Ibnu Sina.')) }}
                 </div>
               </div>
 

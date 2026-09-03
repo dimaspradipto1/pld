@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sejarah & Milestone — Fakultas Ilmu Kesehatan (PLD UIS)')
-@section('meta_description', 'Sejarah perjalanan, pendirian, dan tonggak sejarah milestone Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
-@section('meta_keywords', 'sejarah pld, milestone pld uis, pendirian fakultas ilmu kesehatan')
+@section('title', 'Sejarah & Milestone — Pelayanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Sejarah perjalanan, pendirian, dan tonggak sejarah milestone Pelayanan Disabilitas Universitas Ibnu Sina.')
+@section('meta_keywords', 'sejarah pld, milestone pld uis, pendirian pelayanan disabilitas')
 
 @push('styles')
 <style>
@@ -168,7 +168,7 @@
         <div class="divider-line"></div>
         <div class="section-desc" style="text-align: justify; line-height: 1.8; color: #4a5568;">
           <p>
-            Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina didirikan sebagai bentuk komitmen nyata dalam menjawab tingginya kebutuhan tenaga kesehatan profesional di wilayah Kepulauan Riau dan kawasan industri nasional.
+            Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina didirikan sebagai bentuk komitmen nyata dalam menjawab tingginya kebutuhan tenaga kesehatan profesional di wilayah Kepulauan Riau dan kawasan industri nasional.
           </p>
           <p>
             Berawal dari program studi unggulan di bidang Keselamatan dan Kesehatan Kerja (K3) serta Kesehatan Lingkungan, PLD UIS terus bertransformasi menjadi pusat rujukan pendidikan kesehatan terdepan dengan fasilitas laboratorium modern dan kemitraan rumah sakit terpercaya.
@@ -206,7 +206,7 @@
       <h2 class="section-title">Milestone & <em>Tonggak Sejarah</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Catatan pencapaian dan peristiwa penting dalam perjalanan Fakultas Ilmu Kesehatan UIS.
+        Catatan pencapaian dan peristiwa penting dalam perjalanan Pelayanan Disabilitas UIS.
       </p>
     </div>
 

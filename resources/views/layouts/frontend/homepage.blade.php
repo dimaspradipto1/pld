@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'PLD UIS — Fakultas Ilmu Kesehatan Universitas Ibnu Sina | Unggul, Profesional & Berkarakter')
-@section('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS) — Program Studi Unggulan S1 Kesehatan & Keselamatan Kerja (K3) dan S1 Kesehatan Lingkungan.')
+@section('title', 'PLD UIS — Pelayanan Disabilitas Universitas Ibnu Sina | Unggul, Profesional & Berkarakter')
+@section('meta_description', 'Portal Resmi Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Program Studi Unggulan S1 Kesehatan & Keselamatan Kerja (K3) dan S1 Kesehatan Lingkungan.')
 
 @push('styles')
 <style>
@@ -938,7 +938,7 @@
               <div class="mb-3">
                 <i class="bi bi-megaphone fs-1" style="color: var(--pld-orange);"></i>
               </div>
-              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">FAKULTAS ILMU KESEHATAN — PLD UIS</h2>
+              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">PELAYANAN DISABILITAS — PLD UIS</h2>
               <p class="text-white-50 small mb-0" style="max-width: 540px; margin: 0 auto;">
                 Banner Promosi & Iklan Fakultas dapat diunggah melalui menu Admin (<strong>Profil & Konten PLD ➔ Banner Hero</strong>).
               </p>
@@ -1021,7 +1021,7 @@
         </h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
-          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
         </div>
 
         @if(!empty($about?->deskripsi_profil_2))
@@ -1064,12 +1064,12 @@
             @endif
             <div>
               <h5 class="fw-bold mb-1 text-dark">{{ $sambutanDekan->nama_dekan ?? 'Sambutan Dekan' }}</h5>
-              <span class="text-muted small fw-semibold">{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan UIS' }}</span>
+              <span class="text-muted small fw-semibold">{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas UIS' }}</span>
             </div>
           </div>
 
           <blockquote class="text-muted mb-4" style="font-style: italic; line-height: 1.8; text-align: justify; font-size: 14.5px;">
-            "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Fakultas Ilmu Kesehatan Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
+            "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pelayanan Disabilitas Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
           </blockquote>
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
@@ -1576,7 +1576,7 @@
       <h2 class="section-title">Prestasi Gemilang <em>Mahasiswa PLD</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Bukti dedikasi, keunggulan riset, dan daya saing mahasiswa Fakultas Ilmu Kesehatan di berbagai kompetisi ilmiah dan kejuaraan.
+        Bukti dedikasi, keunggulan riset, dan daya saing mahasiswa Pelayanan Disabilitas di berbagai kompetisi ilmiah dan kejuaraan.
       </p>
     </div>
 
@@ -1715,7 +1715,7 @@
                 @endif
 
                 <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                  {{ strip_tags($ormawa->deskripsi ?: ($ormawa->visi ?: 'Lembaga kemahasiswaan aktif di lingkungan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')) }}
+                  {{ strip_tags($ormawa->deskripsi ?: ($ormawa->visi ?: 'Lembaga kemahasiswaan aktif di lingkungan Pelayanan Disabilitas Universitas Ibnu Sina.')) }}
                 </p>
               </div>
 

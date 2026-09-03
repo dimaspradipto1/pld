@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Berita & Informasi Terkini — Fakultas Ilmu Kesehatan (PLD UIS)')
-@section('meta_description', 'Ikuti berita, pengumuman akademik, riset, dan artikel kesehatan terbaru dari Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS).')
+@section('title', 'Berita & Informasi Terkini — Pelayanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Ikuti berita, pengumuman akademik, riset, dan artikel kesehatan terbaru dari Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS).')
 @section('meta_keywords', 'berita pld, artikel kesehatan, k3 batam, kesehatan lingkungan, pengumuman uis, pld ibnu sina')
 
 @push('styles')

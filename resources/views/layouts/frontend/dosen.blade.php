@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', ($pageTitle ?? 'Dosen Pengajar') . ' — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Direktori staf pengajar dan dosen tetap program studi Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
+@section('title', ($pageTitle ?? 'Dosen Pengajar') . ' — Pelayanan Disabilitas Universitas Ibnu Sina')
+@section('meta_description', 'Direktori staf pengajar dan dosen tetap program studi Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
 
 @push('styles')
 <style>
@@ -171,7 +171,7 @@
     <!-- Header Banner Kuning / Gold Sesuai Permintaan -->
     <div class="mb-4" data-aos="fade-up">
       <div class="prodi-header-pill">
-        Dosen {{ $currentProdi->judul ?? 'Program Studi Fakultas Ilmu Kesehatan' }}
+        Dosen {{ $currentProdi->judul ?? 'Program Studi Pelayanan Disabilitas' }}
       </div>
     </div>
 

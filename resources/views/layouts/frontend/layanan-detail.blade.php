@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', $layanan->judul . ' — Fakultas Ilmu Kesehatan (PLD)')
+@section('title', $layanan->judul . ' — Pelayanan Disabilitas (PLD)')
 @section('meta_description', Str::limit($layanan->deskripsi, 160))
-@section('meta_keywords', 'pld, ' . strtolower($layanan->judul) . ', fakultas ilmu kesehatan')
+@section('meta_keywords', 'pld, ' . strtolower($layanan->judul) . ', pelayanan disabilitas')
 
 @push('styles')
 <style>

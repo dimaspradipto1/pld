@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Formulir Ulasan & Testimoni Alumni — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Portal khusus pengisian testimoni dan kisah sukses alumni serta civitas akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
+@section('title', 'Formulir Ulasan & Testimoni Alumni — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Portal khusus pengisian testimoni dan kisah sukses alumni serta civitas akademika Pelayanan Disabilitas Universitas Ibnu Sina.')
 
 @section('content')
 

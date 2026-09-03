@@ -52,7 +52,7 @@
           <div class="footer-contact-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="footer-contact-text">
             <strong>Alamat Kampus</strong>
-            {{ $contact->alamat ?? 'Fakultas Ilmu Kesehatan, Kampus Terpadu' }}
+            {{ $contact->alamat ?? 'Pelayanan Disabilitas, Kampus Terpadu' }}
           </div>
         </div>
         <div class="footer-contact-item">
@@ -82,7 +82,7 @@
     <div class="footer-divider"></div>
 
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 footer-bottom">
-      <span>© {{ date('Y') }} PLD — Fakultas Ilmu Kesehatan. All rights reserved.</span>
+      <span>© {{ date('Y') }} PLD — Pelayanan Disabilitas. All rights reserved.</span>
       <div class="d-flex gap-3">
         <a href="#">Kebijakan Privasi</a>
         <a href="#">Syarat & Ketentuan</a>

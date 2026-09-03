@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tentang Kami — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Kenali lebih dekat Fakultas Ilmu Kesehatan (PLD) — profil, visi misi, nilai karakter akademik, dan fasilitas unggulan kami.')
-@section('meta_keywords', 'tentang pld, profil fakultas ilmu kesehatan, visi misi pld, struktur organisasi pld, pendidikan kesehatan')
+@section('title', 'Tentang Kami — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Kenali lebih dekat Pusat Layanan Disabilitas (PLD) — profil, visi misi, nilai karakter akademik, dan fasilitas unggulan kami.')
+@section('meta_keywords', 'tentang pld, profil pelayanan disabilitas, visi misi pld, struktur organisasi pld, pendidikan kesehatan')
 
 @push('styles')
 <style>
@@ -105,7 +105,7 @@
         <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>' !!}</h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
-          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (PLD) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Pusat Layanan Disabilitas (PLD) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
         </div>
         @if($about?->deskripsi_profil_2)
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">

@@ -17,7 +17,7 @@ class VisiMisiSeeder extends Seeder
         $data = [
             [
                 'tipe'   => 'visi',
-                'isi'    => 'Menjadi Fakultas Ilmu Kesehatan yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.',
+                'isi'    => 'Menjadi Pelayanan Disabilitas yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.',
                 'urutan' => 1,
             ],
             [

@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Struktur Organisasi — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Susunan pimpinan dekanat, ketua program studi, dan tata kelola organisasi Fakultas Ilmu Kesehatan (PLD).')
+@section('title', 'Struktur Organisasi — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Susunan pimpinan dekanat, ketua program studi, dan tata kelola organisasi Pusat Layanan Disabilitas (PLD).')
 @section('meta_keywords', 'struktur organisasi pld, dekanat pld, ketua program studi, manajemen pld')
 
 @push('styles')
@@ -62,7 +62,7 @@
       <h2 class="section-title">Bagan <em>Kepemimpinan & Organisasi</em> PLD</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Tata kelola yang profesional, transparan, dan akuntabel di bawah pimpinan Dekanat serta Ketua Program Studi Fakultas Ilmu Kesehatan.
+        Tata kelola yang profesional, transparan, dan akuntabel di bawah pimpinan Dekanat serta Ketua Program Studi Pelayanan Disabilitas.
       </p>
     </div>
 

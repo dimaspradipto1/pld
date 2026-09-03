@@ -1,6 +1,6 @@
 @extends('layouts.frontend.template')
 
-@section('title', $item->judul . ' — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
+@section('title', $item->judul . ' — Pelayanan Disabilitas Universitas Ibnu Sina')
 @section('meta_description', Str::limit(strip_tags($item->subjudul ?? $item->deskripsi), 160))
 
 @push('styles')

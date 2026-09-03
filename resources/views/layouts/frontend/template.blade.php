@@ -13,25 +13,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas')</title>
-  <meta name="description" content="@yield('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
-  <meta name="keywords" content="@yield('meta_keywords', 'pld, fakultas ilmu kesehatan, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
-  <meta name="author" content="@yield('meta_author', 'Fakultas Ilmu Kesehatan')">
+  <title>@yield('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas')</title>
+  <meta name="description" content="@yield('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
+  <meta name="keywords" content="@yield('meta_keywords', 'pld, pelayanan disabilitas, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
+  <meta name="author" content="@yield('meta_author', 'Pelayanan Disabilitas')">
 
   <!-- Open Graph / Facebook / WhatsApp / Telegram Preview -->
   <meta property="og:type" content="@yield('og_type', 'website')">
   <meta property="og:url" content="{{ url()->current() }}">
-  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
-  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas'))">
+  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
   <meta property="og:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
   <meta property="og:image:secure_url" content="@yield('og_image', asset('assets/img/logouis.png'))">
-  <meta property="og:site_name" content="PLD — Fakultas Ilmu Kesehatan">
+  <meta property="og:site_name" content="PLD — Pelayanan Disabilitas">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="{{ url()->current() }}">
-  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
-  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Pelayanan Disabilitas | Unggul & Berintegritas'))">
+  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Pusat Layanan Disabilitas (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
   <meta name="twitter:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
 
   <!-- Favicon -->

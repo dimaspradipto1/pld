@@ -373,7 +373,7 @@
             <div>
               <div class="small text-muted">Diterbitkan oleh:</div>
               <div class="fw-bold text-dark">{{ $news->user?->name ?? 'Redaksi PLD UIS' }}</div>
-              <div class="small text-muted">Fakultas Ilmu Kesehatan — Universitas Ibnu Sina</div>
+              <div class="small text-muted">Pelayanan Disabilitas — Universitas Ibnu Sina</div>
             </div>
           </div>
 

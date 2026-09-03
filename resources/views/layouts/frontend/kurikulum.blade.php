@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', ($pageTitle ?? 'Kurikulum Program Studi') . ' — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Struktur kurikulum lengkap per semester dan unduhan silabus RPS program studi Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
+@section('title', ($pageTitle ?? 'Kurikulum Program Studi') . ' — Pelayanan Disabilitas Universitas Ibnu Sina')
+@section('meta_description', 'Struktur kurikulum lengkap per semester dan unduhan silabus RPS program studi Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
 
 @push('styles')
 <style>
@@ -143,7 +143,7 @@
     </div>
     <h1 class="fw-bold mb-2" style="font-size: 34px;">Kurikulum & Capaian Pembelajaran</h1>
     <p class="text-white-50 mx-auto mb-0" style="max-width: 620px; font-size: 14.5px;">
-      Struktur kurikulum berbasis kompetensi dan Kerangka Kualifikasi Nasional Indonesia (KKNI) untuk setiap program studi di Fakultas Ilmu Kesehatan.
+      Struktur kurikulum berbasis kompetensi dan Kerangka Kualifikasi Nasional Indonesia (KKNI) untuk setiap program studi di Pelayanan Disabilitas.
     </p>
   </div>
 </div>
@@ -165,7 +165,7 @@
     <!-- Header Banner Kuning / Gold Sesuai Permintaan -->
     <div class="text-center" data-aos="fade-up">
       <div class="prodi-header-pill">
-        Kurikulum {{ $currentProdi->judul ?? 'Program Studi Fakultas Ilmu Kesehatan' }}
+        Kurikulum {{ $currentProdi->judul ?? 'Program Studi Pelayanan Disabilitas' }}
       </div>
     </div>
 

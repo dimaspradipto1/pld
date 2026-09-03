@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sambutan Dekan — Fakultas Ilmu Kesehatan (PLD UIS)')
-@section('meta_description', 'Sambutan resmi Dekan Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
-@section('meta_keywords', 'sambutan dekan pld, dekan pld uis, pimpinan fakultas ilmu kesehatan')
+@section('title', 'Sambutan Dekan — Pelayanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Sambutan resmi Dekan Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
+@section('meta_keywords', 'sambutan dekan pld, dekan pld uis, pimpinan pelayanan disabilitas')
 
 @push('styles')
 <style>
@@ -151,7 +151,7 @@
 
           <h3 class="dekan-name-title">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan Dekanat PLD UIS' }}</h3>
           <span class="dekan-role-badge">
-            <i class="bi bi-award-fill me-1"></i> {{ $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan' }}
+            <i class="bi bi-award-fill me-1"></i> {{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas' }}
           </span>
 
           <div class="pt-3 border-top mt-3 text-muted small text-start">
@@ -171,7 +171,7 @@
         {{-- Kutipan Singkat --}}
         <div class="dekan-quote-callout">
           <i class="bi bi-quote fs-3 d-block mb-1" style="color: var(--pld-purple);"></i>
-          "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Fakultas Ilmu Kesehatan Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
+          "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pelayanan Disabilitas Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
         </div>
 
         {{-- Isi Lengkap Sambutan --}}
@@ -184,7 +184,7 @@
               Salam sejahtera untuk kita semua.
             </p>
             <p>
-              Puji dan syukur senantiasa kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, atas limpahan rahmat dan karunia-Nya sehingga Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina terus tumbuh dan berkembang menjadi salah satu pusat pendidikan tinggi kesehatan terkemuka di kawasan Kepulauan Riau dan Indonesia.
+              Puji dan syukur senantiasa kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, atas limpahan rahmat dan karunia-Nya sehingga Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina terus tumbuh dan berkembang menjadi salah satu pusat pendidikan tinggi kesehatan terkemuka di kawasan Kepulauan Riau dan Indonesia.
             </p>
             <p>
               Tantangan dunia kesehatan saat ini menuntut kesiapan tenaga profesional yang tidak hanya menguasai teori, namun juga adaptif terhadap kemajuan teknologi kesehatan industri, keselamatan kerja (K3), kesehatan lingkungan, dan epidemiologi terapan. Oleh karena itu, kurikulum PLD UIS dirancang secara komprehensif dengan memadukan penguasaan sains, praktikum laboratorium modern, serta magang di rumah sakit dan sektor industri terkemuka.
@@ -197,7 +197,7 @@
             </p>
             <p class="text-muted">
               <strong>{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</strong><br>
-              <small>{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan Universitas Ibnu Sina' }}</small>
+              <small>{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas Universitas Ibnu Sina' }}</small>
             </p>
           @endif
         </div>

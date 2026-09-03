@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Visi & Misi — Fakultas Ilmu Kesehatan (PLD UIS)')
-@section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
-@section('meta_keywords', 'visi misi pld, visi pld uis, misi fakultas ilmu kesehatan batam')
+@section('title', 'Visi & Misi — Pelayanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Pelayanan Disabilitas Universitas Ibnu Sina.')
+@section('meta_keywords', 'visi misi pld, visi pld uis, misi pelayanan disabilitas batam')
 
 @push('styles')
 <style>
@@ -66,7 +66,7 @@
       <div class="section-label">Arah & Landasan Institusi</div>
       <h2 class="section-title">Visi & Misi <em>PLD UIS</em></h2>
       <p class="section-desc mx-auto" style="max-width: 650px;">
-        Komitmen fundamental yang mengarahkan setiap langkah Tri Dharma Perguruan Tinggi di Fakultas Ilmu Kesehatan.
+        Komitmen fundamental yang mengarahkan setiap langkah Tri Dharma Perguruan Tinggi di Pelayanan Disabilitas.
       </p>
     </div>
 
@@ -88,7 +88,7 @@
             @endforeach
           @else
             <p class="value-desc" style="font-size:15.5px; line-height:1.9; text-align: justify;">
-              {{ $about->visi ?? 'Menjadi Fakultas Ilmu Kesehatan yang unggul, terkemuka, dan berdaya saing internasional dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.' }}
+              {{ $about->visi ?? 'Menjadi Pelayanan Disabilitas yang unggul, terkemuka, dan berdaya saing internasional dalam penyelenggaraan Tri Dharma Perguruan Tinggi di bidang ilmu kesehatan yang berlandaskan nilai integritas dan kemanusiaan.' }}
             </p>
           @endif
         </div>

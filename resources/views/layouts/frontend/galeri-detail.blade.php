@@ -140,7 +140,7 @@
             </div>
           @else
             <p class="text-muted">
-              Dokumentasi visual kegiatan dan aktivitas sivitas akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS).
+              Dokumentasi visual kegiatan dan aktivitas sivitas akademika Pelayanan Disabilitas Universitas Ibnu Sina (PLD UIS).
             </p>
           @endif
 

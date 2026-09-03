@@ -58,7 +58,7 @@
                             <label for="jabatan_dekan" class="form-label fw-semibold text-dark">
                                 Jabatan Resmi
                             </label>
-                            <input type="text" id="jabatan_dekan" name="jabatan_dekan" class="form-control @error('jabatan_dekan') is-invalid @enderror" value="{{ old('jabatan_dekan', $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan UIS') }}" placeholder="Dekan Fakultas Ilmu Kesehatan UIS">
+                            <input type="text" id="jabatan_dekan" name="jabatan_dekan" class="form-control @error('jabatan_dekan') is-invalid @enderror" value="{{ old('jabatan_dekan', $sambutanDekan->jabatan_dekan ?? 'Dekan Pelayanan Disabilitas UIS') }}" placeholder="Dekan Pelayanan Disabilitas UIS">
                             @error('jabatan_dekan')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -95,7 +95,7 @@
                         <label for="kutipan_singkat" class="form-label fw-semibold text-dark">
                             Kutipan Singkat Sambutan <span class="badge bg-warning text-dark ms-1">Tampil di Halaman Depan (Homepage)</span>
                         </label>
-                        <textarea id="kutipan_singkat" name="kutipan_singkat" rows="3" class="form-control @error('kutipan_singkat') is-invalid @enderror" placeholder="Contoh: Selamat datang di Fakultas Ilmu Kesehatan UIS. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis...">{{ old('kutipan_singkat', $sambutanDekan->kutipan_singkat) }}</textarea>
+                        <textarea id="kutipan_singkat" name="kutipan_singkat" rows="3" class="form-control @error('kutipan_singkat') is-invalid @enderror" placeholder="Contoh: Selamat datang di Pelayanan Disabilitas UIS. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis...">{{ old('kutipan_singkat', $sambutanDekan->kutipan_singkat) }}</textarea>
                         <div class="form-text small text-muted">Kutipan ringkas yang menarik perhatian pengunjung di section 3 halaman depan.</div>
                         @error('kutipan_singkat')
                             <div class="invalid-feedback">{{ $message }}</div>

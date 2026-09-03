@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sambutan_dekans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_dekan')->nullable();
-            $table->string('jabatan_dekan')->nullable()->default('Dekan Fakultas Ilmu Kesehatan UIS');
+            $table->string('jabatan_dekan')->nullable()->default('Dekan Pelayanan Disabilitas UIS');
             $table->string('foto_dekan')->nullable();
             $table->text('kutipan_singkat')->nullable();
             $table->longText('sambutan_dekan')->nullable();

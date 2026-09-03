@@ -97,7 +97,7 @@
                                 <option value="S2 Kesehatan Masyarakat" {{ old('prodi', $prestasi->prodi) === 'S2 Kesehatan Masyarakat' ? 'selected' : '' }}>S2 Kesehatan Masyarakat</option>
                                 <option value="S1 Kesehatan dan Keselamatan Kerja" {{ old('prodi', $prestasi->prodi) === 'S1 Kesehatan dan Keselamatan Kerja' ? 'selected' : '' }}>S1 Kesehatan dan Keselamatan Kerja</option>
                                 <option value="S1 Kesehatan Lingkungan" {{ old('prodi', $prestasi->prodi) === 'S1 Kesehatan Lingkungan' ? 'selected' : '' }}>S1 Kesehatan Lingkungan</option>
-                                <option value="Fakultas Ilmu Kesehatan" {{ old('prodi', $prestasi->prodi) === 'Fakultas Ilmu Kesehatan' ? 'selected' : '' }}>Fakultas Ilmu Kesehatan</option>
+                                <option value="Pelayanan Disabilitas" {{ old('prodi', $prestasi->prodi) === 'Pelayanan Disabilitas' ? 'selected' : '' }}>Pelayanan Disabilitas</option>
                             </select>
                             @error('prodi')
                                 <div class="invalid-feedback">{{ $message }}</div>

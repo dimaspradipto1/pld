@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Prestasi Mahasiswa — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Daftar capaian prestasi, kejuaraan, dan penghargaan mahasiswa Fakultas Ilmu Kesehatan (PLD) UIS di tingkat regional, nasional, dan internasional.')
+@section('title', 'Prestasi Mahasiswa — Pelayanan Disabilitas Universitas Ibnu Sina')
+@section('meta_description', 'Daftar capaian prestasi, kejuaraan, dan penghargaan mahasiswa Pusat Layanan Disabilitas (PLD) UIS di tingkat regional, nasional, dan internasional.')
 
 @push('styles')
 <style>
@@ -124,7 +124,7 @@
     </div>
     <h1 class="fw-bold mb-3" style="font-size: 38px;">Prestasi Mahasiswa PLD UIS</h1>
     <p class="text-white-50 mx-auto" style="max-width: 650px; line-height: 1.7;">
-      Koleksi prestasi gemilang, medali kejuaraan, dan publikasi ilmiah sivitas akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina di tingkat regional, nasional, dan internasional.
+      Koleksi prestasi gemilang, medali kejuaraan, dan publikasi ilmiah sivitas akademika Pelayanan Disabilitas Universitas Ibnu Sina di tingkat regional, nasional, dan internasional.
     </p>
   </div>
 </div>

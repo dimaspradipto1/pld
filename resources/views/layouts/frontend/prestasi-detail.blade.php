@@ -137,7 +137,7 @@
             </div>
           @else
             <p class="text-muted">
-              Selamat dan sukses atas keberhasilan mahasiswa Fakultas Ilmu Kesehatan Universitas Ibnu Sina dalam meraih <strong>{{ $prestasi->peringkat ?? 'Prestasi Membanggakan' }}</strong> pada ajang <strong>{{ $prestasi->judul_prestasi }}</strong>.
+              Selamat dan sukses atas keberhasilan mahasiswa Pelayanan Disabilitas Universitas Ibnu Sina dalam meraih <strong>{{ $prestasi->peringkat ?? 'Prestasi Membanggakan' }}</strong> pada ajang <strong>{{ $prestasi->judul_prestasi }}</strong>.
             </p>
           @endif
 

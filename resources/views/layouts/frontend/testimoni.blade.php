@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Kisah Sukses & Testimoni Alumni — Fakultas Ilmu Kesehatan (PLD)')
-@section('meta_description', 'Baca ulasan, pengalaman, dan jejak karier alumni, mahasiswa, serta mitra institusi kesehatan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
+@section('title', 'Kisah Sukses & Testimoni Alumni — Pelayanan Disabilitas (PLD)')
+@section('meta_description', 'Baca ulasan, pengalaman, dan jejak karier alumni, mahasiswa, serta mitra institusi kesehatan Pelayanan Disabilitas Universitas Ibnu Sina.')
 @section('meta_keywords', 'testimoni alumni pld, review pld uis, jejak karir alumni kesehatan, ulasan lulusan pld')
 
 @push('styles')

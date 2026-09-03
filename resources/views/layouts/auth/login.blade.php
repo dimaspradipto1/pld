@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — PLD (Fakultas Ilmu Kesehatan)</title>
-  <meta name="description" content="Portal Login Resmi PLD - Fakultas Ilmu Kesehatan">
+  <title>Login — PLD (Pelayanan Disabilitas)</title>
+  <meta name="description" content="Portal Login Resmi PLD - Pelayanan Disabilitas">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logouis.png') }}">
@@ -517,7 +517,7 @@
       </div>
 
       <div class="copyright">
-        &copy; {{ date('Y') }} PLD — Fakultas Ilmu Kesehatan. All rights reserved.
+        &copy; {{ date('Y') }} PLD — Pelayanan Disabilitas. All rights reserved.
       </div>
     </div>
   </div>
