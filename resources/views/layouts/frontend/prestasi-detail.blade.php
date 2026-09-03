@@ -1,6 +1,6 @@
 @extends('layouts.frontend.template')
 
-@section('title', $prestasi->judul_prestasi . ' — FIKES UIS')
+@section('title', $prestasi->judul_prestasi . ' — PLD UIS')
 @section('meta_description', Str::limit(strip_tags($prestasi->deskripsi ?? $prestasi->judul_prestasi), 160))
 
 @push('styles')
@@ -8,7 +8,7 @@
   .detail-hero {
     background: var(--obsidian-dark);
     padding: 60px 0 40px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .prestasi-img-main {
     width: 100%;
@@ -120,7 +120,7 @@
         @else
           <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
             <i class="bi bi-trophy-fill" style="font-size: 64px; color: #ffd166;"></i>
-            <h4 class="fw-bold mt-2 mb-0">Prestasi Sivitas FIKES UIS</h4>
+            <h4 class="fw-bold mt-2 mb-0">Prestasi Sivitas PLD UIS</h4>
           </div>
         @endif
 
@@ -148,7 +148,7 @@
 
             @php
               $shareUrl  = urlencode(url()->current());
-              $shareText = urlencode("Prestasi Mahasiswa FIKES UIS: " . $prestasi->judul_prestasi);
+              $shareText = urlencode("Prestasi Mahasiswa PLD UIS: " . $prestasi->judul_prestasi);
             @endphp
             <div class="d-flex align-items-center gap-2">
               <span class="text-muted small fw-semibold">Bagikan:</span>

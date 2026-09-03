@@ -1,5 +1,5 @@
 <!-- ═══════════════════════════════════════════════
-     FOOTER — FIKES UIS
+     FOOTER — PLD UIS
 ═══════════════════════════════════════════════ -->
 <footer class="footer-main">
   <div class="container">
@@ -7,7 +7,7 @@
       <!-- Brand -->
       <div class="col-lg-4">
         <a href="{{ route('homepage') }}" class="footer-logo mb-3 d-inline-block">
-          <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES UIS" style="height: 48px; width: auto; object-fit: contain;">
+          <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" style="height: 48px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-desc">
           Pusat keunggulan pendidikan, riset, serta pelayanan kesehatan terintegrasi yang berdedikasi melahirkan lulusan profesional, beretika, dan berkompeten.
@@ -66,7 +66,7 @@
           <div class="footer-contact-icon"><i class="bi bi-envelope"></i></div>
           <div class="footer-contact-text">
             <strong>Email Resmi</strong>
-            {{ $contact->email ?? 'info@fikes.ac.id' }}
+            {{ $contact->email ?? 'info@pld.ac.id' }}
           </div>
         </div>
         <div class="footer-contact-item">
@@ -82,11 +82,11 @@
     <div class="footer-divider"></div>
 
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 footer-bottom">
-      <span>© {{ date('Y') }} FIKES — Fakultas Ilmu Kesehatan. All rights reserved.</span>
+      <span>© {{ date('Y') }} PLD — Fakultas Ilmu Kesehatan. All rights reserved.</span>
       <div class="d-flex gap-3">
         <a href="#">Kebijakan Privasi</a>
         <a href="#">Syarat & Ketentuan</a>
-        <a href="{{ route('login') }}" style="color:var(--fikes-orange);">Portal Admin</a>
+        <a href="{{ route('login') }}" style="color:var(--pld-orange);">Portal Admin</a>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-            <li class="breadcrumb-item">Profil & Konten FIKES</li>
+            <li class="breadcrumb-item">Profil & Konten PLD</li>
             <li class="breadcrumb-item active">Sambutan Dekan</li>
         </ol>
     </nav>
@@ -16,7 +16,7 @@
     <div class="col-lg-10">
         <div class="card shadow-sm border-0 rounded-4">
             <div class="card-header bg-white py-3 border-bottom d-flex align-items-center justify-content-between">
-                <h5 class="mb-0 fw-bold" style="color: var(--fikes-purple, #823ca2);">
+                <h5 class="mb-0 fw-bold" style="color: var(--pld-purple, #823ca2);">
                     <i class="bi bi-person-badge-fill me-2"></i>Kelola Sambutan & Foto Dekan
                 </h5>
                 <span class="badge bg-light text-dark border">Halaman Khusus Sambutan Dekan</span>

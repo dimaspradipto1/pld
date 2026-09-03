@@ -131,7 +131,7 @@
                                                        placeholder="https://kesmas.uis.ac.id atau https://...">
                                             </div>
                                             <div class="form-text" style="font-size: 11.5px;">
-                                                Menu di header dropdown akan langsung membuka tautan ini. Jika dikosongkan, akan diarahkan ke halaman detail prodi di portal FIKES.
+                                                Menu di header dropdown akan langsung membuka tautan ini. Jika dikosongkan, akan diarahkan ke halaman detail prodi di portal PLD.
                                             </div>
                                         </div>
 
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                        placeholder="https://farmasi.uis.ac.id atau https://...">
                             </div>
                             <div class="form-text" style="font-size: 11.5px;">
-                                Menu di header dropdown akan langsung membuka tautan ini. Jika dikosongkan, akan diarahkan ke halaman detail prodi di portal FIKES.
+                                Menu di header dropdown akan langsung membuka tautan ini. Jika dikosongkan, akan diarahkan ke halaman detail prodi di portal PLD.
                             </div>
                         </div>
 

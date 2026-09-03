@@ -1,11 +1,11 @@
 <!-- ═══════════════════════════════════════════════
-     NAVBAR HEADER UTAMA — FIKES UIS
+     NAVBAR HEADER UTAMA — PLD UIS
 ═══════════════════════════════════════════════ -->
 <nav class="navbar navbar-expand-xl navbar-main">
   <div class="container-fluid px-lg-4 px-xl-5">
-    <!-- Logo FIKES UIS -->
+    <!-- Logo PLD UIS -->
     <a class="navbar-brand navbar-brand-custom me-2 me-xl-4" href="{{ route('homepage') }}">
-      <img src="{{ asset('frontend/img/logofikes.png') }}" alt="Logo FIKES UIS" class="brand-logo-img">
+      <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" class="brand-logo-img">
     </a>
 
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
             Profil <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.tentang') ? 'active' : '' }}" href="{{ route('homepage.tentang') }}"><i class="bi bi-building"></i> Tentang FIKES</a></li>
+            <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.tentang') ? 'active' : '' }}" href="{{ route('homepage.tentang') }}"><i class="bi bi-building"></i> Tentang PLD</a></li>
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.visi-misi') ? 'active' : '' }}" href="{{ route('homepage.visi-misi') }}"><i class="bi bi-bullseye"></i> Visi & Misi</a></li>
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.sambutan-dekan') ? 'active' : '' }}" href="{{ route('homepage.sambutan-dekan') }}"><i class="bi bi-person-badge"></i> Sambutan Dekan</a></li>
             <li><a class="dropdown-item dropdown-item-custom {{ request()->routeIs('homepage.struktur-organisasi') ? 'active' : '' }}" href="{{ route('homepage.struktur-organisasi') }}"><i class="bi bi-diagram-3"></i> Struktur Organisasi</a></li>
@@ -39,10 +39,10 @@
             Akademik <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-custom">
-            <!-- Kurikulum FIKES with Submenu -->
+            <!-- Kurikulum PLD with Submenu -->
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-item-custom d-flex justify-content-between align-items-center {{ request()->routeIs('homepage.kurikulum*') ? 'active' : '' }}" href="{{ route('homepage.kurikulum') }}">
-                <span><i class="bi bi-journal-text me-1"></i> Kurikulum FIKES</span>
+                <span><i class="bi bi-journal-text me-1"></i> Kurikulum PLD</span>
                 <i class="bi bi-chevron-right ms-2 d-none d-xl-inline" style="font-size: 10px;"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 270px;">
@@ -115,8 +115,8 @@
 
               <li><hr class="dropdown-divider my-1"></li>
               <li>
-                <a class="dropdown-item dropdown-item-custom fw-semibold" href="{{ route('homepage.layanan') }}" style="color: var(--fikes-purple);">
-                  <i class="bi bi-grid-fill" style="color: var(--fikes-purple);"></i>
+                <a class="dropdown-item dropdown-item-custom fw-semibold" href="{{ route('homepage.layanan') }}" style="color: var(--pld-purple);">
+                  <i class="bi bi-grid-fill" style="color: var(--pld-purple);"></i>
                   <span>Semua Program & Fasilitas</span>
                   <i class="bi bi-arrow-right ms-auto" style="font-size: 11px;"></i>
                 </a>
@@ -125,7 +125,7 @@
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-mortarboard-fill"></i> S2 Kesehatan Masyarakat</a></li>
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-shield-plus"></i> S1 Kesehatan dan Keselamatan Kerja</a></li>
               <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.layanan') }}"><i class="bi bi-tree-fill"></i> S1 Kesehatan Lingkungan</a></li>
-              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen') }}"><i class="bi bi-person-workspace"></i> Dosen FIKES</a></li>
+              <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.dosen') }}"><i class="bi bi-person-workspace"></i> Dosen PLD</a></li>
             @endif
           </ul>
         </li>

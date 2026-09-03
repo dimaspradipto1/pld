@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sejarah & Milestone — Fakultas Ilmu Kesehatan (FIKES UIS)')
+@section('title', 'Sejarah & Milestone — Fakultas Ilmu Kesehatan (PLD UIS)')
 @section('meta_description', 'Sejarah perjalanan, pendirian, dan tonggak sejarah milestone Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
-@section('meta_keywords', 'sejarah fikes, milestone fikes uis, pendirian fakultas ilmu kesehatan')
+@section('meta_keywords', 'sejarah pld, milestone pld uis, pendirian fakultas ilmu kesehatan')
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 70px 0 50px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .sejarah-hero-title {
     font-size: 38px;
@@ -20,7 +20,7 @@
   }
   .sejarah-hero-title em {
     font-style: normal;
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
   }
   .breadcrumb-custom {
     display: inline-flex;
@@ -30,8 +30,8 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
-  .breadcrumb-custom a:hover { color: var(--fikes-orange); }
-  .breadcrumb-custom .active { color: var(--fikes-orange); font-weight: 600; }
+  .breadcrumb-custom a:hover { color: var(--pld-orange); }
+  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
 
   /* Timeline Styles */
   .timeline-container {
@@ -45,7 +45,7 @@
     bottom: 0;
     left: 50%;
     width: 3px;
-    background: linear-gradient(180deg, var(--fikes-purple) 0%, var(--fikes-orange) 100%);
+    background: linear-gradient(180deg, var(--pld-purple) 0%, var(--pld-orange) 100%);
     transform: translateX(-50%);
     border-radius: 4px;
   }
@@ -71,7 +71,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -123,8 +123,8 @@
 
   .timeline-year-tag {
     display: inline-block;
-    background: var(--fikes-purple-light);
-    color: var(--fikes-purple);
+    background: var(--pld-purple-light);
+    color: var(--pld-purple);
     font-weight: 800;
     font-size: 13px;
     padding: 4px 14px;
@@ -168,18 +168,18 @@
         <div class="divider-line"></div>
         <div class="section-desc" style="text-align: justify; line-height: 1.8; color: #4a5568;">
           <p>
-            Fakultas Ilmu Kesehatan (FIKES) Universitas Ibnu Sina didirikan sebagai bentuk komitmen nyata dalam menjawab tingginya kebutuhan tenaga kesehatan profesional di wilayah Kepulauan Riau dan kawasan industri nasional.
+            Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina didirikan sebagai bentuk komitmen nyata dalam menjawab tingginya kebutuhan tenaga kesehatan profesional di wilayah Kepulauan Riau dan kawasan industri nasional.
           </p>
           <p>
-            Berawal dari program studi unggulan di bidang Keselamatan dan Kesehatan Kerja (K3) serta Kesehatan Lingkungan, FIKES UIS terus bertransformasi menjadi pusat rujukan pendidikan kesehatan terdepan dengan fasilitas laboratorium modern dan kemitraan rumah sakit terpercaya.
+            Berawal dari program studi unggulan di bidang Keselamatan dan Kesehatan Kerja (K3) serta Kesehatan Lingkungan, PLD UIS terus bertransformasi menjadi pusat rujukan pendidikan kesehatan terdepan dengan fasilitas laboratorium modern dan kemitraan rumah sakit terpercaya.
           </p>
         </div>
       </div>
 
       <div class="col-lg-6" data-aos="fade-left">
-        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #190a24 0%, #47175d 100%); border: 2px solid var(--fikes-purple);">
+        <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #190a24 0%, #47175d 100%); border: 2px solid var(--pld-purple);">
           <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="p-3 rounded-3" style="background: var(--fikes-orange); color: #190a24;">
+            <div class="p-3 rounded-3" style="background: var(--pld-orange); color: #190a24;">
               <i class="bi bi-hourglass-split fs-2"></i>
             </div>
             <div>

@@ -175,7 +175,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
 @endphp
 
 <div class="pagetitle mb-3">
-  <h1>Dashboard Portal FIKES UIS</h1>
+  <h1>Dashboard Portal PLD UIS</h1>
   <nav><ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
     <li class="breadcrumb-item active">Dashboard</li>
@@ -195,10 +195,10 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
           @else<i class="bi bi-person-fill" style="color:#fff;vertical-align:middle;"></i>@endif
         </h2>
         <p class="dh-hero-sub">
-          @if($isAdmin) Pantau dan kelola seluruh konten portal web FIKES UIS &mdash; akademik, kemahasiswaan, publikasi, dan pengaturan sistem.
+          @if($isAdmin) Pantau dan kelola seluruh konten portal web PLD UIS &mdash; akademik, kemahasiswaan, publikasi, dan pengaturan sistem.
           @elseif($isOrganisasi) Kelola profil lembaga kemahasiswaan, kegiatan, susunan pengurus, dan link pendaftaran anggota baru.
-          @elseif($isPenulis) Tulis, edit, dan terbitkan berita, pengumuman resmi, dan liputan kegiatan akademik FIKES UIS.
-          @else Selamat datang di sistem manajemen portal web FIKES UIS. @endif
+          @elseif($isPenulis) Tulis, edit, dan terbitkan berita, pengumuman resmi, dan liputan kegiatan akademik PLD UIS.
+          @else Selamat datang di sistem manajemen portal web PLD UIS. @endif
         </p>
         <div class="d-flex flex-wrap gap-2">
           @if($isAdmin)
@@ -369,7 +369,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
     <a href="{{ route('banner.index') }}"                class="sc"><div class="sc-ic"><i class="bi bi-image-fill"></i></div>Banner Hero</a>
     <a href="{{ route('gallery.index') }}"               class="sc"><div class="sc-ic"><i class="bi bi-images"></i></div>Galeri</a>
     <a href="{{ route('prestasi.index') }}"              class="sc"><div class="sc-ic"><i class="bi bi-trophy-fill"></i></div>Prestasi</a>
-    <a href="{{ route('faculty-stat.index') }}"          class="sc"><div class="sc-ic"><i class="bi bi-bar-chart-fill"></i></div>Statistik FIKES</a>
+    <a href="{{ route('faculty-stat.index') }}"          class="sc"><div class="sc-ic"><i class="bi bi-bar-chart-fill"></i></div>Statistik PLD</a>
     <a href="{{ route('topbar.index') }}"                class="sc"><div class="sc-ic"><i class="bi bi-sliders"></i></div>Topbar</a>
     <a href="{{ route('user.index') }}"                  class="sc"><div class="sc-ic"><i class="bi bi-person-gear"></i></div>Pengguna</a>
     <a href="{{ url('/') }}" target="_blank"             class="sc"><div class="sc-ic"><i class="bi bi-globe2"></i></div>Buka Website</a>
@@ -405,7 +405,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
           <a href="{{ route('organisasi-mahasiswa.create') }}" class="ai green"><div class="ai-ic aic-g"><i class="bi bi-plus-circle-fill"></i></div><div><div>Tambah Organisasi Baru</div><small class="text-muted fw-normal">Daftarkan lembaga baru</small></div><i class="bi bi-chevron-right ms-auto text-muted"></i></a>
           <a href="{{ route('organisasi-mahasiswa.index') }}" class="ai green"><div class="ai-ic aic-g"><i class="bi bi-list-task"></i></div><div><div>Kelola Semua Organisasi</div><small class="text-muted fw-normal">Edit, aktifkan, nonaktifkan</small></div><i class="bi bi-chevron-right ms-auto text-muted"></i></a>
           <a href="{{ route('homepage.organisasi') }}" target="_blank" class="ai green"><div class="ai-ic aic-g"><i class="bi bi-eye-fill"></i></div><div><div>Pratinjau di Website</div><small class="text-muted fw-normal">Lihat tampilan publik</small></div><i class="bi bi-box-arrow-up-right ms-auto text-muted"></i></a>
-          <a href="{{ url('/') }}" target="_blank" class="ai"><div class="ai-ic aic-o"><i class="bi bi-globe2"></i></div><div><div>Buka Portal FIKES UIS</div><small class="text-muted fw-normal">Website utama fakultas</small></div><i class="bi bi-box-arrow-up-right ms-auto text-muted"></i></a>
+          <a href="{{ url('/') }}" target="_blank" class="ai"><div class="ai-ic aic-o"><i class="bi bi-globe2"></i></div><div><div>Buka Portal PLD UIS</div><small class="text-muted fw-normal">Website utama fakultas</small></div><i class="bi bi-box-arrow-up-right ms-auto text-muted"></i></a>
         </div>
       </div>
     </div>
@@ -513,7 +513,7 @@ body,.main{ background:var(--bg)!important; font-family:'Plus Jakarta Sans',sans
   <div style="font-size:60px;">ðŸ‘‹</div>
   <h3 class="fw-bold mt-3 mb-2" style="color:var(--txt);">Selamat Datang!</h3>
   <p class="text-muted mb-4">Akun Anda belum memiliki role. Hubungi administrator.</p>
-  <a href="{{ url('/') }}" target="_blank" class="dh-btn dh-btn-orange" style="display:inline-flex;"><i class="bi bi-globe2"></i> Buka Website FIKES UIS</a>
+  <a href="{{ url('/') }}" target="_blank" class="dh-btn dh-btn-orange" style="display:inline-flex;"><i class="bi bi-globe2"></i> Buka Website PLD UIS</a>
 </div>
 @endif
 

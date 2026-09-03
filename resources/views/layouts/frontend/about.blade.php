@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Tentang Kami — Fakultas Ilmu Kesehatan (FIKES)')
-@section('meta_description', 'Kenali lebih dekat Fakultas Ilmu Kesehatan (FIKES) — profil, visi misi, nilai karakter akademik, dan fasilitas unggulan kami.')
-@section('meta_keywords', 'tentang fikes, profil fakultas ilmu kesehatan, visi misi fikes, struktur organisasi fikes, pendidikan kesehatan')
+@section('title', 'Tentang Kami — Fakultas Ilmu Kesehatan (PLD)')
+@section('meta_description', 'Kenali lebih dekat Fakultas Ilmu Kesehatan (PLD) — profil, visi misi, nilai karakter akademik, dan fasilitas unggulan kami.')
+@section('meta_keywords', 'tentang pld, profil fakultas ilmu kesehatan, visi misi pld, struktur organisasi pld, pendidikan kesehatan')
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 70px 0 50px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .about-hero-title {
     font-size: 38px;
@@ -20,7 +20,7 @@
   }
   .about-hero-title em {
     font-style: normal;
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
   }
   .breadcrumb-custom {
     display: inline-flex;
@@ -30,8 +30,8 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); }
-  .breadcrumb-custom a:hover { color: var(--fikes-orange); }
-  .breadcrumb-custom .active { color: var(--fikes-orange); font-weight: 600; }
+  .breadcrumb-custom a:hover { color: var(--pld-orange); }
+  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
 
   .visual-card-frame {
     background: var(--white);
@@ -48,14 +48,14 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 6px;
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
   }
   .visual-badge-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--fikes-purple-light);
-    color: var(--fikes-purple);
+    background: var(--pld-purple-light);
+    color: var(--pld-purple);
     font-weight: 700;
     font-size: 13px;
     padding: 6px 18px;
@@ -83,7 +83,7 @@
   <div class="container">
     <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
       <h1 class="about-hero-title">
-        Tentang <em>FIKES</em>
+        Tentang <em>PLD</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
@@ -105,7 +105,7 @@
         <h2 class="section-title">{!! $about->judul_profil ?? 'Pusat Keunggulan <em>Pendidikan & Pelayanan Kesehatan</em>' !!}</h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
-          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan (PLD) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.' !!}
         </div>
         @if($about?->deskripsi_profil_2)
         <div class="section-desc mb-4" style="text-align: justify; font-size: 16px; line-height: 1.85;">
@@ -124,8 +124,8 @@
 <section class="section-bg-sand py-5">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
-      <div class="section-label mx-auto">Keunggulan FIKES</div>
-      <h2 class="section-title">Mengapa Memilih <em>FIKES UIS?</em></h2>
+      <div class="section-label mx-auto">Keunggulan PLD</div>
+      <h2 class="section-title">Mengapa Memilih <em>PLD UIS?</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
         Kombinasi kurikulum berstandar industri, tenaga pendidik berkompeten, dan sarana pembelajaran mutakhir.
@@ -164,7 +164,7 @@
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
         <a href="{{ route('homepage.visi-misi') }}" class="text-decoration-none">
           <div class="p-4 rounded-4 text-center border h-100 shadow-sm bg-white hover-lift" style="transition: all 0.3s ease;">
-            <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--fikes-purple-light); color: var(--fikes-purple); width: 60px; height: 60px; font-size: 24px;">
+            <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--pld-purple-light); color: var(--pld-purple); width: 60px; height: 60px; font-size: 24px;">
               <i class="bi bi-bullseye"></i>
             </div>
             <h5 class="fw-bold text-dark mb-2">Visi & Misi</h5>
@@ -176,7 +176,7 @@
       <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
         <a href="{{ route('homepage.sambutan-dekan') }}" class="text-decoration-none">
           <div class="p-4 rounded-4 text-center border h-100 shadow-sm bg-white hover-lift" style="transition: all 0.3s ease;">
-            <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--fikes-orange-light); color: var(--fikes-orange); width: 60px; height: 60px; font-size: 24px;">
+            <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--pld-orange-light); color: var(--pld-orange); width: 60px; height: 60px; font-size: 24px;">
               <i class="bi bi-person-badge"></i>
             </div>
             <h5 class="fw-bold text-dark mb-2">Sambutan Dekan</h5>
@@ -219,7 +219,7 @@
 <section class="counter-section" style="background: var(--obsidian-dark);">
   <div class="container text-center" data-aos="fade-up">
     <h2 class="text-white mb-3" style="font-size:32px; font-weight:800;">
-      Ingin Mengetahui Lebih Jauh Tentang FIKES?
+      Ingin Mengetahui Lebih Jauh Tentang PLD?
     </h2>
     <p class="text-white-50 mx-auto mb-4" style="max-width: 600px; font-size:15px;">
       Hubungi kami untuk konsultasi program akademik, fasilitas laboratorium, serta kemitraan riset.

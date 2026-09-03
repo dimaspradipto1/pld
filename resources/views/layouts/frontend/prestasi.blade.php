@@ -1,14 +1,14 @@
 @extends('layouts.frontend.template')
 
 @section('title', 'Prestasi Mahasiswa — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Daftar capaian prestasi, kejuaraan, dan penghargaan mahasiswa Fakultas Ilmu Kesehatan (FIKES) UIS di tingkat regional, nasional, dan internasional.')
+@section('meta_description', 'Daftar capaian prestasi, kejuaraan, dan penghargaan mahasiswa Fakultas Ilmu Kesehatan (PLD) UIS di tingkat regional, nasional, dan internasional.')
 
 @push('styles')
 <style>
   .prestasi-hero {
     background: var(--obsidian-dark);
     padding: 70px 0 50px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .prestasi-card-portal {
     background: var(--white);
@@ -82,9 +82,9 @@
     white-space: nowrap;
   }
   .cat-pill-item:hover, .cat-pill-item.active {
-    background: var(--fikes-purple, #823ca2) !important;
+    background: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
-    border-color: var(--fikes-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
   }
 
   /* Custom Pagination */
@@ -102,15 +102,15 @@
     transition: all 0.2s ease;
   }
   .page-item.active .page-link {
-    background-color: var(--fikes-purple, #823ca2) !important;
-    border-color: var(--fikes-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #823ca2) !important;
+    border-color: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
     box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
   }
   .page-item .page-link:hover {
     background-color: #f3e8f8;
-    color: var(--fikes-purple, #823ca2);
-    border-color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
   }
 </style>
 @endpush
@@ -122,7 +122,7 @@
     <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(229, 168, 35, 0.2); color: #ffd166; border: 1px solid rgba(229, 168, 35, 0.4);">
       <i class="bi bi-trophy-fill me-1"></i> Hall of Fame & Prestasi
     </div>
-    <h1 class="fw-bold mb-3" style="font-size: 38px;">Prestasi Mahasiswa FIKES UIS</h1>
+    <h1 class="fw-bold mb-3" style="font-size: 38px;">Prestasi Mahasiswa PLD UIS</h1>
     <p class="text-white-50 mx-auto" style="max-width: 650px; line-height: 1.7;">
       Koleksi prestasi gemilang, medali kejuaraan, dan publikasi ilmiah sivitas akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina di tingkat regional, nasional, dan internasional.
     </p>
@@ -195,7 +195,7 @@
                 @else
                   <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
                     <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
-                    <span class="small fw-semibold text-white-50">FIKES UIS Achievement</span>
+                    <span class="small fw-semibold text-white-50">PLD UIS Achievement</span>
                   </div>
                 @endif
                 <span class="prestasi-tingkat-badge badge {{ $tingkatBadge }}">
@@ -243,7 +243,7 @@
                 </div>
 
                 <div class="pt-3 border-top">
-                  <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--fikes-purple); font-size: 13.5px;">
+                  <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--pld-purple); font-size: 13.5px;">
                     <span>Lihat Selengkapnya</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
@@ -264,7 +264,7 @@
       <div class="p-5 text-center bg-white rounded-4 shadow-sm">
         <i class="bi bi-trophy fs-1 text-muted mb-3 d-block"></i>
         <h4 class="fw-bold text-dark">Belum Ada Data Prestasi</h4>
-        <p class="text-muted small">Data prestasi mahasiswa FIKES UIS akan segera diperbarui di sini.</p>
+        <p class="text-muted small">Data prestasi mahasiswa PLD UIS akan segera diperbarui di sini.</p>
         <a href="{{ route('homepage.prestasi') }}" class="btn btn-sm btn-outline-secondary rounded-pill px-4 mt-2">
           Lihat Semua Prestasi
         </a>

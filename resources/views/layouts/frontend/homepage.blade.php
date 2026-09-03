@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'FIKES UIS — Fakultas Ilmu Kesehatan Universitas Ibnu Sina | Unggul, Profesional & Berkarakter')
-@section('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS) — Program Studi Unggulan S1 Kesehatan & Keselamatan Kerja (K3) dan S1 Kesehatan Lingkungan.')
+@section('title', 'PLD UIS — Fakultas Ilmu Kesehatan Universitas Ibnu Sina | Unggul, Profesional & Berkarakter')
+@section('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS) — Program Studi Unggulan S1 Kesehatan & Keselamatan Kerja (K3) dan S1 Kesehatan Lingkungan.')
 
 @push('styles')
 <style>
@@ -53,7 +53,7 @@
   }
   .hero-slider-section .carousel-control-prev:hover,
   .hero-slider-section .carousel-control-next:hover {
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     opacity: 1;
     transform: translateY(-50%) scale(1.08);
   }
@@ -70,7 +70,7 @@
   .hero-slider-section .carousel-indicators .active {
     width: 28px;
     border-radius: 20px;
-    background-color: var(--fikes-orange);
+    background-color: var(--pld-orange);
     opacity: 1;
   }
 
@@ -86,7 +86,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 26px;
     font-weight: 800;
-    color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -121,7 +121,7 @@
     left: 0;
     width: 4px;
     height: 0%;
-    background: var(--fikes-orange, #ff9c00);
+    background: var(--pld-orange, #ff9c00);
     transition: height 0.3s ease;
   }
   .layanan-terkait-card:hover {
@@ -151,7 +151,7 @@
   }
   .layanan-terkait-icon {
     font-size: 26px;
-    color: var(--fikes-orange, #ff9c00);
+    color: var(--pld-orange, #ff9c00);
     transition: transform 0.3s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-icon {
@@ -169,7 +169,7 @@
     transition: color 0.25s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-name {
-    color: var(--fikes-orange, #ff9c00);
+    color: var(--pld-orange, #ff9c00);
   }
 
   /* ═══════════════════════════════════════════════
@@ -188,18 +188,18 @@
   }
   .stat-col-box:last-child { border-right: none; }
   .stat-col-box:hover {
-    background: var(--fikes-purple-light);
+    background: var(--pld-purple-light);
   }
   .stat-num-val {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 30px;
     font-weight: 800;
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     line-height: 1;
     margin-bottom: 6px;
   }
   .stat-num-val sup {
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
     font-size: 18px;
   }
   .stat-num-label {
@@ -232,7 +232,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 6px;
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
   }
   .prodi-card:hover {
     transform: translateY(-8px);
@@ -241,8 +241,8 @@
   }
   .prodi-badge {
     display: inline-block;
-    background: var(--fikes-orange-light);
-    color: var(--fikes-orange-dark);
+    background: var(--pld-orange-light);
+    color: var(--pld-orange-dark);
     font-size: 11px;
     font-weight: 700;
     padding: 4px 12px;
@@ -260,7 +260,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13.5px;
     font-weight: 700;
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     margin-top: 16px;
     margin-bottom: 8px;
   }
@@ -278,7 +278,7 @@
     margin-bottom: 6px;
   }
   .prodi-list li i {
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     font-size: 14px;
     margin-top: 2px;
     flex-shrink: 0;
@@ -302,8 +302,8 @@
   .fasilitas-icon {
     width: 56px;
     height: 56px;
-    background: var(--fikes-purple-light);
-    color: var(--fikes-purple);
+    background: var(--pld-purple-light);
+    color: var(--pld-purple);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -332,8 +332,8 @@
     width: 84px;
     height: 84px;
     border-radius: 50%;
-    background: var(--fikes-purple-light);
-    color: var(--fikes-purple);
+    background: var(--pld-purple-light);
+    color: var(--pld-purple);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -350,7 +350,7 @@
   }
   .dosen-bidang {
     font-size: 12.5px;
-    color: var(--fikes-orange-dark);
+    color: var(--pld-orange-dark);
     font-weight: 600;
     margin-bottom: 8px;
   }
@@ -363,11 +363,11 @@
   /* ═══════════════════════════════════════════════
      BERITA, PENGUMUMAN & AGENDA (SPLIT LAYOUT)
   ═══════════════════════════════════════════════ */
-  .section-heading-fikes {
+  .section-heading-pld {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 27px;
     font-weight: 800;
-    color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
     letter-spacing: -0.5px;
     line-height: 1.2;
   }
@@ -387,7 +387,7 @@
     transition: all 0.25s ease;
   }
   .news-search-pill:focus-within {
-    border-color: var(--fikes-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
     box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.14);
   }
   .news-search-pill input {
@@ -405,7 +405,7 @@
   .news-search-pill button {
     border: none;
     background: transparent;
-    color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
     font-size: 15px;
     cursor: pointer;
     padding: 0;
@@ -425,11 +425,11 @@
     height: 100%;
   }
   .news-mini-item:hover {
-    background: var(--fikes-purple-light, #f5eefb);
+    background: var(--pld-purple-light, #f5eefb);
     transform: translateY(-2px);
   }
   .news-mini-item:hover .news-mini-title {
-    color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
   }
   .news-mini-img-wrap {
     width: 112px;
@@ -455,8 +455,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--fikes-purple-light, #f5eefb);
-    color: var(--fikes-purple, #823ca2);
+    background: var(--pld-purple-light, #f5eefb);
+    color: var(--pld-purple, #823ca2);
     font-size: 24px;
   }
   .news-mini-content {
@@ -485,10 +485,10 @@
     font-weight: 500;
   }
 
-  /* Button FIKES Pill */
-  .btn-fikes-pill {
+  /* Button PLD Pill */
+  .btn-pld-pill {
     display: inline-block;
-    background: var(--fikes-purple, #823ca2);
+    background: var(--pld-purple, #823ca2);
     color: #ffffff !important;
     font-size: 13.5px;
     font-weight: 700;
@@ -498,9 +498,9 @@
     transition: all 0.25s ease;
     box-shadow: 0 4px 14px rgba(130, 60, 162, 0.25);
   }
-  .btn-fikes-pill:hover {
-    background: var(--fikes-purple-dark, #682985);
-    color: var(--fikes-orange, #ff9c00) !important;
+  .btn-pld-pill:hover {
+    background: var(--pld-purple-dark, #682985);
+    color: var(--pld-orange, #ff9c00) !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(130, 60, 162, 0.35);
   }
@@ -517,8 +517,8 @@
     border: 1px solid #eedef8;
   }
   .announcement-card-box:hover {
-    background: var(--fikes-purple-light, #f5eefb);
-    border-color: var(--fikes-purple, #823ca2);
+    background: var(--pld-purple-light, #f5eefb);
+    border-color: var(--pld-purple, #823ca2);
     transform: translateX(4px);
   }
   .announcement-card-title {
@@ -546,7 +546,7 @@
     margin-bottom: 5px;
   }
   .agenda-badge-card {
-    background: var(--fikes-orange, #ff9c00);
+    background: var(--pld-orange, #ff9c00);
     color: #190a24;
     font-size: 13.5px;
     font-weight: 800;
@@ -559,9 +559,9 @@
     display: block;
     width: 100%;
     text-align: center;
-    background: var(--fikes-purple-light, #f5eefb);
-    border: 1px solid var(--fikes-purple-subtle, #ecdcf7);
-    color: var(--fikes-purple, #823ca2) !important;
+    background: var(--pld-purple-light, #f5eefb);
+    border: 1px solid var(--pld-purple-subtle, #ecdcf7);
+    color: var(--pld-purple, #823ca2) !important;
     font-size: 13px;
     font-weight: 700;
     padding: 9px 16px;
@@ -570,7 +570,7 @@
     transition: all 0.2s ease;
   }
   .btn-agenda-pill:hover {
-    background: var(--fikes-purple, #823ca2);
+    background: var(--pld-purple, #823ca2);
     color: #ffffff !important;
   }
 
@@ -641,7 +641,7 @@
   }
   .partner-marquee-card:hover {
     transform: translateY(-4px);
-    border-color: var(--fikes-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
     box-shadow: 0 12px 25px -8px rgba(130, 60, 162, 0.25);
   }
   .partner-marquee-img {
@@ -819,15 +819,15 @@
     transition: all 0.2s ease;
   }
   .page-item.active .page-link {
-    background-color: var(--fikes-purple, #823ca2) !important;
-    border-color: var(--fikes-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #823ca2) !important;
+    border-color: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
     box-shadow: 0 4px 12px rgba(130, 60, 162, 0.35);
   }
   .page-item .page-link:hover {
     background-color: #f3e8f8;
-    color: var(--fikes-purple, #823ca2);
-    border-color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
   }
 
   /* PMB WhatsApp Outline Button */
@@ -928,7 +928,7 @@
         @foreach($activeBanners as $index => $banner)
           @php $imgPath = $banner->url ?? $banner->gambar; @endphp
           <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-            <img src="{{ asset('storage/' . $imgPath) }}" alt="{{ $banner->judul ?? 'Banner Promosi FIKES UIS' }}" class="hero-banner-img">
+            <img src="{{ asset('storage/' . $imgPath) }}" alt="{{ $banner->judul ?? 'Banner Promosi PLD UIS' }}" class="hero-banner-img">
           </div>
         @endforeach
       @else
@@ -936,11 +936,11 @@
           <div class="hero-banner-img d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #190a24 0%, #47175d 100%); min-height: 360px; color: #ffffff;">
             <div class="text-center p-4">
               <div class="mb-3">
-                <i class="bi bi-megaphone fs-1" style="color: var(--fikes-orange);"></i>
+                <i class="bi bi-megaphone fs-1" style="color: var(--pld-orange);"></i>
               </div>
-              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">FAKULTAS ILMU KESEHATAN — FIKES UIS</h2>
+              <h2 class="fw-bold mb-2" style="color: #ffffff; letter-spacing: -0.5px;">FAKULTAS ILMU KESEHATAN — PLD UIS</h2>
               <p class="text-white-50 small mb-0" style="max-width: 540px; margin: 0 auto;">
-                Banner Promosi & Iklan Fakultas dapat diunggah melalui menu Admin (<strong>Profil & Konten FIKES ➔ Banner Hero</strong>).
+                Banner Promosi & Iklan Fakultas dapat diunggah melalui menu Admin (<strong>Profil & Konten PLD ➔ Banner Hero</strong>).
               </p>
             </div>
           </div>
@@ -1009,7 +1009,7 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     3. PROFIL SINGKAT FIKES UIS & SAMBUTAN DEKAN
+     3. PROFIL SINGKAT PLD UIS & SAMBUTAN DEKAN
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-white py-5" id="profil-singkat">
   <div class="container py-2">
@@ -1021,7 +1021,7 @@
         </h2>
         <div class="divider-line"></div>
         <div class="section-desc mb-4" style="text-align: justify; line-height: 1.8;">
-          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
+          {!! $about->deskripsi_profil_1 ?? 'Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS) merupakan pelopor pendidikan tinggi di bidang Magister Kesehatan Masyarakat (S2), Keselamatan & Kesehatan Kerja (S1 K3), serta Kesehatan Lingkungan (S1 Kesling) di kawasan Kepulauan Riau dan nasional.' !!}
         </div>
 
         @if(!empty($about?->deskripsi_profil_2))
@@ -1047,7 +1047,7 @@
 
         <a href="{{ route('homepage.tentang') }}" class="btn-primary-hero">
           <i class="bi bi-info-circle"></i>
-          Profil Lengkap FIKES UIS
+          Profil Lengkap PLD UIS
         </a>
       </div>
 
@@ -1056,9 +1056,9 @@
         <div class="p-4 p-md-5 rounded-4 shadow-sm" style="background: var(--surface-light); border: 1.5px solid var(--border-light);">
           <div class="d-flex align-items-center gap-3 mb-4">
             @if(!empty($sambutanDekan?->foto_dekan))
-              <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan FIKES UIS' }}" class="rounded-circle shadow-sm" style="width: 72px; height: 72px; object-fit: cover; border: 3px solid var(--fikes-purple); flex-shrink:0;">
+              <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan PLD UIS' }}" class="rounded-circle shadow-sm" style="width: 72px; height: 72px; object-fit: cover; border: 3px solid var(--pld-purple); flex-shrink:0;">
             @else
-              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, var(--fikes-purple) 0%, #47175d 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--fikes-orange);">
+              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, var(--pld-purple) 0%, #47175d 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--pld-orange);">
                 <i class="bi bi-person-badge-fill"></i>
               </div>
             @endif
@@ -1073,8 +1073,8 @@
           </blockquote>
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-            <span class="fw-bold" style="color: var(--fikes-purple);">{{ $sambutanDekan->nama_dekan ?? 'Dekanat FIKES UIS' }}</span>
-            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--fikes-orange); color: #190a24; font-weight: 800; padding: 6px 12px;">
+            <span class="fw-bold" style="color: var(--pld-purple);">{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</span>
+            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #190a24; font-weight: 800; padding: 6px 12px;">
               Baca Sambutan <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>
@@ -1085,7 +1085,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     3b. STATISTIK FAKULTAS — "FIKES DALAM ANGKA"
+     3b. STATISTIK FAKULTAS — "PLD DALAM ANGKA"
 ═══════════════════════════════════════════════ -->
 @if(isset($facultyStat) && $facultyStat)
 <section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #823ca2 40%, #47175d 100%); padding: 40px 0; overflow: hidden; position: relative;">
@@ -1168,7 +1168,7 @@
                style="width:100%;height:210px;object-fit:cover;display:block;">
           {{-- Overlay label --}}
           <div style="position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.65);color:#fff;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:600;backdrop-filter:blur(6px);letter-spacing:0.3px;">
-            📍 FIKES — Universitas Ibnu Sina
+            📍 PLD — Universitas Ibnu Sina
           </div>
         </div>
       </div>
@@ -1235,7 +1235,7 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Program Studi</div>
-      <h2 class="section-title">Program Studi <em>Unggulan</em> FIKES UIS</h2>
+      <h2 class="section-title">Program Studi <em>Unggulan</em> PLD UIS</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
         Program pascasarjana dan sarjana yang dirancang khusus untuk menjawab kebutuhan dunia industri modern, perminyakan, manufaktur, dan sistem pelayanan kesehatan publik.
@@ -1291,13 +1291,13 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     5. MENGAPA MEMILIH FIKES UIS
+     5. MENGAPA MEMILIH PLD UIS
 ═══════════════════════════════════════════════ -->
 <section class="section-bg-white">
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Keunggulan Kami</div>
-      <h2 class="section-title">Mengapa Memilih <em>FIKES UIS</em>?</h2>
+      <h2 class="section-title">Mengapa Memilih <em>PLD UIS</em>?</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
         Kami memberikan ekosistem belajar yang menyeluruh antara pemahaman teoritis berstandar mutakhir dan pelatihan praktikal di lapangan.
@@ -1401,7 +1401,7 @@
         <h2 class="section-title">Inovasi Riset & <em>Pengabdian Masyarakat</em></h2>
         <div class="divider-line"></div>
         <p class="section-desc mb-4" style="text-align: justify;">
-          Dosen dan mahasiswa FIKES UIS aktif menghasilkan riset terapan yang dipublikasikan pada jurnal ilmiah bereputasi, serta melaksanakan program pengabdian masyarakat untuk memecahkan persoalan sanitasi dan keselamatan kerja.
+          Dosen dan mahasiswa PLD UIS aktif menghasilkan riset terapan yang dipublikasikan pada jurnal ilmiah bereputasi, serta melaksanakan program pengabdian masyarakat untuk memecahkan persoalan sanitasi dan keselamatan kerja.
         </p>
 
         <div class="row g-3">
@@ -1409,7 +1409,7 @@
             <div class="col-sm-6">
               <div class="p-3 rounded-3 bg-light border h-100">
                 <div class="fw-bold text-dark mb-1">
-                  <i class="bi {{ $td->icon }} me-2" style="color: {{ $td->warna ?: 'var(--fikes-purple)' }} !important;"></i>{{ $td->judul }}
+                  <i class="bi {{ $td->icon }} me-2" style="color: {{ $td->warna ?: 'var(--pld-purple)' }} !important;"></i>{{ $td->judul }}
                 </div>
                 @if($td->deskripsi)
                   <p class="text-muted small mb-0">{{ $td->deskripsi }}</p>
@@ -1419,13 +1419,13 @@
           @empty
             <div class="col-sm-6">
               <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-journal-check text-primary me-2" style="color:var(--fikes-purple) !important;"></i>Riset Terapan</div>
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-journal-check text-primary me-2" style="color:var(--pld-purple) !important;"></i>Riset Terapan</div>
                 <p class="text-muted small mb-0">Fokus riset ergonomi industri maritim dan sanitasi pesisir.</p>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="p-3 rounded-3 bg-light border">
-                <div class="fw-bold text-dark mb-1"><i class="bi bi-globe-americas text-warning me-2" style="color:var(--fikes-orange) !important;"></i>Publikasi SINTA</div>
+                <div class="fw-bold text-dark mb-1"><i class="bi bi-globe-americas text-warning me-2" style="color:var(--pld-orange) !important;"></i>Publikasi SINTA</div>
                 <p class="text-muted small mb-0">Publikasi rutin di jurnal nasional terakreditasi dan prosiding.</p>
               </div>
             </div>
@@ -1449,7 +1449,7 @@
         <div class="p-4 p-md-5 rounded-4 shadow-sm" style="background: var(--obsidian-dark); color: white;">
           <h4 class="fw-bold text-white mb-3"><i class="bi bi-lightbulb-fill text-warning me-2"></i>Agenda Ilmiah & Seminar</h4>
           <p class="text-white-50 small mb-4" style="line-height: 1.7;">
-            FIKES UIS secara berkala menyelenggarakan Konferensi Nasional K3 dan Lingkungan Hidup, mengundang narasumber pakar dari Kemnaker, Kementerian Kesehatan, dan praktisi industri global.
+            PLD UIS secara berkala menyelenggarakan Konferensi Nasional K3 dan Lingkungan Hidup, mengundang narasumber pakar dari Kemnaker, Kementerian Kesehatan, dan praktisi industri global.
           </p>
           <div class="d-flex flex-wrap gap-2 cta-btn-group">
             <a href="{{ route('homepage.news') }}" class="btn-primary-hero btn-mobile-full" style="font-size: 13px; padding: 10px 20px;">
@@ -1472,7 +1472,7 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Tenaga Pendidik</div>
-      <h2 class="section-title">Dosen & <em>Pakar Akademik</em> FIKES UIS</h2>
+      <h2 class="section-title">Dosen & <em>Pakar Akademik</em> PLD UIS</h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
         Dibimbing langsung oleh para pakar berpengalaman yang memiliki sertifikasi keahlian nasional dan publikasi ilmiah terkemuka.
@@ -1505,9 +1505,9 @@
             </div>
             <div class="pt-3 mt-auto border-top">
               <a href="{{ $prodiUrl }}" class="btn btn-sm w-100 rounded-pill fw-bold text-decoration-none d-inline-flex align-items-center justify-content-center gap-1"
-                 style="background: var(--fikes-purple-light, #f3ebf8); color: var(--fikes-purple, #823ca2); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
-                 onmouseover="this.style.background='var(--fikes-purple, #823ca2)'; this.style.color='#ffffff';"
-                 onmouseout="this.style.background='var(--fikes-purple-light, #f3ebf8)'; this.style.color='var(--fikes-purple, #823ca2)';">
+                 style="background: var(--pld-purple-light, #f3ebf8); color: var(--pld-purple, #823ca2); border: 1.5px solid var(--border-purple, #e1c9ee); padding: 8px 16px; font-size: 13px; transition: all 0.25s ease;"
+                 onmouseover="this.style.background='var(--pld-purple, #823ca2)'; this.style.color='#ffffff';"
+                 onmouseout="this.style.background='var(--pld-purple-light, #f3ebf8)'; this.style.color='var(--pld-purple, #823ca2)';">
                 <i class="bi bi-people-fill"></i> {{ $btnText }}
               </a>
             </div>
@@ -1573,7 +1573,7 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Kebanggaan Kampus</div>
-      <h2 class="section-title">Prestasi Gemilang <em>Mahasiswa FIKES</em></h2>
+      <h2 class="section-title">Prestasi Gemilang <em>Mahasiswa PLD</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
         Bukti dedikasi, keunggulan riset, dan daya saing mahasiswa Fakultas Ilmu Kesehatan di berbagai kompetisi ilmiah dan kejuaraan.
@@ -1599,7 +1599,7 @@
                 @else
                   <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #823ca2 0%, #4a1563 100%);">
                     <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
-                    <span class="small fw-semibold text-white-50">FIKES UIS Achievement</span>
+                    <span class="small fw-semibold text-white-50">PLD UIS Achievement</span>
                   </div>
                 @endif
                 <span class="prestasi-tingkat-badge badge {{ $tingkatBadge }}">
@@ -1647,7 +1647,7 @@
                 </div>
 
                 <div class="pt-3 border-top mt-3">
-                  <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--fikes-purple); font-size: 13px;">
+                  <a href="{{ route('homepage.prestasi.detail', $prestasi->slug ?? $prestasi->id) }}" class="fw-bold text-decoration-none d-flex align-items-center justify-content-between" style="color: var(--pld-purple); font-size: 13px;">
                     <span>Lihat Selengkapnya</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
@@ -1660,7 +1660,7 @@
 
       {{-- Tombol Lihat Semua Prestasi --}}
       <div class="text-center mt-2 mb-5">
-        <a href="{{ route('homepage.prestasi') }}" class="btn-fikes-pill">
+        <a href="{{ route('homepage.prestasi') }}" class="btn-pld-pill">
           <i class="bi bi-trophy-fill me-1 text-warning"></i> Lihat Semua Prestasi Mahasiswa
         </a>
       </div>
@@ -1680,7 +1680,7 @@
         <div class="section-label mb-2">Lembaga Kemahasiswaan</div>
         <h2 class="section-title mb-0">Organisasi & <em>Kegiatan Mahasiswa</em></h2>
       </div>
-      <a href="{{ route('homepage.organisasi') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple); font-size: 13.5px; padding: 10px 22px;">
+      <a href="{{ route('homepage.organisasi') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
         <i class="bi bi-people-fill me-1"></i> Lihat Semua Organisasi
       </a>
     </div>
@@ -1721,7 +1721,7 @@
 
               <div class="pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
                 <small class="text-muted"><i class="bi bi-person-fill text-primary me-1"></i>{{ Str::limit($ormawa->nama_ketua ?: 'Ketua Ormawa', 14) }}</small>
-                <a href="{{ route('homepage.organisasi.detail', $ormawa->slug) }}" class="fw-bold text-decoration-none" style="color: var(--fikes-purple); font-size: 12.5px;">
+                <a href="{{ route('homepage.organisasi.detail', $ormawa->slug) }}" class="fw-bold text-decoration-none" style="color: var(--pld-purple); font-size: 12.5px;">
                   Detail <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -1741,9 +1741,9 @@
     <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3" data-aos="fade-up">
       <div>
         <div class="section-label mb-2">Dokumentasi Visual</div>
-        <h2 class="section-title mb-0">Galeri & <em>Kegiatan FIKES UIS</em></h2>
+        <h2 class="section-title mb-0">Galeri & <em>Kegiatan PLD UIS</em></h2>
       </div>
-      <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple); font-size: 13.5px; padding: 10px 22px;">
+      <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
         <i class="bi bi-images me-1"></i> Lihat Semua Galeri
       </a>
     </div>
@@ -1789,10 +1789,10 @@
   <div class="container">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label mx-auto">Kisah Sukses Alumni</div>
-      <h2 class="section-title">Jejak Karir <em>Alumni FIKES UIS</em></h2>
+      <h2 class="section-title">Jejak Karir <em>Alumni PLD UIS</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Lulusan FIKES UIS telah berkarier di berbagai rumah sakit ternama, industri farmasi, laboratorium klinis, BUMN, dan institusi kesehatan terkemuka.
+        Lulusan PLD UIS telah berkarier di berbagai rumah sakit ternama, industri farmasi, laboratorium klinis, BUMN, dan institusi kesehatan terkemuka.
       </p>
     </div>
 
@@ -1829,7 +1829,7 @@
                     <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #823ca2; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
                     <div>
                       <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
-                      <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni FIKES UIS' }}</div>
+                      <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni PLD UIS' }}</div>
                     </div>
                   </div>
                 </div>
@@ -1848,7 +1848,7 @@
     </div>
 
     <div class="text-center mt-3" data-aos="fade-up">
-      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero px-4 py-2" style="color: var(--fikes-purple); border-color: var(--fikes-purple); border-radius: 25px; font-weight: 600;">
+      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero px-4 py-2" style="color: var(--pld-purple); border-color: var(--pld-purple); border-radius: 25px; font-weight: 600;">
         <i class="bi bi-chat-heart me-1"></i> Lihat Semua Ulasan Alumni
       </a>
     </div>
@@ -1867,8 +1867,8 @@
         {{-- Header Berita + Search Bar --}}
         <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
           <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-newspaper fs-2" style="color: var(--fikes-purple, #823ca2);"></i>
-            <h2 class="section-heading-fikes mb-0">Berita</h2>
+            <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #823ca2);"></i>
+            <h2 class="section-heading-pld mb-0">Berita</h2>
           </div>
           <form action="{{ route('homepage.news') }}" method="GET" class="news-search-pill">
             <input type="text" name="q" placeholder="Cari Berita Lainnya.." autocomplete="off">
@@ -1918,7 +1918,7 @@
 
         {{-- Tombol Lihat Berita Lainnya --}}
         <div class="text-center mt-3 pt-2">
-          <a href="{{ route('homepage.news') }}" class="btn-fikes-pill">
+          <a href="{{ route('homepage.news') }}" class="btn-pld-pill">
             Lihat Berita Lainnya
           </a>
         </div>
@@ -1930,8 +1930,8 @@
         {{-- SECTION PENGUMUMAN --}}
         <div class="mb-4">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-megaphone-fill fs-3" style="color: var(--fikes-purple, #823ca2);"></i>
-            <h3 class="section-heading-fikes mb-0" style="font-size: 24px;">Pengumuman</h3>
+            <i class="bi bi-megaphone-fill fs-3" style="color: var(--pld-purple, #823ca2);"></i>
+            <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Pengumuman</h3>
           </div>
 
           <div class="announcement-list">
@@ -1959,8 +1959,8 @@
         {{-- SECTION AGENDA --}}
         <div class="mt-4 pt-3 border-top">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-calendar4-week fs-3" style="color: var(--fikes-purple, #823ca2);"></i>
-            <h3 class="section-heading-fikes mb-0" style="font-size: 24px;">Agenda</h3>
+            <i class="bi bi-calendar4-week fs-3" style="color: var(--pld-purple, #823ca2);"></i>
+            <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Agenda</h3>
           </div>
 
           <div class="agenda-list">
@@ -2008,11 +2008,11 @@
     <div class="pmb-cta-box">
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
-          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--fikes-orange); color: #190a24; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
+          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #190a24; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
             {{ $pmbSetting->badge_text ?? 'PENERIMAAN MAHASISWA BARU (PMB) T.A. 2026/2027' }}
           </div>
           <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">
-            {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Cerah Bersama FIKES UIS!' }}
+            {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Cerah Bersama PLD UIS!' }}
           </h2>
           <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92; font-size: 14.5px;">
             {{ $pmbSetting->deskripsi ?? 'Tersedia berbagai jalur seleksi: Jalur Bebas Tes / Prestasi, Jalur Reguler, Jalur KIP-Kuliah, dan Jalur Alih Jenjang Karyawan.' }}
@@ -2031,7 +2031,7 @@
             @php
               $link2 = $pmbSetting->tombol_link_2 ?? '';
               if (empty($link2) && !empty($cleanWa)) {
-                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Admin PMB FIKES UIS, saya ingin konsultasi pendaftaran mahasiswa baru");
+                  $link2 = "https://wa.me/{$cleanWa}?text=" . urlencode("Halo Admin PMB PLD UIS, saya ingin konsultasi pendaftaran mahasiswa baru");
               }
             @endphp
             @if(!empty($link2))
@@ -2072,7 +2072,7 @@
       <h2 class="section-title">Mitra Kerjasama <em>Industri & Rumah Sakit</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        FIKES UIS bermitra dengan berbagai sektor industri terkemuka dalam penempatan magang klinis, riset, dan rekrutmen lulusan.
+        PLD UIS bermitra dengan berbagai sektor industri terkemuka dalam penempatan magang klinis, riset, dan rekrutmen lulusan.
       </p>
     </div>
   </div>
@@ -2162,7 +2162,7 @@
       <h2 class="section-title">Pertanyaan yang Sering <em>Diajukan</em></h2>
       <div class="divider-line centered"></div>
       <p class="section-desc mx-auto">
-        Jawaban seputar program studi, biaya perkuliahan, fasilitas laboratorium, dan prospek karir di FIKES UIS.
+        Jawaban seputar program studi, biaya perkuliahan, fasilitas laboratorium, dan prospek karir di PLD UIS.
       </p>
     </div>
 
@@ -2174,7 +2174,7 @@
               <div class="accordion-item shadow-sm">
                 <h2 class="accordion-header" id="headingH{{ $faq->id ?? $index }}">
                   <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH{{ $faq->id ?? $index }}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}">
-                    <i class="bi bi-question-circle-fill me-2" style="color: var(--fikes-purple);"></i>
+                    <i class="bi bi-question-circle-fill me-2" style="color: var(--pld-purple);"></i>
                     {{ $faq->question ?? $faq->pertanyaan }}
                   </button>
                 </h2>
@@ -2189,7 +2189,7 @@
         </div>
 
         <div class="text-center mt-4">
-          <a href="{{ route('homepage.faq') }}" class="btn-outline-hero" style="color: var(--fikes-purple); border-color: var(--fikes-purple);">
+          <a href="{{ route('homepage.faq') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple);">
             <i class="bi bi-question-circle"></i> Lihat Semua FAQ & Bantuan
           </a>
         </div>

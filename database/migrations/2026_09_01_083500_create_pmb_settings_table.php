@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pmb_settings', function (Blueprint $table) {
             $table->id();
             $table->string('badge_text')->nullable()->default('PENERIMAAN MAHASISWA BARU (PMB) T.A. 2026/2027');
-            $table->string('judul')->nullable()->default('Daftar Sekarang & Raih Masa Depan Cerah Bersama FIKES UIS!');
+            $table->string('judul')->nullable()->default('Daftar Sekarang & Raih Masa Depan Cerah Bersama PLD UIS!');
             $table->text('deskripsi')->nullable();
             $table->string('tombol_text_1')->nullable()->default('Daftar PMB Sekarang');
             $table->string('tombol_link_1')->nullable()->default('/kontak');

@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Kisah Sukses & Testimoni Alumni — Fakultas Ilmu Kesehatan (FIKES)')
+@section('title', 'Kisah Sukses & Testimoni Alumni — Fakultas Ilmu Kesehatan (PLD)')
 @section('meta_description', 'Baca ulasan, pengalaman, dan jejak karier alumni, mahasiswa, serta mitra institusi kesehatan Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
-@section('meta_keywords', 'testimoni alumni fikes, review fikes uis, jejak karir alumni kesehatan, ulasan lulusan fikes')
+@section('meta_keywords', 'testimoni alumni pld, review pld uis, jejak karir alumni kesehatan, ulasan lulusan pld')
 
 @push('styles')
 <style>
@@ -62,7 +62,7 @@
     background: #f0e6f5;
     overflow: hidden;
   }
-  .progress-bar-fikes {
+  .progress-bar-pld {
     background: linear-gradient(90deg, #ff9c00 0%, #823ca2 100%);
     height: 100%;
     border-radius: 10px;
@@ -83,7 +83,7 @@
 <!-- ═══════════════════════════════════════════════
      HERO BANNER
 ═══════════════════════════════════════════════ -->
-<div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--fikes-purple);">
+<div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--pld-purple);">
   <div class="container">
     <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
       <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(255, 156, 0, 0.15); border: 1px solid rgba(255, 156, 0, 0.4);">
@@ -91,12 +91,12 @@
         <span class="text-warning small fw-bold">PORTAL ALUMNI & CIVITAS</span>
       </div>
       <h1 style="font-size: 38px; font-weight: 800; color: var(--white); margin-bottom: 10px;">
-        Kisah Sukses & <em style="font-style: normal; color: var(--fikes-orange);">Testimoni Alumni</em>
+        Kisah Sukses & <em style="font-style: normal; color: var(--pld-orange);">Testimoni Alumni</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--fikes-orange); font-weight: 600;">Testimoni Alumni</span>
+        <span style="color: var(--pld-orange); font-weight: 600;">Testimoni Alumni</span>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
             @endfor
           </div>
           <h4 class="fw-bold text-white mb-1" style="font-size: 18px;">Penilaian Keseluruhan</h4>
-          <p class="text-white-50 small mb-0">Berdasarkan {{ $totalCount }} ulasan terverifikasi civitas & alumni FIKES UIS</p>
+          <p class="text-white-50 small mb-0">Berdasarkan {{ $totalCount }} ulasan terverifikasi civitas & alumni PLD UIS</p>
         </div>
       </div>
 
@@ -136,7 +136,7 @@
                 <i class="bi bi-star-fill text-warning" style="font-size: 12px;"></i>
               </div>
               <div class="progress-custom">
-                <div class="progress-bar-fikes" style="width: {{ $ratingPercentages[$star] ?? 0 }}%;"></div>
+                <div class="progress-bar-pld" style="width: {{ $ratingPercentages[$star] ?? 0 }}%;"></div>
               </div>
               <div class="star-pct">{{ $ratingCounts[$star] ?? 0 }} <small class="text-muted">({{ $ratingPercentages[$star] ?? 0 }}%)</small></div>
             </div>
@@ -236,7 +236,7 @@
               <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #823ca2; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
               <div>
                 <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
-                <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni FIKES UIS' }}</div>
+                <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni PLD UIS' }}</div>
               </div>
             </div>
           </div>

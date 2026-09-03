@@ -1,14 +1,14 @@
 @extends('layouts.frontend.template')
 
-@section('title', ($organisasi->singkatan ? $organisasi->singkatan . ' — ' : '') . $organisasi->nama_organisasi . ' | FIKES UIS')
-@section('meta_description', 'Profil lengkap ' . $organisasi->nama_organisasi . ' FIKES Universitas Ibnu Sina: Visi, Misi, Susunan Pengurus, Program Kerja dan Kegiatan Kemahasiswaan.')
+@section('title', ($organisasi->singkatan ? $organisasi->singkatan . ' — ' : '') . $organisasi->nama_organisasi . ' | PLD UIS')
+@section('meta_description', 'Profil lengkap ' . $organisasi->nama_organisasi . ' PLD Universitas Ibnu Sina: Visi, Misi, Susunan Pengurus, Program Kerja dan Kegiatan Kemahasiswaan.')
 
 @push('styles')
 <style>
   :root {
-    --fikes-purple: #823ca2;
-    --fikes-purple-dark: #591e73;
-    --fikes-orange: #ff9c00;
+    --pld-purple: #823ca2;
+    --pld-purple-dark: #591e73;
+    --pld-orange: #ff9c00;
   }
 
   .detail-hero {
@@ -93,7 +93,7 @@
     margin-bottom: 10px;
   }
   .sidebar-ormawa-item:hover {
-    border-color: var(--fikes-purple);
+    border-color: var(--pld-purple);
     background: #faf6fd;
     transform: translateX(4px);
   }
@@ -156,7 +156,7 @@
             <div>
               <h2 class="h4 fw-bold text-dark mb-1">{{ $organisasi->nama_organisasi }}</h2>
               <div class="d-flex flex-wrap align-items-center gap-2">
-                <span class="badge" style="background: var(--fikes-purple);">{{ $organisasi->kategori }}</span>
+                <span class="badge" style="background: var(--pld-purple);">{{ $organisasi->kategori }}</span>
                 @if(!empty($organisasi->periode))
                   <span class="badge bg-light text-dark border"><i class="bi bi-calendar3 me-1 text-warning"></i>Periode {{ $organisasi->periode }}</span>
                 @endif
@@ -304,7 +304,7 @@
 
           <div class="small text-muted p-2 rounded-3 bg-light border">
             <i class="bi bi-geo-alt-fill text-warning me-1"></i>
-            Sekretariat Bersama Gedung FIKES UIS Batam
+            Sekretariat Bersama Gedung PLD UIS Batam
           </div>
         </div>
 

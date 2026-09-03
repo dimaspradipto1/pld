@@ -54,8 +54,8 @@
                                id="title"
                                name="title"
                                class="form-control @error('title') is-invalid @enderror"
-                               value="{{ old('title', 'FIKES UIS Dalam Angka') }}"
-                               placeholder="Contoh: FIKES UIS Dalam Angka">
+                               value="{{ old('title', 'PLD UIS Dalam Angka') }}"
+                               placeholder="Contoh: PLD UIS Dalam Angka">
                         <div class="form-text">Teks judul yang tampil di atas angka statistik.</div>
                         @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>

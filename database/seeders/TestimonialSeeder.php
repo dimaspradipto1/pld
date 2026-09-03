@@ -20,7 +20,7 @@ class TestimonialSeeder extends Seeder
                 'pekerjaan' => 'Alumni Keperawatan (Perawat di RSUD)',
                 'kategori'  => 'Alumni',
                 'bintang'   => 5,
-                'pesan'     => 'Kuliah di FIKES memberikan pengalaman klinis yang luar biasa. Laboratorium OSCE dan simulasi gawat daruratnya sangat mirip dengan kondisi rumah sakit nyata.',
+                'pesan'     => 'Kuliah di PLD memberikan pengalaman klinis yang luar biasa. Laboratorium OSCE dan simulasi gawat daruratnya sangat mirip dengan kondisi rumah sakit nyata.',
                 'aktif'     => true,
             ],
             [
@@ -28,7 +28,7 @@ class TestimonialSeeder extends Seeder
                 'pekerjaan' => 'Bidan Praktik Mandiri',
                 'kategori'  => 'Alumni',
                 'bintang'   => 5,
-                'pesan'     => 'Dosen-dosen di FIKES sangat membimbing dan penuh dedikasi. Bekal ilmu kebidanan dan etika profesi yang ditanamkan sangat membantu saya dalam melayani ibu dan anak.',
+                'pesan'     => 'Dosen-dosen di PLD sangat membimbing dan penuh dedikasi. Bekal ilmu kebidanan dan etika profesi yang ditanamkan sangat membantu saya dalam melayani ibu dan anak.',
                 'aktif'     => true,
             ],
             [
@@ -36,7 +36,7 @@ class TestimonialSeeder extends Seeder
                 'pekerjaan' => 'Apoteker di Industri Farmasi Nasional',
                 'kategori'  => 'Alumni',
                 'bintang'   => 5,
-                'pesan'     => 'Kurikulum Farmasi FIKES sangat up-to-date dengan kebutuhan industri dan riset bahan alam. Praktikum laboratorium yang intensif memudahkan adaptasi di dunia kerja.',
+                'pesan'     => 'Kurikulum Farmasi PLD sangat up-to-date dengan kebutuhan industri dan riset bahan alam. Praktikum laboratorium yang intensif memudahkan adaptasi di dunia kerja.',
                 'aktif'     => true,
             ],
             [
@@ -44,7 +44,7 @@ class TestimonialSeeder extends Seeder
                 'pekerjaan' => 'Direktur Pelayanan Medis RS Mitra',
                 'kategori'  => 'Mitra Rumah Sakit',
                 'bintang'   => 5,
-                'pesan'     => 'Lulusan FIKES memiliki etos kerja yang tinggi, terampil secara klinis, dan selalu mengedepankan empati caring kepada pasien. Sangat kami rekomendasikan.',
+                'pesan'     => 'Lulusan PLD memiliki etos kerja yang tinggi, terampil secara klinis, dan selalu mengedepankan empati caring kepada pasien. Sangat kami rekomendasikan.',
                 'aktif'     => true,
             ],
             [
@@ -52,7 +52,7 @@ class TestimonialSeeder extends Seeder
                 'pekerjaan' => 'Mahasiswa Tingkat Akhir Kesehatan Masyarakat',
                 'kategori'  => 'Mahasiswa',
                 'bintang'   => 5,
-                'pesan'     => 'Program Pengalaman Belajar Lapangan (PBL) FIKES sangat seru dan mengasah kemampuan analisis epidemiologi serta advokasi kesehatan di tengah masyarakat.',
+                'pesan'     => 'Program Pengalaman Belajar Lapangan (PBL) PLD sangat seru dan mengasah kemampuan analisis epidemiologi serta advokasi kesehatan di tengah masyarakat.',
                 'aktif'     => true,
             ],
         ];

@@ -41,7 +41,7 @@ class FrontendController extends Controller
 
         if (!$facultyStat) {
             $facultyStat = (object) [
-                'title'           => 'FIKES UIS Dalam Angka',
+                'title'           => 'PLD UIS Dalam Angka',
                 'jumlah_prodi'    => 0,
                 'total_mahasiswa' => 0,
                 'total_dosen'     => 0,
@@ -99,7 +99,7 @@ class FrontendController extends Controller
         $totalSks = $courses->sum('sks');
         $totalMatakuliah = $courses->count();
 
-        $pageTitle = 'Kurikulum ' . ($currentProdi?->judul ?? 'Program Studi FIKES');
+        $pageTitle = 'Kurikulum ' . ($currentProdi?->judul ?? 'Program Studi PLD');
 
         return view('layouts.frontend.kurikulum', compact('prodis', 'currentProdi', 'coursesBySemester', 'totalSks', 'totalMatakuliah', 'pageTitle'));
     }
@@ -122,7 +122,7 @@ class FrontendController extends Controller
         $item = \App\Models\Akademik::firstOrCreate(['tipe' => 'pedoman'], [
             'judul'     => 'Pedoman & Panduan Akademik Mahasiswa',
             'subjudul'  => 'Buku panduan tata tertib, prosedur skripsi, magang/PKL, dan etika akademik.',
-            'deskripsi' => '<p>Buku Pedoman Akademik merupakan acuan utama bagi seluruh civitas akademika FIKES UIS dalam menjalankan aktivitas belajar-mengajar, tata tertib perkuliahan, evaluasi hasil belajar, dan layanan kemahasiswaan.</p>',
+            'deskripsi' => '<p>Buku Pedoman Akademik merupakan acuan utama bagi seluruh civitas akademika PLD UIS dalam menjalankan aktivitas belajar-mengajar, tata tertib perkuliahan, evaluasi hasil belajar, dan layanan kemahasiswaan.</p>',
             'link_url'  => '',
             'is_active' => true,
         ]);
@@ -135,7 +135,7 @@ class FrontendController extends Controller
         $item = \App\Models\Akademik::firstOrCreate(['tipe' => 'sistem'], [
             'judul'     => 'Portal Sistem Informasi Akademik (SIAKAD & E-Learning)',
             'subjudul'  => 'Layanan portal digital terpadu untuk pengisian KRS, presensi, nilai, dan pembelajaran online.',
-            'deskripsi' => '<p>Sistem Informasi Akademik (SIAKAD) FIKES Universitas Ibnu Sina memfasilitasi mahasiswa dan dosen dalam proses administrasi perkuliahan secara daring, cepat, dan transparan.</p>',
+            'deskripsi' => '<p>Sistem Informasi Akademik (SIAKAD) PLD Universitas Ibnu Sina memfasilitasi mahasiswa dan dosen dalam proses administrasi perkuliahan secara daring, cepat, dan transparan.</p>',
             'link_url'  => 'https://siakad.uis.ac.id',
             'is_active' => true,
         ]);
@@ -173,7 +173,7 @@ class FrontendController extends Controller
         $totalDosen = (clone $query)->count();
         $dosens = $query->orderBy('urutan')->orderBy('nama_dosen')->paginate(10)->withQueryString();
 
-        $pageTitle = 'Dosen ' . ($currentProdi?->judul ?? 'Program Studi FIKES UIS');
+        $pageTitle = 'Dosen ' . ($currentProdi?->judul ?? 'Program Studi PLD UIS');
 
         return view('layouts.frontend.dosen', compact('prodis', 'currentProdi', 'dosens', 'totalDosen', 'search', 'pageTitle'));
     }

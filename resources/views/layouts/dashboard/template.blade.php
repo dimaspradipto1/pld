@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard Portal — Fakultas Ilmu Kesehatan (FIKES)</title>
+    <title>Dashboard Portal — Fakultas Ilmu Kesehatan (PLD)</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -39,10 +39,10 @@
 
     <style>
         :root {
-            --fikes-purple: #823ca2;
-            --fikes-purple-dark: #672985;
-            --fikes-orange: #ff9c00;
-            --fikes-orange-dark: #e08800;
+            --pld-purple: #823ca2;
+            --pld-purple-dark: #672985;
+            --pld-orange: #ff9c00;
+            --pld-orange-dark: #e08800;
         }
         /* Header — Solid Purple #823ca2 */
         .header {

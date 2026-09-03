@@ -36,7 +36,7 @@ use App\Http\Controllers\LayananTerkaitController;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend / Public Routes — FIKES (Fakultas Ilmu Kesehatan)
+| Frontend / Public Routes — PLD
 |--------------------------------------------------------------------------
 */
 Route::controller(FrontendController::class)->group(function () {

@@ -17,7 +17,7 @@
         <div class="card shadow-sm">
             <div class="card-header py-3">
                 <h5 class="mb-0 fw-semibold">
-                    <i class="bi bi-pencil-square me-2 text-warning"></i>Form Edit Post & Berita FIKES
+                    <i class="bi bi-pencil-square me-2 text-warning"></i>Form Edit Post & Berita PLD
                 </h5>
             </div>
             <div class="card-body pt-4">
@@ -273,7 +273,7 @@
                         <a href="{{ route('news.index') }}" class="btn btn-secondary">
                             <i class="bi bi-arrow-left me-1"></i> Batal
                         </a>
-                        <button type="submit" class="btn btn-primary" style="background: var(--fikes-purple); border-color: var(--fikes-purple);">
+                        <button type="submit" class="btn btn-primary" style="background: var(--pld-purple); border-color: var(--pld-purple);">
                             <i class="bi bi-save me-1"></i> Simpan Perubahan
                         </button>
                     </div>

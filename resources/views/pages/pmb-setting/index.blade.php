@@ -8,7 +8,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item">Profil & Konten FIKES</li>
+            <li class="breadcrumb-item">Profil & Konten PLD</li>
             <li class="breadcrumb-item active">Banner PMB</li>
         </ol>
     </nav>
@@ -74,7 +74,7 @@
                                 <label for="judul" class="form-label fw-bold text-dark">
                                     Judul Utama Banner PMB <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="judul" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $pmb->judul) }}" placeholder="Daftar Sekarang & Raih Masa Depan Cerah Bersama FIKES UIS!" required>
+                                <input type="text" id="judul" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul', $pmb->judul) }}" placeholder="Daftar Sekarang & Raih Masa Depan Cerah Bersama PLD UIS!" required>
                                 <div class="form-text small text-muted">Headline utama yang mencolok bagi calon pendaftar.</div>
                                 @error('judul')
                                     <div class="invalid-feedback">{{ $message }}</div>

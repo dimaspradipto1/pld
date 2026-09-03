@@ -151,7 +151,7 @@ class DosenController extends Controller
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-        $sheet->setTitle('Template Dosen FIKES');
+        $sheet->setTitle('Template Dosen PLD');
 
         // Headers
         $headers = [
@@ -168,7 +168,7 @@ class DosenController extends Controller
             $sheet->setCellValue($cell, $text);
         }
 
-        // Header Styling (Ungu FIKES #823ca2 dengan teks putih)
+        // Header Styling (Ungu PLD #823ca2 dengan teks putih)
         $headerStyle = [
             'font' => [
                 'bold' => true,
@@ -251,7 +251,7 @@ class DosenController extends Controller
 
         $notes = [
             "1. Kolom bertanda (*) Nama Lengkap & Gelar Dosen serta Program Studi WAJIB diisi.",
-            "2. Kolom Program Studi dapat diisi dengan nama prodi yang ada di FIKES (contoh: {$prodi1}, {$prodi2}, {$prodi3}).",
+            "2. Kolom Program Studi dapat diisi dengan nama prodi yang ada di PLD (contoh: {$prodi1}, {$prodi2}, {$prodi3}).",
             "3. Kolom Jabatan Fungsional dapat diisi: Tenaga Pengajar, Asisten Ahli, Lektor, Lektor Kepala, atau Guru Besar.",
             "4. Kolom NIDN, NUPTK, dan Link Profil bersifat opsional. Pastikan format angka NIDN/NUPTK tidak terpotong (disimpan sebagai teks).",
             "5. Anda dapat menghapus baris contoh sebelum mengunggah file hasil inputan."
@@ -263,7 +263,7 @@ class DosenController extends Controller
             $sheet->getStyle("B{$currRow}")->getFont()->setSize(10)->getColor()->setRGB('555555');
         }
 
-        $fileName = 'Template_Import_Dosen_FIKES.xlsx';
+        $fileName = 'Template_Import_Dosen_PLD.xlsx';
 
         return response()->streamDownload(function () use ($spreadsheet) {
             $writer = new Xlsx($spreadsheet);

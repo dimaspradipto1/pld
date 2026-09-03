@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('topbars', function (Blueprint $table) {
             $table->id();
-            $table->string('badge_text')->default('FIKES UIS');
+            $table->string('badge_text')->default('PLD UIS');
             $table->string('badge_icon')->nullable()->default('bi-shield-check');
             $table->string('alamat')->nullable();
             $table->string('jam_operasional')->nullable()->default('Senin - Sabtu: 08.00 - 17.00 WIB');

@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sambutan Dekan — Fakultas Ilmu Kesehatan (FIKES UIS)')
-@section('meta_description', 'Sambutan resmi Dekan Fakultas Ilmu Kesehatan (FIKES) Universitas Ibnu Sina.')
-@section('meta_keywords', 'sambutan dekan fikes, dekan fikes uis, pimpinan fakultas ilmu kesehatan')
+@section('title', 'Sambutan Dekan — Fakultas Ilmu Kesehatan (PLD UIS)')
+@section('meta_description', 'Sambutan resmi Dekan Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
+@section('meta_keywords', 'sambutan dekan pld, dekan pld uis, pimpinan fakultas ilmu kesehatan')
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 70px 0 50px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .dekan-hero-title {
     font-size: 38px;
@@ -20,7 +20,7 @@
   }
   .dekan-hero-title em {
     font-style: normal;
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
   }
   .breadcrumb-custom {
     display: inline-flex;
@@ -30,8 +30,8 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
-  .breadcrumb-custom a:hover { color: var(--fikes-orange); }
-  .breadcrumb-custom .active { color: var(--fikes-orange); font-weight: 600; }
+  .breadcrumb-custom a:hover { color: var(--pld-orange); }
+  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
 
   /* Dekan Card */
   .dekan-portrait-box {
@@ -52,14 +52,14 @@
     border-radius: 18px;
     margin-bottom: 20px;
     box-shadow: var(--shadow-sm);
-    border: 3px solid var(--fikes-purple-light);
+    border: 3px solid var(--pld-purple-light);
   }
   .dekan-avatar-fallback {
     width: 100%;
     max-width: 280px;
     height: 340px;
     margin: 0 auto 20px;
-    background: linear-gradient(135deg, var(--fikes-purple) 0%, #47175d 100%);
+    background: linear-gradient(135deg, var(--pld-purple) 0%, #47175d 100%);
     color: #ffffff;
     border-radius: 18px;
     display: flex;
@@ -77,8 +77,8 @@
   }
   .dekan-role-badge {
     display: inline-block;
-    background: var(--fikes-purple-light);
-    color: var(--fikes-purple);
+    background: var(--pld-purple-light);
+    color: var(--pld-purple);
     font-size: 13px;
     font-weight: 700;
     padding: 5px 16px;
@@ -86,8 +86,8 @@
     margin-bottom: 15px;
   }
   .dekan-quote-callout {
-    background: var(--fikes-purple-light);
-    border-left: 4px solid var(--fikes-purple);
+    background: var(--pld-purple-light);
+    border-left: 4px solid var(--pld-purple);
     border-radius: 0 16px 16px 0;
     padding: 20px 24px;
     font-style: italic;
@@ -141,7 +141,7 @@
       <div class="col-lg-4" data-aos="fade-right">
         <div class="dekan-portrait-box">
           @if(!empty($sambutanDekan?->foto_dekan))
-            <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan FIKES UIS' }}" class="dekan-portrait-img">
+            <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan PLD UIS' }}" class="dekan-portrait-img">
           @else
             <div class="dekan-avatar-fallback">
               <i class="bi bi-person-circle"></i>
@@ -149,14 +149,14 @@
             </div>
           @endif
 
-          <h3 class="dekan-name-title">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan Dekanat FIKES UIS' }}</h3>
+          <h3 class="dekan-name-title">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan Dekanat PLD UIS' }}</h3>
           <span class="dekan-role-badge">
             <i class="bi bi-award-fill me-1"></i> {{ $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan' }}
           </span>
 
           <div class="pt-3 border-top mt-3 text-muted small text-start">
             <div class="mb-2"><i class="bi bi-mortarboard me-2 text-primary"></i> Universitas Ibnu Sina (UIS) Batam</div>
-            <div><i class="bi bi-geo-alt me-2 text-danger"></i> Kampus Utama FIKES UIS</div>
+            <div><i class="bi bi-geo-alt me-2 text-danger"></i> Kampus Utama PLD UIS</div>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@
 
         {{-- Kutipan Singkat --}}
         <div class="dekan-quote-callout">
-          <i class="bi bi-quote fs-3 d-block mb-1" style="color: var(--fikes-purple);"></i>
+          <i class="bi bi-quote fs-3 d-block mb-1" style="color: var(--pld-purple);"></i>
           "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Fakultas Ilmu Kesehatan Universitas Ibnu Sina. Kami bertekad membentuk generasi tenaga kesehatan yang tidak hanya unggul secara akademis dan terampil dalam praktik industri, namun juga memiliki integritas moral dan etika luhur dalam mengabdi kepada bangsa.')) }}"
         </div>
 
@@ -184,10 +184,10 @@
               Salam sejahtera untuk kita semua.
             </p>
             <p>
-              Puji dan syukur senantiasa kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, atas limpahan rahmat dan karunia-Nya sehingga Fakultas Ilmu Kesehatan (FIKES) Universitas Ibnu Sina terus tumbuh dan berkembang menjadi salah satu pusat pendidikan tinggi kesehatan terkemuka di kawasan Kepulauan Riau dan Indonesia.
+              Puji dan syukur senantiasa kita panjatkan ke hadirat Allah SWT, Tuhan Yang Maha Esa, atas limpahan rahmat dan karunia-Nya sehingga Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina terus tumbuh dan berkembang menjadi salah satu pusat pendidikan tinggi kesehatan terkemuka di kawasan Kepulauan Riau dan Indonesia.
             </p>
             <p>
-              Tantangan dunia kesehatan saat ini menuntut kesiapan tenaga profesional yang tidak hanya menguasai teori, namun juga adaptif terhadap kemajuan teknologi kesehatan industri, keselamatan kerja (K3), kesehatan lingkungan, dan epidemiologi terapan. Oleh karena itu, kurikulum FIKES UIS dirancang secara komprehensif dengan memadukan penguasaan sains, praktikum laboratorium modern, serta magang di rumah sakit dan sektor industri terkemuka.
+              Tantangan dunia kesehatan saat ini menuntut kesiapan tenaga profesional yang tidak hanya menguasai teori, namun juga adaptif terhadap kemajuan teknologi kesehatan industri, keselamatan kerja (K3), kesehatan lingkungan, dan epidemiologi terapan. Oleh karena itu, kurikulum PLD UIS dirancang secara komprehensif dengan memadukan penguasaan sains, praktikum laboratorium modern, serta magang di rumah sakit dan sektor industri terkemuka.
             </p>
             <p>
               Kepada seluruh civitas akademika, para mahasiswa, alumni, dan calon mahasiswa baru, mari bersama-sama kita wujudkan komitmen Tri Dharma Perguruan Tinggi dengan dedikasi terbaik demi kesehatan dan kesejahteraan masyarakat.
@@ -196,7 +196,7 @@
               <em>Wassalamu’alaikum Warahmatullahi Wabarakatuh.</em>
             </p>
             <p class="text-muted">
-              <strong>{{ $sambutanDekan->nama_dekan ?? 'Dekanat FIKES UIS' }}</strong><br>
+              <strong>{{ $sambutanDekan->nama_dekan ?? 'Dekanat PLD UIS' }}</strong><br>
               <small>{{ $sambutanDekan->jabatan_dekan ?? 'Dekan Fakultas Ilmu Kesehatan Universitas Ibnu Sina' }}</small>
             </p>
           @endif
@@ -207,7 +207,7 @@
           <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
             <i class="bi bi-grid-fill me-1"></i> Program Studi Kami
           </a>
-          <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero" style="font-size: 13.5px; padding: 10px 22px; color: var(--fikes-purple); border-color: var(--fikes-purple);">
+          <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero" style="font-size: 13.5px; padding: 10px 22px; color: var(--pld-purple); border-color: var(--pld-purple);">
             <i class="bi bi-envelope me-1"></i> Hubungi Dekanat
           </a>
         </div>

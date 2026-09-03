@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('tri_dharmas', function (Blueprint $table) {
             $table->id();
             $table->string('icon')->default('bi-journal-check');
-            $table->string('warna')->nullable()->default('var(--fikes-purple)');
+            $table->string('warna')->nullable()->default('var(--pld-purple)');
             $table->string('judul');
             $table->text('deskripsi')->nullable();
             $table->unsignedTinyInteger('urutan')->default(0);

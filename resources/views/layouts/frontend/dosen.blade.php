@@ -1,14 +1,14 @@
 @extends('layouts.frontend.template')
 
 @section('title', ($pageTitle ?? 'Dosen Pengajar') . ' — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Direktori staf pengajar dan dosen tetap program studi Fakultas Ilmu Kesehatan (FIKES) Universitas Ibnu Sina.')
+@section('meta_description', 'Direktori staf pengajar dan dosen tetap program studi Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
 
 @push('styles')
 <style>
   .dosen-hero {
     background: var(--obsidian-dark);
     padding: 65px 0 45px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .prodi-header-pill {
     background: #ffc107;
@@ -53,9 +53,9 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--fikes-purple, #823ca2) !important;
+    background: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
-    border-color: var(--fikes-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
     box-shadow: 0 6px 18px rgba(130, 60, 162, 0.3);
   }
 
@@ -115,13 +115,13 @@
 
   /* Custom Pagination Theme */
   .pagination .page-item.active .page-link {
-    background-color: var(--fikes-purple, #823ca2) !important;
-    border-color: var(--fikes-purple, #823ca2) !important;
+    background-color: var(--pld-purple, #823ca2) !important;
+    border-color: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
     font-weight: 700;
   }
   .pagination .page-link {
-    color: var(--fikes-purple, #823ca2);
+    color: var(--pld-purple, #823ca2);
     border-radius: 8px;
     margin: 0 3px;
     border: 1px solid var(--border-light);
@@ -145,7 +145,7 @@
       </ol>
     </nav>
     <div class="badge px-3 py-2 rounded-pill mb-2" style="background: rgba(229, 168, 35, 0.2); color: #ffd166; border: 1px solid rgba(229, 168, 35, 0.4);">
-      <i class="bi bi-person-workspace me-1"></i> Tenaga Pendidik & Dosen FIKES UIS
+      <i class="bi bi-person-workspace me-1"></i> Tenaga Pendidik & Dosen PLD UIS
     </div>
     <h1 class="fw-bold mb-2" style="font-size: 34px;">Daftar Dosen Pengajar</h1>
     <p class="text-white-50 mx-auto mb-0" style="max-width: 620px; font-size: 14.5px;">
@@ -243,7 +243,7 @@
                   <td>
                     <div class="d-flex align-items-center gap-3">
                       @if(!empty($dosen->foto))
-                        <img src="{{ asset('storage/' . $dosen->foto) }}" alt="{{ $dosen->nama_dosen }}" class="rounded-circle shadow-sm" style="width: 42px; height: 42px; object-fit: cover; border: 2px solid var(--fikes-purple-light);">
+                        <img src="{{ asset('storage/' . $dosen->foto) }}" alt="{{ $dosen->nama_dosen }}" class="rounded-circle shadow-sm" style="width: 42px; height: 42px; object-fit: cover; border: 2px solid var(--pld-purple-light);">
                       @else
                         <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #823ca2 0%, #190a24 100%); font-size: 14px;">
                           {{ strtoupper(substr($dosen->nama_dosen, 0, 1)) }}
@@ -311,7 +311,7 @@
     <!-- Info Bantuan Box -->
     <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #190a24 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
       <div>
-        <h5 class="fw-bold text-white mb-1"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Tertarik Menjadi Mahasiswa Bimbingan Dosen FIKES UIS?</h5>
+        <h5 class="fw-bold text-white mb-1"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Tertarik Menjadi Mahasiswa Bimbingan Dosen PLD UIS?</h5>
         <p class="text-white-50 small mb-0">Daftarkan diri Anda pada program sarjana & magister kesehatan melalui jalur PMB Online.</p>
       </div>
       <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #190a24;">

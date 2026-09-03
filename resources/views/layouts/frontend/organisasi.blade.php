@@ -1,14 +1,14 @@
 @extends('layouts.frontend.template')
 
 @section('title', 'Organisasi & Kegiatan Mahasiswa — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Daftar Lembaga, Organisasi Mahasiswa (BEM, HIMA, UKM, Komunitas), serta wadah kreativitas dan kegiatan mahasiswa FIKES Universitas Ibnu Sina.')
+@section('meta_description', 'Daftar Lembaga, Organisasi Mahasiswa (BEM, HIMA, UKM, Komunitas), serta wadah kreativitas dan kegiatan mahasiswa PLD Universitas Ibnu Sina.')
 
 @push('styles')
 <style>
   :root {
-    --fikes-purple: #823ca2;
-    --fikes-purple-dark: #591e73;
-    --fikes-orange: #ff9c00;
+    --pld-purple: #823ca2;
+    --pld-purple-dark: #591e73;
+    --pld-orange: #ff9c00;
   }
 
   .ormawa-hero {
@@ -58,14 +58,14 @@
     display: inline-block;
   }
   .category-pill:hover {
-    border-color: var(--fikes-purple);
-    color: var(--fikes-purple);
+    border-color: var(--pld-purple);
+    color: var(--pld-purple);
     background: rgba(130, 60, 162, 0.05);
   }
   .category-pill.active {
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     color: #fff !important;
-    border-color: var(--fikes-purple);
+    border-color: var(--pld-purple);
     box-shadow: 0 4px 14px rgba(130, 60, 162, 0.3);
   }
 
@@ -145,7 +145,7 @@
     transition: color 0.2s;
   }
   .ormawa-title a:hover {
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
   }
 
   .ormawa-leader-box {
@@ -153,7 +153,7 @@
     border-radius: 10px;
     padding: 10px 14px;
     font-size: 12.5px;
-    border-left: 3px solid var(--fikes-purple);
+    border-left: 3px solid var(--pld-purple);
     margin-bottom: 14px;
   }
 
@@ -200,14 +200,14 @@
 
   /* Pagination */
   .page-link {
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     border-radius: 8px !important;
     margin: 0 3px;
     border: 1px solid #e0d0e8;
   }
   .page-item.active .page-link {
-    background-color: var(--fikes-purple);
-    border-color: var(--fikes-purple);
+    background-color: var(--pld-purple);
+    border-color: var(--pld-purple);
     color: #fff;
   }
 </style>
@@ -221,7 +221,7 @@
       <div class="col-lg-8" data-aos="fade-up">
         <div class="ormawa-hero-badge">
           <i class="bi bi-people-fill"></i>
-          <span>Kemahasiswaan FIKES UIS</span>
+          <span>Kemahasiswaan PLD UIS</span>
         </div>
         <h1 class="fw-bold mb-3 text-white" style="font-size: clamp(26px, 3.5vw, 42px); line-height: 1.2;">
           Organisasi & Kegiatan Mahasiswa
@@ -273,7 +273,7 @@
             @endif
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Cari nama organisasi, ketua..." value="{{ $search }}" style="border-radius: 50px 0 0 50px; border-color: #e0d0e8; padding-left: 18px; font-size: 13.5px;">
-              <button class="btn btn-primary px-4" type="submit" style="background: var(--fikes-purple); border-color: var(--fikes-purple); border-radius: 0 50px 50px 0;">
+              <button class="btn btn-primary px-4" type="submit" style="background: var(--pld-purple); border-color: var(--pld-purple); border-radius: 0 50px 50px 0;">
                 <i class="bi bi-search"></i>
               </button>
             </div>
@@ -393,7 +393,7 @@
         <i class="bi bi-people text-muted" style="font-size: 50px;"></i>
         <h5 class="fw-bold mt-3 text-dark">Data Organisasi Tidak Ditemukan</h5>
         <p class="text-muted mb-3">Silakan gunakan kata kunci lain atau pilih kategori yang tersedia.</p>
-        <a href="{{ route('homepage.organisasi') }}" class="btn btn-primary btn-sm px-4" style="background: var(--fikes-purple); border-color: var(--fikes-purple);">
+        <a href="{{ route('homepage.organisasi') }}" class="btn btn-primary btn-sm px-4" style="background: var(--pld-purple); border-color: var(--pld-purple);">
           Lihat Semua Organisasi
         </a>
       </div>

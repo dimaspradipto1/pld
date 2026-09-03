@@ -1,9 +1,9 @@
 @extends('layouts.frontend.template')
 
-@section('title', $news->title . ' — FIKES UIS')
+@section('title', $news->title . ' — PLD UIS')
 @section('meta_description', Str::limit($news->description ?? strip_tags($news->content), 160))
-@section('meta_keywords', 'berita fikes, fikes uis, ' . ($news->category ?? 'artikel kesehatan'))
-@section('meta_author', $news->user?->name ?? 'Admin FIKES')
+@section('meta_keywords', 'berita pld, pld uis, ' . ($news->category ?? 'artikel kesehatan'))
+@section('meta_author', $news->user?->name ?? 'Admin PLD')
 
 {{-- Open Graph & Social Share Preview Meta Data --}}
 @section('og_type', 'article')
@@ -17,14 +17,14 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 65px 0 45px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .article-meta-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     background: rgba(130, 60, 162, 0.45);
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
     border: 1px solid rgba(255, 156, 0, 0.4);
     font-size: 12px;
     font-weight: 700;
@@ -206,7 +206,7 @@
     width: 54px;
     height: 54px;
     border-radius: 50%;
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -253,23 +253,23 @@
     transition: all 0.2s ease;
   }
   .category-widget-link:hover {
-    background: var(--fikes-purple-light);
-    border-color: var(--fikes-purple);
-    color: var(--fikes-purple) !important;
+    background: var(--pld-purple-light);
+    border-color: var(--pld-purple);
+    color: var(--pld-purple) !important;
     transform: translateX(4px);
   }
   .category-widget-link.active {
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     color: #ffffff !important;
-    border-color: var(--fikes-purple);
+    border-color: var(--pld-purple);
   }
   .category-widget-link .cat-icon {
     font-size: 15px;
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     transition: color 0.2s ease;
   }
   .category-widget-link:hover .cat-icon {
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
   }
   .category-widget-link.active .cat-icon {
     color: #ffffff;
@@ -285,7 +285,7 @@
   }
   .category-widget-link:hover .cat-count-badge {
     background: rgba(130, 60, 162, 0.15);
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
   }
   .category-widget-link.active .cat-count-badge {
     background: rgba(255, 255, 255, 0.25);
@@ -308,11 +308,11 @@
       </div>
       <h1 class="article-title-main">{{ $news->title }}</h1>
       <div class="d-flex flex-wrap align-items-center gap-3 text-white-50 small">
-        <span><i class="bi bi-calendar3 me-1" style="color:var(--fikes-orange);"></i> {{ $news->created_at->translatedFormat('d F Y') }}</span>
+        <span><i class="bi bi-calendar3 me-1" style="color:var(--pld-orange);"></i> {{ $news->created_at->translatedFormat('d F Y') }}</span>
         <span>•</span>
-        <span><i class="bi bi-person me-1" style="color:var(--fikes-orange);"></i> {{ $news->user?->name ?? 'Redaksi FIKES UIS' }}</span>
+        <span><i class="bi bi-person me-1" style="color:var(--pld-orange);"></i> {{ $news->user?->name ?? 'Redaksi PLD UIS' }}</span>
         <span>•</span>
-        <span><i class="bi bi-clock me-1" style="color:var(--fikes-orange);"></i> {{ ceil(str_word_count(strip_tags($news->content ?? '')) / 200) ?: 1 }} menit baca</span>
+        <span><i class="bi bi-clock me-1" style="color:var(--pld-orange);"></i> {{ ceil(str_word_count(strip_tags($news->content ?? '')) / 200) ?: 1 }} menit baca</span>
       </div>
     </div>
   </div>
@@ -348,9 +348,9 @@
             <div class="gallery-section-box">
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <h5 class="fw-bold mb-0 text-dark">
-                  <i class="bi bi-images me-2" style="color:var(--fikes-purple);"></i>Dokumentasi Foto Kegiatan ({{ $photoCount }} Foto)
+                  <i class="bi bi-images me-2" style="color:var(--pld-purple);"></i>Dokumentasi Foto Kegiatan ({{ $photoCount }} Foto)
                 </h5>
-                <span class="badge" style="background: var(--fikes-orange); color:#190a24;">Galeri Foto</span>
+                <span class="badge" style="background: var(--pld-orange); color:#190a24;">Galeri Foto</span>
               </div>
               <p class="text-muted small mb-3">Klik gambar untuk melihat tampilan resolusi penuh.</p>
 
@@ -372,14 +372,14 @@
             <div class="author-avatar">{{ strtoupper(substr($news->user?->name ?? 'A', 0, 1)) }}</div>
             <div>
               <div class="small text-muted">Diterbitkan oleh:</div>
-              <div class="fw-bold text-dark">{{ $news->user?->name ?? 'Redaksi FIKES UIS' }}</div>
+              <div class="fw-bold text-dark">{{ $news->user?->name ?? 'Redaksi PLD UIS' }}</div>
               <div class="small text-muted">Fakultas Ilmu Kesehatan — Universitas Ibnu Sina</div>
             </div>
           </div>
 
           {{-- Share & Back --}}
           <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 pt-4 mt-4 border-top">
-            <a href="{{ route('homepage.news') }}" class="btn-outline-hero" style="color:var(--fikes-purple); border-color:var(--fikes-purple); font-size:13px; padding:8px 18px;">
+            <a href="{{ route('homepage.news') }}" class="btn-outline-hero" style="color:var(--pld-purple); border-color:var(--pld-purple); font-size:13px; padding:8px 18px;">
               <i class="bi bi-arrow-left"></i> Kembali ke Daftar Berita
             </a>
             <div class="d-flex align-items-center gap-2">
@@ -401,7 +401,7 @@
 
         {{-- Ringkasan --}}
         <div class="sidebar-box">
-          <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-info-circle me-2" style="color:var(--fikes-purple);"></i>Sekilas Berita</h5>
+          <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-info-circle me-2" style="color:var(--pld-purple);"></i>Sekilas Berita</h5>
           <p class="text-muted small mb-0" style="line-height:1.7;">
             {{ $news->description ?? Str::limit(strip_tags($news->content), 180) }}
           </p>
@@ -410,7 +410,7 @@
         {{-- Berita Terkait --}}
         @if(isset($relatedNews) && $relatedNews->count() > 0)
           <div class="sidebar-box">
-            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-newspaper me-2" style="color:var(--fikes-orange);"></i>Berita Lainnya</h5>
+            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-newspaper me-2" style="color:var(--pld-orange);"></i>Berita Lainnya</h5>
             <div class="d-flex flex-column gap-3">
               @foreach($relatedNews as $related)
                 <a href="{{ route('homepage.news.detail', $related->slug ?? $related->id) }}" class="d-flex gap-3 text-decoration-none text-dark group-hover">
@@ -434,7 +434,7 @@
         {{-- Widget Kategori Berita --}}
         <div class="sidebar-box">
           <h5 class="fw-bold mb-3 text-dark">
-            <i class="bi bi-grid-fill me-2" style="color:var(--fikes-purple);"></i>Kategori Berita
+            <i class="bi bi-grid-fill me-2" style="color:var(--pld-purple);"></i>Kategori Berita
           </h5>
           <div class="category-widget-list">
             @php
@@ -464,9 +464,9 @@
         </div>
 
         {{-- Banner PMB Mini --}}
-        <div class="sidebar-box text-white" style="background: var(--obsidian-dark); border: 2px solid var(--fikes-purple);">
-          <span class="badge mb-2" style="background: var(--fikes-orange); color:#190a24; font-weight:800;">PMB 2026/2027</span>
-          <h5 class="fw-bold mb-2">Ingin Kuliah di FIKES UIS?</h5>
+        <div class="sidebar-box text-white" style="background: var(--obsidian-dark); border: 2px solid var(--pld-purple);">
+          <span class="badge mb-2" style="background: var(--pld-orange); color:#190a24; font-weight:800;">PMB 2026/2027</span>
+          <h5 class="fw-bold mb-2">Ingin Kuliah di PLD UIS?</h5>
           <p class="text-white-50 small mb-3">Tersedia Program Studi S2 Kesehatan Masyarakat, S1 K3, dan S1 Kesehatan Lingkungan.</p>
           <a href="{{ route('homepage.kontak') }}" class="btn-primary-hero w-100 justify-content-center" style="font-size:13px; padding:9px 14px;">
             Daftar Sekarang <i class="bi bi-arrow-right"></i>

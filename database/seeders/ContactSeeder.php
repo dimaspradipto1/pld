@@ -19,8 +19,8 @@ class ContactSeeder extends Seeder
             'longitude' => '106.816666',
             'map'       => '<iframe src="https://www.google.com/maps?q=Fakultas+Ilmu+Kesehatan&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
             'no_wa'     => '6281234567890',
-            'email'     => 'info@fikes.ac.id',
-            'alamat'    => 'Gedung Fakultas Ilmu Kesehatan (FIKES), Kampus Terpadu, Indonesia',
+            'email'     => 'info@pld.ac.id',
+            'alamat'    => 'Gedung PLD UIS, Kampus Terpadu, Indonesia',
         ]);
     }
 }

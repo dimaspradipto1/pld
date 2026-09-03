@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Berita & Informasi Terkini — Fakultas Ilmu Kesehatan (FIKES UIS)')
-@section('meta_description', 'Ikuti berita, pengumuman akademik, riset, dan artikel kesehatan terbaru dari Fakultas Ilmu Kesehatan Universitas Ibnu Sina (FIKES UIS).')
-@section('meta_keywords', 'berita fikes, artikel kesehatan, k3 batam, kesehatan lingkungan, pengumuman uis, fikes ibnu sina')
+@section('title', 'Berita & Informasi Terkini — Fakultas Ilmu Kesehatan (PLD UIS)')
+@section('meta_description', 'Ikuti berita, pengumuman akademik, riset, dan artikel kesehatan terbaru dari Fakultas Ilmu Kesehatan Universitas Ibnu Sina (PLD UIS).')
+@section('meta_keywords', 'berita pld, artikel kesehatan, k3 batam, kesehatan lingkungan, pengumuman uis, pld ibnu sina')
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 75px 0 55px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .news-hero-title {
     font-size: 38px;
@@ -20,7 +20,7 @@
   }
   .news-hero-title em {
     font-style: normal;
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
   }
   .news-card-portal {
     background: var(--white);
@@ -43,7 +43,7 @@
     position: relative;
     height: 210px;
     overflow: hidden;
-    background: var(--fikes-purple-light);
+    background: var(--pld-purple-light);
   }
   .news-card-thumb {
     width: 100%;
@@ -59,7 +59,7 @@
     bottom: 10px;
     right: 10px;
     background: rgba(25, 10, 36, 0.85);
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
     border: 1px solid rgba(255, 156, 0, 0.4);
     font-size: 11px;
     font-weight: 700;
@@ -71,7 +71,7 @@
     position: absolute;
     top: 12px;
     left: 12px;
-    background: var(--fikes-purple);
+    background: var(--pld-purple);
     color: var(--white);
     font-size: 11px;
     font-weight: 700;
@@ -88,7 +88,7 @@
   }
   .news-featured-box {
     background: var(--white);
-    border: 2px solid var(--fikes-purple);
+    border: 2px solid var(--pld-purple);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -120,14 +120,14 @@
     white-space: nowrap;
   }
   .cat-pill-item:hover {
-    background: var(--fikes-purple-light);
-    border-color: var(--fikes-purple);
-    color: var(--fikes-purple) !important;
+    background: var(--pld-purple-light);
+    border-color: var(--pld-purple);
+    color: var(--pld-purple) !important;
     transform: translateY(-2px);
   }
   .cat-pill-item.active {
-    background: var(--fikes-purple);
-    border-color: var(--fikes-purple);
+    background: var(--pld-purple);
+    border-color: var(--pld-purple);
     color: #ffffff !important;
     box-shadow: 0 2px 8px rgba(130, 60, 162, 0.3);
   }
@@ -143,7 +143,7 @@
     max-width: 100%;
   }
   .news-search-input-box:focus-within {
-    border-color: var(--fikes-purple);
+    border-color: var(--pld-purple);
     background: #ffffff;
     box-shadow: 0 0 0 3px rgba(130, 60, 162, 0.12);
   }
@@ -158,7 +158,7 @@
   .news-search-input-box button {
     border: none;
     background: transparent;
-    color: var(--fikes-purple);
+    color: var(--pld-purple);
     cursor: pointer;
     padding: 0;
     display: flex;
@@ -175,8 +175,8 @@
 <div class="news-hero">
   <div class="container">
     <div data-aos="fade-up">
-      <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(130, 60, 162, 0.45); color: var(--fikes-orange); border: 1px solid rgba(255, 156, 0, 0.4);">
-        <i class="bi bi-newspaper me-1"></i> Warta & Informasi FIKES UIS
+      <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(130, 60, 162, 0.45); color: var(--pld-orange); border: 1px solid rgba(255, 156, 0, 0.4);">
+        <i class="bi bi-newspaper me-1"></i> Warta & Informasi PLD UIS
       </div>
       <h1 class="news-hero-title">Berita & <em>Artikel</em> Kesehatan</h1>
       <p class="text-white-50 mb-3" style="max-width: 650px;">
@@ -185,7 +185,7 @@
       <div class="d-flex align-items-center gap-2 text-white-50 small">
         <a href="{{ route('homepage') }}" class="text-white text-decoration-none">Beranda</a>
         <span>/</span>
-        <span style="color: var(--fikes-orange);">Berita & Artikel</span>
+        <span style="color: var(--pld-orange);">Berita & Artikel</span>
       </div>
     </div>
   </div>
@@ -210,7 +210,7 @@
                   <i class="bi bi-image fs-1"></i>
                 </div>
               @endif
-              <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2" style="background: var(--fikes-orange); color: #190a24; font-weight: 800;">
+              <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2" style="background: var(--pld-orange); color: #190a24; font-weight: 800;">
                 <i class="bi bi-star-fill me-1"></i> BERITA UTAMA
               </span>
               @if(!empty($featured->gallery) && count($featured->gallery) > 0)
@@ -327,7 +327,7 @@
                   <div class="text-muted small mb-2">
                     <i class="bi bi-calendar3 me-1"></i> {{ $article->created_at->format('d M Y') }}
                     <span class="mx-1">•</span>
-                    <i class="bi bi-person me-1"></i> {{ $article->user?->name ?? 'Admin FIKES' }}
+                    <i class="bi bi-person me-1"></i> {{ $article->user?->name ?? 'Admin PLD' }}
                   </div>
                   <h5 class="fw-bold mb-2 text-dark">{{ Str::limit($article->title, 65) }}</h5>
                   <p class="text-muted small mb-3">
@@ -335,7 +335,7 @@
                   </p>
                 </div>
                 <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                  <a href="{{ route('homepage.news.detail', $article->slug ?? $article->id) }}" class="fw-bold text-decoration-none" style="color: var(--fikes-purple); font-size: 13.5px;">
+                  <a href="{{ route('homepage.news.detail', $article->slug ?? $article->id) }}" class="fw-bold text-decoration-none" style="color: var(--pld-purple); font-size: 13.5px;">
                     Selengkapnya <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
@@ -356,7 +356,7 @@
         <div class="p-5 text-center bg-white rounded-4 shadow-sm">
           <i class="bi bi-newspaper fs-1 text-muted mb-3 d-block"></i>
           <h4 class="fw-bold text-dark">Belum Ada Berita</h4>
-          <p class="text-muted small">Berita dan artikel terbaru FIKES UIS akan segera dipublikasikan di sini.</p>
+          <p class="text-muted small">Berita dan artikel terbaru PLD UIS akan segera dipublikasikan di sini.</p>
         </div>
       @endif
     @endif

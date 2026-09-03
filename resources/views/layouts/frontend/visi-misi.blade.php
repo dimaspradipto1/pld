@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Visi & Misi — Fakultas Ilmu Kesehatan (FIKES UIS)')
+@section('title', 'Visi & Misi — Fakultas Ilmu Kesehatan (PLD UIS)')
 @section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Fakultas Ilmu Kesehatan Universitas Ibnu Sina.')
-@section('meta_keywords', 'visi misi fikes, visi fikes uis, misi fakultas ilmu kesehatan batam')
+@section('meta_keywords', 'visi misi pld, visi pld uis, misi fakultas ilmu kesehatan batam')
 
 @push('styles')
 <style>
@@ -10,7 +10,7 @@
     position: relative;
     background: var(--obsidian-dark);
     padding: 70px 0 50px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .visimisi-hero-title {
     font-size: 38px;
@@ -20,7 +20,7 @@
   }
   .visimisi-hero-title em {
     font-style: normal;
-    color: var(--fikes-orange);
+    color: var(--pld-orange);
   }
   .breadcrumb-custom {
     display: inline-flex;
@@ -30,8 +30,8 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
-  .breadcrumb-custom a:hover { color: var(--fikes-orange); }
-  .breadcrumb-custom .active { color: var(--fikes-orange); font-weight: 600; }
+  .breadcrumb-custom a:hover { color: var(--pld-orange); }
+  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
 </style>
 @endpush
 
@@ -64,7 +64,7 @@
   <div class="container py-3">
     <div class="text-center mb-5" data-aos="fade-up">
       <div class="section-label">Arah & Landasan Institusi</div>
-      <h2 class="section-title">Visi & Misi <em>FIKES UIS</em></h2>
+      <h2 class="section-title">Visi & Misi <em>PLD UIS</em></h2>
       <p class="section-desc mx-auto" style="max-width: 650px;">
         Komitmen fundamental yang mengarahkan setiap langkah Tri Dharma Perguruan Tinggi di Fakultas Ilmu Kesehatan.
       </p>

@@ -13,25 +13,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas')</title>
-  <meta name="description" content="@yield('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
-  <meta name="keywords" content="@yield('meta_keywords', 'fikes, fakultas ilmu kesehatan, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
+  <title>@yield('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas')</title>
+  <meta name="description" content="@yield('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.')">
+  <meta name="keywords" content="@yield('meta_keywords', 'pld, fakultas ilmu kesehatan, keperawatan, kebidanan, farmasi, gizi, kesehatan masyarakat, laboratorium kesehatan, pendidikan tinggi')">
   <meta name="author" content="@yield('meta_author', 'Fakultas Ilmu Kesehatan')">
 
   <!-- Open Graph / Facebook / WhatsApp / Telegram Preview -->
   <meta property="og:type" content="@yield('og_type', 'website')">
   <meta property="og:url" content="{{ url()->current() }}">
-  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
-  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta property="og:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
+  <meta property="og:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
   <meta property="og:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
   <meta property="og:image:secure_url" content="@yield('og_image', asset('assets/img/logouis.png'))">
-  <meta property="og:site_name" content="FIKES — Fakultas Ilmu Kesehatan">
+  <meta property="og:site_name" content="PLD — Fakultas Ilmu Kesehatan">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="{{ url()->current() }}">
-  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'FIKES — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
-  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (FIKES) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
+  <meta name="twitter:title" content="@yield('og_title', View::yieldContent('title', 'PLD — Fakultas Ilmu Kesehatan | Unggul & Berintegritas'))">
+  <meta name="twitter:description" content="@yield('og_description', View::yieldContent('meta_description', 'Portal Resmi Fakultas Ilmu Kesehatan (PLD) — Pusat Pendidikan Kesehatan, Layanan Laboratorium, Informasi Akademik, dan Riset Terpadu.'))">
   <meta name="twitter:image" content="@yield('og_image', asset('assets/img/logouis.png'))">
 
   <!-- Favicon -->
@@ -57,21 +57,21 @@
 
   <style>
     /* ═══════════════════════════════════════════════
-       DESIGN TOKENS — FIKES (SOLID PALETTE, ZERO GRADIENTS)
+       DESIGN TOKENS — PLD (SOLID PALETTE, ZERO GRADIENTS)
        Purple: #823ca2 | Orange: #ff9c00
     ═══════════════════════════════════════════════ */
     :root {
-      --fikes-purple:       #823ca2;
-      --fikes-purple-dark:  #682985;
-      --fikes-purple-deep:  #47175d;
-      --fikes-purple-light: #f5eefb;
-      --fikes-purple-subtle:#ecdcf7;
+      --pld-purple:       #823ca2;
+      --pld-purple-dark:  #682985;
+      --pld-purple-deep:  #47175d;
+      --pld-purple-light: #f5eefb;
+      --pld-purple-subtle:#ecdcf7;
       
-      --fikes-orange:       #ff9c00;
-      --fikes-orange-hover: #e88d00;
-      --fikes-orange-dark:  #cc7c00;
-      --fikes-orange-light: #fff8eb;
-      --fikes-orange-subtle:#ffeecd;
+      --pld-orange:       #ff9c00;
+      --pld-orange-hover: #e88d00;
+      --pld-orange-dark:  #cc7c00;
+      --pld-orange-light: #fff8eb;
+      --pld-orange-subtle:#ffeecd;
       
       --obsidian-dark:      #190a24;
       --obsidian-card:      #241033;
@@ -96,8 +96,8 @@
       --shadow-purple:      0 8px 24px rgba(130, 60, 162, 0.28);
     }
 
-    .text-terracotta, .text-fikes-purple { color: var(--fikes-purple) !important; }
-    .text-fikes-orange { color: var(--fikes-orange) !important; }
+    .text-terracotta, .text-pld-purple { color: var(--pld-purple) !important; }
+    .text-pld-orange { color: var(--pld-orange) !important; }
 
     /* ═══════════════════════════════════════════════
        MOBILE SMOOTH PERFORMANCE & INSTANT CONTENT RENDER
@@ -116,8 +116,8 @@
         text-align: center !important;
       }
     }
-    .bg-fikes-purple { background-color: var(--fikes-purple) !important; }
-    .bg-fikes-orange { background-color: var(--fikes-orange) !important; }
+    .bg-pld-purple { background-color: var(--pld-purple) !important; }
+    .bg-pld-orange { background-color: var(--pld-orange) !important; }
 
     html { 
       scroll-behavior: smooth;
@@ -143,7 +143,7 @@
       border-radius: 50% !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
       border: 1px solid var(--border-light) !important;
-      color: var(--fikes-purple) !important;
+      color: var(--pld-purple) !important;
       transition: all 0.25s ease !important;
     }
     .swiper-button-prev::after,
@@ -153,7 +153,7 @@
     }
     .swiper-button-prev:hover,
     .swiper-button-next:hover {
-      background: var(--fikes-purple) !important;
+      background: var(--pld-purple) !important;
       color: #ffffff !important;
       transform: scale(1.08);
     }
@@ -187,14 +187,14 @@
       color: rgba(255, 255, 255, 0.85);
     }
     .topbar-main a:hover {
-      color: var(--fikes-orange);
+      color: var(--pld-orange);
     }
 
     .topbar-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--fikes-purple);
+      background: var(--pld-purple);
       color: var(--white);
       font-size: 11px;
       font-weight: 700;
@@ -205,15 +205,15 @@
     }
 
     /* ═══════════════════════════════════════════════
-       NAVBAR — Solid FIKES Purple (#823ca2) with Orange (#ff9c00) Font & Dropdowns
+       NAVBAR — Solid PLD Purple (#823ca2) with Orange (#ff9c00) Font & Dropdowns
     ═══════════════════════════════════════════════ */
     .navbar-main {
-      background: var(--fikes-purple, #823ca2);
+      background: var(--pld-purple, #823ca2);
       padding: 10px 0;
       position: sticky;
       top: 0;
       z-index: 1050;
-      border-bottom: 2.5px solid var(--fikes-orange, #ff9c00);
+      border-bottom: 2.5px solid var(--pld-orange, #ff9c00);
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
     }
 
@@ -247,7 +247,7 @@
     .nav-link-custom:hover,
     .nav-link-custom.active,
     .show > .nav-link-custom {
-      color: var(--fikes-orange, #ff9c00) !important;
+      color: var(--pld-orange, #ff9c00) !important;
       background: rgba(255, 255, 255, 0.15);
     }
 
@@ -260,7 +260,7 @@
     .dropdown-menu-custom {
       background: var(--white);
       border: 1px solid var(--border-light);
-      border-top: 3px solid var(--fikes-purple);
+      border-top: 3px solid var(--pld-purple);
       border-radius: 14px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
       padding: 10px 8px;
@@ -313,18 +313,18 @@
     }
 
     .dropdown-item-custom:hover {
-      background: var(--fikes-purple-light);
-      color: var(--fikes-purple);
+      background: var(--pld-purple-light);
+      color: var(--pld-purple);
       padding-left: 18px;
     }
 
     .dropdown-item-custom i {
       font-size: 14px;
-      color: var(--fikes-orange);
+      color: var(--pld-orange);
     }
 
     .navbar-toggler {
-      border: 1.5px solid var(--fikes-orange, #ff9c00) !important;
+      border: 1.5px solid var(--pld-orange, #ff9c00) !important;
       padding: 6px 10px;
       border-radius: 8px;
       outline: none !important;
@@ -371,13 +371,13 @@
       .nav-link-custom:hover,
       .nav-link-custom.active,
       .show > .nav-link-custom {
-        background: var(--fikes-purple, #823ca2) !important;
+        background: var(--pld-purple, #823ca2) !important;
         color: #ffffff !important;
       }
       .dropdown-menu-custom {
         background: rgba(0, 0, 0, 0.3) !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-left: 3px solid var(--fikes-orange) !important;
+        border-left: 3px solid var(--pld-orange) !important;
         border-radius: 12px !important;
         margin: 6px 0 10px 10px !important;
         padding: 8px !important;
@@ -393,7 +393,7 @@
       .dropdown-item-custom:hover,
       .dropdown-item-custom.active {
         background: rgba(255, 156, 0, 0.18) !important;
-        color: var(--fikes-orange, #ff9c00) !important;
+        color: var(--pld-orange, #ff9c00) !important;
       }
       .navbar-main .d-flex.align-items-center.gap-2.mt-3.mt-xl-0 {
         display: grid !important;
@@ -416,7 +416,7 @@
 
     /* CTA Buttons */
     .btn-pmb-nav {
-      background: var(--fikes-orange, #ff9c00);
+      background: var(--pld-orange, #ff9c00);
       color: #190a24 !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
@@ -427,7 +427,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid var(--fikes-orange, #ff9c00);
+      border: 1px solid var(--pld-orange, #ff9c00);
       transition: all 0.25s ease;
       white-space: nowrap;
     }
@@ -454,13 +454,13 @@
     }
     .btn-portal-nav:hover {
       background: rgba(255, 255, 255, 0.25);
-      border-color: var(--fikes-orange);
-      color: var(--fikes-orange) !important;
+      border-color: var(--pld-orange);
+      color: var(--pld-orange) !important;
       transform: translateY(-2px);
     }
 
     .btn-primary-hero {
-      background: var(--fikes-orange);
+      background: var(--pld-orange);
       color: var(--white);
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
@@ -474,7 +474,7 @@
       gap: 9px;
     }
     .btn-primary-hero:hover {
-      background: var(--fikes-orange-hover);
+      background: var(--pld-orange-hover);
       color: var(--white);
       transform: translateY(-2px);
     }
@@ -511,8 +511,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--fikes-purple-light);
-      color: var(--fikes-purple);
+      background: var(--pld-purple-light);
+      color: var(--pld-purple);
       border: 1px solid var(--border-purple);
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 12px;
@@ -533,7 +533,7 @@
     }
     .section-title em {
       font-style: normal;
-      color: var(--fikes-purple);
+      color: var(--pld-purple);
     }
 
     .section-desc {
@@ -546,7 +546,7 @@
     .divider-line {
       width: 60px;
       height: 4px;
-      background: var(--fikes-orange);
+      background: var(--pld-orange);
       border-radius: 2px;
       margin-bottom: 24px;
     }
@@ -573,15 +573,15 @@
     .feature-icon-wrap, .value-icon-wrap {
       width: 64px;
       height: 64px;
-      background: var(--fikes-purple-light);
+      background: var(--pld-purple-light);
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--fikes-purple);
+      color: var(--pld-purple);
       font-size: 28px;
       margin-bottom: 24px;
-      border: 1px solid var(--fikes-purple-subtle);
+      border: 1px solid var(--pld-purple-subtle);
     }
 
     .feature-title, .value-title {
@@ -605,7 +605,7 @@
       border-bottom: 1px solid rgba(130, 60, 162, 0.3);
     }
     .counter-item { text-align: center; }
-    .counter-icon { font-size: 32px; color: var(--fikes-orange); margin-bottom: 10px; }
+    .counter-icon { font-size: 32px; color: var(--pld-orange); margin-bottom: 10px; }
     .counter-num {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 42px;
@@ -614,7 +614,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .counter-num sup { font-size: 22px; color: var(--fikes-orange); }
+    .counter-num sup { font-size: 22px; color: var(--pld-orange); }
     .counter-label { font-size: 14px; color: rgba(255, 255, 255, 0.7); font-weight: 500; }
 
     /* Testimonials */
@@ -635,12 +635,12 @@
       box-shadow: var(--shadow-lg);
       border-color: var(--border-purple);
     }
-    .testi-stars { color: var(--fikes-orange); font-size: 16px; margin-bottom: 14px; }
+    .testi-stars { color: var(--pld-orange); font-size: 16px; margin-bottom: 14px; }
     .testi-text { font-size: 14.5px; color: var(--text-main); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
     .testi-author { display: flex; align-items: center; gap: 14px; }
     .testi-avatar {
       width: 46px; height: 46px;
-      background: var(--fikes-purple);
+      background: var(--pld-purple);
       color: var(--white);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -670,11 +670,11 @@
       color: var(--text-main);
       user-select: none;
     }
-    .faq-header:hover { color: var(--fikes-purple); }
+    .faq-header:hover { color: var(--pld-purple); }
     .faq-icon {
       width: 28px; height: 28px;
-      background: var(--fikes-purple-light);
-      color: var(--fikes-purple);
+      background: var(--pld-purple-light);
+      color: var(--pld-purple);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 13px;
@@ -688,7 +688,7 @@
       display: none;
     }
     .faq-item.open .faq-body { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--fikes-purple); color: var(--white); }
+    .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--pld-purple); color: var(--white); }
 
     /* ═══════════════════════════════════════════════
        FOOTER — Purple #823ca2
@@ -698,7 +698,7 @@
       background: linear-gradient(180deg, #823ca2 0%, #591e73 100%);
       color: rgba(255, 255, 255, 0.88);
       padding: 70px 0 28px;
-      border-top: 3.5px solid var(--fikes-orange, #ff9c00);
+      border-top: 3.5px solid var(--pld-orange, #ff9c00);
     }
     .footer-logo {
       display: flex;
@@ -735,8 +735,8 @@
       transition: all 0.25s ease;
     }
     .footer-social a:hover {
-      background: var(--fikes-orange, #ff9c00);
-      border-color: var(--fikes-orange, #ff9c00);
+      background: var(--pld-orange, #ff9c00);
+      border-color: var(--pld-orange, #ff9c00);
       color: #190a24;
       transform: translateY(-2px);
     }
@@ -790,7 +790,7 @@
       right: 24px;
       width: 44px;
       height: 44px;
-      background: var(--fikes-purple);
+      background: var(--pld-purple);
       color: var(--white);
       border-radius: 12px;
       display: flex;
@@ -805,7 +805,7 @@
     }
     .back-to-top.show { opacity: 1; visibility: visible; }
     .back-to-top:hover {
-      background: var(--fikes-purple-dark);
+      background: var(--pld-purple-dark);
       transform: translateY(-3px);
       color: var(--white);
     }
@@ -821,8 +821,8 @@
     }
     .check-icon {
       width: 22px; height: 22px;
-      background: var(--fikes-purple-light);
-      color: var(--fikes-purple);
+      background: var(--pld-purple-light);
+      color: var(--pld-purple);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 12px;

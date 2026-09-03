@@ -17,47 +17,47 @@ class FaqSeeder extends Seeder
         $faqs = [
             // Akademik & Program Studi
             [
-                'question' => 'Apa saja program studi yang tersedia di Fakultas Ilmu Kesehatan (FIKES)?',
-                'answer'   => 'FIKES menyelenggarakan berbagai program studi unggulan seperti S1 Ilmu Keperawatan & Profesi Ners, Kebidanan (D3/S1 & Profesi), S1 Farmasi, S1 Ilmu Gizi, serta S1 Kesehatan Masyarakat.',
+                'question' => 'Apa saja program layanan yang tersedia di Pusat Layanan Disabilitas (PLD)?',
+                'answer'   => 'PLD menyelenggarakan berbagai program layanan unggulan seperti pendampingan akademik, konseling, advokasi, pelatihan aksesibilitas, serta penyediaan fasilitas ramah disabilitas.',
                 'category' => 'akademik',
             ],
             [
-                'question' => 'Bagaimana status akreditasi program studi di FIKES?',
-                'answer'   => 'Seluruh program studi di FIKES telah terakreditasi oleh Lembaga Akreditasi Mandiri Pendidikan Tinggi Kesehatan Indonesia (LAM-PTKes) dan Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT).',
+                'question' => 'Bagaimana status akreditasi dan standar program di PLD?',
+                'answer'   => 'Seluruh program dan layanan di PLD telah memenuhi standar mutu pendidikan tinggi inklusif nasional dan regulasi kementerian terkait.',
                 'category' => 'akademik',
             ],
             [
-                'question' => 'Apakah lulusan FIKES langsung mendapatkan gelar profesi?',
-                'answer'   => 'Untuk program studi yang memiliki jenjang profesi (seperti Keperawatan Ners dan Bidan), mahasiswa dapat melanjutkan ke tahap pendidikan profesi setelah menyelesaikan tahap sarjana untuk memperoleh Surat Tanda Registrasi (STR).',
+                'question' => 'Apakah mahasiswa binaan PLD mendapatkan pendampingan penuh?',
+                'answer'   => 'Ya, PLD menyediakan relawan pendamping, materi kuliah ramah akses, serta sarana penunjang ujian untuk memastikan kesetaraan proses belajar.',
                 'category' => 'akademik',
             ],
 
             // Pendaftaran & Penerimaan Mahasiswa Baru
             [
-                'question' => 'Bagaimana alur pendaftaran mahasiswa baru di FIKES?',
-                'answer'   => 'Pendaftaran dapat dilakukan secara online melalui portal resmi PMB atau datang langsung ke sekretariat pendaftaran FIKES dengan membawa berkas persyaratan akademik dan kesehatan.',
+                'question' => 'Bagaimana alur pendaftaran layanan di PLD?',
+                'answer'   => 'Pendaftaran dapat dilakukan secara online melalui portal resmi atau datang langsung ke sekretariat PLD dengan membawa berkas profil dan kebutuhan pendampingan.',
                 'category' => 'pendaftaran',
             ],
             [
-                'question' => 'Apakah ada tes kesehatan khusus dalam seleksi masuk FIKES?',
-                'answer'   => 'Ya, calon mahasiswa wajib mengikuti pemeriksaan kesehatan (seperti tes bebas buta warna untuk program studi tertentu, bebas narkoba, dan pemeriksaan fisik dasar) demi memastikan kesiapan praktek klinik.',
+                'question' => 'Apakah ada asesmen kebutuhan khusus dalam seleksi masuk PLD?',
+                'answer'   => 'Ya, calon mahasiswa akan melalui asesmen pemetaan kebutuhan untuk menentukan jenis dukungan dan fasilitas yang sesuai.',
                 'category' => 'pendaftaran',
             ],
             [
-                'question' => 'Apakah tersedia program beasiswa di FIKES?',
-                'answer'   => 'Tersedia berbagai pilihan beasiswa, antara lain KIP-Kuliah, Beasiswa Prestasi Akademik/Non-Akademik, Beasiswa Yayasan, dan Beasiswa Kemitraan Instansi.',
+                'question' => 'Apakah tersedia program beasiswa di PLD?',
+                'answer'   => 'Tersedia berbagai pilihan beasiswa, antara lain KIP-Kuliah, Beasiswa Afirmasi, Beasiswa Prestasi, Beasiswa Yayasan, dan Beasiswa Kemitraan.',
                 'category' => 'pendaftaran',
             ],
 
             // Fasilitas & Praktek Kerja
             [
-                'question' => 'Di mana saja mahasiswa FIKES melaksanakan praktek klinik / lapangan?',
-                'answer'   => 'Mahasiswa melaksanakan praktek di rumah sakit pendidikan tipe A & B, RSUD, RS swasta terakreditasi paripurna, Puskesmas, laboratorium klinik, dan industri farmasi mitra resmi FIKES.',
+                'question' => 'Di mana saja mahasiswa PLD melaksanakan program / magang?',
+                'answer'   => 'Mahasiswa dapat melaksanakan program magang dan pelatihan di lembaga mitra inklusif, instansi pemerintah, organisasi sosial, dan perusahaan mitra resmi PLD.',
                 'category' => 'fasilitas',
             ],
             [
-                'question' => 'Fasilitas laboratorium apa saja yang disediakan di kampus FIKES?',
-                'answer'   => 'Kampus menyediakan Laboratorium Keterampilan Medis (OSCE Center), Mini Hospital, Laboratorium Farmakologi & Kimia, Laboratorium Dietetika & Pangan, serta Laboratorium Simulasi Kebidanan.',
+                'question' => 'Fasilitas pendukung apa saja yang disediakan di kampus PLD?',
+                'answer'   => 'Kampus menyediakan Resource Center inklusif, perangkat lunak pembaca layar (screen reader), jalur pemandu (guiding block), ruang istirahat ramah disabilitas, dan alat bantu mobilitas.',
                 'category' => 'fasilitas',
             ],
         ];

@@ -1,14 +1,14 @@
 @extends('layouts.frontend.template')
 
 @section('title', ($pageTitle ?? 'Kurikulum Program Studi') . ' — Fakultas Ilmu Kesehatan Universitas Ibnu Sina')
-@section('meta_description', 'Struktur kurikulum lengkap per semester dan unduhan silabus RPS program studi Fakultas Ilmu Kesehatan (FIKES) Universitas Ibnu Sina.')
+@section('meta_description', 'Struktur kurikulum lengkap per semester dan unduhan silabus RPS program studi Fakultas Ilmu Kesehatan (PLD) Universitas Ibnu Sina.')
 
 @push('styles')
 <style>
   .kurikulum-hero {
     background: var(--obsidian-dark);
     padding: 65px 0 45px;
-    border-bottom: 2px solid var(--fikes-purple);
+    border-bottom: 2px solid var(--pld-purple);
   }
   .prodi-header-pill {
     background: #ffc107;
@@ -53,9 +53,9 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--fikes-purple, #823ca2) !important;
+    background: var(--pld-purple, #823ca2) !important;
     color: #ffffff !important;
-    border-color: var(--fikes-purple, #823ca2);
+    border-color: var(--pld-purple, #823ca2);
     box-shadow: 0 6px 18px rgba(130, 60, 162, 0.3);
   }
 
@@ -139,7 +139,7 @@
       </ol>
     </nav>
     <div class="badge px-3 py-2 rounded-pill mb-2" style="background: rgba(229, 168, 35, 0.2); color: #ffd166; border: 1px solid rgba(229, 168, 35, 0.4);">
-      <i class="bi bi-mortarboard-fill me-1"></i> Layanan Akademik FIKES UIS
+      <i class="bi bi-mortarboard-fill me-1"></i> Layanan Akademik PLD UIS
     </div>
     <h1 class="fw-bold mb-2" style="font-size: 34px;">Kurikulum & Capaian Pembelajaran</h1>
     <p class="text-white-50 mx-auto mb-0" style="max-width: 620px; font-size: 14.5px;">
@@ -268,7 +268,7 @@
     <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #190a24 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
       <div>
         <h5 class="fw-bold text-white mb-1"><i class="bi bi-question-circle-fill me-2 text-warning"></i>Butuh Informasi Kurikulum & Konversi SKS?</h5>
-        <p class="text-white-50 small mb-0">Hubungi Bagian Akademik & Tata Usaha FIKES UIS untuk panduan registrasi mata kuliah dan bimbingan akademik.</p>
+        <p class="text-white-50 small mb-0">Hubungi Bagian Akademik & Tata Usaha PLD UIS untuk panduan registrasi mata kuliah dan bimbingan akademik.</p>
       </div>
       <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #190a24;">
         <i class="bi bi-telephone-fill me-1"></i> Hubungi Kami

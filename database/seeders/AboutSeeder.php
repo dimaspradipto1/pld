@@ -16,23 +16,23 @@ class AboutSeeder extends Seeder
 
         About::create([
             // Profil Fakultas
-            'judul_profil'       => 'Pusat Keunggulan Pendidikan & Pelayanan Kesehatan',
-            'deskripsi_profil_1' => 'Fakultas Ilmu Kesehatan (FIKES) berdedikasi menyelenggarakan pendidikan tinggi berkualitas di bidang kesehatan dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.',
-            'deskripsi_profil_2' => 'FIKES didukung oleh tenaga pendidik berkualifikasi magister dan doktor, sarana laboratorium terpadu berstandar nasional, serta jejaring kemitraan rumah sakit pendidikan terkemuka.',
+            'judul_profil'       => 'Pusat Keunggulan Pendidikan & Pelayanan',
+            'deskripsi_profil_1' => 'Pusat Layanan Disabilitas (PLD) berdedikasi menyelenggarakan pendidikan tinggi inklusif berkualitas dengan kurikulum modern yang berorientasi pada capaian kompetensi, riset inovatif, dan pelayanan masyarakat.',
+            'deskripsi_profil_2' => 'PLD didukung oleh tenaga pendidik berkualifikasi magister dan doktor, sarana terpadu berstandar nasional, serta jejaring kemitraan terkemuka.',
 
             // Visi
             'visi_judul' => 'Visi Kami',
             'visi_icon'  => 'bi-eye',
-            'visi'       => 'Menjadi Fakultas Ilmu Kesehatan yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi yang berlandaskan nilai integritas dan kemanusiaan.',
+            'visi'       => 'Menjadi PLD yang unggul, terkemuka, dan berdaya saing global dalam penyelenggaraan Tri Dharma Perguruan Tinggi yang berlandaskan nilai integritas dan kemanusiaan.',
 
             // Misi
             'misi_judul' => 'Misi Kami',
             'misi_icon'  => 'bi-rocket-takeoff',
-            'misi'       => "Menyelenggarakan pendidikan akademik dan profesi kesehatan yang berkualitas dan berstandar nasional/internasional.\nMengembangkan penelitian terapan dan inovatif di bidang ilmu kesehatan yang bermanfaat bagi masyarakat.\nMelaksanakan pengabdian kepada masyarakat secara berkelanjutan demi meningkatkan derajat kesehatan publik.\nMenjalin kerjasama strategis dengan institusi pelayanan kesehatan, rumah sakit, dan mitra global.",
+            'misi'       => "Menyelenggarakan pendidikan akademik dan layanan yang berkualitas dan berstandar nasional/internasional.\nMengembangkan penelitian terapan dan inovatif yang bermanfaat bagi masyarakat.\nMelaksanakan pengabdian kepada masyarakat secara berkelanjutan demi meningkatkan derajat layanan publik.\nMenjalin kerjasama strategis dengan institusi pelayanan, mitra industri, dan global.",
 
             // Nilai Budaya Civitas
             'judul_nilai'     => 'Nilai Budaya Civitas',
-            'deskripsi_nilai' => 'Prinsip dasar yang melandasi seluruh proses pembelajaran, riset, dan pelayanan kesehatan di lingkungan FIKES.',
+            'deskripsi_nilai' => 'Prinsip dasar yang melandasi seluruh proses pembelajaran, riset, dan pelayanan di lingkungan PLD.',
 
             // Nilai 1 — Integritas
             'nilai_1_judul'     => 'Integritas',
