@@ -15,17 +15,17 @@ class TenagaPendidikSeeder extends Seeder
     {
         $prodis = Layanan::orderBy('urutan')->get();
 
-        // Cari prodi berdasarkan kata kunci
-        $prodiK3     = $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'keselamatan') || str_contains(strtolower($p->judul), 'k3'));
-        $prodiKesmas = $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'masyarakat') || str_contains(strtolower($p->judul), 'magister'));
-        $prodiKesling= $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'lingkungan'));
+        // Cari prodi berdasarkan kata kunci atau fallback ke prodi yang ada
+        $prodiK3     = $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'keselamatan') || str_contains(strtolower($p->judul), 'k3')) ?? $prodis->skip(1)->first() ?? $prodis->first();
+        $prodiKesmas = $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'masyarakat') || str_contains(strtolower($p->judul), 'magister')) ?? $prodis->first();
+        $prodiKesling= $prodis->first(fn($p) => str_contains(strtolower($p->judul), 'lingkungan')) ?? $prodis->skip(2)->first() ?? $prodis->first();
 
         $items = [
             [
                 'nama'        => 'Dosen Bidang K3',
                 'bidang'      => 'Spesialis Ergonomi & SMK3',
                 'keterangan'  => 'Ahli K3 Umum & Auditor ISO 45001 Kemnaker RI.',
-                'layanan_id'  => $prodiK3?->id ?? 2,
+                'layanan_id'  => $prodiK3?->id,
                 'icon'        => 'bi-person-fill',
                 'tombol_teks' => 'Lihat Dosen K3',
                 'urutan'      => 1,
@@ -35,7 +35,7 @@ class TenagaPendidikSeeder extends Seeder
                 'nama'        => 'Dosen Higiene Industri',
                 'bidang'      => 'Toksikologi & Bahaya Fisik',
                 'keterangan'  => 'Pengalaman 15+ tahun di industri manufaktur & galangan.',
-                'layanan_id'  => $prodiKesmas?->id ?? 1,
+                'layanan_id'  => $prodiKesmas?->id,
                 'icon'        => 'bi-person-fill',
                 'tombol_teks' => 'Lihat Dosen Kesmas',
                 'urutan'      => 2,
@@ -45,7 +45,7 @@ class TenagaPendidikSeeder extends Seeder
                 'nama'        => 'Dosen Kesehatan Lingkungan',
                 'bidang'      => 'AMDAL & Pengolahan Limbah B3',
                 'keterangan'  => 'Konsultan AMDAL bersertifikasi & Penilai KLHK.',
-                'layanan_id'  => $prodiKesling?->id ?? 3,
+                'layanan_id'  => $prodiKesling?->id,
                 'icon'        => 'bi-person-fill',
                 'tombol_teks' => 'Lihat Dosen Kesling',
                 'urutan'      => 3,
