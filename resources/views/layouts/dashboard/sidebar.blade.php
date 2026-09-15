@@ -138,10 +138,10 @@
 
           <!-- Pengaturan Konten Beranda / Landing Page -->
           <li class="nav-item">
-              <a class="nav-link {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
+              <a class="nav-link {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
                   <i class="bi bi-layout-text-window-reverse"></i><span>Konten Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
               </a>
-              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                   <li>
                       <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>Banner Hero</span>
@@ -170,6 +170,11 @@
                   <li>
                       <a href="{{ route('testimonial.index') }}" class="{{ Route::is('testimonial.*') ? 'active' : '' }}">
                           <i class="bi bi-circle"></i><span>Alumni & Testimoni</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('partner.index') }}" class="{{ Route::is('partner.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Jejaring Mitra</span>
                       </a>
                   </li>
                   <li>
