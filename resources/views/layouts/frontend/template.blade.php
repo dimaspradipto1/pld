@@ -62,50 +62,55 @@
 
   <style>
     /* ═══════════════════════════════════════════════
-       DESIGN TOKENS — PLD (NAVY & SKY BLUE PALETTE)
-       Deep Navy: #141b39 | Navy: #283759 | Sky Blue: #79a8e2 | Teal: #50697d
+       DESIGN TOKENS — PLD UNIVERSITAS IBNU SINA PALETTE
+       Primary: #56823D | Secondary: #A8D27D | Accent: #D99032 | Bg: #FAF8EE | Card: #FFFFFF | Text: #263238
     ═══════════════════════════════════════════════ */
     :root {
-      /* Primary Navy & Blues */
-      --pld-purple:       #283759;
-      --pld-purple-dark:  #1e2a45;
-      --pld-purple-deep:  #141b39;
-      --pld-purple-light: #eef4fc;
-      --pld-purple-subtle:#dbe7f7;
+      /* Primary: #56823D (Identitas Utama: Header, Sidebar, Navigasi) */
+      --pld-primary:      #56823D;
+      --pld-purple:       #56823D;
+      --pld-purple-dark:  #446830;
+      --pld-purple-deep:  #233618;
+      --pld-purple-light: #eef8e6;
+      --pld-purple-subtle:#dfead6;
       
-      /* Accent Sky Blue & Teal */
-      --pld-orange:       #79a8e2;
-      --pld-orange-hover: #6396d8;
-      --pld-orange-dark:  #50697d;
-      --pld-orange-light: #f0f5fc;
-      --pld-orange-subtle:#dbe8f8;
+      /* Secondary / Active: #A8D27D (Pendukung: status aktif, highlight) */
+      --pld-secondary:    #A8D27D;
+      --pld-active:       #A8D27D;
+      
+      /* Accent / Button: #D99032 (Aksen Penting: Tombol Utama, CTA) */
+      --pld-orange:       #D99032;
+      --pld-orange-hover: #c47e26;
+      --pld-orange-dark:  #b57321;
+      --pld-orange-light: #fef8ee;
+      --pld-orange-subtle:#fcedd7;
       
       /* Dark Theme Sections */
-      --obsidian-dark:      #141b39;
-      --obsidian-card:      #1b2347;
+      --obsidian-dark:      #233618;
+      --obsidian-card:      #2e4720;
       
       /* Surfaces & Backgrounds */
       --white:              #ffffff;
-      --page-bg:            #f8fafd;
-      --surface-light:      #edf3f9;
-      --surface-muted:      #e2ecf5;
+      --page-bg:            #FAF8EE;
+      --surface-light:      #FAF8EE;
+      --surface-muted:      #f0ece0;
       
       /* Typography */
-      --text-main:          #141b39;
-      --text-muted:         #50697d;
-      --text-light:         #7e95a8;
+      --text-main:          #263238;
+      --text-muted:         #546e7a;
+      --text-light:         #78909c;
       
       /* Borders */
-      --border-light:       #e2ebf2;
-      --border-purple:      #a8c3e0;
-      --border-orange:      #79a8e2;
+      --border-light:       #e8e4d3;
+      --border-purple:      #A8D27D;
+      --border-orange:      #D99032;
       
       /* Shadows */
-      --shadow-sm:          0 4px 12px rgba(20, 27, 57, 0.08);
-      --shadow-md:          0 8px 24px rgba(20, 27, 57, 0.12);
-      --shadow-lg:          0 16px 36px rgba(20, 27, 57, 0.16);
-      --shadow-orange:      0 8px 24px rgba(121, 168, 226, 0.35);
-      --shadow-purple:      0 8px 24px rgba(40, 55, 89, 0.28);
+      --shadow-sm:          0 4px 12px rgba(38, 50, 56, 0.08);
+      --shadow-md:          0 8px 24px rgba(38, 50, 56, 0.12);
+      --shadow-lg:          0 16px 36px rgba(38, 50, 56, 0.16);
+      --shadow-orange:      0 8px 24px rgba(217, 144, 50, 0.35);
+      --shadow-purple:      0 8px 24px rgba(86, 130, 61, 0.28);
     }
 
     .text-terracotta, .text-pld-purple { color: var(--pld-purple) !important; }
@@ -247,13 +252,13 @@
     }
 
     /* ═══════════════════════════════════════════════
-       NAVBAR — Solid PLD Purple (#283759) with Orange (#79a8e2) Font & Dropdowns
+       NAVBAR — Solid #56823D with Accent #D99032 & Status #A8D27D
     ═══════════════════════════════════════════════ */
     .navbar-main {
-      background: var(--pld-purple, #283759);
+      background: var(--pld-purple, #56823D);
       padding: 10px 0;
       position: relative;
-      border-bottom: 2.5px solid var(--pld-orange, #79a8e2);
+      border-bottom: 2.5px solid var(--pld-orange, #D99032);
     }
 
     .navbar-brand-custom {
@@ -740,14 +745,14 @@
     .faq-item.open .faq-icon { transform: rotate(180deg); background: var(--pld-purple); color: var(--white); }
 
     /* ═══════════════════════════════════════════════
-       FOOTER — Purple #283759
+       FOOTER — Primary #56823D / #233618
     ═══════════════════════════════════════════════ */
     .footer-main {
-      background: #283759;
-      background: linear-gradient(180deg, #283759 0%, #591e73 100%);
+      background: #233618;
+      background: linear-gradient(180deg, #56823D 0%, #233618 100%);
       color: rgba(255, 255, 255, 0.88);
       padding: 70px 0 28px;
-      border-top: 3.5px solid var(--pld-orange, #79a8e2);
+      border-top: 3.5px solid var(--pld-orange, #D99032);
     }
     .footer-logo {
       display: flex;

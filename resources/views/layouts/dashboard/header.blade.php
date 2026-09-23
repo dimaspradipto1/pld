@@ -169,7 +169,7 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm"
-                             style="width:36px;height:36px;background: linear-gradient(135deg, #283759 0%, #79a8e2 100%);font-size:13px;">
+                             style="width:36px;height:36px;background: linear-gradient(135deg, #56823D 0%, #A8D27D 100%);font-size:13px;">
                             {{ strtoupper(substr(Auth::user()->name ?? 'AD', 0, 2)) }}
                         </div>
                         <span class="d-none d-md-block dropdown-toggle ps-2 fw-semibold">{{ Auth::user()->name }}</span>

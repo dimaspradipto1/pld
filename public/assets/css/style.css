@@ -14,17 +14,17 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
-  color: #444444;
+  background: #FAF8EE;
+  color: #263238;
 }
 
 a {
-  color: #4154f1;
+  color: #56823D;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #446830;
   text-decoration: none;
 }
 
@@ -63,7 +63,7 @@ h6 {
   font-size: 24px;
   margin-bottom: 0;
   font-weight: 600;
-  color: #012970;
+  color: #263238;
 }
 
 /*--------------------------------------------------------------
@@ -76,7 +76,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #4154f1;
+  background: #56823D;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -90,7 +90,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #6776f4;
+  background: #D99032;
   color: #fff;
 }
 
@@ -624,9 +624,9 @@ h6 {
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #aab7cf transparent;
-  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  box-shadow: 0px 0px 20px rgba(38, 50, 56, 0.15);
+  background-color: #56823D;
 }
 
 @media (max-width: 1199px) {
@@ -638,11 +638,11 @@ h6 {
 .sidebar::-webkit-scrollbar {
   width: 5px;
   height: 8px;
-  background-color: #fff;
+  background-color: #56823D;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #aab7cf;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (min-width: 1200px) {
@@ -700,9 +700,9 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
-  transition: 0.3;
-  background: #f6f9ff;
+  color: #ffffff;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.08);
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -710,25 +710,25 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color: #A8D27D;
 }
 
 .sidebar-nav .nav-link.collapsed {
-  color: #012970;
-  background: #fff;
+  color: rgba(255, 255, 255, 0.88);
+  background: transparent;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #A8D27D;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -751,10 +751,9 @@ h6 {
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-  color: #012970;
-  transition: 0.3;
-  padding: 10px 0 10px 40px;
+  color: rgba(255, 255, 255, 0.88);
   transition: 0.3s;
+  padding: 10px 0 10px 40px;
 }
 
 .sidebar-nav .nav-content a i {
@@ -762,15 +761,17 @@ h6 {
   margin-right: 8px;
   line-height: 0;
   border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.55);
 }
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #263238;
+  background-color: #A8D27D;
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: #4154f1;
+  background-color: #263238;
 }
 
 /*--------------------------------------------------------------

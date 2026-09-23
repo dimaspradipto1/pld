@@ -39,19 +39,37 @@
 
     <style>
         :root {
-            --pld-purple: #283759;
-            --pld-purple-dark: #1e2a45;
-            --pld-orange: #79a8e2;
-            --pld-orange-dark: #50697d;
+            --pld-primary: #56823D;
+            --pld-primary-dark: #446830;
+            --pld-secondary: #A8D27D;
+            --pld-accent: #D99032;
+            --pld-accent-hover: #c47e26;
+            --pld-bg: #FAF8EE;
+            --pld-card: #FFFFFF;
+            --pld-text: #263238;
+            --pld-text-muted: #546e7a;
+            --pld-border: #e8e4d3;
+
+            /* Backward-compatible aliases */
+            --pld-purple: #56823D;
+            --pld-purple-dark: #446830;
+            --pld-orange: #D99032;
+            --pld-orange-dark: #c47e26;
         }
-        /* Header — Solid Navy #283759 */
+
+        body, #main, .main {
+            background-color: #FAF8EE !important;
+            color: #263238 !important;
+        }
+
+        /* Header — Solid #56823D */
         .header {
-            background-color: #283759 !important;
-            border-bottom: 2.5px solid #79a8e2 !important;
-            box-shadow: 0 2px 14px rgba(20, 27, 57, 0.16) !important;
+            background-color: #56823D !important;
+            border-bottom: 2.5px solid #A8D27D !important;
+            box-shadow: 0 2px 14px rgba(38, 50, 56, 0.16) !important;
         }
         .header .logo span {
-            color: #79a8e2 !important;
+            color: #ffffff !important;
             font-weight: 800;
             letter-spacing: 0.5px;
         }
@@ -59,7 +77,7 @@
             color: #ffffff !important;
         }
         .header .toggle-sidebar-btn:hover {
-            color: #79a8e2 !important;
+            color: #A8D27D !important;
         }
         .header .nav-profile {
             color: #ffffff !important;
@@ -69,76 +87,197 @@
             font-weight: 700;
         }
         .header .nav-profile:hover span {
-            color: #79a8e2 !important;
+            color: #A8D27D !important;
         }
         .header .nav-icon {
             color: #ffffff !important;
         }
         .header .nav-icon:hover {
-            color: #79a8e2 !important;
+            color: #A8D27D !important;
+        }
+
+        /* Sidebar — #56823D */
+        .sidebar {
+            background-color: #56823D !important;
+            box-shadow: 2px 0 15px rgba(38, 50, 56, 0.12) !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .sidebar::-webkit-scrollbar {
+            width: 5px;
+            height: 8px;
+            background-color: #56823D;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 4px;
+        }
+        .sidebar-nav .nav-heading {
+            color: rgba(255, 255, 255, 0.72) !important;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin: 14px 0 6px 12px;
         }
         .sidebar-nav .nav-link {
-            background: #f8fafd;
-            color: #283759;
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: all 0.2s ease;
         }
-        .sidebar-nav .nav-link:not(.collapsed) {
-            background: #edf3f9;
-            color: #283759;
+        .sidebar-nav .nav-link i {
+            color: #A8D27D !important;
+            transition: color 0.2s ease;
         }
-        .sidebar-nav .nav-link:not(.collapsed) i {
-            color: #283759;
+        .sidebar-nav .nav-link.collapsed {
+            background: transparent !important;
+            color: rgba(255, 255, 255, 0.88) !important;
         }
-        .sidebar-nav .nav-content a.active {
-            color: #283759;
-            font-weight: 700;
-        }
-        .sidebar-nav .nav-content a.active i {
-            background-color: #79a8e2;
+        .sidebar-nav .nav-link.collapsed i {
+            color: rgba(255, 255, 255, 0.75) !important;
         }
         .sidebar-nav .nav-link:hover {
-            color: #79a8e2;
-            background: #f0f5fc;
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.18) !important;
         }
         .sidebar-nav .nav-link:hover i {
-            color: #79a8e2;
+            color: #A8D27D !important;
         }
+        .sidebar-nav .nav-link:not(.collapsed) {
+            background: rgba(0, 0, 0, 0.18) !important;
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        .sidebar-nav .nav-link:not(.collapsed) i {
+            color: #A8D27D !important;
+        }
+
+        /* Status Aktif : #A8D27D */
+        .sidebar-nav .nav-link.active,
+        .sidebar-nav .nav-content a.active {
+            background-color: #A8D27D !important;
+            color: #263238 !important;
+            font-weight: 700 !important;
+            border-radius: 6px;
+        }
+        .sidebar-nav .nav-content a.active i {
+            background-color: #263238 !important;
+        }
+        .sidebar-nav .nav-content {
+            padding: 4px 0 6px 0;
+            background: rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+            margin: 3px 0 6px 0;
+        }
+        .sidebar-nav .nav-content a {
+            color: rgba(255, 255, 255, 0.88) !important;
+            padding: 8px 12px 8px 36px;
+            margin: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 13.5px;
+        }
+        .sidebar-nav .nav-content a i {
+            background-color: rgba(255, 255, 255, 0.55);
+        }
+        .sidebar-nav .nav-content a:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+        .sidebar-nav .nav-content a:hover i {
+            background-color: #A8D27D !important;
+        }
+
+        /* Button Utama : #D99032 */
         .btn-primary {
-            background-color: #283759 !important;
-            border-color: #283759 !important;
+            background-color: #D99032 !important;
+            border-color: #D99032 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(217, 144, 50, 0.25);
         }
         .btn-primary:hover, .btn-primary:focus {
-            background-color: #1e2a45 !important;
-            border-color: #1e2a45 !important;
+            background-color: #c47e26 !important;
+            border-color: #c47e26 !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 16px rgba(217, 144, 50, 0.35);
         }
         .btn-outline-primary {
-            color: #283759 !important;
-            border-color: #283759 !important;
+            color: #D99032 !important;
+            border-color: #D99032 !important;
         }
         .btn-outline-primary:hover {
-            background-color: #283759 !important;
+            background-color: #D99032 !important;
+            border-color: #D99032 !important;
             color: #fff !important;
         }
         .btn-warning {
-            background-color: #79a8e2 !important;
-            border-color: #79a8e2 !important;
+            background-color: #D99032 !important;
+            border-color: #D99032 !important;
             color: #fff !important;
         }
         .btn-warning:hover {
-            background-color: #50697d !important;
-            border-color: #50697d !important;
+            background-color: #c47e26 !important;
+            border-color: #c47e26 !important;
             color: #fff !important;
         }
+        .btn-success {
+            background-color: #56823D !important;
+            border-color: #56823D !important;
+            color: #fff !important;
+        }
+        .btn-success:hover {
+            background-color: #446830 !important;
+            border-color: #446830 !important;
+            color: #fff !important;
+        }
+
+        /* Card : #FFFFFF */
+        .card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(86, 130, 61, 0.12) !important;
+            box-shadow: 0 4px 20px rgba(38, 50, 56, 0.05) !important;
+            border-radius: 12px;
+        }
+        .card-header {
+            background-color: #FFFFFF !important;
+            border-bottom: 1px solid rgba(86, 130, 61, 0.1) !important;
+        }
+        .card-footer {
+            background-color: #FAF8EE !important;
+            border-top: 1px solid rgba(86, 130, 61, 0.1) !important;
+        }
+
         .pagetitle h1 {
-            color: #283759;
+            color: #263238 !important;
+            font-weight: 800;
         }
         .card-title {
-            color: #283759;
+            color: #56823D !important;
+            font-weight: 700;
         }
         .back-to-top {
-            background: #283759;
+            background: #56823D !important;
         }
         .back-to-top:hover {
-            background: #79a8e2;
+            background: #D99032 !important;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #56823D !important;
+            border-color: #56823D !important;
+            color: #fff !important;
+        }
+        .pagination .page-link {
+            color: #56823D;
+        }
+        .badge.bg-primary {
+            background-color: #D99032 !important;
+        }
+        .badge.bg-success {
+            background-color: #56823D !important;
+        }
+        .badge.bg-secondary, .badge-active {
+            background-color: #A8D27D !important;
+            color: #263238 !important;
         }
     </style>
 </head>
@@ -199,7 +338,7 @@
                 text: 'Apakah Anda yakin ingin keluar dari sistem?',
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#283759',
+                confirmButtonColor: '#D99032',
                 cancelButtonColor: '#6c757d',
                 confirmButtonText: '<i class="bi bi-box-arrow-right me-1"></i> Ya, Keluar',
                 cancelButtonText: 'Batal',

@@ -239,7 +239,7 @@
                             <a href="{{ route('prestasi.index') }}" class="btn btn-outline-secondary px-4">
                                 <i class="bi bi-arrow-left me-1"></i> Kembali
                             </a>
-                            <button type="submit" class="btn btn-primary px-4 fw-bold" style="background: #283759; border-color: #283759;">
+                            <button type="submit" class="btn btn-primary px-4 fw-bold" style="background: #D99032; border-color: #D99032;">
                                 <i class="bi bi-save me-1"></i> Simpan Data Prestasi
                             </button>
                         </div>

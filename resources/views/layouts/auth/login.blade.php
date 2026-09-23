@@ -23,33 +23,40 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pld-purple:       #283759;
-      --pld-purple-dark:  #1e2a45;
-      --pld-purple-deep:  #141b39;
-      --pld-purple-light: #eef4fc;
-      --pld-purple-subtle:#dbe7f7;
+      /* Primary: #56823D */
+      --pld-purple:       #56823D;
+      --pld-purple-dark:  #446830;
+      --pld-purple-deep:  #233618;
+      --pld-purple-light: #eef8e6;
+      --pld-purple-subtle:#dfead6;
       
-      --pld-orange:       #79a8e2;
-      --pld-orange-hover: #6396d8;
-      --pld-orange-dark:  #50697d;
-      --pld-orange-light: #f0f5fc;
-      --pld-orange-subtle:#dbe8f8;
+      /* Accent / Button: #D99032 */
+      --pld-orange:       #D99032;
+      --pld-orange-hover: #c47e26;
+      --pld-orange-dark:  #b57321;
+      --pld-orange-light: #fef8ee;
+      --pld-orange-subtle:#fcedd7;
+
+      /* Secondary / Active: #A8D27D */
+      --pld-secondary:    #A8D27D;
       
-      --obsidian-dark:      #141b39;
-      --obsidian-card:      #1b2347;
+      /* Dark Theme Sections */
+      --obsidian-dark:      #233618;
+      --obsidian-card:      #2e4720;
       
+      /* Surfaces & Backgrounds */
       --white:              #ffffff;
-      --page-bg:            #f8fafd;
-      --surface-light:      #edf3f9;
-      --text-main:          #141b39;
-      --text-muted:         #50697d;
-      --text-light:         #7e95a8;
-      --border-light:       #e2ebf2;
+      --page-bg:            #FAF8EE;
+      --surface-light:      #FAF8EE;
+      --text-main:          #263238;
+      --text-muted:         #546e7a;
+      --text-light:         #78909c;
+      --border-light:       #e8e4d3;
       
-      --shadow-sm:          0 4px 12px rgba(20, 27, 57, 0.08);
-      --shadow-md:          0 8px 24px rgba(20, 27, 57, 0.12);
-      --shadow-lg:          0 16px 36px rgba(20, 27, 57, 0.16);
-      --shadow-purple:      0 8px 24px rgba(40, 55, 89, 0.28);
+      --shadow-sm:          0 4px 12px rgba(38, 50, 56, 0.08);
+      --shadow-md:          0 8px 24px rgba(38, 50, 56, 0.12);
+      --shadow-lg:          0 16px 36px rgba(38, 50, 56, 0.16);
+      --shadow-purple:      0 8px 24px rgba(86, 130, 61, 0.28);
     }
 
     html, body { height: 100%; }
@@ -352,7 +359,7 @@
     .btn-masuk {
       width: 100%;
       padding: 14px;
-      background: var(--pld-purple);
+      background: var(--pld-orange);
       border: none;
       border-radius: 12px;
       color: var(--white);
@@ -361,14 +368,14 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
       transition: all 0.25s ease;
-      box-shadow: var(--shadow-purple);
+      box-shadow: var(--shadow-orange);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
     }
     .btn-masuk:hover {
-      background: var(--pld-purple-dark);
+      background: var(--pld-orange-hover);
       transform: translateY(-2px);
     }
 
