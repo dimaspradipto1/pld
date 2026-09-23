@@ -23,14 +23,14 @@
   }
   .prestasi-card-portal:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.2);
-    border-color: rgba(40, 55, 89, 0.35);
+    box-shadow: 0 20px 35px -10px rgba(86, 130, 61, 0.2);
+    border-color: rgba(86, 130, 61, 0.35);
   }
   .prestasi-thumb-wrap {
     width: 100%;
     height: 240px;
     position: relative;
-    background: #141b39;
+    background: #1b2b13;
     overflow: hidden;
   }
   .prestasi-thumb {
@@ -58,8 +58,8 @@
     position: absolute;
     bottom: 12px;
     right: 12px;
-    background: #e5a823;
-    color: #141b39;
+    background: #D99032;
+    color: #ffffff;
     padding: 4px 10px;
     font-size: 11px;
     font-weight: 800;

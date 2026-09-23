@@ -13,7 +13,7 @@
   .prodi-header-pill {
     background: #ffc107;
     background: linear-gradient(135deg, #ffd026 0%, #e5a823 100%);
-    color: #141b39;
+    color: #263238;
     font-size: 24px;
     font-weight: 800;
     padding: 18px 30px;
@@ -72,8 +72,8 @@
     width: 100%;
   }
   .table-dosen thead th {
-    background: #501224;
-    background: linear-gradient(135deg, #4a1563 0%, #141b39 100%);
+    background: #56823D;
+    background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);
     color: #ffffff;
     font-weight: 700;
     font-size: 13.5px;
@@ -93,8 +93,8 @@
     background-color: #fbf8fd;
   }
   .btn-lihat-dosen {
-    background: #501224;
-    background: linear-gradient(135deg, #60237c 0%, #141b39 100%);
+    background: #56823D;
+    background: linear-gradient(135deg, #375326 0%, #56823D 100%);
     color: #ffffff !important;
     border: none;
     font-size: 12px;
@@ -309,12 +309,12 @@
     @endif
 
     <!-- Info Bantuan Box -->
-    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #141b39 0%, #60237c 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
+    <div class="mt-5 p-4 rounded-4 text-white d-flex flex-wrap align-items-center justify-content-between gap-3 shadow-sm" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); border: 1px solid rgba(255,255,255,0.2);" data-aos="fade-up">
       <div>
         <h5 class="fw-bold text-white mb-1"><i class="bi bi-mortarboard-fill me-2 text-warning"></i>Tertarik Menjadi Mahasiswa Bimbingan Dosen PLD UIS?</h5>
         <p class="text-white-50 small mb-0">Daftarkan diri Anda pada program sarjana & magister kesehatan melalui jalur PMB Online.</p>
       </div>
-      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #141b39;">
+      <a href="{{ route('homepage.kontak') }}" class="btn btn-warning rounded-pill px-4 fw-bold" style="color: #263238;">
         <i class="bi bi-arrow-right-circle me-1"></i> Informasi PMB
       </a>
     </div>

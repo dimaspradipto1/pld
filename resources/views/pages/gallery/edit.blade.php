@@ -111,7 +111,7 @@
                             <img id="previewImg"
                                  src=""
                                  alt="Preview"
-                                 style="max-width:180px;max-height:180px;object-fit:cover;border-radius:8px;border:2px solid #0d6efd">
+                                 style="max-width:180px;max-height:180px;object-fit:cover;border-radius:8px;border:2px solid #56823D">
                         </div>
                     </div>
 

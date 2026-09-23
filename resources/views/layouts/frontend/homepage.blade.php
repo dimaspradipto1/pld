@@ -108,7 +108,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none !important;
-    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.35);
+    box-shadow: 0 6px 18px rgba(38, 50, 56, 0.25);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -657,7 +657,7 @@
   }
   .partner-marquee-text {
     font-weight: 700;
-    color: var(--obsidian-dark, #141b39);
+    color: var(--obsidian-dark, #263238);
     font-size: 13.5px;
     text-align: center;
     line-height: 1.35;
@@ -677,14 +677,14 @@
   }
   .prestasi-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.15);
-    border-color: rgba(40, 55, 89, 0.3);
+    box-shadow: 0 20px 35px -10px rgba(86, 130, 61, 0.15);
+    border-color: rgba(86, 130, 61, 0.3);
   }
   .prestasi-img-wrap {
     width: 100%;
     height: 240px;
     position: relative;
-    background: #141b39;
+    background: #1b2b13;
     overflow: hidden;
     display: block;
   }
@@ -719,8 +719,8 @@
     position: absolute;
     bottom: 12px;
     right: 12px;
-    background: #e5a823;
-    color: #141b39;
+    background: #D99032;
+    color: #ffffff;
     padding: 4px 10px;
     font-size: 11px;
     font-weight: 800;
@@ -741,14 +741,14 @@
   }
   .gallery-card-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 35px -10px rgba(40, 55, 89, 0.25);
-    border-color: rgba(40, 55, 89, 0.35);
+    box-shadow: 0 20px 35px -10px rgba(86, 130, 61, 0.25);
+    border-color: rgba(86, 130, 61, 0.35);
   }
   .gallery-img-container {
     height: 240px;
     position: relative;
     overflow: hidden;
-    background: #141b39;
+    background: #1b2b13;
   }
   .gallery-card-img {
     width: 100%;
@@ -781,8 +781,8 @@
   }
   .gallery-tag {
     align-self: flex-start;
-    background: rgba(229, 168, 35, 0.95);
-    color: #141b39;
+    background: rgba(217, 144, 50, 0.95);
+    color: #ffffff;
     font-weight: 800;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -933,7 +933,7 @@
         @endforeach
       @else
         <div class="carousel-item active">
-          <div class="hero-banner-img d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #141b39 0%, #141b39 100%); min-height: 360px; color: #ffffff;">
+          <div class="hero-banner-img d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); min-height: 360px; color: #ffffff;">
             <div class="text-center p-4">
               <div class="mb-3">
                 <i class="bi bi-megaphone fs-1" style="color: var(--pld-orange);"></i>
@@ -1058,7 +1058,7 @@
             @if(!empty($sambutanDekan?->foto_dekan))
               <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="{{ $sambutanDekan->nama_dekan ?? 'Dekan PLD UIS' }}" class="rounded-circle shadow-sm" style="width: 72px; height: 72px; object-fit: cover; border: 3px solid var(--pld-purple); flex-shrink:0;">
             @else
-              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, var(--pld-purple) 0%, #141b39 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--pld-orange);">
+              <div style="width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg, #56823D 0%, #1b2b13 100%); color: white; display:flex; align-items:center; justify-content:center; font-size:28px; flex-shrink:0; border: 3px solid var(--pld-orange);">
                 <i class="bi bi-person-badge-fill"></i>
               </div>
             @endif
@@ -1074,7 +1074,7 @@
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
             <span class="fw-bold" style="color: var(--pld-purple);">{{ $sambutanDekan->nama_dekan ?? 'Pimpinan PLD UIS' }}</span>
-            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #141b39; font-weight: 800; padding: 6px 12px;">
+            <a href="{{ route('homepage.sambutan-dekan') }}" class="badge text-decoration-none" style="background: var(--pld-orange); color: #ffffff; font-weight: 800; padding: 6px 12px;">
               Baca Sambutan <i class="bi bi-arrow-right ms-1"></i>
             </a>
           </div>
@@ -1449,7 +1449,7 @@
           Bergabunglah bersama keluarga besar Pusat Layanan Disabilitas Universitas Ibnu Sina sebagai relawan pendamping akademik (notetaker, reader, mobilitas) dan juru bahasa isyarat. Raih pengalaman sosial nyata, pelatihan BISINDO bersertifikat, dan poin SKPI resmi Rektorat.
         </p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="{{ route('homepage.volunteer') }}" class="btn btn-warning px-4 py-3 fw-bold rounded-pill shadow" style="background: #ffd166; color: #141b39; border: none;">
+          <a href="{{ route('homepage.volunteer') }}" class="btn btn-warning px-4 py-3 fw-bold rounded-pill shadow" style="background: #D99032; color: #ffffff; border: none;">
             <i class="bi bi-send-fill me-1"></i> Daftar Relawan Sekarang
           </a>
           <a href="{{ route('homepage.layanan') }}" class="btn btn-outline-light px-4 py-3 rounded-pill fw-semibold">
@@ -1914,7 +1914,7 @@
     <div class="pmb-cta-box">
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
-          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #141b39; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
+          <div class="badge pmb-badge-wrap px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #ffffff; font-weight: 800; font-size: 12px; letter-spacing: 1px;">
             {{ $pmbSetting->badge_text ?? ('PENERIMAAN MAHASISWA BARU (PMB) T.A. ' . date('Y') . '/' . (date('Y') + 1)) }}
           </div>
           <h2 class="text-white fw-bold mb-3" style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.3;">

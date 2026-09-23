@@ -225,7 +225,7 @@
     .topbar-main {
       background: var(--obsidian-dark);
       padding: 9px 0;
-      border-bottom: 1px solid rgba(40, 55, 89, 0.3);
+      border-bottom: 1px solid rgba(86, 130, 61, 0.3);
       font-size: 13px;
       color: rgba(255, 255, 255, 0.8);
     }
@@ -655,8 +655,8 @@
       background: var(--obsidian-dark);
       padding: 60px 0;
       color: var(--white);
-      border-top: 1px solid rgba(40, 55, 89, 0.3);
-      border-bottom: 1px solid rgba(40, 55, 89, 0.3);
+      border-top: 1px solid rgba(86, 130, 61, 0.3);
+      border-bottom: 1px solid rgba(86, 130, 61, 0.3);
     }
     .counter-item { text-align: center; }
     .counter-icon { font-size: 32px; color: var(--pld-orange); margin-bottom: 10px; }

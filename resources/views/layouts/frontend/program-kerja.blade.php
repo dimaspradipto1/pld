@@ -65,8 +65,8 @@
     border-radius: 6px;
   }
   .status-berjalan {
-    background: rgba(121, 168, 226, 0.18);
-    color: #1e4a7a;
+    background: rgba(217, 144, 50, 0.15);
+    color: #b07020;
     border: 1px solid var(--pld-orange);
   }
   .status-terlaksana {

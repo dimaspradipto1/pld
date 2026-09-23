@@ -60,13 +60,13 @@
   .category-pill:hover {
     border-color: var(--pld-purple);
     color: var(--pld-purple);
-    background: rgba(40, 55, 89, 0.05);
+    background: rgba(86, 130, 61, 0.08);
   }
   .category-pill.active {
     background: var(--pld-purple);
     color: #fff !important;
     border-color: var(--pld-purple);
-    box-shadow: 0 4px 14px rgba(40, 55, 89, 0.3);
+    box-shadow: 0 4px 14px rgba(86, 130, 61, 0.3);
   }
 
   /* Card Ormawa */
@@ -83,12 +83,12 @@
   }
   .ormawa-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(40, 55, 89, 0.12);
-    border-color: #c9a4dc;
+    box-shadow: 0 12px 30px rgba(86, 130, 61, 0.15);
+    border-color: #A8D27D;
   }
 
   .ormawa-card-header {
-    background: linear-gradient(135deg, rgba(40, 55, 89, 0.08) 0%, rgba(121, 168, 226, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(86, 130, 61, 0.08) 0%, rgba(168, 210, 125, 0.12) 100%);
     padding: 24px 20px 16px;
     position: relative;
     text-align: center;

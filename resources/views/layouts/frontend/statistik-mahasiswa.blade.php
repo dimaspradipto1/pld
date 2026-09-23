@@ -67,7 +67,7 @@
   .disability-name {
     font-size: 16px;
     font-weight: 700;
-    color: #141b39;
+    color: #263238;
     margin: 0;
   }
   .disability-icon-wrap {
@@ -87,7 +87,7 @@
     font-size: 36px;
     font-weight: 800;
     line-height: 1;
-    color: #141b39;
+    color: #263238;
     margin-bottom: 4px;
   }
   .disability-count-unit {
@@ -123,7 +123,7 @@
   .chart-title {
     font-size: 24px;
     font-weight: 800;
-    color: #141b39;
+    color: #263238;
     margin-bottom: 8px;
   }
   .chart-subtitle {
@@ -178,7 +178,7 @@
   .custom-pagination-container .page-link {
     border-radius: 8px !important;
     border: 1px solid #e2ebf2;
-    color: #141b39;
+    color: #263238;
     font-weight: 600;
     font-size: 13.5px;
     padding: 6px 12px;
@@ -396,7 +396,7 @@
               <button type="button" id="search-mhs-clear" class="btn btn-link text-secondary text-decoration-none px-2 {{ empty($search) ? 'd-none' : '' }}" title="Hapus Pencarian">
                 <i class="bi bi-x-circle-fill"></i>
               </button>
-              <button class="btn btn-primary px-3 fw-semibold text-white" type="submit" style="background: #141b39; border-color: #141b39; border-radius: 0 10px 10px 0;">
+              <button class="btn btn-primary px-3 fw-semibold text-white" type="submit" style="background: #D99032; border-color: #D99032; border-radius: 0 10px 10px 0;">
                 Cari
               </button>
             </div>
@@ -420,7 +420,7 @@
 <!-- ═══════════════════════════════════════════════
      CTA KONSULTASI / REGISTRASI
 ═══════════════════════════════════════════════ -->
-<section class="py-5 text-center text-white" style="background: var(--obsidian-dark, #141b39);">
+<section class="py-5 text-center text-white" style="background: #1b2b13;">
   <div class="container" data-aos="fade-up">
     <h3 class="fw-bold mb-3">Ingin Mendaftarkan Kebutuhan Akomodasi Belajar?</h3>
     <p class="text-white-50 mx-auto mb-4" style="max-width: 620px; font-size: 15px;">
@@ -495,7 +495,7 @@
           },
           x: {
             ticks: {
-              color: '#141b39',
+              color: '#263238',
               font: { family: 'Plus Jakarta Sans', size: 12, weight: '600' },
               maxRotation: 25,
               minRotation: 0
@@ -557,7 +557,7 @@
           },
           x: {
             ticks: {
-              color: '#141b39',
+              color: '#263238',
               font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' },
               maxRotation: 35,
               minRotation: 15

@@ -11,7 +11,7 @@
 <div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--pld-purple);">
   <div class="container">
     <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
-      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(121, 168, 226, 0.15); border: 1px solid rgba(121, 168, 226, 0.4);">
+      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(168, 210, 125, 0.15); border: 1px solid rgba(168, 210, 125, 0.4);">
         <i class="bi bi-mortarboard-fill text-warning"></i>
         <span class="text-warning small fw-bold">PORTAL KHUSUS ALUMNI & CIVITAS</span>
       </div>

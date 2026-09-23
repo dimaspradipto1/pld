@@ -119,8 +119,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(40, 55, 89, 0.3);
-      border: 1px solid rgba(121, 168, 226, 0.4);
+      background: rgba(86, 130, 61, 0.3);
+      border: 1px solid rgba(168, 210, 125, 0.4);
       border-radius: 50px;
       padding: 6px 16px;
       margin-bottom: 24px;
@@ -313,7 +313,7 @@
     .form-input:focus {
       border-color: var(--pld-purple);
       background: var(--white);
-      box-shadow: 0 0 0 3px rgba(40, 55, 89, 0.12);
+      box-shadow: 0 0 0 3px rgba(86, 130, 61, 0.15);
     }
 
     .field-err-msg {

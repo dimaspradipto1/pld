@@ -73,8 +73,8 @@
   }
 
   .visi-misi-card {
-    background: linear-gradient(135deg, rgba(40, 55, 89, 0.04) 0%, rgba(121, 168, 226, 0.04) 100%);
-    border: 1px solid #eddff5;
+    background: linear-gradient(135deg, rgba(86, 130, 61, 0.05) 0%, rgba(168, 210, 125, 0.08) 100%);
+    border: 1px solid rgba(86, 130, 61, 0.15);
     border-radius: 14px;
     padding: 24px;
     margin-bottom: 24px;

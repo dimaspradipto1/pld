@@ -147,7 +147,7 @@ class StatistikMahasiswaController extends Controller
             $sheet->setCellValue($cell, $text);
         }
 
-        // Header Styling (Deep Navy PLD #141B39 dengan teks putih)
+        // Header Styling (Primary Green PLD #56823D dengan teks putih)
         $headerStyle = [
             'font' => [
                 'bold' => true,
@@ -156,7 +156,7 @@ class StatistikMahasiswaController extends Controller
             ],
             'fill' => [
                 'fillType' => Fill::FILL_SOLID,
-                'startColor' => ['rgb' => '141B39'],
+                'startColor' => ['rgb' => '56823D'],
             ],
             'alignment' => [
                 'horizontal' => Alignment::HORIZONTAL_CENTER,
@@ -166,7 +166,7 @@ class StatistikMahasiswaController extends Controller
             'borders' => [
                 'allBorders' => [
                     'borderStyle' => Border::BORDER_THIN,
-                    'color' => ['rgb' => '283759'],
+                    'color' => ['rgb' => '56823D'],
                 ],
             ],
         ];

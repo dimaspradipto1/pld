@@ -144,7 +144,7 @@
                             <img id="previewImg"
                                  src=""
                                  alt="Preview Logo"
-                                 style="max-width:150px;max-height:150px;object-fit:contain;border-radius:4px;border:2px solid #0d6efd;background:#f8f9fa;padding:5px">
+                                 style="max-width:150px;max-height:150px;object-fit:contain;border-radius:4px;border:2px solid #56823D;background:#f8f9fa;padding:5px">
                         </div>
                     </div>
 
