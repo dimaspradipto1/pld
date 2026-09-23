@@ -53,10 +53,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--pld-purple, #283759) !important;
+    background: var(--pld-purple, #56823D) !important;
     color: #ffffff !important;
-    border-color: var(--pld-purple, #283759);
-    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.3);
+    border-color: var(--pld-purple, #56823D);
+    box-shadow: 0 6px 18px rgba(86, 130, 61, 0.3);
   }
 
   .dosen-table-card {
@@ -115,20 +115,20 @@
 
   /* Custom Pagination Theme */
   .pagination .page-item.active .page-link {
-    background-color: var(--pld-purple, #283759) !important;
-    border-color: var(--pld-purple, #283759) !important;
+    background-color: var(--pld-purple, #56823D) !important;
+    border-color: var(--pld-purple, #56823D) !important;
     color: #ffffff !important;
     font-weight: 700;
   }
   .pagination .page-link {
-    color: var(--pld-purple, #283759);
+    color: var(--pld-purple, #56823D);
     border-radius: 8px;
     margin: 0 3px;
     border: 1px solid var(--border-light);
   }
   .pagination .page-link:hover {
-    background-color: #f3e8f8;
-    color: #60237c;
+    background-color: #FAF8EE;
+    color: #56823D;
   }
 </style>
 @endpush
@@ -181,7 +181,7 @@
         {{-- Info Total --}}
         <div class="col-lg-5 col-md-6">
           <div class="d-flex align-items-center gap-3">
-            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #283759;">
+            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #56823D;">
               <i class="bi bi-people-fill fs-5"></i>
             </div>
             <div>
@@ -202,7 +202,7 @@
                 <i class="bi bi-search"></i>
               </span>
               <input type="text" name="q" class="form-control border-start-0 ps-0" placeholder="Cari nama dosen, NIDN, NUPTK, jabatan..." value="{{ $search ?? '' }}">
-              <button class="btn text-white px-3 fw-semibold" type="submit" style="background: #283759;">
+              <button class="btn text-white px-3 fw-semibold" type="submit" style="background: #D99032;">
                 Cari
               </button>
             </div>
@@ -245,7 +245,7 @@
                       @if(!empty($dosen->foto))
                         <img src="{{ asset('storage/' . $dosen->foto) }}" alt="{{ $dosen->nama_dosen }}" class="rounded-circle shadow-sm" style="width: 42px; height: 42px; object-fit: cover; border: 2px solid var(--pld-purple-light);">
                       @else
-                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 14px;">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="width: 42px; height: 42px; background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); font-size: 14px;">
                           {{ strtoupper(substr($dosen->nama_dosen, 0, 1)) }}
                         </div>
                       @endif
@@ -257,7 +257,7 @@
                   </td>
                   <td class="text-center">
                     @if(!empty($dosen->jabatan_fungsional))
-                      <span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px;">
+                      <span class="badge" style="background:#56823D; color:#fff; font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px;">
                         {{ $dosen->jabatan_fungsional }}
                       </span>
                     @else

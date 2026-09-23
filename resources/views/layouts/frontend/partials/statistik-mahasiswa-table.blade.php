@@ -41,7 +41,7 @@
               <small class="text-muted"><i class="bi bi-person-badge me-1"></i>NIM: {{ $mhs->nim ?: '-' }}</small>
             </td>
             <td>
-              <span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600;">
+              <span class="badge" style="background:#56823D; color:#fff; font-size:12px; font-weight:600;">
                 {{ $mhs->jenis_disabilitas }}
               </span>
             </td>

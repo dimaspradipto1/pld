@@ -24,12 +24,12 @@ class LayananTerkaitDataTable extends DataTable
             ->addColumn('DT_RowIndex', '')
             ->addColumn('logo', function ($item) {
                 if ($item->logo_url) {
-                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#283759; width:48px; height:48px; box-shadow:0 2px 6px rgba(40,55,89,0.25)">
+                    return '<div class="d-inline-flex align-items-center justify-content-center p-2 rounded-3" style="background:#56823D; width:48px; height:48px; box-shadow:0 2px 6px rgba(86,130,61,0.25)">
                                 <img src="' . e($item->logo_url) . '" alt="' . e($item->nama) . '" style="max-width:100%; max-height:100%; object-fit:contain;">
                             </div>';
                 }
                 $icon = $item->icon ?: 'bi-link-45deg';
-                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#283759; width:48px; height:48px; font-size:20px; color:#79a8e2 !important; box-shadow:0 2px 6px rgba(40,55,89,0.25)">
+                return '<div class="d-inline-flex align-items-center justify-content-center rounded-3 text-white" style="background:#56823D; width:48px; height:48px; font-size:20px; color:#A8D27D !important; box-shadow:0 2px 6px rgba(86,130,61,0.25)">
                             <i class="bi ' . e($icon) . '"></i>
                         </div>';
             })
@@ -50,7 +50,7 @@ class LayananTerkaitDataTable extends DataTable
                 $shortUrl = mb_strimwidth($item->url, 0, 32, '...');
                 return '<a href="' . e($item->url) . '" target="_blank" rel="noopener noreferrer" 
                            class="btn btn-xs d-inline-flex align-items-center text-truncate" 
-                           style="font-size:11.5px; padding: 4px 10px; background-color: #fff6e8; color: #d67d00; border: 1px solid #ffd899; border-radius: 6px; font-weight:600; max-width:240px;" 
+                           style="font-size:11.5px; padding: 4px 10px; background-color: #FAF8EE; color: #D99032; border: 1px solid #D99032; border-radius: 6px; font-weight:600; max-width:240px;" 
                            title="' . e($item->url) . '">
                             <i class="bi bi-box-arrow-up-right me-1 text-warning"></i> ' . e($shortUrl) . '
                         </a>';
@@ -60,14 +60,14 @@ class LayananTerkaitDataTable extends DataTable
             })
             ->addColumn('is_active', function ($item) {
                 return $item->is_active
-                    ? '<span class="badge" style="background-color:#198754; font-size:11.5px; font-weight:600; padding:6px 12px; border-radius:50px;"><i class="bi bi-check-circle-fill me-1"></i>Aktif</span>'
+                    ? '<span class="badge" style="background-color:#56823D; font-size:11.5px; font-weight:600; padding:6px 12px; border-radius:50px;"><i class="bi bi-check-circle-fill me-1"></i>Aktif</span>'
                     : '<span class="badge" style="background-color:#dc3545; font-size:11.5px; font-weight:600; padding:6px 12px; border-radius:50px;"><i class="bi bi-x-circle-fill me-1"></i>Nonaktif</span>';
             })
             ->addColumn('action', function ($item) {
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:6px">';
                 $btn .= '<a href="' . route('layanan-terkait.edit', $item->id) . '"
                             class="btn btn-sm"
-                            style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background-color:#79a8e2; color:#ffffff; border:none; border-radius:6px; box-shadow:0 2px 5px rgba(121,168,226,0.35);"
+                            style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; background-color:#D99032; color:#ffffff; border:none; border-radius:6px; box-shadow:0 2px 5px rgba(217,144,50,0.35);"
                             title="Edit">
                             <i class="bi bi-pencil-fill" style="font-size:12px"></i>
                          </a>';

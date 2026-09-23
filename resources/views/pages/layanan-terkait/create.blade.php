@@ -15,9 +15,9 @@
 <div class="row">
     <div class="col-lg-8 col-md-10">
         <div class="card shadow-sm border-0" style="border-radius: 12px;">
-            <div class="card-header bg-white py-3" style="border-top: 3px solid #79a8e2; border-radius: 12px 12px 0 0;">
+            <div class="card-header bg-white py-3" style="border-top: 3px solid #56823D; border-radius: 12px 12px 0 0;">
                 <h5 class="mb-0 fw-bold" style="color: #2b2f32; font-size: 16px;">
-                    <i class="bi bi-plus-circle-fill me-2" style="color: #79a8e2;"></i>Form Tambah Kartu Layanan Digital
+                    <i class="bi bi-plus-circle-fill me-2" style="color: #56823D;"></i>Form Tambah Kartu Layanan Digital
                 </h5>
             </div>
             <div class="card-body pt-4">
@@ -113,8 +113,8 @@
 
                         {{-- Preview Box --}}
                         <div id="previewContainer" class="mt-3 d-none">
-                            <label class="form-label text-muted small d-block">Preview Tampilan pada Kartu Ungu:</label>
-                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #283759; min-width: 90px; min-height: 90px; border: 1.5px dashed #79a8e2; box-shadow: 0 4px 12px rgba(40, 55, 89, 0.3);">
+                            <label class="form-label text-muted small d-block">Preview Tampilan pada Kartu Layanan:</label>
+                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #56823D; min-width: 90px; min-height: 90px; border: 1.5px dashed #A8D27D; box-shadow: 0 4px 12px rgba(86, 130, 61, 0.3);">
                                 <img id="previewImg" src="#" alt="Preview Logo" style="max-height: 60px; max-width: 90px; object-fit: contain;">
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                         <a href="{{ route('layanan-terkait.index') }}" class="btn btn-secondary px-4">
                             <i class="bi bi-arrow-left me-1"></i> Batal
                         </a>
-                        <button type="submit" class="btn fw-semibold px-4 shadow-sm" style="background-color: #79a8e2; color: #ffffff; border: none; border-radius: 8px;">
+                        <button type="submit" class="btn fw-semibold px-4 shadow-sm" style="background-color: #D99032; color: #ffffff; border: none; border-radius: 8px;">
                             <i class="bi bi-check-lg me-1"></i> Simpan Layanan
                         </button>
                     </div>

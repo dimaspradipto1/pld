@@ -121,8 +121,8 @@
             </a>
           </div>
         @else
-          <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #283759 0%, #4a1563 100%);">
-            <i class="bi bi-camera-fill" style="font-size: 64px; color: #ffd166;"></i>
+          <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);">
+            <i class="bi bi-camera-fill" style="font-size: 64px; color: #D99032;"></i>
             <h4 class="fw-bold mt-2 mb-0">Dokumentasi PLD UIS</h4>
           </div>
         @endif
@@ -213,7 +213,7 @@
                   @if(!empty($other->url))
                     <img src="{{ asset('storage/' . $other->url) }}" alt="{{ $other->judul }}" class="other-galeri-img">
                   @else
-                    <div class="other-galeri-img d-flex align-items-center justify-content-center text-white" style="background: linear-gradient(135deg, #283759, #4a1563);">
+                    <div class="other-galeri-img d-flex align-items-center justify-content-center text-white" style="background: linear-gradient(135deg, #1b2b13, #56823D);">
                       <i class="bi bi-camera-fill small"></i>
                     </div>
                   @endif

@@ -53,10 +53,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
   }
   .prodi-tab-btn:hover, .prodi-tab-btn.active {
-    background: var(--pld-purple, #283759) !important;
+    background: var(--pld-purple, #56823D) !important;
     color: #ffffff !important;
-    border-color: var(--pld-purple, #283759);
-    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.3);
+    border-color: var(--pld-purple, #56823D);
+    box-shadow: 0 6px 18px rgba(86, 130, 61, 0.3);
   }
 
   /* Table Style Matching Screenshot */
@@ -172,7 +172,7 @@
     <!-- Summary & Info -->
     <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 shadow-sm border" data-aos="fade-up">
       <div class="d-flex align-items-center gap-3">
-        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #283759;">
+        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 44px; height: 44px; background: #56823D;">
           <i class="bi bi-book-half fs-5"></i>
         </div>
         <div>

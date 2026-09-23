@@ -39,7 +39,7 @@ class VolunteerDataTable extends DataTable
                         </div>';
             })
             ->addColumn('keahlian', function (Volunteer $v) {
-                return '<span class="badge" style="background:#283759; color:#fff;">' . e(\Illuminate\Support\Str::limit($v->keahlian ?: 'Umum', 35)) . '</span>';
+                return '<span class="badge" style="background:#56823D; color:#fff;">' . e(\Illuminate\Support\Str::limit($v->keahlian ?: 'Umum', 35)) . '</span>';
             })
             ->addColumn('status', function (Volunteer $v) {
                 if ($v->status === 'Diterima') {
@@ -47,7 +47,7 @@ class VolunteerDataTable extends DataTable
                 } elseif ($v->status === 'Ditolak') {
                     return '<span class="badge bg-danger"><i class="bi bi-x-circle me-1"></i>Ditolak</span>';
                 } else {
-                    return '<span class="badge" style="background:#79a8e2; color:#fff;"><i class="bi bi-hourglass-split me-1"></i>Menunggu Review</span>';
+                    return '<span class="badge" style="background:#D99032; color:#fff;"><i class="bi bi-hourglass-split me-1"></i>Menunggu Review</span>';
                 }
             })
             ->addColumn('created_at', function (Volunteer $v) {
@@ -56,8 +56,8 @@ class VolunteerDataTable extends DataTable
             ->addColumn('action', function (Volunteer $v) {
                 $btn  = '<div class="d-flex justify-content-center align-items-center" style="gap:5px">';
                 $btn .= '<a href="' . route('volunteer.show', $v->id) . '"
-                            class="btn btn-sm btn-info text-white"
-                            style="width:30px;height:30px;display:flex;align-items:center;justify-content:center"
+                            class="btn btn-sm text-white"
+                            style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:#56823D;"
                             title="Detail / Ubah Status">
                             <i class="bi bi-eye-fill" style="font-size:12px"></i>
                          </a>';

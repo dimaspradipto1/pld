@@ -26,9 +26,9 @@ class TenagaPendidikDataTable extends DataTable
                 if ($item->foto) {
                     return '<img src="' . asset('storage/' . $item->foto) . '" '
                          . 'alt="' . e($item->nama) . '" '
-                         . 'style="width:45px;height:45px;object-fit:cover;border-radius:50%;border:2px solid #283759;">';
+                         . 'style="width:45px;height:45px;object-fit:cover;border-radius:50%;border:2px solid #56823D;">';
                 }
-                return '<div style="width:45px;height:45px;background:#f3ebf8;color:#283759;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #e1c9ee;">'
+                return '<div style="width:45px;height:45px;background:#FAF8EE;color:#56823D;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #e8e4d3;">'
                      . '<i class="bi ' . e($item->icon ?: 'bi-person-fill') . '"></i>'
                      . '</div>';
             })

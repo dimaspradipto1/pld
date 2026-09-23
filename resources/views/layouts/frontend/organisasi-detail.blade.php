@@ -6,13 +6,13 @@
 @push('styles')
 <style>
   :root {
-    --pld-purple: #283759;
-    --pld-purple-dark: #591e73;
-    --pld-orange: #79a8e2;
+    --pld-purple: #56823D;
+    --pld-purple-dark: #375326;
+    --pld-orange: #D99032;
   }
 
   .detail-hero {
-    background: linear-gradient(135deg, #141b39 0%, #3b1154 50%, #283759 100%);
+    background: linear-gradient(135deg, #1b2b13 0%, #2f491f 50%, #56823D 100%);
     padding: 60px 0 40px;
     color: #ffffff;
     position: relative;
@@ -42,7 +42,7 @@
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #283759 0%, #591e73 100%);
+    background: #56823D;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -113,7 +113,7 @@
             <li class="breadcrumb-item text-warning active fw-semibold" aria-current="page">{{ $organisasi->singkatan ?: $organisasi->nama_organisasi }}</li>
           </ol>
         </nav>
-        <span class="badge mb-2" style="background:#79a8e2; color:#1a0528; font-size:12px; font-weight:700; padding:6px 14px;">
+        <span class="badge mb-2" style="background:#A8D27D; color:#263238; font-size:12px; font-weight:700; padding:6px 14px;">
           {{ $organisasi->kategori }}
         </span>
         <h1 class="fw-bold text-white mb-2" style="font-size: clamp(24px, 3vw, 36px); line-height: 1.25;">
@@ -147,7 +147,7 @@
               @if(!empty($organisasi->logo))
                 <img src="{{ asset('storage/' . $organisasi->logo) }}" alt="{{ $organisasi->nama_organisasi }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 50%;">
               @else
-                <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 24px;">
+                <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); font-size: 24px;">
                   {{ strtoupper(substr($organisasi->singkatan ?: $organisasi->nama_organisasi, 0, 2)) }}
                 </div>
               @endif
@@ -186,7 +186,7 @@
             @if(!empty($organisasi->nama_wakil))
               <div class="col-sm-6">
                 <div class="info-badge-box">
-                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #79a8e2 0%, #e08500 100%);"><i class="bi bi-person-check"></i></div>
+                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #D99032 0%, #ba7620 100%);"><i class="bi bi-person-check"></i></div>
                   <div>
                     <small class="text-muted d-block">Wakil Ketua</small>
                     <strong class="text-dark">{{ $organisasi->nama_wakil }}</strong>
@@ -198,7 +198,7 @@
             @if(!empty($organisasi->pembina))
               <div class="col-sm-6">
                 <div class="info-badge-box">
-                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);"><i class="bi bi-mortarboard-fill"></i></div>
+                  <div class="info-badge-icon" style="background: linear-gradient(135deg, #56823D 0%, #375326 100%);"><i class="bi bi-mortarboard-fill"></i></div>
                   <div>
                     <small class="text-muted d-block">Dosen Pembina</small>
                     <strong class="text-dark">{{ $organisasi->pembina }}</strong>

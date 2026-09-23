@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
                 <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" style="height: 36px; max-height: 36px;">
-                <span class="d-none d-lg-block ms-2 fw-bold" style="font-size: 17px; color: #79a8e2;"></span>
+                <span class="d-none d-lg-block ms-2 fw-bold" style="font-size: 17px; color: #FAF8EE;"></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->

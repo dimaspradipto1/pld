@@ -42,7 +42,7 @@ class StatistikMahasiswaDataTable extends DataTable
                         '</div>';
             })
             ->addColumn('jenis_disabilitas', function (StatistikMahasiswa $mhs) {
-                return '<span class="badge" style="background:#283759; color:#fff; font-size:12px; font-weight:600;">' . e($mhs->jenis_disabilitas) . '</span>';
+                return '<span class="badge" style="background:#56823D; color:#fff; font-size:12px; font-weight:600;">' . e($mhs->jenis_disabilitas) . '</span>';
             })
             ->addColumn('akademik', function (StatistikMahasiswa $mhs) {
                 return '<div>

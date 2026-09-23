@@ -118,8 +118,8 @@
             <img src="{{ asset('storage/' . $prestasi->foto) }}" alt="{{ $prestasi->judul_prestasi }}" class="prestasi-img-main img-fluid">
           </div>
         @else
-          <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #283759 0%, #4a1563 100%);">
-            <i class="bi bi-trophy-fill" style="font-size: 64px; color: #ffd166;"></i>
+          <div class="p-5 rounded-4 text-center text-white mb-4" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);">
+            <i class="bi bi-trophy-fill" style="font-size: 64px; color: #D99032;"></i>
             <h4 class="fw-bold mt-2 mb-0">Prestasi Sivitas PLD UIS</h4>
           </div>
         @endif
@@ -229,8 +229,8 @@
                   @if(!empty($other->foto))
                     <img src="{{ asset('storage/' . $other->foto) }}" alt="{{ $other->judul_prestasi }}" class="other-prestasi-img">
                   @else
-                    <div class="other-prestasi-img d-flex align-items-center justify-content-center text-white" style="background: #283759;">
-                      <i class="bi bi-trophy-fill text-warning"></i>
+                    <div class="other-prestasi-img d-flex align-items-center justify-content-center text-white" style="background: #56823D;">
+                      <i class="bi bi-trophy-fill" style="color: #D99032;"></i>
                     </div>
                   @endif
                   <div class="flex-grow-1">
@@ -246,7 +246,7 @@
             </div>
 
             <div class="mt-3 text-center pt-2 border-top">
-              <a href="{{ route('homepage.prestasi') }}" class="btn btn-sm btn-outline-primary w-100 rounded-pill" style="color: #283759; border-color: #283759;">
+              <a href="{{ route('homepage.prestasi') }}" class="btn btn-sm btn-outline-success w-100 rounded-pill" style="color: #56823D; border-color: #56823D;">
                 Lihat Semua Prestasi
               </a>
             </div>

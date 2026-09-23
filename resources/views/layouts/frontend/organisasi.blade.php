@@ -6,13 +6,13 @@
 @push('styles')
 <style>
   :root {
-    --pld-purple: #283759;
-    --pld-purple-dark: #591e73;
-    --pld-orange: #79a8e2;
+    --pld-purple: #56823D;
+    --pld-purple-dark: #375326;
+    --pld-orange: #D99032;
   }
 
   .ormawa-hero {
-    background: linear-gradient(135deg, #141b39 0%, #3b1154 50%, #283759 100%);
+    background: linear-gradient(135deg, #1b2b13 0%, #2f491f 50%, #56823D 100%);
     padding: 70px 0 50px;
     position: relative;
     overflow: hidden;
@@ -25,7 +25,7 @@
     right: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(121, 168, 226, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(168, 210, 125, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -120,7 +120,7 @@
     border-radius: 20px;
     font-size: 11.5px;
     font-weight: 700;
-    background: #283759;
+    background: #56823D;
     color: #ffffff;
     letter-spacing: 0.3px;
   }
@@ -179,7 +179,7 @@
   }
 
   .btn-ormawa-detail {
-    background: linear-gradient(135deg, #283759 0%, #591e73 100%);
+    background: #56823D;
     color: #ffffff;
     font-size: 13px;
     font-weight: 600;
@@ -193,9 +193,9 @@
     border: none;
   }
   .btn-ormawa-detail:hover {
-    background: linear-gradient(135deg, #79a8e2 0%, #e08500 100%);
+    background: #D99032;
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(121, 168, 226, 0.35);
+    box-shadow: 0 4px 12px rgba(217, 144, 50, 0.35);
   }
 
   /* Pagination */
@@ -312,7 +312,7 @@
                   @if(!empty($item->logo))
                     <img src="{{ asset('storage/' . $item->logo) }}" alt="{{ $item->nama_organisasi }}" class="ormawa-logo-img">
                   @else
-                    <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #283759 0%, #141b39 100%); font-size: 18px;">
+                    <div class="w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); font-size: 18px;">
                       {{ strtoupper(substr($item->singkatan ?: $item->nama_organisasi, 0, 2)) }}
                     </div>
                   @endif

@@ -16,7 +16,7 @@
     <div class="col-lg-10">
         <div class="card shadow-sm border-0 rounded-4">
             <div class="card-header bg-white py-3 border-bottom d-flex align-items-center justify-content-between">
-                <h5 class="mb-0 fw-bold" style="color: var(--pld-purple, #283759);">
+                <h5 class="mb-0 fw-bold" style="color: var(--pld-purple, #56823D);">
                     <i class="bi bi-person-badge-fill me-2"></i>Kelola Sambutan & Foto Dekan
                 </h5>
                 <span class="badge bg-light text-dark border">Halaman Khusus Sambutan Dekan</span>
@@ -66,14 +66,14 @@
                     </div>
 
                     {{-- Upload Foto Dekan --}}
-                    <div class="mb-4 p-3 rounded-3" style="background: #faf7fc; border: 1px dashed #cbb0d9;">
+                    <div class="mb-4 p-3 rounded-3" style="background: #FAF8EE; border: 1px dashed #d5ccb4;">
                         <label for="foto_dekan" class="form-label fw-bold text-dark d-block">
                             <i class="bi bi-camera-fill me-1 text-primary"></i> Foto Resmi Dekan
                         </label>
                         
                         @if($sambutanDekan->foto_dekan)
                             <div class="d-flex align-items-center gap-3 mb-3 p-2 bg-white rounded-3 border shadow-sm" style="max-width: 420px;">
-                                <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="Foto Dekan" class="rounded-3" style="width: 80px; height: 100px; object-fit: cover; border: 2px solid #283759;">
+                                <img src="{{ asset('storage/' . $sambutanDekan->foto_dekan) }}" alt="Foto Dekan" class="rounded-3" style="width: 80px; height: 100px; object-fit: cover; border: 2px solid #56823D;">
                                 <div>
                                     <div class="fw-bold small text-dark">Foto Saat Ini Aktif</div>
                                     <div class="text-muted" style="font-size: 12px;">Pilih file baru di bawah jika ingin mengganti. Foto lama akan otomatis terhapus dari server.</div>
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="d-flex align-items-center gap-2 pt-3 border-top">
-                        <button type="submit" class="btn text-white px-4 py-2 fw-semibold" style="background-color: #283759;">
+                        <button type="submit" class="btn text-white px-4 py-2 fw-semibold" style="background-color: #D99032;">
                             <i class="bi bi-save me-1"></i> Simpan Perubahan Sambutan Dekan
                         </button>
                         <a href="{{ route('homepage.sambutan-dekan') }}" target="_blank" class="btn btn-outline-secondary px-3 py-2">

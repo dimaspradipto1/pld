@@ -53,7 +53,7 @@
                         </tr>
                         <tr>
                             <th class="bg-light">Minat & Keahlian Khusus</th>
-                            <td><span class="badge fs-6" style="background:#283759; color:#fff;">{{ $volunteer->keahlian ?: 'Umum' }}</span></td>
+                            <td><span class="badge fs-6" style="background:#56823D; color:#fff;">{{ $volunteer->keahlian ?: 'Umum' }}</span></td>
                         </tr>
                         <tr>
                             <th class="bg-light">Motivasi / Alasan Bergabung</th>
@@ -79,14 +79,14 @@
                 <h5 class="mb-0 fw-semibold"><i class="bi bi-check-circle me-2 text-primary"></i>Status Seleksi</h5>
             </div>
             <div class="card-body pt-3">
-                <div class="mb-3 text-center p-3 rounded" style="background: #f8fafd; border: 1px solid #e2ebf2;">
+                <div class="mb-3 text-center p-3 rounded" style="background: #FAF8EE; border: 1px solid #e8e4d3;">
                     <span class="small text-muted d-block mb-1">Status Saat Ini:</span>
                     @if ($volunteer->status === 'Diterima')
                         <span class="badge bg-success fs-6 px-3 py-2"><i class="bi bi-check-circle me-1"></i>DITERIMA</span>
                     @elseif ($volunteer->status === 'Ditolak')
                         <span class="badge bg-danger fs-6 px-3 py-2"><i class="bi bi-x-circle me-1"></i>DITOLAK</span>
                     @else
-                        <span class="badge fs-6 px-3 py-2" style="background:#79a8e2; color:#fff;"><i class="bi bi-hourglass-split me-1"></i>MENUNGGU REVIEW</span>
+                        <span class="badge fs-6 px-3 py-2" style="background:#D99032; color:#fff;"><i class="bi bi-hourglass-split me-1"></i>MENUNGGU REVIEW</span>
                     @endif
                 </div>
 

@@ -593,14 +593,14 @@ class FrontendController extends Controller
 
         // Standard icons & colors for each disabilitas
         $disabilitasMeta = [
-            'Tunanetra'         => ['icon' => 'bi-eye-slash-fill', 'color' => '#283759', 'bg' => '#eef4fc'],
-            'Tunadaksa'         => ['icon' => 'bi-person-wheelchair', 'color' => '#141b39', 'bg' => '#dbe7f7'],
-            'Tunarungu'         => ['icon' => 'bi-ear-fill', 'color' => '#50697d', 'bg' => '#f0f5fc'],
-            'Tunagrahita'       => ['icon' => 'bi-puzzle-fill', 'color' => '#79a8e2', 'bg' => '#e0ecf9'],
-            'Kesulitan Belajar' => ['icon' => 'bi-book-half', 'color' => '#283759', 'bg' => '#eef4fc'],
-            'Tunawicara'        => ['icon' => 'bi-chat-dots-fill', 'color' => '#6396d8', 'bg' => '#dbe8f8'],
-            'Autisme'           => ['icon' => 'bi-heart-pulse-fill', 'color' => '#50697d', 'bg' => '#eef4fc'],
-            'Lainnya'           => ['icon' => 'bi-asterisk', 'color' => '#141b39', 'bg' => '#f8fafd'],
+            'Tunanetra'         => ['icon' => 'bi-eye-slash-fill', 'color' => '#56823D', 'bg' => '#eef6e9'],
+            'Tunadaksa'         => ['icon' => 'bi-person-wheelchair', 'color' => '#D99032', 'bg' => '#fdf3e6'],
+            'Tunarungu'         => ['icon' => 'bi-ear-fill', 'color' => '#40622d', 'bg' => '#e6efe2'],
+            'Tunagrahita'       => ['icon' => 'bi-puzzle-fill', 'color' => '#729c48', 'bg' => '#e9f2e3'],
+            'Kesulitan Belajar' => ['icon' => 'bi-book-half', 'color' => '#c27a20', 'bg' => '#fcf1e2'],
+            'Tunawicara'        => ['icon' => 'bi-chat-dots-fill', 'color' => '#56823D', 'bg' => '#eef6e9'],
+            'Autisme'           => ['icon' => 'bi-heart-pulse-fill', 'color' => '#D99032', 'bg' => '#fdf3e6'],
+            'Lainnya'           => ['icon' => 'bi-asterisk', 'color' => '#263238', 'bg' => '#FAF8EE'],
         ];
 
         // 2. Rekapitulasi per Fakultas (for Chart.js)

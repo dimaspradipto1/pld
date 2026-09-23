@@ -91,7 +91,7 @@
 <div class="modal fade" id="importExcelModal" tabindex="-1" aria-labelledby="importExcelModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg rounded-4">
-            <div class="modal-header text-white" style="background: linear-gradient(135deg, #141b39 0%, #283759 100%);">
+            <div class="modal-header text-white" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);">
                 <h5 class="modal-title fw-bold" id="importExcelModalLabel">
                     <i class="bi bi-file-earmark-excel me-2 text-warning"></i>Import Data Mahasiswa dari Excel
                 </h5>

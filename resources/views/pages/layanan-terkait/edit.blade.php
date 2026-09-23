@@ -15,9 +15,9 @@
 <div class="row">
     <div class="col-lg-8 col-md-10">
         <div class="card shadow-sm border-0" style="border-radius: 12px;">
-            <div class="card-header bg-white py-3" style="border-top: 3px solid #79a8e2; border-radius: 12px 12px 0 0;">
+            <div class="card-header bg-white py-3" style="border-top: 3px solid #56823D; border-radius: 12px 12px 0 0;">
                 <h5 class="mb-0 fw-bold" style="color: #2b2f32; font-size: 16px;">
-                    <i class="bi bi-pencil-fill me-2" style="color: #79a8e2;"></i>Form Edit Kartu Layanan Digital
+                    <i class="bi bi-pencil-fill me-2" style="color: #56823D;"></i>Form Edit Kartu Layanan Digital
                 </h5>
             </div>
             <div class="card-body pt-4">
@@ -101,7 +101,7 @@
                         </label>
 
                         @if($layananTerkait->logo_url)
-                            <div class="mb-2 p-3 rounded-3 d-inline-flex align-items-center gap-3" style="background: #283759; border: 1.5px solid rgba(255,255,255,0.25); box-shadow: 0 4px 12px rgba(40, 55, 89, 0.25);">
+                            <div class="mb-2 p-3 rounded-3 d-inline-flex align-items-center gap-3" style="background: #56823D; border: 1.5px solid rgba(255,255,255,0.25); box-shadow: 0 4px 12px rgba(86, 130, 61, 0.25);">
                                 <img src="{{ $layananTerkait->logo_url }}" alt="Logo Saat Ini" style="max-height: 50px; max-width: 80px; object-fit: contain;">
                                 <div class="text-white small">
                                     <span class="text-warning fw-bold d-block">Logo Saat Ini Aktif</span>
@@ -125,8 +125,8 @@
 
                         {{-- Preview Box Baru --}}
                         <div id="previewContainer" class="mt-3 d-none">
-                            <label class="form-label text-muted small d-block">Preview Logo Baru pada Kartu Ungu:</label>
-                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #283759; min-width: 90px; min-height: 90px; border: 1.5px dashed #79a8e2; box-shadow: 0 4px 12px rgba(40, 55, 89, 0.3);">
+                            <label class="form-label text-muted small d-block">Preview Logo Baru pada Kartu Layanan:</label>
+                            <div class="p-3 rounded-3 d-inline-flex align-items-center justify-content-center" style="background: #56823D; min-width: 90px; min-height: 90px; border: 1.5px dashed #A8D27D; box-shadow: 0 4px 12px rgba(86, 130, 61, 0.3);">
                                 <img id="previewImg" src="#" alt="Preview Logo Baru" style="max-height: 60px; max-width: 90px; object-fit: contain;">
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                         <a href="{{ route('layanan-terkait.index') }}" class="btn btn-secondary px-4">
                             <i class="bi bi-arrow-left me-1"></i> Batal
                         </a>
-                        <button type="submit" class="btn fw-semibold px-4 shadow-sm" style="background-color: #79a8e2; color: #ffffff; border: none; border-radius: 8px;">
+                        <button type="submit" class="btn fw-semibold px-4 shadow-sm" style="background-color: #D99032; color: #ffffff; border: none; border-radius: 8px;">
                             <i class="bi bi-check-lg me-1"></i> Simpan Perubahan
                         </button>
                     </div>

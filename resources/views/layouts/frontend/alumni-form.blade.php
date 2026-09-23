@@ -122,7 +122,7 @@
                 <input type="hidden" id="kategoriValue" name="kategori" value="{{ $isCustom ? $oldKategori : ($oldKategori ?: 'Alumni') }}">
                 {{-- Custom input (shown when Lainnya selected) --}}
                 <div id="kategoriCustomWrap" style="margin-top: 8px; display: {{ $isCustom ? 'block' : 'none' }};">
-                  <input type="text" id="kategoriCustomInput" class="form-control form-control-lg" placeholder="Contoh: Puskesmas, NGO Kesehatan, Peneliti..." value="{{ $isCustom ? $oldKategori : '' }}" style="border-radius: 12px; font-size: 14px; border-color: #283759;" oninput="document.getElementById('kategoriValue').value = this.value">
+                  <input type="text" id="kategoriCustomInput" class="form-control form-control-lg" placeholder="Contoh: Puskesmas, NGO Kesehatan, Peneliti..." value="{{ $isCustom ? $oldKategori : '' }}" style="border-radius: 12px; font-size: 14px; border-color: #56823D;" oninput="document.getElementById('kategoriValue').value = this.value">
                   <div class="small text-muted mt-1"><i class="bi bi-info-circle me-1"></i>Tuliskan kategori Anda secara spesifik.</div>
                 </div>
                 @error('kategori')

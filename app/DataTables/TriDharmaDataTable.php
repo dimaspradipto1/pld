@@ -23,7 +23,7 @@ class TriDharmaDataTable extends DataTable
             ->addIndexColumn()
             ->addColumn('DT_RowIndex', '')
             ->addColumn('icon_preview', function (TriDharma $item) {
-                $color = $item->warna ?: '#283759';
+                $color = $item->warna ?: '#56823D';
                 return '<div style="font-size:24px;color:' . e($color) . ';">'
                      . '<i class="bi ' . e($item->icon) . '"></i>'
                      . '</div>'

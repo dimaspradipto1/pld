@@ -8,9 +8,9 @@
 <style>
   .stats-hero {
     position: relative;
-    background: var(--obsidian-dark, #141b39);
+    background: #1b2b13;
     padding: 75px 0 55px;
-    border-bottom: 2px solid var(--pld-purple, #283759);
+    border-bottom: 2px solid var(--pld-purple, #56823D);
   }
   .stats-hero-title {
     font-size: 38px;
@@ -21,7 +21,7 @@
   }
   .stats-hero-title em {
     font-style: normal;
-    color: var(--pld-orange, #79a8e2);
+    color: var(--pld-orange, #D99032);
   }
   .stats-hero-desc {
     color: rgba(255, 255, 255, 0.75);
@@ -37,8 +37,8 @@
     color: rgba(255, 255, 255, 0.6);
   }
   .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
-  .breadcrumb-custom a:hover { color: var(--pld-orange, #79a8e2); }
-  .breadcrumb-custom .active { color: var(--pld-orange, #79a8e2); font-weight: 600; }
+  .breadcrumb-custom a:hover { color: var(--pld-orange, #D99032); }
+  .breadcrumb-custom .active { color: var(--pld-orange, #D99032); font-weight: 600; }
 
   /* Disability Cards */
   .disability-stat-card {
@@ -55,8 +55,8 @@
   }
   .disability-stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(20, 27, 57, 0.1);
-    border-color: #79a8e2;
+    box-shadow: 0 12px 30px rgba(86, 130, 61, 0.15);
+    border-color: #56823D;
   }
   .disability-card-head {
     display: flex;
@@ -104,7 +104,7 @@
   .disability-progress-bar {
     height: 100%;
     border-radius: 10px;
-    background: linear-gradient(90deg, #283759 0%, #79a8e2 100%);
+    background: linear-gradient(90deg, #56823D 0%, #A8D27D 100%);
   }
 
   /* Chart Card Boxes */
@@ -154,8 +154,8 @@
     transition: all 0.2s ease;
   }
   .search-mhs-box:focus-within {
-    border-color: #79a8e2;
-    box-shadow: 0 0 0 3px rgba(121, 168, 226, 0.2);
+    border-color: #56823D;
+    box-shadow: 0 0 0 3px rgba(86, 130, 61, 0.2);
   }
   .search-mhs-box .form-control {
     border: none !important;
@@ -186,15 +186,15 @@
     box-shadow: none !important;
   }
   .custom-pagination-container .page-link:hover {
-    background: #eef4fc;
-    color: #141b39;
-    border-color: #79a8e2;
+    background: #FAF8EE;
+    color: #56823D;
+    border-color: #56823D;
   }
   .custom-pagination-container .page-item.active .page-link {
-    background: #141b39 !important;
-    border-color: #141b39 !important;
+    background: #56823D !important;
+    border-color: #56823D !important;
     color: #ffffff !important;
-    box-shadow: 0 3px 8px rgba(20, 27, 57, 0.2) !important;
+    box-shadow: 0 3px 8px rgba(86, 130, 61, 0.2) !important;
   }
   .custom-pagination-container .page-item.disabled .page-link {
     background: #f8fafc;
@@ -240,7 +240,7 @@
     <form method="GET" action="{{ route('homepage.statistik-mahasiswa') }}" class="row g-3 align-items-center justify-content-between">
       <div class="col-md-4 col-lg-3">
         <div class="d-flex align-items-center gap-2">
-          <div class="p-2 rounded-3 text-white" style="background:#283759;">
+          <div class="p-2 rounded-3 text-white" style="background:#56823D;">
             <i class="bi bi-people-fill fs-5"></i>
           </div>
           <div>
@@ -298,7 +298,7 @@
     <div class="row g-4 justify-content-center">
       @forelse($disabilitasCounts as $jenis => $count)
         @php
-          $meta = $disabilitasMeta[$jenis] ?? ['icon' => 'bi-universal-access', 'color' => '#283759', 'bg' => '#eef4fc'];
+          $meta = $disabilitasMeta[$jenis] ?? ['icon' => 'bi-universal-access', 'color' => '#56823D', 'bg' => '#eef6e9'];
           $percent = $totalMahasiswa > 0 ? round(($count / $totalMahasiswa) * 100) : 0;
         @endphp
         <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 50 }}">
@@ -456,8 +456,8 @@
         datasets: [{
           label: 'Jumlah Mahasiswa',
           data: fakultasData,
-          backgroundColor: '#141b39',
-          hoverBackgroundColor: '#79a8e2',
+          backgroundColor: '#56823D',
+          hoverBackgroundColor: '#D99032',
           borderRadius: 8,
           borderSkipped: false,
           maxBarThickness: 55,
@@ -469,9 +469,9 @@
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#141b39',
+            backgroundColor: '#263238',
             titleColor: '#ffffff',
-            bodyColor: '#79a8e2',
+            bodyColor: '#A8D27D',
             padding: 12,
             cornerRadius: 10,
             callbacks: {
@@ -518,8 +518,8 @@
         datasets: [{
           label: 'Jumlah Mahasiswa',
           data: prodiData,
-          backgroundColor: '#283759',
-          hoverBackgroundColor: '#79a8e2',
+          backgroundColor: '#56823D',
+          hoverBackgroundColor: '#D99032',
           borderRadius: 8,
           borderSkipped: false,
           maxBarThickness: 45,
@@ -531,9 +531,9 @@
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#141b39',
+            backgroundColor: '#263238',
             titleColor: '#ffffff',
-            bodyColor: '#79a8e2',
+            bodyColor: '#A8D27D',
             padding: 12,
             cornerRadius: 10,
             callbacks: {

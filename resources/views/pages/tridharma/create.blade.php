@@ -45,7 +45,7 @@
                                 Bootstrap Icon Class <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light" id="icon-preview-box" style="font-size:22px;color:#283759;min-width:52px;justify-content:center;">
+                                <span class="input-group-text bg-light" id="icon-preview-box" style="font-size:22px;color:#56823D;min-width:52px;justify-content:center;">
                                     <i id="preview-icon-el" class="bi bi-journal-check"></i>
                                 </span>
                                 <input type="text"
@@ -70,15 +70,15 @@
                                 <input type="color"
                                        id="warna_picker"
                                        class="form-control form-control-color"
-                                       value="{{ old('warna', '#283759') }}"
+                                       value="{{ old('warna', '#56823D') }}"
                                        title="Pilih Warna"
                                        onchange="document.getElementById('warna').value = this.value; updatePreview();">
                                 <input type="text"
                                        id="warna"
                                        name="warna"
                                        class="form-control @error('warna') is-invalid @enderror"
-                                       value="{{ old('warna', '#283759') }}"
-                                       placeholder="#283759"
+                                       value="{{ old('warna', '#56823D') }}"
+                                       placeholder="#56823D"
                                        oninput="updateColorFromInput(this.value)">
                             </div>
                             @error('warna')
@@ -172,7 +172,7 @@
 <script>
 function updatePreview() {
     const iconVal = document.getElementById('icon').value.trim();
-    const colorVal = document.getElementById('warna').value.trim() || '#283759';
+    const colorVal = document.getElementById('warna').value.trim() || '#56823D';
     const iconEl = document.getElementById('preview-icon-el');
     const boxEl = document.getElementById('icon-preview-box');
 

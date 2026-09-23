@@ -86,7 +86,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 26px;
     font-weight: 800;
-    color: var(--pld-purple, #283759);
+    color: var(--pld-purple, #56823D);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
@@ -99,7 +99,7 @@
     margin: 0 auto;
   }
   .layanan-terkait-card {
-    background: #283759;
+    background: #56823D;
     border: 1.5px solid rgba(255, 255, 255, 0.18);
     border-radius: 14px;
     padding: 18px 20px;
@@ -121,14 +121,14 @@
     left: 0;
     width: 4px;
     height: 0%;
-    background: var(--pld-orange, #79a8e2);
+    background: var(--pld-orange, #D99032);
     transition: height 0.3s ease;
   }
   .layanan-terkait-card:hover {
     transform: translateY(-5px);
-    background: #1e2a45;
-    border-color: #79a8e2;
-    box-shadow: 0 14px 30px -4px rgba(40, 55, 89, 0.5), 0 0 0 2px #79a8e2;
+    background: #233618;
+    border-color: #D99032;
+    box-shadow: 0 14px 30px -4px rgba(35, 54, 24, 0.5), 0 0 0 2px #D99032;
   }
   .layanan-terkait-card:hover::before {
     height: 100%;
@@ -151,7 +151,7 @@
   }
   .layanan-terkait-icon {
     font-size: 26px;
-    color: var(--pld-orange, #79a8e2);
+    color: var(--pld-orange, #D99032);
     transition: transform 0.3s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-icon {
@@ -169,7 +169,7 @@
     transition: color 0.25s ease;
   }
   .layanan-terkait-card:hover .layanan-terkait-name {
-    color: var(--pld-orange, #79a8e2);
+    color: var(--pld-orange, #D99032);
   }
 
   /* ═══════════════════════════════════════════════
@@ -367,7 +367,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 27px;
     font-weight: 800;
-    color: var(--pld-purple, #283759);
+    color: var(--pld-purple, #56823D);
     letter-spacing: -0.5px;
     line-height: 1.2;
   }
@@ -387,8 +387,8 @@
     transition: all 0.25s ease;
   }
   .news-search-pill:focus-within {
-    border-color: var(--pld-purple, #283759);
-    box-shadow: 0 0 0 3px rgba(40, 55, 89, 0.14);
+    border-color: var(--pld-purple, #56823D);
+    box-shadow: 0 0 0 3px rgba(86, 130, 61, 0.14);
   }
   .news-search-pill input {
     border: none;
@@ -405,7 +405,7 @@
   .news-search-pill button {
     border: none;
     background: transparent;
-    color: var(--pld-purple, #283759);
+    color: var(--pld-purple, #56823D);
     font-size: 15px;
     cursor: pointer;
     padding: 0;
@@ -425,11 +425,11 @@
     height: 100%;
   }
   .news-mini-item:hover {
-    background: var(--pld-purple-light, #eef4fc);
+    background: var(--pld-purple-light, #f0f6ec);
     transform: translateY(-2px);
   }
   .news-mini-item:hover .news-mini-title {
-    color: var(--pld-purple, #283759);
+    color: var(--pld-purple, #56823D);
   }
   .news-mini-img-wrap {
     width: 112px;
@@ -455,8 +455,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--pld-purple-light, #eef4fc);
-    color: var(--pld-purple, #283759);
+    background: var(--pld-purple-light, #f0f6ec);
+    color: var(--pld-purple, #56823D);
     font-size: 24px;
   }
   .news-mini-content {
@@ -488,7 +488,7 @@
   /* Button PLD Pill */
   .btn-pld-pill {
     display: inline-block;
-    background: var(--pld-purple, #283759);
+    background: var(--pld-purple, #56823D);
     color: #ffffff !important;
     font-size: 13.5px;
     font-weight: 700;
@@ -496,13 +496,13 @@
     border-radius: 50px;
     text-decoration: none !important;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(40, 55, 89, 0.25);
+    box-shadow: 0 4px 14px rgba(86, 130, 61, 0.25);
   }
   .btn-pld-pill:hover {
-    background: var(--pld-purple-dark, #1e2a45);
-    color: var(--pld-orange, #79a8e2) !important;
+    background: var(--pld-purple-dark, #446830);
+    color: var(--pld-orange, #D99032) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(40, 55, 89, 0.35);
+    box-shadow: 0 6px 18px rgba(86, 130, 61, 0.35);
   }
 
   /* Announcement Card */
@@ -517,8 +517,8 @@
     border: 1px solid #eedef8;
   }
   .announcement-card-box:hover {
-    background: var(--pld-purple-light, #eef4fc);
-    border-color: var(--pld-purple, #283759);
+    background: var(--pld-purple-light, #f0f6ec);
+    border-color: var(--pld-purple, #56823D);
     transform: translateX(4px);
   }
   .announcement-card-title {
@@ -546,22 +546,22 @@
     margin-bottom: 5px;
   }
   .agenda-badge-card {
-    background: var(--pld-orange, #79a8e2);
-    color: #141b39;
+    background: var(--pld-orange, #D99032);
+    color: #ffffff;
     font-size: 13.5px;
     font-weight: 800;
     border-radius: 10px;
     padding: 10px 16px;
-    box-shadow: 0 2px 6px rgba(121, 168, 226, 0.25);
+    box-shadow: 0 2px 6px rgba(217, 144, 50, 0.25);
     line-height: 1.35;
   }
   .btn-agenda-pill {
     display: block;
     width: 100%;
     text-align: center;
-    background: var(--pld-purple-light, #eef4fc);
-    border: 1px solid var(--pld-purple-subtle, #dbe7f7);
-    color: var(--pld-purple, #283759) !important;
+    background: var(--pld-purple-light, #f0f6ec);
+    border: 1px solid var(--pld-purple-subtle, #dce8d5);
+    color: var(--pld-purple, #56823D) !important;
     font-size: 13px;
     font-weight: 700;
     padding: 9px 16px;
@@ -570,21 +570,21 @@
     transition: all 0.2s ease;
   }
   .btn-agenda-pill:hover {
-    background: var(--pld-purple, #283759);
+    background: var(--pld-purple, #56823D);
     color: #ffffff !important;
   }
 
   /* PMB Banner Box */
   .pmb-cta-box {
-    background: #283759;
-    background: linear-gradient(135deg, #283759 0%, #60237c 100%);
+    background: #56823D;
+    background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);
     border-radius: 28px;
     padding: 56px 44px;
     color: var(--white);
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 20px 45px -12px rgba(40, 55, 89, 0.5);
+    box-shadow: 0 20px 45px -12px rgba(86, 130, 61, 0.4);
   }
 
   /* BuildWithAngga Style 2-Row Infinite Marquee */
@@ -641,8 +641,8 @@
   }
   .partner-marquee-card:hover {
     transform: translateY(-4px);
-    border-color: var(--pld-purple, #283759);
-    box-shadow: 0 12px 25px -8px rgba(40, 55, 89, 0.25);
+    border-color: var(--pld-purple, #56823D);
+    box-shadow: 0 12px 25px -8px rgba(86, 130, 61, 0.25);
   }
   .partner-marquee-img {
     max-height: 48px;
@@ -765,7 +765,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #283759 0%, #141b39 100%);
+    background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);
   }
   .gallery-card-overlay {
     position: absolute;
@@ -819,15 +819,15 @@
     transition: all 0.2s ease;
   }
   .page-item.active .page-link {
-    background-color: var(--pld-purple, #283759) !important;
-    border-color: var(--pld-purple, #283759) !important;
+    background-color: var(--pld-purple, #56823D) !important;
+    border-color: var(--pld-purple, #56823D) !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(40, 55, 89, 0.35);
+    box-shadow: 0 4px 12px rgba(86, 130, 61, 0.35);
   }
   .page-item .page-link:hover {
-    background-color: #f3e8f8;
-    color: var(--pld-purple, #283759);
-    border-color: var(--pld-purple, #283759);
+    background-color: #FAF8EE;
+    color: var(--pld-purple, #56823D);
+    border-color: var(--pld-purple, #56823D);
   }
 
   /* PMB WhatsApp Outline Button */
@@ -853,7 +853,7 @@
   }
   .btn-pmb-wa:hover {
     background: #ffffff !important;
-    color: #283759 !important;
+    color: #56823D !important;
     border-color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -1088,7 +1088,7 @@
      3b. STATISTIK FAKULTAS — "PLD DALAM ANGKA"
 ═══════════════════════════════════════════════ -->
 @if(isset($facultyStat) && $facultyStat)
-<section id="statistik-fakultas" style="background: linear-gradient(135deg, #5a2870 0%, #283759 40%, #141b39 100%); padding: 40px 0; overflow: hidden; position: relative;">
+<section id="statistik-fakultas" style="background: linear-gradient(135deg, #1b2b13 0%, #375326 40%, #56823D 100%); padding: 40px 0; overflow: hidden; position: relative;">
 
   {{-- Decorative blur shapes --}}
   <div style="position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
@@ -1108,7 +1108,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->jumlah_prodi }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#A8D27D;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ $facultyStat->jumlah_prodi }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1121,7 +1121,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_mahasiswa }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#A8D27D;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ number_format($facultyStat->total_mahasiswa, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1134,7 +1134,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_dosen }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#A8D27D;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ $facultyStat->total_dosen }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1147,7 +1147,7 @@
           <div class="col-6 col-sm-3">
             <div style="text-align:center;padding:14px 8px;background:rgba(255,255,255,0.1);border-radius:16px;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(8px);height:100%;display:flex;flex-direction:column;justify-content:center;">
               <div class="stat-count" data-target="{{ $facultyStat->total_alumni }}"
-                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#79a8e2;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
+                   style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:#A8D27D;line-height:1;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.5px;">
                 {{ number_format($facultyStat->total_alumni, 0, ',', '.') }}
               </div>
               <div style="color:rgba(255,255,255,0.9);font-size:0.75rem;margin-top:6px;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;">
@@ -1412,7 +1412,7 @@
             <div class="p-4 rounded-4 bg-white h-100 d-flex flex-column justify-content-between shadow-sm" style="border: 1px solid var(--border-light, #e2e8f0); transition: all 0.3s ease;">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <span class="badge px-3 py-1" style="background: var(--pld-purple-light, #eef2ff); color: var(--pld-purple, #283759); font-size: 11px; font-weight: 700; border-radius: 6px;">{{ $pk->kategori }}</span>
+                  <span class="badge px-3 py-1" style="background: var(--pld-purple-light, #f0f6ec); color: var(--pld-purple, #56823D); font-size: 11px; font-weight: 700; border-radius: 6px;">{{ $pk->kategori }}</span>
                   <span class="badge bg-light text-dark border small" style="font-size: 11px;">{{ $pk->status }}</span>
                 </div>
                 <h4 class="fw-bold text-dark fs-6 mb-2">{{ $pk->judul }}</h4>
@@ -1437,11 +1437,11 @@
 <!-- ═══════════════════════════════════════════════
      8. PROGRAM VOLUNTEER & RELAWAN INKLUSIF
 ═══════════════════════════════════════════════ -->
-<section class="py-5" style="background: linear-gradient(135deg, #141b39 0%, #283759 100%); color: #ffffff;" id="volunteer-cta">
+<section class="py-5" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%); color: #ffffff;" id="volunteer-cta">
   <div class="container py-3">
     <div class="row align-items-center g-5">
       <div class="col-lg-7" data-aos="fade-right">
-        <span class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(121, 168, 226, 0.25); color: #79a8e2; font-weight: 800; font-size: 12px; letter-spacing: 0.5px;">
+        <span class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(168, 210, 125, 0.25); color: #A8D27D; font-weight: 800; font-size: 12px; letter-spacing: 0.5px;">
           <i class="bi bi-heart-fill text-danger me-1"></i> OPEN RECRUITMENT VOLUNTEER
         </span>
         <h2 class="display-6 fw-bold text-white mb-3">Jadilah Sahabat Belajar &amp; <em>Relawan Inklusif</em></h2>
@@ -1503,8 +1503,8 @@
                 @if(!empty($prestasi->foto))
                   <img src="{{ asset('storage/' . $prestasi->foto) }}" alt="{{ $prestasi->judul_prestasi }}" class="prestasi-img">
                 @else
-                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #283759 0%, #4a1563 100%);">
-                    <i class="bi bi-trophy-fill" style="font-size: 44px; color: #ffd166;"></i>
+                  <div class="d-flex align-items-center justify-content-center h-100 text-white flex-column gap-2" style="background: linear-gradient(135deg, #1b2b13 0%, #56823D 100%);">
+                    <i class="bi bi-trophy-fill" style="font-size: 44px; color: #D99032;"></i>
                     <span class="small fw-semibold text-white-50">PLD UIS Achievement</span>
                   </div>
                 @endif
@@ -1527,7 +1527,7 @@
                   </h4>
 
                   <div class="d-flex align-items-center gap-2 mb-3 mt-3">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #283759; font-size: 13px;">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 32px; height: 32px; background: #56823D; font-size: 13px;">
                       <i class="bi bi-person-fill"></i>
                     </div>
                     <div>
@@ -1601,12 +1601,12 @@
                   @if(!empty($ormawa->logo))
                     <img src="{{ asset('storage/' . $ormawa->logo) }}" alt="{{ $ormawa->nama_organisasi }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 50%;">
                   @else
-                    <span class="fw-bold" style="color: #283759; font-size: 16px;">{{ strtoupper(substr($ormawa->singkatan ?: $ormawa->nama_organisasi, 0, 2)) }}</span>
+                    <span class="fw-bold" style="color: #56823D; font-size: 16px;">{{ strtoupper(substr($ormawa->singkatan ?: $ormawa->nama_organisasi, 0, 2)) }}</span>
                   @endif
                 </div>
 
                 <div class="mb-2">
-                  <span class="badge" style="background: rgba(40, 55, 89, 0.1); color: #283759; font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 10px;">
+                  <span class="badge" style="background: rgba(86, 130, 61, 0.12); color: #56823D; font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 10px;">
                     {{ $ormawa->kategori }}
                   </span>
                 </div>
@@ -1720,19 +1720,19 @@
                 <div class="testi-card h-100 shadow-sm" style="background: #ffffff; border: 1.5px solid #f0e6f5; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
                   <div>
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="testi-stars m-0" style="color: #79a8e2; font-size: 15px; display: flex; gap: 3px;">
+                      <div class="testi-stars m-0" style="color: #D99032; font-size: 15px; display: flex; gap: 3px;">
                         @for($s = 1; $s <= 5; $s++)
                           <i class="bi bi-star{{ $s <= $testi->bintang ? '-fill' : '' }}"></i>
                         @endfor
                       </div>
-                      <span class="badge" style="background: #f5edf8; color: #283759; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
+                      <span class="badge" style="background: #f0f6ec; color: #56823D; font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 8px;">
                         {{ $testi->kategori ?? 'Alumni' }}
                       </span>
                     </div>
                     <p class="testi-text mb-4" style="font-size: 14px; line-height: 1.6; color: #333333; font-style: italic;">"{{ $testi->pesan }}"</p>
                   </div>
                   <div class="testi-author pt-3 border-top d-flex align-items-center gap-3" style="border-color: #f7effa !important;">
-                    <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #283759; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
+                    <div class="testi-avatar flex-shrink-0" style="width: 44px; height: 44px; border-radius: 50%; background: #56823D; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">{{ $initials ?: 'AL' }}</div>
                     <div>
                       <div class="testi-name text-dark fw-bold" style="font-size: 14px; line-height: 1.3;">{{ $testi->nama }}</div>
                       <div class="testi-role text-muted small" style="font-size: 12px;">{{ $testi->pekerjaan ?? 'Alumni PLD UIS' }}</div>
@@ -1749,8 +1749,8 @@
       </div>
 
       <!-- Navigation Arrows -->
-      <div class="swiper-button-prev alumni-prev" style="color: #283759;"></div>
-      <div class="swiper-button-next alumni-next" style="color: #283759;"></div>
+      <div class="swiper-button-prev alumni-prev" style="color: #56823D;"></div>
+      <div class="swiper-button-next alumni-next" style="color: #56823D;"></div>
     </div>
 
     <div class="text-center mt-3" data-aos="fade-up">
@@ -1773,7 +1773,7 @@
         {{-- Header Berita + Search Bar --}}
         <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
           <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #283759);"></i>
+            <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #56823D);"></i>
             <h2 class="section-heading-pld mb-0">Berita</h2>
           </div>
           <form action="{{ route('homepage.news') }}" method="GET" class="news-search-pill">
@@ -1836,7 +1836,7 @@
         {{-- SECTION PENGUMUMAN --}}
         <div class="mb-4">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-megaphone-fill fs-3" style="color: var(--pld-purple, #283759);"></i>
+            <i class="bi bi-megaphone-fill fs-3" style="color: var(--pld-purple, #56823D);"></i>
             <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Pengumuman</h3>
           </div>
 
@@ -1865,7 +1865,7 @@
         {{-- SECTION AGENDA --}}
         <div class="mt-4 pt-3 border-top">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <i class="bi bi-calendar4-week fs-3" style="color: var(--pld-purple, #283759);"></i>
+            <i class="bi bi-calendar4-week fs-3" style="color: var(--pld-purple, #56823D);"></i>
             <h3 class="section-heading-pld mb-0" style="font-size: 24px;">Agenda</h3>
           </div>
 

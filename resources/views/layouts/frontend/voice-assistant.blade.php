@@ -13,12 +13,12 @@
 
   /* Sorotan visual lembut saat elemen sedang dibacakan suaranya */
   .pld-voice-reading-active {
-    outline: 2px solid #79a8e2 !important;
+    outline: 2px solid #56823D !important;
     outline-offset: 3px !important;
     border-radius: 4px !important;
-    background-color: rgba(121, 168, 226, 0.12) !important;
+    background-color: rgba(168, 210, 125, 0.2) !important;
     transition: outline 0.15s ease, background-color 0.15s ease !important;
-    box-shadow: 0 0 10px rgba(121, 168, 226, 0.35) !important;
+    box-shadow: 0 0 10px rgba(86, 130, 61, 0.35) !important;
   }
 </style>
 

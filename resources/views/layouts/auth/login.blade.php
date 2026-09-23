@@ -505,12 +505,12 @@
         </form>
 
         <!-- Link Akses Formulir Testimoni Alumni (Tanpa Login) -->
-        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(40, 55, 89, 0.12); text-align: center;">
-          <div style="background: rgba(40, 55, 89, 0.05); border: 1.5px dashed rgba(40, 55, 89, 0.25); border-radius: 14px; padding: 14px 16px; transition: all 0.25s ease;">
+        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(86, 130, 61, 0.15); text-align: center;">
+          <div style="background: rgba(86, 130, 61, 0.05); border: 1.5px dashed rgba(86, 130, 61, 0.25); border-radius: 14px; padding: 14px 16px; transition: all 0.25s ease;">
             <p style="font-size: 12.5px; color: #555555; margin-bottom: 6px; font-weight: 500;">
               🎓 <strong>Alumni atau Mitra PLD UIS?</strong>
             </p>
-            <a href="{{ route('homepage.alumni.create') }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: #283759; text-decoration: none; padding: 6px 12px; border-radius: 8px; background: rgba(40, 55, 89, 0.08);">
+            <a href="{{ route('homepage.alumni.create') }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: #56823D; text-decoration: none; padding: 6px 12px; border-radius: 8px; background: rgba(86, 130, 61, 0.1);">
               <i class="bi bi-chat-quote-fill"></i>
               <span>Isi Ulasan & Testimoni Alumni di Sini</span>
               <i class="bi bi-arrow-right"></i>

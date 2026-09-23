@@ -25,7 +25,7 @@ class ProgramKerjaDataTable extends DataTable
             ->addColumn('judul', function (ProgramKerja $pk) {
                 return '<div>
                             <span class="fw-bold text-dark d-block">' . e($pk->judul) . '</span>
-                            <span class="badge" style="background:#283759; color:#fff; font-size:11px;">' . e($pk->kategori) . '</span>
+                            <span class="badge" style="background:#56823D; color:#fff; font-size:11px;">' . e($pk->kategori) . '</span>
                         </div>';
             })
             ->addColumn('deskripsi', function (ProgramKerja $pk) {
@@ -42,7 +42,7 @@ class ProgramKerjaDataTable extends DataTable
                 if ($pk->status === 'Terlaksana') {
                     return '<span class="badge bg-success"><i class="bi bi-check-all me-1"></i>Terlaksana</span>';
                 } elseif ($pk->status === 'Sedang Berjalan') {
-                    return '<span class="badge" style="background:#79a8e2; color:#fff;"><i class="bi bi-arrow-repeat me-1"></i>Sedang Berjalan</span>';
+                    return '<span class="badge" style="background:#D99032; color:#fff;"><i class="bi bi-arrow-repeat me-1"></i>Sedang Berjalan</span>';
                 } else {
                     return '<span class="badge bg-secondary"><i class="bi bi-calendar me-1"></i>Direncanakan</span>';
                 }

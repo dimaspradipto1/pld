@@ -179,7 +179,7 @@
                         <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary px-4 rounded-3">
                             <i class="bi bi-arrow-left me-1"></i> Kembali
                         </a>
-                        <button type="submit" class="btn btn-primary px-4 rounded-3 fw-bold" style="background: #283759; border-color: #283759;">
+                        <button type="submit" class="btn btn-primary px-4 rounded-3 fw-bold" style="background: #D99032; border-color: #D99032;">
                             <i class="bi bi-check2-circle me-1"></i> Simpan Perubahan Banner PMB
                         </button>
                     </div>
@@ -240,7 +240,7 @@
                         icon: 'info',
                         title: 'Minimal 1 Gelombang',
                         text: 'Setidaknya harus ada 1 jadwal gelombang pendaftaran.',
-                        confirmButtonColor: '#283759'
+                        confirmButtonColor: '#D99032'
                     });
                     return;
                 }
