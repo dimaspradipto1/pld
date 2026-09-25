@@ -4,66 +4,6 @@
 @section('meta_description', 'Kenali lebih dekat Pusat Layanan Disabilitas (PLD UIS) — profil kelembagaan, visi misi, nilai inklusivitas, dan layanan pendampingan kami.')
 @section('meta_keywords', 'tentang pld, profil pusat layanan disabilitas, visi misi pld, struktur organisasi pld, kampus inklusif uis')
 
-@push('styles')
-<style>
-  .about-hero {
-    position: relative;
-    background: var(--obsidian-dark);
-    padding: 70px 0 50px;
-    border-bottom: 2px solid var(--pld-purple);
-  }
-  .about-hero-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .about-hero-title em {
-    font-style: normal;
-    color: var(--pld-orange);
-  }
-  .breadcrumb-custom {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); }
-  .breadcrumb-custom a:hover { color: var(--pld-orange); }
-  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
-
-  .visual-card-frame {
-    background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 24px;
-    padding: 36px;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .visual-card-frame::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
-    background: var(--pld-purple);
-  }
-  .visual-badge-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--pld-purple-light);
-    color: var(--pld-purple);
-    font-weight: 700;
-    font-size: 13px;
-    padding: 6px 18px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-  }
-</style>
-@endpush
 
 @section('content')
 @php

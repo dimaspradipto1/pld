@@ -4,52 +4,6 @@
 @section('meta_description', 'Temukan jawaban cepat atas pertanyaan seputar layanan pendampingan disabilitas, akomodasi ujian, juru bahasa isyarat, konseling, dan relawan PLD UIS.')
 @section('meta_keywords', 'faq pld, tanya jawab disabilitas, akomodasi disabilitas uis, jbi batam, relawan inklusif')
 
-@push('styles')
-<style>
-  .faq-hero {
-    position: relative;
-    background: var(--obsidian-dark);
-    padding: 70px 0 50px;
-    border-bottom: 2px solid var(--pld-purple);
-  }
-  .faq-hero-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .faq-hero-title em {
-    font-style: normal;
-    color: var(--pld-orange);
-  }
-  .accordion-item {
-    border: 1px solid var(--border-light) !important;
-    border-radius: 16px !important;
-    margin-bottom: 12px;
-    overflow: hidden;
-    background: var(--white);
-  }
-  .accordion-button {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
-    font-size: 15.5px;
-    color: var(--text-main);
-    padding: 18px 24px;
-    background: var(--white);
-  }
-  .accordion-button:not(.collapsed) {
-    background: var(--pld-purple-light);
-    color: var(--pld-purple);
-    box-shadow: none;
-  }
-  .accordion-body {
-    font-size: 14.5px;
-    color: var(--text-muted);
-    line-height: 1.75;
-    padding: 20px 24px;
-  }
-</style>
-@endpush
 
 @section('content')
 @php

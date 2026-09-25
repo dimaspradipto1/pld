@@ -4,33 +4,6 @@
 @section('meta_description', 'Susunan kepengurusan, divisi pendampingan akademik, konseling, dan tata kelola Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
 @section('meta_keywords', 'struktur organisasi pld, pimpinan pld uis, divisi pendampingan disabilitas, manajemen pld uis')
 
-@push('styles')
-<style>
-  .about-hero {
-    position: relative;
-    background: var(--obsidian-dark);
-    padding: 70px 0 50px;
-    border-bottom: 2px solid var(--pld-purple);
-  }
-  .about-hero-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .about-hero-title em {
-    font-style: normal;
-    color: var(--pld-orange);
-  }
-  .struktur-card {
-    background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: var(--shadow-md);
-  }
-</style>
-@endpush
 
 @section('content')
 

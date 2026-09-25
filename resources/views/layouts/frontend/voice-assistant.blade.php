@@ -3,24 +3,6 @@
      Fitur membaca otomatis teks saat di-hover atau dipilih (blok teks)
      di seluruh halaman frontend tanpa menampilkan tombol melayang (hidden UI).
 ═══════════════════════════════════════════════════════════════ -->
-<style>
-  /* Sembunyikan semua tombol / widget visual di frontend sesuai permintaan */
-  #pldVoiceAssistant,
-  .pld-voice-wrapper,
-  .pld-speaking-bubble {
-    display: none !important;
-  }
-
-  /* Sorotan visual lembut saat elemen sedang dibacakan suaranya */
-  .pld-voice-reading-active {
-    outline: 2px solid #56823D !important;
-    outline-offset: 3px !important;
-    border-radius: 4px !important;
-    background-color: rgba(168, 210, 125, 0.2) !important;
-    transition: outline 0.15s ease, background-color 0.15s ease !important;
-    box-shadow: 0 0 10px rgba(86, 130, 61, 0.35) !important;
-  }
-</style>
 
 <script>
   (function () {

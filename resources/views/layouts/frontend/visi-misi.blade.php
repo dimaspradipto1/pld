@@ -4,36 +4,6 @@
 @section('meta_description', 'Visi, Misi, dan Nilai-nilai Budaya Civitas Akademika Pusat Layanan Disabilitas Universitas Ibnu Sina.')
 @section('meta_keywords', 'visi misi pld, visi pld uis, misi pusat layanan disabilitas batam')
 
-@push('styles')
-<style>
-  .visimisi-hero {
-    position: relative;
-    background: var(--obsidian-dark);
-    padding: 70px 0 50px;
-    border-bottom: 2px solid var(--pld-purple);
-  }
-  .visimisi-hero-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .visimisi-hero-title em {
-    font-style: normal;
-    color: var(--pld-orange);
-  }
-  .breadcrumb-custom {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .breadcrumb-custom a { color: rgba(255, 255, 255, 0.85); text-decoration: none; }
-  .breadcrumb-custom a:hover { color: var(--pld-orange); }
-  .breadcrumb-custom .active { color: var(--pld-orange); font-weight: 600; }
-</style>
-@endpush
 
 @section('content')
 
