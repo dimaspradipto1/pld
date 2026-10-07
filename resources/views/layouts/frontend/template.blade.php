@@ -13,6 +13,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>@yield('title', 'PLD — Pusat Layanan Disabilitas UIS | Unggul & Inklusif')</title>
   <meta name="description" content="@yield('meta_description', 'Portal Resmi Pusat Layanan Disabilitas Universitas Ibnu Sina (PLD UIS) — Mewujudkan Kampus Inklusif, Ramah Disabilitas, Unggul & Berintegritas.')">
   <meta name="keywords" content="@yield('meta_keywords', 'pld uis, pusat layanan disabilitas, universitas ibnu sina, kampus inklusif, disabilitas batam, layanan disabilitas, beasiswa disabilitas')">
