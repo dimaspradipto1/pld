@@ -34,6 +34,16 @@ class NewsDataTable extends DataTable
             ->addColumn('title', function ($news) {
                 return e($news->title);
             })
+            ->addColumn('category', function ($news) {
+                $cat = $news->category ?? 'Berita';
+                $color = match($cat) {
+                    'Agenda'       => 'warning',
+                    'Pengumuman'   => 'info',
+                    'Intelek Tuli' => 'primary',
+                    default        => 'secondary',
+                };
+                return '<span class="badge bg-' . $color . '">' . e($cat) . '</span>';
+            })
             ->addColumn('author', function ($news) {
                 return $news->user ? e($news->user->name) : '<span class="text-muted fst-italic">Anonim</span>';
             })
@@ -71,7 +81,7 @@ class NewsDataTable extends DataTable
                 return $btn;
             })
             ->setRowId('DT_RowIndex')
-            ->rawColumns(['thumbnail', 'status', 'action']);
+            ->rawColumns(['thumbnail', 'category', 'status', 'action']);
     }
 
     /**
@@ -83,7 +93,7 @@ class NewsDataTable extends DataTable
     {
         $query = $model->newQuery()
             ->with('user')
-            ->select(['id', 'user_id', 'thumbnail', 'title', 'status', 'created_at']);
+            ->select(['id', 'user_id', 'thumbnail', 'title', 'category', 'status', 'created_at']);
 
         // Jika role penulis (dan bukan admin), hanya tampilkan berita miliknya sendiri. Admin menampilkan semua.
         if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->hasExactRole('penulis') && !\Illuminate\Support\Facades\Auth::user()->isAdmin()) {
@@ -134,7 +144,12 @@ class NewsDataTable extends DataTable
                 ->printable(false),
 
             Column::make('title')
-                ->title('Judul Berita'),
+                ->title('Judul Berita / Post'),
+
+            Column::make('category')
+                ->title('Kategori')
+                ->width('12%')
+                ->addClass('text-center'),
 
             Column::computed('author')
                 ->title('Penulis'),

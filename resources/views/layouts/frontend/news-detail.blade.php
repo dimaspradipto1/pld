@@ -184,13 +184,10 @@
           <div class="category-widget-list">
             @php
               $allCategories = [
-                'Berita Fakultas'         => 'bi-newspaper',
-                'Akademik & Mahasiswa'    => 'bi-mortarboard',
-                'K3 & Keselamatan Kerja'  => 'bi-shield-check',
-                'Kesehatan Lingkungan'    => 'bi-tree',
-                'Penelitian & Riset'      => 'bi-journal-medical',
-                'Pengabdian Masyarakat'   => 'bi-people',
-                'Pengumuman & Agenda'     => 'bi-megaphone',
+                'Berita'       => 'bi-newspaper',
+                'Pengumuman'   => 'bi-megaphone',
+                'Agenda'       => 'bi-calendar-event',
+                'Intelek Tuli' => 'bi-lightbulb-fill',
               ];
               $counts = isset($categories) ? $categories->pluck('total', 'category')->toArray() : [];
             @endphp

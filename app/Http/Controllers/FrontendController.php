@@ -27,6 +27,14 @@ class FrontendController extends Controller
                                 ->latest()
                                 ->take(5)
                                 ->get();
+        $agendas          = \App\Models\News::where('status', 'published')
+                                ->where(function ($q) {
+                                    $q->where('category', 'like', '%Agenda%')
+                                      ->orWhere('title', 'like', '%Agenda%');
+                                })
+                                ->latest()
+                                ->take(5)
+                                ->get();
         $faqs             = \App\Models\Faq::take(6)->get();
         $galleries        = \App\Models\Gallery::latest()->take(6)->get();
         $prestasis        = \App\Models\Prestasi::where('is_active', true)->orderBy('urutan')->latest('id')->take(6)->get();
@@ -64,6 +72,7 @@ class FrontendController extends Controller
             'testimonials',
             'latestNews',
             'announcements',
+            'agendas',
             'faqs',
             'galleries',
             'prestasis',

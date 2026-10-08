@@ -915,29 +915,42 @@
           </div>
 
           <div class="agenda-list">
-            <div class="agenda-row mb-3">
-              <div class="agenda-time-text">15 - 20 September 2026:</div>
-              <div class="agenda-badge-card">
-                Workshop Bahasa Isyarat (BISINDO) Tingkat Dasar
+            @if(isset($agendas) && $agendas->count() > 0)
+              @foreach($agendas->take(3) as $agendaItem)
+                <a href="{{ route('homepage.news.detail', $agendaItem->slug ?? $agendaItem->id) }}" class="text-decoration-none d-block mb-3">
+                  <div class="agenda-row">
+                    <div class="agenda-time-text">{{ $agendaItem->created_at->translatedFormat('d F Y') }}:</div>
+                    <div class="agenda-badge-card">
+                      {{ $agendaItem->title }}
+                    </div>
+                  </div>
+                </a>
+              @endforeach
+            @else
+              <div class="agenda-row mb-3">
+                <div class="agenda-time-text">15 - 20 September 2026:</div>
+                <div class="agenda-badge-card">
+                  Workshop Bahasa Isyarat (BISINDO) Tingkat Dasar
+                </div>
               </div>
-            </div>
 
-            <div class="agenda-row mb-3">
-              <div class="agenda-time-text">25 September 2026:</div>
-              <div class="agenda-badge-card">
-                Pelatihan Etika Interaksi & Pendampingan Mahasiswa Inklusif
+              <div class="agenda-row mb-3">
+                <div class="agenda-time-text">25 September 2026:</div>
+                <div class="agenda-badge-card">
+                  Pelatihan Etika Interaksi & Pendampingan Mahasiswa Inklusif
+                </div>
               </div>
-            </div>
 
-            <div class="agenda-row mb-3">
-              <div class="agenda-time-text">05 Oktober 2026:</div>
-              <div class="agenda-badge-card">
-                FGD Aksesibilitas Fasilitas Kampus Bersama Rektorat
+              <div class="agenda-row mb-3">
+                <div class="agenda-time-text">05 Oktober 2026:</div>
+                <div class="agenda-badge-card">
+                  FGD Aksesibilitas Fasilitas Kampus Bersama Rektorat
+                </div>
               </div>
-            </div>
+            @endif
 
             <div class="mt-3">
-              <a href="{{ route('homepage.news', ['category' => 'Pengumuman & Agenda']) }}" class="btn-agenda-pill">
+              <a href="{{ route('homepage.news', ['category' => 'Agenda']) }}" class="btn-agenda-pill">
                 Lihat Seluruh Agenda
               </a>
             </div>

@@ -5,6 +5,37 @@
 @section('meta_keywords', 'berita pld, artikel kesehatan, k3 batam, kesehatan lingkungan, pengumuman uis, pld ibnu sina')
 
 
+@php
+  $pageHeaderTitle = 'Berita & <em>Informasi</em>';
+  $breadcrumbCurrent = 'Semua Informasi';
+
+  if (!empty($selectedCat)) {
+      if ($selectedCat === 'Agenda') {
+          $pageHeaderTitle = 'Agenda & <em>Kegiatan</em>';
+          $breadcrumbCurrent = 'Agenda';
+      } elseif ($selectedCat === 'Pengumuman') {
+          $pageHeaderTitle = 'Pengumuman <em>Resmi</em>';
+          $breadcrumbCurrent = 'Pengumuman';
+      } elseif ($selectedCat === 'Intelek Tuli') {
+          $pageHeaderTitle = 'Intelek <em>Tuli</em>';
+          $breadcrumbCurrent = 'Intelek Tuli';
+      } elseif ($selectedCat === 'Berita') {
+          $pageHeaderTitle = 'Warta &amp; <em>Berita</em>';
+          $breadcrumbCurrent = 'Berita';
+      } else {
+          $pageHeaderTitle = e($selectedCat);
+          $breadcrumbCurrent = $selectedCat;
+      }
+  }
+
+  $portalCategories = [
+    'Berita'       => 'bi-newspaper',
+    'Pengumuman'   => 'bi-megaphone',
+    'Agenda'       => 'bi-calendar-event',
+    'Intelek Tuli' => 'bi-lightbulb-fill',
+  ];
+@endphp
+
 @section('content')
 
 <!-- ═══════════════════════════════════════════════
@@ -13,13 +44,13 @@
 <div class="news-hero">
   <div class="container">
     <div data-aos="fade-up">
-      <h1 class="news-hero-title">Berita &amp; <em>Artikel</em></h1>
+      <h1 class="news-hero-title">{!! $pageHeaderTitle !!}</h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span>/</span>
         <a href="{{ route('homepage.news') }}">Informasi</a>
         <span>/</span>
-        <span class="active">Berita &amp; Artikel</span>
+        <span class="active">{{ $breadcrumbCurrent }}</span>
       </div>
     </div>
   </div>
@@ -59,7 +90,7 @@
               <div class="d-flex align-items-center gap-3 text-muted small mb-2">
                 <span><i class="bi bi-calendar3 me-1"></i> {{ $featured->created_at->format('d M Y') }}</span>
                 <span>•</span>
-                <span class="badge bg-light text-dark border">{{ $featured->category ?? 'Berita Fakultas' }}</span>
+                <span class="badge bg-light text-dark border">{{ $featured->category ?? 'Berita' }}</span>
               </div>
               <h3 class="fw-bold mb-3 text-dark">{{ $featured->title }}</h3>
               <p class="text-muted small mb-4" style="line-height: 1.7;">
@@ -68,7 +99,7 @@
             </div>
             <div>
               <a href="{{ route('homepage.news.detail', $featured->slug ?? $featured->id) }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
-                Baca Berita Lengkap <i class="bi bi-arrow-right"></i>
+                Baca Lengkap <i class="bi bi-arrow-right"></i>
               </a>
             </div>
           </div>
@@ -86,18 +117,6 @@
             <i class="bi bi-grid-fill"></i> Semua Kategori
           </a>
 
-          @php
-            $portalCategories = [
-              'Berita Fakultas'         => 'bi-newspaper',
-              'Akademik & Mahasiswa'    => 'bi-mortarboard',
-              'K3 & Keselamatan Kerja'  => 'bi-shield-check',
-              'Kesehatan Lingkungan'    => 'bi-tree',
-              'Penelitian & Riset'      => 'bi-journal-medical',
-              'Pengabdian Masyarakat'   => 'bi-people',
-              'Pengumuman & Agenda'     => 'bi-megaphone',
-            ];
-          @endphp
-
           @foreach($portalCategories as $cName => $cIcon)
             <a href="{{ route('homepage.news', ['category' => $cName]) }}" class="cat-pill-item {{ ($selectedCat ?? '') === $cName ? 'active' : '' }}">
               <i class="bi {{ $cIcon }}"></i> {{ $cName }}
@@ -110,7 +129,7 @@
           @if(!empty($selectedCat))
             <input type="hidden" name="category" value="{{ $selectedCat }}">
           @endif
-          <input type="text" name="q" value="{{ $search ?? '' }}" placeholder="Cari artikel...">
+          <input type="text" name="q" value="{{ $search ?? '' }}" placeholder="Cari informasi...">
           <button type="submit" aria-label="Cari"><i class="bi bi-search"></i></button>
         </form>
 
