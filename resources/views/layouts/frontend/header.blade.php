@@ -66,7 +66,6 @@
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Berita']) }}"><i class="bi bi-newspaper"></i> Berita</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Pengumuman']) }}"><i class="bi bi-megaphone"></i> Pengumuman</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Agenda']) }}"><i class="bi bi-calendar-event"></i> Agenda</a></li>
-            <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Artikel']) }}"><i class="bi bi-card-text"></i> Artikel</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.faq') }}"><i class="bi bi-question-circle"></i> FAQ Informasi</a></li>
             <li><a class="dropdown-item dropdown-item-custom" href="{{ route('homepage.news', ['category' => 'Intelek Tuli']) }}"><i class="bi bi-lightbulb-fill" style="color: var(--pld-orange);"></i> Intelek Tuli</a></li>
           </ul>
