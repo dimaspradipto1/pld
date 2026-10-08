@@ -7,21 +7,17 @@
 @section('content')
 <!-- Header Hero -->
 <div class="kurikulum-hero text-white">
-  <div class="container text-center">
-    <nav aria-label="breadcrumb" class="mb-3">
-      <ol class="breadcrumb justify-content-center mb-0">
-        <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
-        <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Akademik</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">Kurikulum</li>
-      </ol>
-    </nav>
-    <div class="badge px-3 py-2 rounded-pill mb-2" style="background: rgba(229, 168, 35, 0.2); color: #ffd166; border: 1px solid rgba(229, 168, 35, 0.4);">
-      <i class="bi bi-mortarboard-fill me-1"></i> Layanan Akademik PLD UIS
+  <div class="container">
+    <div data-aos="fade-up">
+      <h1 class="kurikulum-hero-title">Kurikulum &amp; <em>Capaian Pembelajaran</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <span>Akademik</span>
+        <span>/</span>
+        <span class="active">Kurikulum</span>
+      </div>
     </div>
-    <h1 class="fw-bold mb-2" style="font-size: 34px;">Kurikulum & Capaian Pembelajaran</h1>
-    <p class="text-white-50 mx-auto mb-0" style="max-width: 620px; font-size: 14.5px;">
-      Struktur kurikulum berbasis kompetensi dan Kerangka Kualifikasi Nasional Indonesia (KKNI) untuk setiap program studi di Pelayanan Disabilitas.
-    </p>
   </div>
 </div>
 

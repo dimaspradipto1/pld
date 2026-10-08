@@ -9,23 +9,15 @@
      HERO HEADER
 ═══════════════════════════════════════════════ -->
 <section class="akademik-hero">
-  <div class="container position-relative" data-aos="fade-up">
-    <nav aria-label="breadcrumb" class="mb-3">
-      <ol class="breadcrumb mb-0" style="font-size: 13px;">
-        <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
-        <li class="breadcrumb-item text-white-50">Akademik</li>
-        <li class="breadcrumb-item text-white active" aria-current="page">{{ $pageTitle }}</li>
-      </ol>
-    </nav>
-    <div class="badge px-3 py-2 rounded-pill mb-3" style="background: var(--pld-orange); color: #ffffff; font-weight: 800; font-size: 11.5px; letter-spacing: 0.8px;">
-      LAYANAN AKADEMIK PLD UIS
+  <div class="container" data-aos="fade-up">
+    <h1 class="page-hero-title">{{ $item->judul }}</h1>
+    <div class="breadcrumb-custom">
+      <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+      <span>/</span>
+      <span>Akademik</span>
+      <span>/</span>
+      <span class="active">{{ $pageTitle }}</span>
     </div>
-    <h1 class="display-6 fw-bold text-white mb-2">{{ $item->judul }}</h1>
-    @if($item->subjudul)
-      <p class="lead text-white-50 mb-0" style="max-width: 760px; font-size: 16px;">
-        {{ $item->subjudul }}
-      </p>
-    @endif
   </div>
 </section>
 

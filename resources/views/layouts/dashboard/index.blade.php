@@ -209,7 +209,6 @@
     <a href="{{ route('gallery.index') }}"               class="sc"><div class="sc-ic"><i class="bi bi-images"></i></div>Galeri</a>
     <a href="{{ route('prestasi.index') }}"              class="sc"><div class="sc-ic"><i class="bi bi-trophy-fill"></i></div>Prestasi</a>
     <a href="{{ route('faculty-stat.index') }}"          class="sc"><div class="sc-ic"><i class="bi bi-bar-chart-fill"></i></div>Statistik PLD</a>
-    <a href="{{ route('topbar.index') }}"                class="sc"><div class="sc-ic"><i class="bi bi-sliders"></i></div>Topbar</a>
     <a href="{{ route('user.index') }}"                  class="sc"><div class="sc-ic"><i class="bi bi-person-gear"></i></div>Pengguna</a>
     <a href="{{ url('/') }}" target="_blank"             class="sc"><div class="sc-ic"><i class="bi bi-globe2"></i></div>Buka Website</a>
   </div>

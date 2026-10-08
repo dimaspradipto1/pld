@@ -7,14 +7,17 @@
 @section('content')
 <!-- Header Banner -->
 <div class="prestasi-hero text-white">
-  <div class="container text-center">
-    <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(229, 168, 35, 0.2); color: #ffd166; border: 1px solid rgba(229, 168, 35, 0.4);">
-      <i class="bi bi-trophy-fill me-1"></i> Hall of Fame & Prestasi
+  <div class="container">
+    <div data-aos="fade-up">
+      <h1 class="prestasi-hero-title">Prestasi <em>Mahasiswa</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <span>Kemahasiswaan</span>
+        <span>/</span>
+        <span class="active">Prestasi Mahasiswa</span>
+      </div>
     </div>
-    <h1 class="fw-bold mb-3" style="font-size: 38px;">Prestasi Mahasiswa PLD UIS</h1>
-    <p class="text-white-50 mx-auto" style="max-width: 650px; line-height: 1.7;">
-      Koleksi prestasi gemilang, medali kejuaraan, dan publikasi ilmiah sivitas akademika Pelayanan Disabilitas Universitas Ibnu Sina di tingkat regional, nasional, dan internasional.
-    </p>
   </div>
 </div>
 

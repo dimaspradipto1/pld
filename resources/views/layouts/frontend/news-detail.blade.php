@@ -35,17 +35,20 @@
 <div class="article-hero">
   <div class="container">
     <div data-aos="fade-up">
-      <div class="article-meta-badge">
-        <i class="bi bi-tag-fill"></i>
-        <span>{{ $news->category ?? 'Berita Fakultas' }}</span>
+      <div class="breadcrumb-custom mb-2">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.news') }}">Informasi</a>
+        <span>/</span>
+        <span class="active">{{ Str::limit($news->title, 35) }}</span>
       </div>
       <h1 class="article-title-main">{{ $news->title }}</h1>
-      <div class="d-flex flex-wrap align-items-center gap-3 text-white-50 small">
+      <div class="d-flex flex-wrap align-items-center gap-3 text-white-50 small mt-2">
+        <span><i class="bi bi-tag-fill me-1" style="color:var(--pld-orange);"></i> {{ $news->category ?? 'Berita' }}</span>
+        <span>•</span>
         <span><i class="bi bi-calendar3 me-1" style="color:var(--pld-orange);"></i> {{ $news->created_at->translatedFormat('d F Y') }}</span>
         <span>•</span>
         <span><i class="bi bi-person me-1" style="color:var(--pld-orange);"></i> {{ $news->user?->name ?? 'Redaksi PLD UIS' }}</span>
-        <span>•</span>
-        <span><i class="bi bi-clock me-1" style="color:var(--pld-orange);"></i> {{ ceil(str_word_count(strip_tags($news->content ?? '')) / 200) ?: 1 }} menit baca</span>
       </div>
     </div>
   </div>

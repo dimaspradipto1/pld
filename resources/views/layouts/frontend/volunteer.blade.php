@@ -8,18 +8,17 @@
 @section('content')
 <!-- Hero Section -->
 <section class="volunteer-hero">
-  <div class="container text-center">
-    <h1 class="volunteer-hero-title">Program Volunteer <em>Relawan Inklusif</em></h1>
-    <p class="text-white-50 mx-auto mb-3" style="max-width: 650px;">
-      Jadilah bagian dari agen perubahan untuk menciptakan ruang belajar yang setara, nyaman, dan ramah bagi mahasiswa berkebutuhan khusus di Universitas Ibnu Sina.
-    </p>
-    <nav class="breadcrumb-custom">
-      <a href="{{ route('homepage') }}"><i class="bi bi-house-door-fill"></i> Beranda</a>
-      <span>/</span>
-      <span class="text-white-50">Layanan</span>
-      <span>/</span>
-      <span class="active">Volunteer</span>
-    </nav>
+  <div class="container">
+    <div data-aos="fade-up">
+      <h1 class="volunteer-hero-title">Program Volunteer <em>Relawan Inklusif</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.layanan') }}">Layanan</a>
+        <span>/</span>
+        <span class="active">Volunteer</span>
+      </div>
+    </div>
   </div>
 </section>
 

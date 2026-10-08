@@ -13,17 +13,13 @@
 <div class="news-hero">
   <div class="container">
     <div data-aos="fade-up">
-      <div class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(255, 255, 255, 0.12); color: var(--pld-orange); border: 1px solid rgba(168, 210, 125, 0.4);">
-        <i class="bi bi-newspaper me-1"></i> Warta & Informasi PLD UIS
-      </div>
-      <h1 class="news-hero-title">Berita & <em>Artikel</em> Kesehatan</h1>
-      <p class="text-white-50 mb-3" style="max-width: 650px;">
-        Kumpulan berita kegiatan, pengumuman akademik, artikel ilmiah, dan inovasi seputar Keselamatan & Kesehatan Kerja (K3) serta Kesehatan Lingkungan.
-      </p>
-      <div class="d-flex align-items-center gap-2 text-white-50 small">
-        <a href="{{ route('homepage') }}" class="text-white text-decoration-none">Beranda</a>
+      <h1 class="news-hero-title">Berita &amp; <em>Artikel</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span>/</span>
-        <span style="color: var(--pld-orange);">Berita & Artikel</span>
+        <a href="{{ route('homepage.news') }}">Informasi</a>
+        <span>/</span>
+        <span class="active">Berita &amp; Artikel</span>
       </div>
     </div>
   </div>

@@ -21,14 +21,16 @@
 ═══════════════════════════════════════════════ -->
 <div class="contact-hero">
   <div class="container">
-    <div class="contact-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="contact-hero-title">
         Hubungi <em>PLD</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight: 600;">Kontak</span>
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.kontak') }}">Kontak</a>
+        <span>/</span>
+        <span class="active">Informasi Kontak</span>
       </div>
     </div>
   </div>

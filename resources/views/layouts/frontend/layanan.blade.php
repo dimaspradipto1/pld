@@ -12,16 +12,16 @@
 ═══════════════════════════════════════════════ -->
 <div class="layanan-hero">
   <div class="container">
-    <div class="layanan-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="layanan-hero-title">
         Layanan Pendamping &amp; <em>Konseling</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span class="text-white-50">Layanan</span>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight:600;">Layanan Pendamping &amp; Konseling</span>
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.layanan') }}">Layanan</a>
+        <span>/</span>
+        <span class="active">Layanan Pendamping &amp; Konseling</span>
       </div>
     </div>
   </div>

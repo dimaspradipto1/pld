@@ -8,31 +8,16 @@
 <!-- HERO SECTION -->
 <section class="detail-hero">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-8" data-aos="fade-up">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb mb-3 bg-transparent p-0">
-            <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('homepage.organisasi') }}" class="text-white-50 text-decoration-none">Organisasi Mahasiswa</a></li>
-            <li class="breadcrumb-item text-warning active fw-semibold" aria-current="page">{{ $organisasi->singkatan ?: $organisasi->nama_organisasi }}</li>
-          </ol>
-        </nav>
-        <span class="badge mb-2" style="background:#A8D27D; color:#263238; font-size:12px; font-weight:700; padding:6px 14px;">
-          {{ $organisasi->kategori }}
-        </span>
-        <h1 class="fw-bold text-white mb-2" style="font-size: clamp(24px, 3vw, 36px); line-height: 1.25;">
-          {{ $organisasi->nama_organisasi }}
-        </h1>
-        @if(!empty($organisasi->singkatan))
-          <div class="text-white-50 fs-5 mb-0">({{ $organisasi->singkatan }})</div>
-        @endif
-      </div>
-      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0" data-aos="fade-left">
-        @if(!empty($organisasi->link_pendaftaran))
-          <a href="{{ $organisasi->link_pendaftaran }}" target="_blank" class="btn btn-warning fw-bold px-4 py-2 text-dark shadow-sm">
-            <i class="bi bi-pencil-square me-1"></i> Daftar Anggota Baru
-          </a>
-        @endif
+    <div data-aos="fade-up">
+      <h1 class="page-hero-title">
+        {{ $organisasi->nama_organisasi }} @if(!empty($organisasi->singkatan)) <em>({{ $organisasi->singkatan }})</em> @endif
+      </h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.organisasi') }}">Organisasi Mahasiswa</a>
+        <span>/</span>
+        <span class="active">{{ $organisasi->singkatan ?: Str::limit($organisasi->nama_organisasi, 30) }}</span>
       </div>
     </div>
   </div>

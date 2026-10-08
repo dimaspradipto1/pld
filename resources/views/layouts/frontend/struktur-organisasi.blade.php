@@ -12,14 +12,16 @@
 ═══════════════════════════════════════════════ -->
 <div class="about-hero">
   <div class="container">
-    <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="about-hero-title">
         Struktur <em>Organisasi</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight: 600;">Struktur Organisasi</span>
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.sejarah') }}">Profil</a>
+        <span>/</span>
+        <span class="active">Struktur Organisasi</span>
       </div>
     </div>
   </div>

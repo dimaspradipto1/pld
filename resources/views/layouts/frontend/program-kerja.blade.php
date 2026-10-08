@@ -8,18 +8,17 @@
 @section('content')
 <!-- Hero Section -->
 <section class="program-hero">
-  <div class="container text-center">
-    <h1 class="program-hero-title">Program Kerja <em>PLD UIS</em></h1>
-    <p class="text-white-50 max-w-600 mx-auto mb-3" style="max-width: 650px;">
-      Inisiatif strategis dan agenda aksi Pusat Layanan Disabilitas dalam mewujudkan ekosistem pendidikan tinggi yang aksesibel, ramah, dan inklusif.
-    </p>
-    <nav class="breadcrumb-custom">
-      <a href="{{ route('homepage') }}"><i class="bi bi-house-door-fill"></i> Beranda</a>
-      <span>/</span>
-      <span class="text-white-50">Profil</span>
-      <span>/</span>
-      <span class="active">Program Kerja</span>
-    </nav>
+  <div class="container">
+    <div data-aos="fade-up">
+      <h1 class="program-hero-title">Program Kerja <em>PLD UIS</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.sejarah') }}">Profil</a>
+        <span>/</span>
+        <span class="active">Program Kerja</span>
+      </div>
+    </div>
   </div>
 </section>
 

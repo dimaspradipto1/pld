@@ -17,14 +17,14 @@
 ═══════════════════════════════════════════════ -->
 <div class="layanan-hero">
   <div class="container">
-    <div class="layanan-hero-content" data-aos="fade-up" data-aos-duration="700">
+    <div data-aos="fade-up">
       <h1 class="layanan-hero-title">{{ $layanan->judul }}</h1>
-      <div class="breadcrumb-custom" style="justify-content: center;">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <a href="{{ route('homepage.layanan') }}" class="text-white-50">Layanan & Fasilitas</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight:600;">Detail</span>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.layanan') }}">Layanan</a>
+        <span>/</span>
+        <span class="active">{{ Str::limit($layanan->judul, 35) }}</span>
       </div>
     </div>
   </div>

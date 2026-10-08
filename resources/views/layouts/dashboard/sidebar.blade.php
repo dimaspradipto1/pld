@@ -189,15 +189,6 @@
 
           <li class="nav-heading">Pengaturan & Administrator</li>
 
-          @if($isAdmin)
-          <li class="nav-item">
-              <a class="nav-link {{ Route::is('topbar.*') ? '' : 'collapsed' }}" href="{{ route('topbar.index') }}">
-                  <i class="bi bi-layout-text-window-reverse"></i>
-                  <span>Pengaturan Topbar</span>
-              </a>
-          </li>
-          @endif
-
           <li class="nav-item">
               <a class="nav-link {{ Route::is('user.my-profile') || Route::is('profil.*') ? '' : 'collapsed' }}" href="{{ route('user.my-profile') }}">
                   <i class="bi bi-person"></i>

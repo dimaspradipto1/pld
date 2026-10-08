@@ -959,37 +959,156 @@
 
 /* Breadcrumb Custom */
 .breadcrumb-custom {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
   list-style: none;
   padding: 0;
-  margin: 0 0 16px;
-  font-size: 13.5px;
+  margin: 0;
+  font-size: 12px;
   font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
 }
 .breadcrumb-custom a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .breadcrumb-custom a:hover {
   color: var(--pld-orange, #D99032);
 }
-.breadcrumb-custom .separator {
-  color: rgba(255, 255, 255, 0.4);
+.breadcrumb-custom .separator,
+.breadcrumb-custom > span:not(.active) {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
 }
 .breadcrumb-custom .active {
-  color: var(--pld-secondary, #A8D27D);
+  color: var(--pld-orange, #D99032) !important;
+  font-weight: 600;
 }
 
-/* Detail Hero & Info Badges */
+/* Page Hero Shared Banner (Compact & Consistent) */
+.page-hero,
+.dekan-hero,
+.sejarah-hero,
+.visimisi-hero,
+.about-hero,
+.program-hero,
+.volunteer-hero,
+.contact-hero,
+.faq-hero,
+.layanan-hero,
+.stats-hero,
+.kurikulum-hero,
+.dosen-hero,
+.akademik-hero,
+.galeri-hero,
+.gallery-hero,
+.ormawa-hero,
+.prestasi-hero,
+.news-hero,
+.article-hero,
 .detail-hero {
-  background: var(--obsidian-dark, #233618);
-  padding: 65px 0 45px;
+  position: relative;
+  background: var(--obsidian-dark, #1e3016) !important;
+  padding: 36px 0 28px !important;
   border-bottom: 2px solid var(--pld-purple, #56823D);
   color: #ffffff;
-  position: relative;
+  text-align: left;
+}
+
+.page-hero-title,
+.dekan-hero-title,
+.sejarah-hero-title,
+.visimisi-hero-title,
+.about-hero-title,
+.program-hero-title,
+.volunteer-hero-title,
+.contact-hero-title,
+.faq-hero-title,
+.layanan-hero-title,
+.stats-hero-title,
+.news-hero-title,
+.galeri-hero-title,
+.gallery-hero-title,
+.ormawa-hero-title,
+.prestasi-hero-title,
+.article-title-main {
+  font-size: 28px !important;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.25;
+  text-align: left !important;
+}
+
+.page-hero-title em,
+.dekan-hero-title em,
+.sejarah-hero-title em,
+.visimisi-hero-title em,
+.about-hero-title em,
+.program-hero-title em,
+.volunteer-hero-title em,
+.contact-hero-title em,
+.faq-hero-title em,
+.layanan-hero-title em,
+.stats-hero-title em,
+.news-hero-title em,
+.galeri-hero-title em,
+.gallery-hero-title em,
+.ormawa-hero-title em,
+.prestasi-hero-title em {
+  font-style: normal;
+  color: var(--pld-orange, #D99032) !important;
+}
+
+@media (max-width: 768px) {
+  .page-hero,
+  .dekan-hero,
+  .sejarah-hero,
+  .visimisi-hero,
+  .about-hero,
+  .program-hero,
+  .volunteer-hero,
+  .contact-hero,
+  .faq-hero,
+  .layanan-hero,
+  .stats-hero,
+  .kurikulum-hero,
+  .dosen-hero,
+  .akademik-hero,
+  .galeri-hero,
+  .gallery-hero,
+  .ormawa-hero,
+  .prestasi-hero,
+  .news-hero,
+  .article-hero,
+  .detail-hero {
+    padding: 28px 0 22px !important;
+  }
+  .page-hero-title,
+  .dekan-hero-title,
+  .sejarah-hero-title,
+  .visimisi-hero-title,
+  .about-hero-title,
+  .program-hero-title,
+  .volunteer-hero-title,
+  .contact-hero-title,
+  .faq-hero-title,
+  .layanan-hero-title,
+  .stats-hero-title,
+  .news-hero-title,
+  .galeri-hero-title,
+  .gallery-hero-title,
+  .ormawa-hero-title,
+  .prestasi-hero-title,
+  .article-title-main {
+    font-size: 22px !important;
+  }
 }
 .info-badge-card {
   background: var(--white, #ffffff);

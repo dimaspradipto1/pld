@@ -12,14 +12,16 @@
 ═══════════════════════════════════════════════ -->
 <div class="galeri-hero">
   <div class="container">
-    <div class="galeri-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="galeri-hero-title">
-        Galeri & <em>Dokumentasi</em>
+        Galeri &amp; <em>Dokumentasi</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight: 600;">Galeri Kegiatan</span>
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.galeri') }}">Galeri</a>
+        <span>/</span>
+        <span class="active">Galeri Kegiatan</span>
       </div>
     </div>
   </div>

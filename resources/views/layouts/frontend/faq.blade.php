@@ -21,14 +21,16 @@
 ═══════════════════════════════════════════════ -->
 <div class="faq-hero">
   <div class="container">
-    <div class="faq-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="faq-hero-title">
         Tanya Jawab <em>(FAQ)</em>
       </h1>
       <div class="breadcrumb-custom">
-        <a href="{{ route('homepage') }}" class="text-white-50"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight: 600;">FAQ</span>
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.news') }}">Informasi</a>
+        <span>/</span>
+        <span class="active">FAQ</span>
       </div>
     </div>
   </div>

@@ -21,12 +21,14 @@
 ═══════════════════════════════════════════════ -->
 <div class="about-hero">
   <div class="container">
-    <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
+    <div data-aos="fade-up">
       <h1 class="about-hero-title">
         Tentang <em>PLD</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.sejarah') }}">Profil</a>
         <span>/</span>
         <span class="active">Tentang Kami</span>
       </div>
@@ -119,7 +121,7 @@
             <div class="p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="background: var(--pld-orange-light); color: var(--pld-orange); width: 60px; height: 60px; font-size: 24px;">
               <i class="bi bi-person-badge"></i>
             </div>
-            <h5 class="fw-bold text-dark mb-2">Sambutan Kepala PLD</h5>
+            <h5 class="fw-bold text-dark mb-2">Sambutan</h5>
             <p class="text-muted small mb-0">Pesan resmi dan komitmen pimpinan PLD UIS.</p>
           </div>
         </a>

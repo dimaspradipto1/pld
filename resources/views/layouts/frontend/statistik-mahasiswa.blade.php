@@ -11,21 +11,18 @@
      HERO BANNER
 ═══════════════════════════════════════════════ -->
 <div class="stats-hero">
-  <div class="container text-center">
+  <div class="container">
     <div data-aos="fade-up">
-      <div class="breadcrumb-custom mb-3 justify-content-center">
+      <h1 class="stats-hero-title">
+        Data &amp; Statistik <em>PLD UIS</em>
+      </h1>
+      <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span>/</span>
         <span>Kemahasiswaan</span>
         <span>/</span>
         <span class="active">Statistik Mahasiswa</span>
       </div>
-      <h1 class="stats-hero-title">
-        Data &amp; Statistik <em>PLD UIS</em>
-      </h1>
-      <p class="stats-hero-desc mx-auto">
-        Analisis mendalam tentang mahasiswa berkebutuhan khusus, sebaran di setiap fakultas, dan program studi di lingkungan Universitas Ibnu Sina.
-      </p>
     </div>
   </div>
 </div>

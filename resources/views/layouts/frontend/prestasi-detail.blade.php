@@ -8,39 +8,18 @@
 <!-- Header Hero -->
 <div class="detail-hero text-white">
   <div class="container">
-    <nav aria-label="breadcrumb" class="mb-3">
-      <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('homepage.prestasi') }}" class="text-white-50 text-decoration-none">Prestasi Mahasiswa</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">{{ Str::limit($prestasi->judul_prestasi, 35) }}</li>
-      </ol>
-    </nav>
-    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-      @php
-        $tingkatBadge = match($prestasi->tingkat) {
-            'Internasional' => 'bg-danger text-white',
-            'Nasional'      => 'bg-success text-white',
-            'Provinsi / Wilayah' => 'bg-primary text-white',
-            default         => 'bg-secondary text-white',
-        };
-      @endphp
-      <span class="badge {{ $tingkatBadge }} px-3 py-2 rounded-pill font-weight-bold" style="font-size: 12px;">
-        <i class="bi bi-globe me-1"></i>Tingkat {{ $prestasi->tingkat }}
-      </span>
-      @if(!empty($prestasi->peringkat))
-        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 12px;">
-          <i class="bi bi-trophy-fill me-1"></i>{{ $prestasi->peringkat }}
-        </span>
-      @endif
-      @if(!empty($prestasi->tahun))
-        <span class="badge bg-light text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 12px;">
-          <i class="bi bi-calendar3 me-1"></i>Tahun {{ $prestasi->tahun }}
-        </span>
-      @endif
+    <div data-aos="fade-up">
+      <h1 class="page-hero-title">
+        {{ $prestasi->judul_prestasi }}
+      </h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <a href="{{ route('homepage.prestasi') }}">Prestasi</a>
+        <span>/</span>
+        <span class="active">{{ Str::limit($prestasi->judul_prestasi, 35) }}</span>
+      </div>
     </div>
-    <h1 class="fw-bold mb-0 text-white" style="font-size: 32px; line-height: 1.4;">
-      {{ $prestasi->judul_prestasi }}
-    </h1>
   </div>
 </div>
 

@@ -7,28 +7,15 @@
 @section('content')
 <!-- HERO SECTION -->
 <section class="ormawa-hero">
-  <div class="container position-relative">
-    <div class="row align-items-center">
-      <div class="col-lg-8" data-aos="fade-up">
-        <div class="ormawa-hero-badge">
-          <i class="bi bi-people-fill"></i>
-          <span>Kemahasiswaan PLD UIS</span>
-        </div>
-        <h1 class="fw-bold mb-3 text-white" style="font-size: clamp(26px, 3.5vw, 42px); line-height: 1.2;">
-          Organisasi & Kegiatan Mahasiswa
-        </h1>
-        <p class="text-white-50 mb-0" style="font-size: 16px; max-width: 650px;">
-          Wadah pengembangan potensi, kepemimpinan, riset keilmuan, kreativitas, serta kepedulian sosial mahasiswa Pelayanan Disabilitas Universitas Ibnu Sina.
-        </p>
-      </div>
-      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0" data-aos="fade-left">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb justify-content-lg-end mb-0 bg-transparent p-0">
-            <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-white-50 text-decoration-none">Beranda</a></li>
-            <li class="breadcrumb-item text-white-50">Kemahasiswaan</li>
-            <li class="breadcrumb-item text-warning active fw-semibold" aria-current="page">Organisasi Mahasiswa</li>
-          </ol>
-        </nav>
+  <div class="container">
+    <div data-aos="fade-up">
+      <h1 class="ormawa-hero-title">Organisasi &amp; <em>Kegiatan Mahasiswa</em></h1>
+      <div class="breadcrumb-custom">
+        <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
+        <span>/</span>
+        <span>Kemahasiswaan</span>
+        <span>/</span>
+        <span class="active">Organisasi Mahasiswa</span>
       </div>
     </div>
   </div>

@@ -70,9 +70,6 @@
 <body>
 
 <header class="header-sticky-wrapper" id="headerStickyWrapper">
-
-  @include('layouts.frontend.topbar')
-
   @include('layouts.frontend.header')
 </header>
 <div class="header-spacer" id="headerSpacer"></div>

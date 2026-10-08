@@ -1,8 +1,8 @@
 @extends('layouts.frontend.template')
 
-@section('title', 'Sambutan Kepala — Pusat Layanan Disabilitas (PLD UIS)')
-@section('meta_description', 'Sambutan resmi Kepala Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
-@section('meta_keywords', 'sambutan pld, kepala pld uis, pimpinan pusat layanan disabilitas')
+@section('title', 'Sambutan — Pusat Layanan Disabilitas (PLD UIS)')
+@section('meta_description', 'Sambutan resmi Pusat Layanan Disabilitas (PLD) Universitas Ibnu Sina.')
+@section('meta_keywords', 'sambutan pld, pimpinan pusat layanan disabilitas')
 
 
 @section('content')
@@ -14,14 +14,14 @@
   <div class="container">
     <div data-aos="fade-up">
       <h1 class="dekan-hero-title">
-        Sambutan <em>Kepala PLD</em>
+        Sambutan
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
         <span>/</span>
         <a href="{{ route('homepage.sejarah') }}">Profil</a>
         <span>/</span>
-        <span class="active">Sambutan Kepala PLD</span>
+        <span class="active">Sambutan</span>
       </div>
     </div>
   </div>

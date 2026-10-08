@@ -8,22 +8,18 @@
 <!-- ═══════════════════════════════════════════════
      HERO BANNER
 ═══════════════════════════════════════════════ -->
-<div class="about-hero" style="background: var(--obsidian-dark); padding: 75px 0 55px; border-bottom: 3px solid var(--pld-purple);">
+<div class="about-hero">
   <div class="container">
-    <div class="about-hero-content" data-aos="fade-up" data-aos-duration="800">
-      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(168, 210, 125, 0.15); border: 1px solid rgba(168, 210, 125, 0.4);">
-        <i class="bi bi-mortarboard-fill text-warning"></i>
-        <span class="text-warning small fw-bold">PORTAL KHUSUS ALUMNI & CIVITAS</span>
-      </div>
-      <h1 style="font-size: 36px; font-weight: 800; color: var(--white); margin-bottom: 10px;">
-        Formulir <em style="font-style: normal; color: var(--pld-orange);">Testimoni & Pengalaman</em>
+    <div data-aos="fade-up">
+      <h1 class="about-hero-title">
+        Formulir <em>Testimoni Alumni</em>
       </h1>
       <div class="breadcrumb-custom">
         <a href="{{ route('homepage') }}"><i class="bi bi-house-fill me-1"></i>Beranda</a>
-        <span class="mx-2 text-white-50">/</span>
-        <a href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>Portal</a>
-        <span class="mx-2 text-white-50">/</span>
-        <span style="color: var(--pld-orange); font-weight: 600;">Isi Testimoni</span>
+        <span>/</span>
+        <a href="{{ route('homepage.testimoni') }}">Alumni</a>
+        <span>/</span>
+        <span class="active">Isi Testimoni</span>
       </div>
     </div>
   </div>
