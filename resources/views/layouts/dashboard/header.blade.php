@@ -2,11 +2,10 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
-                <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" style="height: 36px; max-height: 36px;">
-                <span class="d-none d-lg-block ms-2 fw-bold" style="font-size: 17px; color: #FAF8EE;"></span>
+            <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center" title="Dashboard PLD UIS">
+                <img src="{{ asset('frontend/img/logopld.png') }}?v={{ filemtime(public_path('frontend/img/logopld.png')) }}" alt="Logo PLD UIS" class="pld-header-logo">
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
+            <i class="bi bi-list toggle-sidebar-btn ms-3" title="Buka / Tutup Menu"></i>
         </div><!-- End Logo -->
 
         {{-- <div class="search-bar">
@@ -165,14 +164,25 @@
 
                 </li> --}}
 
+                <li class="nav-item d-none d-md-block me-2">
+                    <a href="{{ route('homepage') }}" target="_blank" class="btn-preview-web" title="Kunjungi Website Publik">
+                        <i class="bi bi-globe2"></i>
+                        <span>Lihat Website</span>
+                        <i class="bi bi-box-arrow-up-right ms-1" style="font-size: 11px;"></i>
+                    </a>
+                </li>
+
                 <li class="nav-item dropdown pe-3">
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                    <a class="nav-link nav-profile d-flex align-items-center pe-2" href="#"
                         data-bs-toggle="dropdown">
-                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm"
-                             style="width:36px;height:36px;background: linear-gradient(135deg, #56823D 0%, #A8D27D 100%);font-size:13px;">
+                        <div class="user-avatar">
                             {{ strtoupper(substr(Auth::user()->name ?? 'AD', 0, 2)) }}
                         </div>
-                        <span class="d-none d-md-block dropdown-toggle ps-2 fw-semibold">{{ Auth::user()->name }}</span>
+                        <div class="d-none d-md-flex flex-column align-items-start ms-2 lh-1 text-start">
+                            <span class="user-name">{{ Auth::user()->name }}</span>
+                            <span style="font-size: 10px; font-weight: 700; color: #ffd899; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;">{{ Auth::user()->roles ?? 'Admin' }}</span>
+                        </div>
+                        <i class="bi bi-chevron-down ms-2 d-none d-md-inline-block" style="font-size: 11px; color: rgba(255,255,255,0.75);"></i>
                     </a><!-- End Profile Image Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

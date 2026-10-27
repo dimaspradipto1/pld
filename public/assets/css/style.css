@@ -41,7 +41,7 @@ h6 {
 # Main
 --------------------------------------------------------------*/
 #main {
-  margin-top: 60px;
+  margin-top: 76px;
   padding: 20px 30px;
   transition: all 0.3s;
 }
@@ -395,7 +395,7 @@ h6 {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  height: 60px;
+  height: 76px;
   box-shadow: 0px 2px 20px rgba(86, 130, 61, 0.1);
   background-color: #fff;
   padding-left: 20px;
@@ -431,7 +431,7 @@ h6 {
   }
 
   .header .search-bar-show {
-    top: 60px;
+    top: 76px;
     visibility: visible;
     opacity: 1;
   }
@@ -615,7 +615,7 @@ h6 {
 --------------------------------------------------------------*/
 .sidebar {
   position: fixed;
-  top: 60px;
+  top: 76px;
   left: 0;
   bottom: 0;
   width: 300px;
@@ -1305,36 +1305,126 @@ body, #main, .main {
   font-family: 'Plus Jakarta Sans', 'Open Sans', sans-serif !important;
 }
 
-/* Header — Solid #56823D */
+/* Header — Solid #56823D with High Contrast & Professional Hierarchy */
 .header {
+  height: 76px !important;
   background-color: #56823D !important;
-  border-bottom: 2.5px solid #A8D27D !important;
-  box-shadow: 0 2px 14px rgba(38, 50, 56, 0.16) !important;
+  border-bottom: 3px solid #A8D27D !important;
+  box-shadow: 0 4px 18px rgba(35, 54, 24, 0.22) !important;
+  padding: 0 24px !important;
 }
-.header .logo span {
-  color: #ffffff !important;
-  font-weight: 800;
-  letter-spacing: 0.5px;
+
+.header .logo {
+  width: auto !important;
+  max-width: 380px;
+  line-height: 1;
 }
+
+.header .logo img.pld-header-logo {
+  height: 48px !important;
+  max-height: 48px !important;
+  width: auto !important;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.header .logo:hover img.pld-header-logo {
+  transform: scale(1.02);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
+}
+
 .header .toggle-sidebar-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  padding: 0 !important;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
+
 .header .toggle-sidebar-btn:hover {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(168, 210, 125, 0.7);
   color: #A8D27D !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
+
+.header .btn-preview-web {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff !important;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-right: 14px;
+}
+
+.header .btn-preview-web:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #FAF8EE !important;
+  transform: translateY(-1px);
+}
+
 .header .nav-profile {
   color: #ffffff !important;
+  padding: 5px 12px 5px 6px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.25s ease;
 }
-.header .nav-profile span {
+
+.header .nav-profile:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.header .nav-profile .user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D99032 0%, #f7b75f 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.header .nav-profile .user-name {
   color: #ffffff !important;
   font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
 }
-.header .nav-profile:hover span {
-  color: #A8D27D !important;
-}
+
 .header .nav-icon {
   color: #ffffff !important;
 }
+
 .header .nav-icon:hover {
   color: #A8D27D !important;
 }

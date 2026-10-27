@@ -95,15 +95,7 @@
           @endif
         </div>
 
-        {{-- Link Navigasi Cepat --}}
-        <div class="d-flex flex-wrap gap-3 mt-5 pt-4 border-top">
-          <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero" style="font-size: 13.5px; padding: 10px 22px;">
-            <i class="bi bi-grid-fill me-1"></i> Pelajari Layanan PLD
-          </a>
-          <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero" style="font-size: 13.5px; padding: 10px 22px; color: var(--pld-purple); border-color: var(--pld-purple);">
-            <i class="bi bi-envelope me-1"></i> Hubungi Sekretariat PLD
-          </a>
-        </div>
+
 
       </div>
     </div>
