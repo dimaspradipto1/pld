@@ -213,9 +213,12 @@
     ═══════════════════════════════════════════════ */
     .navbar-main {
       background: var(--pld-purple, #56823D);
-      padding: 10px 0;
+      padding: 16px 0;
       position: relative;
-      border-bottom: 2.5px solid var(--pld-orange, #D99032);
+      border-bottom: 3px solid var(--pld-orange, #D99032);
+      min-height: 86px;
+      display: flex;
+      align-items: center;
     }
 
     .navbar-brand-custom {
@@ -225,31 +228,40 @@
     }
 
     .brand-logo-img {
-      height: 48px;
-      max-height: 48px;
+      height: 62px;
+      max-height: 62px;
       width: auto;
       object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+      transition: transform 0.2s ease;
+    }
+
+    .brand-logo-img:hover {
+      transform: scale(1.02);
     }
 
     .nav-link-custom {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
+      font-size: 14.5px;
       font-weight: 700;
       color: #ffffff !important;
-      padding: 7px 10px !important;
-      border-radius: 8px;
+      padding: 9px 12px !important;
+      border-radius: 9px;
       transition: all 0.2s ease;
       white-space: nowrap;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+      letter-spacing: 0.15px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .nav-link-custom:hover,
     .nav-link-custom.active,
     .show > .nav-link-custom {
       color: var(--pld-active, #A8D27D) !important;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
 
     /* Hide bootstrap default dropdown caret (prevent double arrow) */
@@ -421,9 +433,9 @@
       color: #ffffff !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 12.5px;
-      padding: 8px 16px;
-      border-radius: 8px;
+      font-size: 13px;
+      padding: 9px 18px;
+      border-radius: 9px;
       box-shadow: 0 4px 14px rgba(217, 144, 50, 0.35);
       display: inline-flex;
       align-items: center;
@@ -449,14 +461,14 @@
     }
 
     .btn-portal-nav {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.16);
       color: #ffffff !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 12.5px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 13px;
+      padding: 9px 16px;
+      border-radius: 9px;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
       display: inline-flex;
       align-items: center;
       gap: 6px;

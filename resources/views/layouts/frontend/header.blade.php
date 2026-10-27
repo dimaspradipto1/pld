@@ -5,7 +5,7 @@
   <div class="container-fluid px-lg-4 px-xl-5">
     <!-- Logo PLD UIS -->
     <a class="navbar-brand navbar-brand-custom me-2 me-xl-4" href="{{ route('homepage') }}">
-      <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" class="brand-logo-img">
+      <img src="{{ asset('frontend/img/logopld.png') }}?v={{ filemtime(public_path('frontend/img/logopld.png')) }}" alt="Logo PLD UIS" class="brand-logo-img">
     </a>
 
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">

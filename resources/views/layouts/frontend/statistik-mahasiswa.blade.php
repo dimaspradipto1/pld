@@ -212,26 +212,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     CTA KONSULTASI / REGISTRASI
-═══════════════════════════════════════════════ -->
-<section class="py-5 text-center text-white" style="background: #1b2b13;">
-  <div class="container" data-aos="fade-up">
-    <h3 class="fw-bold mb-3">Ingin Mendaftarkan Kebutuhan Akomodasi Belajar?</h3>
-    <p class="text-white-50 mx-auto mb-4" style="max-width: 620px; font-size: 15px;">
-      Pusat Layanan Disabilitas UIS siap mendampingi perjalanan studi Anda melalui asesmen kebutuhan khusus, akomodasi perkuliahan, dan bimbingan inklusif.
-    </p>
-    <div class="d-flex justify-content-center flex-wrap gap-3">
-      <a href="{{ route('homepage.layanan') }}" class="btn-primary-hero">
-        <i class="bi bi-grid-fill me-1"></i> Pelajari Layanan PLD
-      </a>
-      <a href="{{ route('homepage.kontak') }}" class="btn-outline-hero" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-        <i class="bi bi-telephone-fill me-1"></i> Hubungi Kami
-      </a>
-    </div>
-  </div>
-</section>
-
 @endsection
 
 @push('scripts')

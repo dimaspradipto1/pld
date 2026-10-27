@@ -7,7 +7,7 @@
       <!-- Brand -->
       <div class="col-lg-4">
         <a href="{{ route('homepage') }}" class="footer-logo mb-3 d-inline-block">
-          <img src="{{ asset('frontend/img/logopld.png') }}" alt="Logo PLD UIS" style="height: 48px; width: auto; object-fit: contain;">
+          <img src="{{ asset('frontend/img/logopld.png') }}?v={{ filemtime(public_path('frontend/img/logopld.png')) }}" alt="Logo PLD UIS" style="height: 48px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-desc">
           Pusat Layanan Disabilitas Universitas Ibnu Sina berdedikasi mewujudkan ekosistem pendidikan tinggi yang inklusif, ramah, aksesibel, dan berkeadilan bagi seluruh mahasiswa disabilitas.
