@@ -6,8 +6,26 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    public function homepage()
+    public function homepage(\Illuminate\Http\Request $request)
     {
+        $searchBerita = trim((string) $request->query('q', ''));
+
+        $latestNewsQuery = \App\Models\News::where('status', 'published');
+        if ($searchBerita !== '') {
+            $latestNewsQuery->where(function ($q) use ($searchBerita) {
+                $q->where('title', 'like', "%{$searchBerita}%")
+                  ->orWhere('description', 'like', "%{$searchBerita}%")
+                  ->orWhere('content', 'like', "%{$searchBerita}%")
+                  ->orWhere('category', 'like', "%{$searchBerita}%");
+            });
+        }
+
+        $latestNews = $latestNewsQuery->latest()->paginate(10, ['*'], 'page_berita')->fragment('berita')->withQueryString();
+
+        if ($request->ajax()) {
+            return view('layouts.frontend.partials.home-berita-list', compact('latestNews', 'searchBerita'))->render();
+        }
+
         $banners          = \App\Models\Banner::where('aktif', true)->orderBy('urutan')->get();
         $features         = \App\Models\Feature::orderBy('urutan')->get();
         $saranas          = \App\Models\Sarana::where('is_active', true)->orderBy('urutan')->get();
@@ -18,7 +36,6 @@ class FrontendController extends Controller
         $visiMisis        = \App\Models\VisiMisi::orderBy('urutan')->get()->groupBy('tipe');
         $nilaiPerusahaans = \App\Models\NilaiPerusahaan::orderBy('urutan')->get();
         $testimonials     = \App\Models\Testimonial::where('aktif', true)->orderByDesc('id')->get();
-        $latestNews       = \App\Models\News::where('status', 'published')->latest()->paginate(10, ['*'], 'page_berita')->withQueryString();
         $announcements    = \App\Models\News::where('status', 'published')
                                 ->where(function ($q) {
                                     $q->where('category', 'like', '%Pengumuman%')
@@ -71,6 +88,7 @@ class FrontendController extends Controller
             'nilaiPerusahaans',
             'testimonials',
             'latestNews',
+            'searchBerita',
             'announcements',
             'agendas',
             'faqs',
@@ -316,11 +334,11 @@ class FrontendController extends Controller
 
     public function news(\Illuminate\Http\Request $request)
     {
-        $search      = $request->query('q');
-        $selectedCat = $request->query('category');
+        $search      = trim((string) $request->query('q', ''));
+        $selectedCat = trim((string) $request->query('category', ''));
         $query       = \App\Models\News::where('status', 'published');
 
-        if (!empty($search)) {
+        if ($search !== '') {
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
                   ->orWhere('description', 'like', "%{$search}%")
@@ -329,12 +347,12 @@ class FrontendController extends Controller
             });
         }
 
-        if (!empty($selectedCat)) {
+        if ($selectedCat !== '') {
             $query->where('category', $selectedCat);
         }
 
         $featured = null;
-        if (empty($search) && empty($selectedCat)) {
+        if ($search === '' && $selectedCat === '') {
             $featured = \App\Models\News::where('status', 'published')
                             ->where('is_featured', true)
                             ->latest()
@@ -352,6 +370,10 @@ class FrontendController extends Controller
                         ->latest()
                         ->paginate(10)
                         ->withQueryString();
+
+        if ($request->ajax()) {
+            return view('layouts.frontend.partials.news-portal-list', compact('featured', 'newsList', 'search', 'selectedCat'))->render();
+        }
 
         $categories = \App\Models\News::where('status', 'published')
                         ->whereNotNull('category')

@@ -64,12 +64,19 @@
 
     {{-- Featured / Berita Utama --}}
     @if(isset($featured) && $featured)
-      <div class="news-featured-box" data-aos="fade-up">
+      <div class="news-featured-box" id="portal-news-featured" data-aos="fade-up">
         <div class="row g-0">
           <div class="col-lg-6">
             <div class="position-relative h-100" style="min-height: 280px;">
               @if($featured->thumbnail)
-                <img src="{{ asset('storage/' . $featured->thumbnail) }}" alt="{{ $featured->title }}" class="w-100 h-100" style="object-fit: cover;">
+                <img src="{{ asset('storage/' . $featured->thumbnail) }}"
+                     alt="{{ $featured->title }}"
+                     class="w-100 h-100"
+                     style="object-fit: cover;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="w-100 h-100 align-items-center justify-content-center bg-secondary text-white" style="display: none;">
+                  <i class="bi bi-image fs-1"></i>
+                </div>
               @else
                 <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-secondary text-white">
                   <i class="bi bi-image fs-1"></i>
@@ -108,7 +115,7 @@
     @endif
 
     {{-- Filter Kategori & Pencarian --}}
-    <div class="news-filter-bar" data-aos="fade-up">
+    <div class="news-filter-bar" id="portal-news-filter" data-aos="fade-up">
       <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
         
         {{-- Category Pills --}}
@@ -125,96 +132,174 @@
         </div>
 
         {{-- Search Input --}}
-        <form action="{{ route('homepage.news') }}" method="GET" class="news-search-input-box ms-lg-auto">
+        <form action="{{ route('homepage.news') }}" method="GET" class="news-search-input-box ms-lg-auto" id="portal-news-search-form">
           @if(!empty($selectedCat))
-            <input type="hidden" name="category" value="{{ $selectedCat }}">
+            <input type="hidden" name="category" id="portal-news-category" value="{{ $selectedCat }}">
           @endif
-          <input type="text" name="q" value="{{ $search ?? '' }}" placeholder="Cari informasi...">
-          <button type="submit" aria-label="Cari"><i class="bi bi-search"></i></button>
+          <input type="text" name="q" id="portal-news-search-input" value="{{ $search ?? '' }}" placeholder="Cari informasi..." autocomplete="off">
+          <button type="button" id="portal-news-search-clear" class="me-1 text-secondary {{ empty($search) ? 'd-none' : '' }}" aria-label="Hapus Pencarian" title="Hapus Pencarian" style="background: transparent; border: none; font-size: 14px;">
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+          <button type="submit" aria-label="Cari">
+            <i class="bi bi-search" id="portal-news-search-icon"></i>
+            <span class="spinner-border spinner-border-sm d-none" id="portal-news-search-spinner" role="status" style="width: 14px; height: 14px; color: var(--pld-purple, #56823D);"></span>
+          </button>
         </form>
 
       </div>
-
-      {{-- Active Filter Notification --}}
-      @if(!empty($selectedCat) || !empty($search))
-        <div class="d-flex align-items-center justify-content-between pt-3 mt-3 border-top small text-muted">
-          <div>
-            @if(!empty($selectedCat))
-              Menampilkan kategori: <strong class="text-dark">{{ $selectedCat }}</strong>
-            @endif
-            @if(!empty($search))
-              {{ !empty($selectedCat) ? '• ' : '' }}Pencarian: <strong class="text-dark">"{{ $search }}"</strong>
-            @endif
-          </div>
-          <a href="{{ route('homepage.news') }}" class="text-danger fw-bold text-decoration-none small">
-            <i class="bi bi-x-circle me-1"></i> Reset Filter
-          </a>
-        </div>
-      @endif
     </div>
 
-    {{-- Grid Semua Berita --}}
-    @if(isset($newsList) && $newsList->count() > 0)
-      <div class="row g-4">
-        @foreach($newsList as $article)
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <div class="news-card-portal">
-              <div class="news-card-thumb-wrap">
-                @if($article->thumbnail)
-                  <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="{{ $article->title }}" class="news-card-thumb">
-                @else
-                  <div class="w-100 h-100 d-flex align-items-center justify-content-center text-muted">
-                    <i class="bi bi-newspaper fs-1"></i>
-                  </div>
-                @endif
-                <span class="news-cat-badge">{{ $article->category ?? 'Berita' }}</span>
-                @if(!empty($article->gallery) && count($article->gallery) > 0)
-                  <span class="news-gallery-badge">
-                    <i class="bi bi-images me-1"></i> +{{ count($article->gallery) }} Foto
-                  </span>
-                @endif
-              </div>
-
-              <div class="news-card-body">
-                <div>
-                  <div class="text-muted small mb-2">
-                    <i class="bi bi-calendar3 me-1"></i> {{ $article->created_at->format('d M Y') }}
-                    <span class="mx-1">•</span>
-                    <i class="bi bi-person me-1"></i> {{ $article->user?->name ?? 'Admin PLD' }}
-                  </div>
-                  <h5 class="fw-bold mb-2 text-dark">{{ Str::limit($article->title, 65) }}</h5>
-                  <p class="text-muted small mb-3">
-                    {{ Str::limit($article->description ?? strip_tags($article->content), 110) }}
-                  </p>
-                </div>
-                <div class="pt-3 border-top d-flex justify-content-between align-items-center">
-                  <a href="{{ route('homepage.news.detail', $article->slug ?? $article->id) }}" class="fw-bold text-decoration-none" style="color: var(--pld-purple); font-size: 13.5px;">
-                    Selengkapnya <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        @endforeach
-      </div>
-
-      {{-- Pagination --}}
-      @if(method_exists($newsList, 'links'))
-        <div class="mt-5 d-flex justify-content-center">
-          {{ $newsList->links('pagination::bootstrap-5') }}
-        </div>
-      @endif
-    @else
-      @if(!isset($featured) || !$featured)
-        <div class="p-5 text-center bg-white rounded-4 shadow-sm">
-          <i class="bi bi-newspaper fs-1 text-muted mb-3 d-block"></i>
-          <h4 class="fw-bold text-dark">Belum Ada Berita</h4>
-          <p class="text-muted small">Berita dan artikel terbaru PLD UIS akan segera dipublikasikan di sini.</p>
-        </div>
-      @endif
-    @endif
+    {{-- Container Grid Berita & Pagination (AJAX Live Replace Target) --}}
+    <div id="portal-news-list-container">
+      @include('layouts.frontend.partials.news-portal-list')
+    </div>
 
   </div>
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('portal-news-search-input');
+    const searchForm = document.getElementById('portal-news-search-form');
+    const searchSpinner = document.getElementById('portal-news-search-spinner');
+    const searchIcon = document.getElementById('portal-news-search-icon');
+    const searchClear = document.getElementById('portal-news-search-clear');
+    const listContainer = document.getElementById('portal-news-list-container');
+    const featuredBox = document.getElementById('portal-news-featured');
+
+    if (!searchInput || !listContainer) return;
+
+    let debounceTimer = null;
+
+    function setSearching(loading) {
+      if (!searchSpinner || !searchIcon) return;
+      if (loading) {
+        searchSpinner.classList.remove('d-none');
+        searchIcon.classList.add('d-none');
+      } else {
+        searchSpinner.classList.add('d-none');
+        searchIcon.classList.remove('d-none');
+      }
+    }
+
+    function doPortalSearch(targetUrl = null) {
+      setSearching(true);
+
+      let url;
+      if (targetUrl) {
+        url = new URL(targetUrl, window.location.origin);
+      } else {
+        url = new URL("{{ route('homepage.news') }}", window.location.origin);
+        const query = searchInput.value.trim();
+        const catInput = document.getElementById('portal-news-category');
+
+        if (catInput && catInput.value) {
+          url.searchParams.set('category', catInput.value);
+        }
+        if (query) {
+          url.searchParams.set('q', query);
+        }
+      }
+
+      const activeQuery = url.searchParams.get('q') || '';
+      const activeCat = url.searchParams.get('category') || '';
+
+      if (featuredBox) {
+        if (activeQuery || activeCat) {
+          featuredBox.classList.add('d-none');
+        } else {
+          featuredBox.classList.remove('d-none');
+        }
+      }
+
+      fetch(url.toString(), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+      })
+      .then(html => {
+        listContainer.innerHTML = html;
+        window.history.replaceState(null, '', url.toString());
+        bindPortalEvents();
+      })
+      .catch(err => {
+        console.error('Error fetching portal berita:', err);
+      })
+      .finally(() => {
+        setSearching(false);
+      });
+    }
+
+    searchInput.addEventListener('input', function () {
+      const val = this.value.trim();
+      if (searchClear) {
+        if (val.length > 0) {
+          searchClear.classList.remove('d-none');
+        } else {
+          searchClear.classList.add('d-none');
+        }
+      }
+
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        doPortalSearch();
+      }, 300);
+    });
+
+    if (searchClear) {
+      searchClear.addEventListener('click', function () {
+        searchInput.value = '';
+        this.classList.add('d-none');
+        searchInput.focus();
+        clearTimeout(debounceTimer);
+        doPortalSearch();
+      });
+    }
+
+    if (searchForm) {
+      searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearTimeout(debounceTimer);
+        doPortalSearch();
+      });
+    }
+
+    function bindPortalEvents() {
+      const pageLinks = listContainer.querySelectorAll('.portal-news-pagination a.page-link');
+      pageLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetHref = this.getAttribute('href');
+          if (targetHref && targetHref !== '#') {
+            doPortalSearch(targetHref);
+            const filterSection = document.getElementById('portal-news-filter');
+            if (filterSection) {
+              filterSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+      const resetLinks = listContainer.querySelectorAll('.portal-news-reset-link');
+      resetLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          if (searchInput.value.trim() !== '') {
+            e.preventDefault();
+            searchInput.value = '';
+            if (searchClear) searchClear.classList.add('d-none');
+            clearTimeout(debounceTimer);
+            doPortalSearch();
+          }
+        });
+      });
+    }
+
+    bindPortalEvents();
+  });
+</script>
+@endpush

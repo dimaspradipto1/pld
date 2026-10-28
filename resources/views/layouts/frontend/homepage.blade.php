@@ -775,57 +775,21 @@
             <i class="bi bi-newspaper fs-2" style="color: var(--pld-purple, #56823D);"></i>
             <h2 class="section-heading-pld mb-0">Berita</h2>
           </div>
-          <form action="{{ route('homepage.news') }}" method="GET" class="news-search-pill">
-            <input type="text" name="q" placeholder="Cari Berita Lainnya.." autocomplete="off">
+          <form action="{{ route('homepage') }}#berita" method="GET" class="news-search-pill" id="home-news-search-form">
+            <input type="text" name="q" id="home-news-search-input" value="{{ $searchBerita ?? '' }}" placeholder="Cari Berita Lainnya.." autocomplete="off">
+            <button type="button" id="home-news-search-clear" class="me-2 text-secondary {{ empty($searchBerita) ? 'd-none' : '' }}" aria-label="Hapus Pencarian" title="Hapus Pencarian" style="font-size: 13px;">
+              <i class="bi bi-x-circle-fill"></i>
+            </button>
             <button type="submit" aria-label="Cari Berita">
-              <i class="bi bi-search"></i>
+              <i class="bi bi-search" id="home-news-search-icon"></i>
+              <span class="spinner-border spinner-border-sm d-none" id="home-news-search-spinner" role="status" style="width: 14px; height: 14px; color: var(--pld-purple, #56823D);"></span>
             </button>
           </form>
         </div>
 
-        {{-- Grid Daftar Berita (2 Kolom) --}}
-        <div class="row g-3">
-          @if(isset($latestNews) && $latestNews->count() > 0)
-            @foreach($latestNews as $news)
-              <div class="col-sm-6">
-                <a href="{{ route('homepage.news.detail', $news->slug ?? $news->id) }}" class="news-mini-item">
-                  <div class="news-mini-img-wrap">
-                    @if(!empty($news->thumbnail))
-                      <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->title }}" class="news-mini-img">
-                    @else
-                      <div class="news-mini-fallback">
-                        <i class="bi bi-newspaper"></i>
-                      </div>
-                    @endif
-                  </div>
-                  <div class="news-mini-content">
-                    <h6 class="news-mini-title">{{ $news->title }}</h6>
-                    <div class="news-mini-meta">
-                      {{ $news->created_at ? $news->created_at->format('d F Y // H:i') : '-' }}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            @endforeach
-          @else
-            <div class="col-12 text-muted py-4 text-center">
-              <p>Belum ada berita yang diterbitkan.</p>
-            </div>
-          @endif
-        </div>
-
-        {{-- Pagination Berita --}}
-        @if(isset($latestNews) && method_exists($latestNews, 'hasPages') && $latestNews->hasPages())
-          <div class="d-flex justify-content-center mt-4 pt-2">
-            {{ $latestNews->fragment('berita')->links('pagination::bootstrap-5') }}
-          </div>
-        @endif
-
-        {{-- Tombol Lihat Berita Lainnya --}}
-        <div class="text-center mt-3 pt-2">
-          <a href="{{ route('homepage.news') }}" class="btn-pld-pill">
-            Lihat Berita Lainnya
-          </a>
+        {{-- Container Daftar & Pagination Berita (AJAX Live Replace Target) --}}
+        <div id="home-news-list-container">
+          @include('layouts.frontend.partials.home-berita-list')
         </div>
       </div>
 
@@ -1196,6 +1160,131 @@
         }
       });
     }
+
+    // Live Auto-Search & AJAX Pagination for Berita Section on Homepage
+    (function () {
+      const searchInput = document.getElementById('home-news-search-input');
+      const searchForm = document.getElementById('home-news-search-form');
+      const searchSpinner = document.getElementById('home-news-search-spinner');
+      const searchIcon = document.getElementById('home-news-search-icon');
+      const searchClear = document.getElementById('home-news-search-clear');
+      const listContainer = document.getElementById('home-news-list-container');
+
+      if (!searchInput || !listContainer) return;
+
+      let debounceTimer = null;
+
+      function setSearching(loading) {
+        if (!searchSpinner || !searchIcon) return;
+        if (loading) {
+          searchSpinner.classList.remove('d-none');
+          searchIcon.classList.add('d-none');
+        } else {
+          searchSpinner.classList.add('d-none');
+          searchIcon.classList.remove('d-none');
+        }
+      }
+
+      function doNewsSearch(targetUrl = null) {
+        setSearching(true);
+
+        let url;
+        if (targetUrl) {
+          url = new URL(targetUrl, window.location.origin);
+        } else {
+          url = new URL("{{ route('homepage') }}", window.location.origin);
+          const query = searchInput.value.trim();
+          if (query) {
+            url.searchParams.set('q', query);
+          }
+        }
+
+        url.hash = 'berita';
+
+        fetch(url.toString(), {
+          headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(html => {
+          listContainer.innerHTML = html;
+          window.history.replaceState(null, '', url.toString());
+          bindNewsEvents();
+        })
+        .catch(err => {
+          console.error('Error fetching berita:', err);
+        })
+        .finally(() => {
+          setSearching(false);
+        });
+      }
+
+      searchInput.addEventListener('input', function () {
+        const val = this.value.trim();
+        if (searchClear) {
+          if (val.length > 0) {
+            searchClear.classList.remove('d-none');
+          } else {
+            searchClear.classList.add('d-none');
+          }
+        }
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          doNewsSearch();
+        }, 300);
+      });
+
+      if (searchClear) {
+        searchClear.addEventListener('click', function () {
+          searchInput.value = '';
+          this.classList.add('d-none');
+          searchInput.focus();
+          clearTimeout(debounceTimer);
+          doNewsSearch();
+        });
+      }
+
+      if (searchForm) {
+        searchForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          clearTimeout(debounceTimer);
+          doNewsSearch();
+        });
+      }
+
+      function bindNewsEvents() {
+        const pageLinks = listContainer.querySelectorAll('.home-news-pagination a.page-link');
+        pageLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetHref = this.getAttribute('href');
+            if (targetHref && targetHref !== '#') {
+              doNewsSearch(targetHref);
+              const beritaSection = document.getElementById('berita');
+              if (beritaSection) {
+                beritaSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+
+        const resetLinks = listContainer.querySelectorAll('.home-news-reset-link');
+        resetLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            searchInput.value = '';
+            if (searchClear) searchClear.classList.add('d-none');
+            clearTimeout(debounceTimer);
+            doNewsSearch();
+          });
+        });
+      }
+
+      bindNewsEvents();
+    })();
   });
 </script>
 @endpush
