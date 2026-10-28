@@ -193,10 +193,14 @@
       }, 250); // Debounce 250ms agar pergerakan mouse cepat tidak bersuara tumpang-tindih
     });
 
-    document.addEventListener('mouseout', function () {
+    document.addEventListener('mouseout', function (e) {
       if (hoverTimeout) {
         clearTimeout(hoverTimeout);
         hoverTimeout = null;
+      }
+      // Bersihkan sorotan highlight segera setelah mouse keluar dari elemen
+      if (state.currentActiveEl && (!e.relatedTarget || !state.currentActiveEl.contains(e.relatedTarget))) {
+        clearHighlight();
       }
     });
 

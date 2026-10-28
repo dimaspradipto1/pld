@@ -24,7 +24,7 @@
     <table class="table table-hover align-middle mb-0" style="border-radius: 12px; overflow: hidden;">
       <thead style="background: #56823D; color: #ffffff;">
         <tr>
-          <th class="py-3 px-3 text-center" style="width: 50px;">#</th>
+          <th class="py-3 px-3 text-center" style="width: 50px;">No</th>
           <th class="py-3 px-3">Mahasiswa / NIM</th>
           <th class="py-3 px-3">Ragam Disabilitas</th>
           <th class="py-3 px-3">Program Studi &amp; Fakultas</th>

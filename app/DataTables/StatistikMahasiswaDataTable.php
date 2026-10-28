@@ -126,7 +126,7 @@ class StatistikMahasiswaDataTable extends DataTable
                 ->width(35)
                 ->addClass('text-center align-middle'),
             Column::make('DT_RowIndex')
-                ->title('#')
+                ->title('No')
                 ->searchable(false)
                 ->orderable(false)
                 ->width(40)

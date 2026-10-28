@@ -200,16 +200,7 @@
                                 <span>My Profile</span>
                             </a>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="{{ route('user.my-profile') }}">
-                                <i class="bi bi-key me-2 text-warning"></i>
-                                <span>Update Password</span>
-                            </a>
-                        </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

@@ -19,7 +19,56 @@
           @endphp
 
           @if($isAdmin)
-          <!-- 2. Profil PLD (Sesuai Urutan & Dropdown Header) -->
+          <!-- Pengaturan Konten Beranda / Landing Page -->
+          <li class="nav-item">
+              <a class="nav-link {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
+                  <i class="bi bi-layout-text-window-reverse"></i><span>Konten Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
+              </a>
+              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+                  <li>
+                      <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Banner Hero</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('layanan-terkait.index') }}" class="{{ Route::is('layanan-terkait.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Layanan Terkait</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('faculty-stat.index') }}" class="{{ Route::is('faculty-stat.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Statistik PLD</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('sarana.index') }}" class="{{ Route::is('sarana.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Sarana & Fasilitas</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('gallery.index') }}" class="{{ Route::is('gallery.index') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Galeri Dokumentasi</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('testimonial.index') }}" class="{{ Route::is('testimonial.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Alumni & Testimoni</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('partner.index') }}" class="{{ Route::is('partner.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Jejaring Mitra</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('pmb-setting.index') }}" class="{{ Route::is('pmb-setting.*') ? 'active' : '' }}">
+                          <i class="bi bi-circle"></i><span>Banner Pendaftaran</span>
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+          <!-- Profil PLD -->
           <li class="nav-item">
             <a class="nav-link {{ Route::is('milestone.*') || Route::is('visimisi.*') || Route::is('struktur-organisasi.*') || Route::is('program-kerja.*') || Route::is('about.*') || Route::is('sambutan-dekan.*') ? '' : 'collapsed' }}" data-bs-target="#profil-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-building"></i><span>Profil</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -71,7 +120,7 @@
               </li>
               <li>
                 <a href="{{ route('volunteer.index') }}" class="{{ Route::is('volunteer.*') ? 'active' : '' }}">
-                  <i class="bi bi-circle"></i><span>Volunteer & Relawan</span>
+                  <i class="bi bi-circle"></i><span>Volunteer</span>
                 </a>
               </li>
             </ul>
@@ -134,55 +183,6 @@
                   <i class="bi bi-telephone"></i>
                   <span>Kontak</span>
               </a>
-          </li>
-
-          <!-- Pengaturan Konten Beranda / Landing Page -->
-          <li class="nav-item">
-              <a class="nav-link {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? '' : 'collapsed' }}" data-bs-target="#beranda-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-layout-text-window-reverse"></i><span>Konten Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
-              </a>
-              <ul id="beranda-nav" class="nav-content collapse {{ Route::is('banner.*') || Route::is('layanan-terkait.*') || Route::is('sarana.*') || Route::is('gallery.*') || Route::is('testimonial.*') || Route::is('pmb-setting.*') || Route::is('faculty-stat.*') || Route::is('partner.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                  <li>
-                      <a href="{{ route('banner.index') }}" class="{{ Route::is('banner.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Banner Hero</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('layanan-terkait.index') }}" class="{{ Route::is('layanan-terkait.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Layanan Terkait</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('faculty-stat.index') }}" class="{{ Route::is('faculty-stat.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Statistik PLD</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('sarana.index') }}" class="{{ Route::is('sarana.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Sarana & Fasilitas</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('gallery.index') }}" class="{{ Route::is('gallery.index') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Galeri Dokumentasi</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('testimonial.index') }}" class="{{ Route::is('testimonial.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Alumni & Testimoni</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('partner.index') }}" class="{{ Route::is('partner.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Jejaring Mitra</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('pmb-setting.index') }}" class="{{ Route::is('pmb-setting.*') ? 'active' : '' }}">
-                          <i class="bi bi-circle"></i><span>Banner Pendaftaran</span>
-                      </a>
-                  </li>
-              </ul>
           </li>
           @endif
 

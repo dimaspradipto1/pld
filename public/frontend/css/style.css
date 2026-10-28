@@ -483,43 +483,64 @@
     }
 
     .btn-primary-hero {
-      background: var(--pld-orange);
-      color: var(--white);
+      background: linear-gradient(135deg, #D99032 0%, #b8751e 100%);
+      color: #ffffff !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
       font-size: 15px;
-      padding: 14px 28px;
+      padding: 13px 28px;
       border-radius: 12px;
-      border: none;
-      box-shadow: var(--shadow-orange);
+      border: 1.5px solid transparent;
+      box-shadow: 0 6px 20px rgba(217, 144, 50, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 9px;
+      text-decoration: none !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-primary-hero:hover {
-      background: var(--pld-orange-hover);
-      color: var(--white);
+      background: linear-gradient(135deg, #c47e26 0%, #9e6014 100%) !important;
+      color: #ffffff !important;
       transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(217, 144, 50, 0.45);
+      border-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none !important;
+    }
+    .btn-primary-hero:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(217, 144, 50, 0.3);
+    }
+    .btn-primary-hero i {
+      color: #ffffff !important;
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+    .btn-primary-hero:hover i {
+      transform: scale(1.1);
     }
 
     .btn-outline-hero {
       background: rgba(255, 255, 255, 0.1);
-      color: var(--white);
+      color: var(--white) !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
       font-size: 15px;
-      padding: 14px 28px;
+      padding: 13px 28px;
       border-radius: 12px;
       border: 1.5px solid rgba(255, 255, 255, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 9px;
+      text-decoration: none !important;
+      transition: all 0.25s ease;
     }
     .btn-outline-hero:hover {
-      background: var(--white);
-      color: var(--obsidian-dark);
-      border-color: var(--white);
+      background: var(--white) !important;
+      color: var(--obsidian-dark) !important;
+      border-color: var(--white) !important;
       transform: translateY(-2px);
+      text-decoration: none !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     /* ═══════════════════════════════════════════════
@@ -954,14 +975,29 @@
     display: none !important;
   }
 
-  /* Sorotan visual lembut saat elemen sedang dibacakan suaranya */
+  /* Sorotan visual lembut saat elemen sedang dibacakan suaranya (Headless Voice Assistant) */
   .pld-voice-reading-active {
-    outline: 2px solid #56823D !important;
+    outline: 2.5px solid #56823D !important;
     outline-offset: 3px !important;
-    border-radius: 4px !important;
-    background-color: rgba(168, 210, 125, 0.2) !important;
+    border-radius: 6px !important;
     transition: outline 0.15s ease, background-color 0.15s ease !important;
-    box-shadow: 0 0 10px rgba(86, 130, 61, 0.35) !important;
+    box-shadow: 0 0 12px rgba(86, 130, 61, 0.35) !important;
+  }
+
+  /* Hanya elemen teks biasa non-tombol yang mendapatkan latar belakang highlight */
+  .pld-voice-reading-active:not(button):not(.btn):not([class*="btn-"]):not(.badge):not(.nav-link):not(.dropdown-item) {
+    background-color: rgba(168, 210, 125, 0.22) !important;
+    color: #1a2712 !important;
+  }
+
+  /* Khusus tombol dan elemen interaktif: pertahankan background & teks tetap tajam */
+  button.pld-voice-reading-active,
+  a.btn.pld-voice-reading-active,
+  a[class*="btn-"].pld-voice-reading-active,
+  .btn.pld-voice-reading-active,
+  [class*="btn-"].pld-voice-reading-active {
+    outline: 3px solid #56823D !important;
+    outline-offset: 3px !important;
   }
 
 
