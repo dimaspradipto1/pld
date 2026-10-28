@@ -84,7 +84,7 @@
                         </label>
                         <textarea id="deskripsi"
                                   name="deskripsi"
-                                  class="form-control @error('deskripsi') is-invalid @enderror"
+                                  class="form-control no-tinymce @error('deskripsi') is-invalid @enderror"
                                   rows="2"
                                   placeholder="Contoh: Sistem Informasi Akademik Terpadu Mahasiswa dan Dosen UIS">{{ old('deskripsi') }}</textarea>
                         <div class="form-text">Deskripsi singkat sistem (opsional, tampil pada tabel admin dan tooltip).</div>

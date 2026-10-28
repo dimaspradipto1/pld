@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="ormawa-desc">
-                  {{ strip_tags($item->deskripsi ?: ($item->visi ?: 'Lembaga kemahasiswaan Pelayanan Disabilitas Universitas Ibnu Sina.')) }}
+                  {{ trim(strip_tags(html_entity_decode($item->deskripsi ?: ($item->visi ?: 'Lembaga kemahasiswaan Pelayanan Disabilitas Universitas Ibnu Sina.')))) }}
                 </div>
               </div>
 

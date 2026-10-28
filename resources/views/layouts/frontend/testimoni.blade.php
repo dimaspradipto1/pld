@@ -172,7 +172,9 @@
             <i class="bi bi-chat-square-text text-muted" style="font-size: 48px;"></i>
             <h5 class="fw-bold mt-3 text-dark">Tidak Ada Testimoni yang Sesuai</h5>
             <p class="text-muted small">Coba ubah kata kunci pencarian atau reset filter untuk menampilkan semua ulasan.</p>
-            <a href="{{ route('homepage.testimoni') }}" class="btn btn-sm btn-outline-primary" style="color:#D99032; border-color:#D99032;">Reset Filter</a>
+            <a href="{{ route('homepage.testimoni') }}" class="btn-outline-pld py-2 px-4" style="font-size: 13px;">
+              <i class="bi bi-arrow-counterclockwise"></i> Reset Filter
+            </a>
           </div>
         </div>
       @endforelse

@@ -129,7 +129,7 @@
 
                   @if(!empty($prestasi->deskripsi))
                     <div class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.6;">
-                      {!! Str::limit(strip_tags($prestasi->deskripsi), 110) !!}
+                      {{ Str::limit(trim(strip_tags(html_entity_decode($prestasi->deskripsi))), 110) }}
                     </div>
                   @endif
                 </div>

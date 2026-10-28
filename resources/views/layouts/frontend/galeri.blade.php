@@ -66,7 +66,7 @@
                   <div class="galeri-caption">
                     <h6 class="text-dark mb-1 fw-bold" style="font-size: 15px; color: #1e293b !important;">{{ $item->judul }}</h6>
                     @if(!empty($item->deskripsi))
-                      <small class="text-muted d-block" style="font-size: 13px; line-height: 1.5; color: #64748b !important;">{!! Str::limit(strip_tags($item->deskripsi), 90) !!}</small>
+                      <small class="text-muted d-block" style="font-size: 13px; line-height: 1.5; color: #64748b !important;">{{ Str::limit(trim(strip_tags(html_entity_decode($item->deskripsi))), 90) }}</small>
                     @endif
                     <div class="mt-2 text-primary fw-bold small d-flex align-items-center gap-1" style="font-size: 12.5px; color: var(--pld-purple) !important;">
                       <span>Lihat Detail</span>

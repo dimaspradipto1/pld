@@ -101,7 +101,7 @@
               </div>
               <h3 class="fw-bold mb-3 text-dark">{{ $featured->title }}</h3>
               <p class="text-muted small mb-4" style="line-height: 1.7;">
-                {{ $featured->description ?? Str::limit(strip_tags($featured->content), 180) }}
+                {{ Str::limit(trim(strip_tags(html_entity_decode($featured->description ?: $featured->content))), 180) }}
               </p>
             </div>
             <div>

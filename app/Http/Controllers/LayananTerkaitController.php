@@ -83,9 +83,13 @@ class LayananTerkaitController extends Controller
             $url = 'https://' . $url;
         }
 
+        $cleanDeskripsi = isset($validated['deskripsi'])
+            ? trim(strip_tags(html_entity_decode($validated['deskripsi'])))
+            : null;
+
         $data = [
             'nama'      => $validated['nama'],
-            'deskripsi' => $validated['deskripsi'] ?? null,
+            'deskripsi' => $cleanDeskripsi ?: null,
             'url'       => $url,
             'icon'      => $validated['icon'] ?? 'bi-link-45deg',
             'urutan'    => $validated['urutan'] ?? ((LayananTerkait::max('urutan') ?? 0) + 1),
@@ -136,9 +140,13 @@ class LayananTerkaitController extends Controller
             $url = 'https://' . $url;
         }
 
+        $cleanDeskripsi = isset($validated['deskripsi'])
+            ? trim(strip_tags(html_entity_decode($validated['deskripsi'])))
+            : null;
+
         $data = [
             'nama'      => $validated['nama'],
-            'deskripsi' => $validated['deskripsi'] ?? null,
+            'deskripsi' => $cleanDeskripsi ?: null,
             'url'       => $url,
             'icon'      => $validated['icon'] ?? ($layananTerkait->icon ?: 'bi-link-45deg'),
             'urutan'    => $validated['urutan'] ?? $layananTerkait->urutan,

@@ -1,7 +1,7 @@
 @extends('layouts.frontend.template')
 
 @section('title', $layanan->judul . ' — Pelayanan Disabilitas (PLD)')
-@section('meta_description', Str::limit($layanan->deskripsi, 160))
+@section('meta_description', Str::limit(trim(strip_tags(html_entity_decode($layanan->deskripsi ?? ''))), 160))
 @section('meta_keywords', 'pld, ' . strtolower($layanan->judul) . ', pelayanan disabilitas')
 
 

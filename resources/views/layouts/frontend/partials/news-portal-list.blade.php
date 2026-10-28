@@ -53,7 +53,7 @@
               </div>
               <h5 class="fw-bold mb-2 text-dark">{{ Str::limit($article->title, 65) }}</h5>
               <p class="text-muted small mb-3">
-                {{ Str::limit($article->description ?? strip_tags($article->content), 110) }}
+                {{ Str::limit(trim(strip_tags(html_entity_decode($article->description ?: $article->content))), 110) }}
               </p>
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center">

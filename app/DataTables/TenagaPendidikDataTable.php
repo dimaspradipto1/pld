@@ -49,11 +49,13 @@ class TenagaPendidikDataTable extends DataTable
                 return '<span class="text-muted small fst-italic">Semua / Default</span>';
             })
             ->addColumn('keterangan', function (TenagaPendidik $item) {
-                return $item->keterangan
-                    ? '<span title="' . e($item->keterangan) . '">'
-                      . e(\Illuminate\Support\Str::limit($item->keterangan, 50))
-                      . '</span>'
-                    : '<span class="text-muted fst-italic">&mdash;</span>';
+                if (!$item->keterangan) {
+                    return '<span class="text-muted fst-italic">&mdash;</span>';
+                }
+                $clean = trim(strip_tags(html_entity_decode($item->keterangan)));
+                return '<span title="' . e($clean) . '">'
+                     . e(\Illuminate\Support\Str::limit($clean, 50))
+                     . '</span>';
             })
             ->addColumn('urutan', function (TenagaPendidik $item) {
                 return '<span class="badge bg-secondary">' . $item->urutan . '</span>';

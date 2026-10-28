@@ -133,7 +133,7 @@
           </div>
 
           <blockquote class="text-muted mb-4" style="font-style: italic; line-height: 1.8; text-align: justify; font-size: 14.5px;">
-            "{{ strip_tags($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pusat Layanan Disabilitas Universitas Ibnu Sina. Kami percaya bahwa setiap insan berhak mendapatkan akses pendidikan tinggi yang bermutu, adil, dan berkesetaraan. Bersama-sama, mari kita ciptakan kampus ramah disabilitas yang menginspirasi.')) }}"
+            "{{ trim(strip_tags(html_entity_decode($sambutanDekan->kutipan_singkat ?? ($sambutanDekan->sambutan_dekan ?? 'Selamat datang di Pusat Layanan Disabilitas Universitas Ibnu Sina. Kami percaya bahwa setiap insan berhak mendapatkan akses pendidikan tinggi yang bermutu, adil, dan berkesetaraan. Bersama-sama, mari kita ciptakan kampus ramah disabilitas yang menginspirasi.')))) }}"
           </blockquote>
 
           <div class="d-flex align-items-center justify-content-between pt-3 border-top">
@@ -376,7 +376,7 @@
             <div class="fasilitas-box">
               <div class="fasilitas-icon"><i class="bi {{ $sarana->icon ?? 'bi-universal-access-circle' }}"></i></div>
               <h4 class="fw-bold mb-2">{{ $sarana->nama }}</h4>
-              <p class="text-muted small mb-0">{{ $sarana->deskripsi ?: 'Fasilitas ramah disabilitas yang mendukung kenyamanan dan proses belajar mahasiswa.' }}</p>
+              <p class="text-muted small mb-0">{{ trim(strip_tags(html_entity_decode($sarana->deskripsi ?? ''))) ?: 'Fasilitas ramah disabilitas yang mendukung kenyamanan dan proses belajar mahasiswa.' }}</p>
             </div>
           </div>
         @endforeach
@@ -399,7 +399,7 @@
         <div class="section-label mb-2">Agenda Aksi</div>
         <h2 class="section-title mb-0">Program Kerja <em>PLD UIS</em></h2>
       </div>
-      <a href="{{ route('homepage.program-kerja') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
+      <a href="{{ route('homepage.program-kerja') }}" class="btn-outline-pld" style="font-size: 13.5px; padding: 10px 22px;">
         <i class="bi bi-grid-fill me-1"></i> Lihat Semua Program
       </a>
     </div>
@@ -415,7 +415,7 @@
                   <span class="badge bg-light text-dark border small" style="font-size: 11px;">{{ $pk->status }}</span>
                 </div>
                 <h4 class="fw-bold text-dark fs-6 mb-2">{{ $pk->judul }}</h4>
-                <p class="text-secondary small mb-3" style="line-height: 1.6;">{{ Str::limit($pk->deskripsi, 120) }}</p>
+                <p class="text-secondary small mb-3" style="line-height: 1.6;">{{ Str::limit(trim(strip_tags(html_entity_decode($pk->deskripsi ?? ''))), 120) }}</p>
               </div>
               <div class="pt-3 border-top mt-auto small text-muted">
                 @if($pk->target_waktu)
@@ -546,7 +546,7 @@
 
                   @if(!empty($prestasi->deskripsi))
                     <div class="text-muted small" style="font-size: 12.5px; line-height: 1.6;">
-                      {!! Str::limit(strip_tags($prestasi->deskripsi), 110) !!}
+                      {{ Str::limit(trim(strip_tags(html_entity_decode($prestasi->deskripsi))), 110) }}
                     </div>
                   @endif
                 </div>
@@ -585,7 +585,7 @@
         <div class="section-label mb-2">Lembaga Kemahasiswaan</div>
         <h2 class="section-title mb-0">Organisasi & <em>Kegiatan Mahasiswa</em></h2>
       </div>
-      <a href="{{ route('homepage.organisasi') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
+      <a href="{{ route('homepage.organisasi') }}" class="btn-outline-pld" style="font-size: 13.5px; padding: 10px 22px;">
         <i class="bi bi-people-fill me-1"></i> Lihat Semua Organisasi
       </a>
     </div>
@@ -620,7 +620,7 @@
                 @endif
 
                 <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                  {{ strip_tags($ormawa->deskripsi ?: ($ormawa->visi ?: 'Lembaga kemahasiswaan aktif di lingkungan Pelayanan Disabilitas Universitas Ibnu Sina.')) }}
+                  {{ trim(strip_tags(html_entity_decode($ormawa->deskripsi ?: ($ormawa->visi ?: 'Lembaga kemahasiswaan aktif di lingkungan Pelayanan Disabilitas Universitas Ibnu Sina.')))) }}
                 </p>
               </div>
 
@@ -648,7 +648,7 @@
         <div class="section-label mb-2">Dokumentasi Visual</div>
         <h2 class="section-title mb-0">Galeri & <em>Kegiatan PLD UIS</em></h2>
       </div>
-      <a href="{{ route('homepage.galeri') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple); font-size: 13.5px; padding: 10px 22px;">
+      <a href="{{ route('homepage.galeri') }}" class="btn-outline-pld" style="font-size: 13.5px; padding: 10px 22px;">
         <i class="bi bi-images me-1"></i> Lihat Semua Galeri
       </a>
     </div>
@@ -670,7 +670,7 @@
                   <span class="gallery-tag"><i class="bi bi-tag-fill me-1"></i>Dokumentasi</span>
                   <h5 class="gallery-card-title">{{ $gal->judul }}</h5>
                   @if(!empty($gal->deskripsi))
-                    <p class="gallery-card-desc mb-0">{!! Str::limit(strip_tags($gal->deskripsi), 90) !!}</p>
+                    <p class="gallery-card-desc mb-0">{{ Str::limit(trim(strip_tags(html_entity_decode($gal->deskripsi))), 90) }}</p>
                   @endif
                 </div>
               </div>
@@ -753,7 +753,7 @@
     </div>
 
     <div class="text-center mt-3" data-aos="fade-up">
-      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-hero px-4 py-2" style="color: var(--pld-purple); border-color: var(--pld-purple); border-radius: 25px; font-weight: 600;">
+      <a href="{{ route('homepage.testimoni') }}" class="btn-outline-pld px-4 py-2">
         <i class="bi bi-chat-heart me-1"></i> Lihat Semua Testimoni
       </a>
     </div>
@@ -897,7 +897,7 @@
             {{ $pmbSetting->judul ?? 'Daftar Sekarang & Raih Masa Depan Inklusif Bersama Universitas Ibnu Sina!' }}
           </h2>
           <p class="text-white mb-4" style="line-height: 1.7; max-width: 620px; opacity: 0.92; font-size: 14.5px;">
-            {{ $pmbSetting->deskripsi ?? 'Penerimaan Mahasiswa Baru Universitas Ibnu Sina terbuka lebar untuk seluruh calon mahasiswa, termasuk penyandang disabilitas dengan dukungan akomodasi dan fasilitas pendampingan penuh dari PLD UIS.' }}
+            {{ trim(strip_tags(html_entity_decode($pmbSetting->deskripsi ?? 'Penerimaan Mahasiswa Baru Universitas Ibnu Sina terbuka lebar untuk seluruh calon mahasiswa, termasuk penyandang disabilitas dengan dukungan akomodasi dan fasilitas pendampingan penuh dari PLD UIS.'))) }}
           </p>
           <div class="d-flex flex-wrap gap-3 pmb-btn-group">
             @php
@@ -965,7 +965,7 @@
     <div class="row g-3 g-lg-4 justify-content-center">
       @foreach($layananTerkaits as $item)
         <div class="col-xl-3 col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="{{ min(400, 50 * ($loop->index + 1)) }}">
-          <a href="{{ $item->url }}" target="_blank" rel="noopener noreferrer" class="layanan-terkait-card" title="{{ $item->deskripsi ?? $item->nama }}">
+          <a href="{{ $item->url }}" target="_blank" rel="noopener noreferrer" class="layanan-terkait-card" title="{{ trim(strip_tags(html_entity_decode($item->deskripsi ?: $item->nama))) }}">
             {{-- Top Right Logo / Icon --}}
             <div class="layanan-terkait-logo-wrap">
               @if($item->logo_url)
@@ -1106,7 +1106,7 @@
                 </h2>
                 <div id="collapseH{{ $faq->id ?? $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#homeFaqAccordion">
                   <div class="accordion-body">
-                    {{ $faq->answer ?? $faq->jawaban }}
+                    {{ trim(strip_tags(html_entity_decode($faq->answer ?? ($faq->jawaban ?? '')))) }}
                   </div>
                 </div>
               </div>
@@ -1115,7 +1115,7 @@
         </div>
 
         <div class="text-center mt-4">
-          <a href="{{ route('homepage.faq') }}" class="btn-outline-hero" style="color: var(--pld-purple); border-color: var(--pld-purple);">
+          <a href="{{ route('homepage.faq') }}" class="btn-outline-pld">
             <i class="bi bi-question-circle"></i> Lihat Semua FAQ & Bantuan
           </a>
         </div>

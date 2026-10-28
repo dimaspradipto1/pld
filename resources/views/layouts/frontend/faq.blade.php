@@ -65,7 +65,7 @@
                 </h2>
                 <div id="collapse{{ $faq->id ?? $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#faqAccordion">
                   <div class="accordion-body">
-                    {{ $faq->answer ?? $faq->jawaban }}
+                    {{ trim(strip_tags(html_entity_decode($faq->answer ?? ($faq->jawaban ?? '')))) }}
                   </div>
                 </div>
               </div>

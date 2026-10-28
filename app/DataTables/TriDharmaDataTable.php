@@ -33,11 +33,13 @@ class TriDharmaDataTable extends DataTable
                 return '<span class="fw-semibold">' . e($item->judul) . '</span>';
             })
             ->addColumn('deskripsi', function (TriDharma $item) {
-                return $item->deskripsi
-                    ? '<span title="' . e($item->deskripsi) . '">'
-                      . e(\Illuminate\Support\Str::limit($item->deskripsi, 65))
-                      . '</span>'
-                    : '<span class="text-muted fst-italic">&mdash;</span>';
+                if (!$item->deskripsi) {
+                    return '<span class="text-muted fst-italic">&mdash;</span>';
+                }
+                $clean = trim(strip_tags(html_entity_decode($item->deskripsi)));
+                return '<span title="' . e($clean) . '">'
+                     . e(\Illuminate\Support\Str::limit($clean, 65))
+                     . '</span>';
             })
             ->addColumn('urutan', function (TriDharma $item) {
                 return '<span class="badge bg-secondary">' . $item->urutan . '</span>';
